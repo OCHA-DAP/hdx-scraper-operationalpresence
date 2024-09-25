@@ -1,0 +1,6 @@
+notes: "This dataset contains standardised Humanitarian Needs Overview data taken from the OCHA HPC Tools system which is under active development. For more detailed but less standardized data on humanitarian needs, see the [Humanitarian Needs Overview data series](https://data.humdata.org/dataset/?dataseries_name=Humanitarian+Needs+Overview)."
+license_id: "cc-by-igo"
+methodology: "Registry"
+dataset_source: "Humanitarian partners"
+caveats: ""
+private: False  # has to be True or False

@@ -1,0 +1,32 @@
+spreadsheet: "https://docs.google.com/spreadsheets/d/1TcxzSeq5qWPkDVFQ5tZStXFY8ehOCnD-yqhuQrQvRcw/edit?gid=0"
+
+dataseries_ignore:
+  - "Fields Data - Operational Presence"
+
+tags_ignore:
+  - "climate hazards"
+  - "climate-weather"
+  - "complex emergency-conflict-security"
+  - "conflict-violence"
+  - "cyclones-hurricanes-typhoons"
+  - "disease"
+  - "drought"
+  - "earthquake-tsunami"
+  - "epidemics-outbreaks"
+  - "flooding-storm surge"
+  - "hazards and risk"
+  - "natural disasters"
+
+words_ignore:
+  - "testing"
+  - "district"
+  - "province"
+  - "region"
+  - "northeast"
+
+allowed_formats:
+  - "csv"
+  - "ods"
+  - "tsv"
+  - "xls"
+  - "xlsx"
