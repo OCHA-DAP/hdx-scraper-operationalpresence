@@ -36,9 +36,9 @@ requires-python = ">=3.8"
 dependencies = [
     "gspread",
     "hdx-python-scraper>= 2.5.0",
-    "hdx-python-api>= 6.3.4",
-    "hdx-python-country>= 3.7.8",
-    "hdx-python-utilities>= 3.7.3",
+    "hdx-python-api>= 6.3.5",
+    "hdx-python-country>= 3.8.5",
+    "hdx-python-utilities>= 3.7.4",
 ]
 dynamic = ["version"]
 

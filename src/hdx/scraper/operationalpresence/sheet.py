@@ -1,8 +1,9 @@
 import json
 from logging import getLogger
-from typing import Optional, Iterable, List, Tuple
+from typing import Dict, Iterable, List, Optional
 
 import gspread
+
 from hdx.api.configuration import Configuration
 
 logger = getLogger(__name__)
@@ -16,9 +17,39 @@ class Sheet:
     dataset_ind = 4
     resource_ind = 5
     format_ind = 6
-    headers = ["Country ISO3", "Automated Dataset", "Automated Resource", "Automated Format", "Dataset", "Resource", "Format", "Sheet", "Headers", "AdminLevel", "Adm Column", "Org Name Column", "Org Acronym Column", "Org Type Column", "Sector Column"]
+    sheet_ind = 7
+    headers_ind = 8
+    # start_date_ind = 9
+    # end_date_ind = 10
+    # admin_codes_ind = 11
+    # admin_names_ind = 12
+    # org_name_ind = 13
+    # org_acronym_ind = 14
+    # org_type_ind = 15
+    # sector_ind = 16
+    headers = [
+        "Country ISO3",
+        "Automated Dataset",
+        "Automated Resource",
+        "Automated Format",
+        "Dataset",
+        "Resource",
+        "Format",
+        "Sheet",
+        "Headers",
+        "Start Date",
+        "End Date",
+        "Adm Code Columns",
+        "Adm Name Columns",
+        "Org Name Column",
+        "Org Acronym Column",
+        "Org Type Column",
+        "Sector Column",
+    ]
 
-    def __init__(self, configuration: Configuration, gsheet_auth: Optional[str] = None):
+    def __init__(
+        self, configuration: Configuration, gsheet_auth: Optional[str] = None
+    ):
         self.configuration = configuration
         self.spreadsheet_rows = {}
         self.sheet = None
@@ -43,7 +74,11 @@ class Sheet:
             logger.error(ex)
 
     def add_update_row(
-        self, countryiso3: str, dataset_name: str, resource_name: str, resource_format: str,
+        self,
+        countryiso3: str,
+        dataset_name: str,
+        resource_name: str,
+        resource_format: str,
     ) -> None:
         row = self.spreadsheet_rows.get(countryiso3)
         if row is None:
@@ -52,12 +87,21 @@ class Sheet:
         else:
             current_dataset = row[self.automated_dataset_ind]
             if current_dataset != dataset_name:
-                logger.info(f"{countryiso3}: Updating dataset from {current_dataset} to {dataset_name}")
+                logger.info(
+                    f"{countryiso3}: Updating dataset from {current_dataset} to {dataset_name}"
+                )
                 row[self.automated_dataset_ind] = dataset_name
             current_resource = row[self.automated_resource_ind]
             if current_resource != resource_name:
-                logger.info(f"{countryiso3}: Updating resource from {current_resource} to {resource_name}")
+                logger.info(
+                    f"{countryiso3}: Updating resource from {current_resource} to {resource_name}"
+                )
                 row[self.automated_resource_ind] = resource_name
+            current_format = row[self.automated_format_ind]
+            if current_format != resource_format:
+                logger.info(
+                    f"{countryiso3}: Updating resource format from {current_format} to {resource_format}"
+                )
                 row[self.automated_format_ind] = resource_format
 
     def write(self, countryiso3s: List) -> None:
@@ -70,30 +114,84 @@ class Sheet:
                 row[self.automated_dataset_ind] = ""
                 row[self.automated_resource_ind] = ""
             rows.append(row)
-        self.sheet.clear()
-        self.sheet.update("A1", rows)
+        sheet_copy = self.sheet.get_all_values()
+        try:
+            self.sheet.clear()
+            self.sheet.update("A1", rows)
+        except Exception as ex:
+            logger.exception(
+                "Error updating Google Sheet! Trying to restore old values", ex
+            )
+            self.sheet.update("A1", sheet_copy)
 
     def get_countries(self) -> Iterable[str]:
         return self.spreadsheet_rows.keys()
 
-    def get_dataset_resource(self, countryiso3: str) -> Tuple[str, str, str]:
+    def get_datasetinfo(self, countryiso3: str) -> Dict:
         row = self.spreadsheet_rows[countryiso3]
         automated_dataset = row[self.automated_dataset_ind]
         dataset = row[self.dataset_ind]
         if dataset:
-            logger.info(f"Using override dataset {dataset} instead of {automated_dataset} for {countryiso3}")
+            logger.info(
+                f"Using override dataset {dataset} instead of {automated_dataset} for {countryiso3}"
+            )
         else:
             dataset = automated_dataset
         automated_resource = row[self.automated_resource_ind]
         resource = row[self.resource_ind]
         if resource:
-            logger.info(f"Using override resource {resource} instead of {automated_resource} for {countryiso3}")
+            logger.info(
+                f"Using override resource {resource} instead of {automated_resource} for {countryiso3}"
+            )
         else:
             resource = automated_resource
         format = row[self.format_ind]
         automated_format = row[self.automated_format_ind]
         if format:
-            logger.info(f"Using override format {format} instead of {automated_format} for {countryiso3}")
+            logger.info(
+                f"Using override format {format} instead of {automated_format} for {countryiso3}"
+            )
         else:
             format = automated_format
-        return dataset, resource, format
+        datasetinfo = {
+            "name": countryiso3,
+            "dataset": dataset,
+            "resource": resource,
+            "format": format,
+        }
+        sheet = row[self.sheet_ind]
+        if sheet:
+            datasetinfo["sheet"] = sheet
+        headers = row[self.headers_ind]
+        if headers:
+            if "," in headers:
+                headers = headers.split(",")
+                for i, header in enumerate(headers):
+                    headers[i] = int(header)
+            else:
+                headers = int(headers)
+            datasetinfo["headers"] = headers
+        if format == "xlsx":
+            datasetinfo["xlsx2csv"] = True
+        for i, header in enumerate(self.headers[9:]):
+            datasetinfo[header] = row[i + 9]
+        # Config must contain an org name and a sector
+        if not datasetinfo["Org Name Column"]:
+            logger.warning(f"Ignoring {countryiso3} from config spreadsheet because it has no Org Name Column!")
+            return {}
+        if not datasetinfo["Sector Column"]:
+            logger.warning(f"Ignoring {countryiso3} from config spreadsheet because it has no Sector Column!")
+            return {}
+        # Config must contain either adm code or adm name columns
+        if not datasetinfo["Adm Code Columns"] and not datasetinfo["Adm Name Columns"]:
+            logger.warning(f"Ignoring {countryiso3} from config spreadsheet because it has no Adm Code Columns and no Adm Name Columns!")
+            return {}
+        if datasetinfo["Org Name Column"][0] == "#":
+            use_hxl = True
+        else:
+            use_hxl = False
+        datasetinfo["use_hxl"] = use_hxl
+        # If no acronym column defined use org name column as acronym column
+        if not datasetinfo["Org Acronym Column"]:
+            datasetinfo["Org Acronym Column"] = datasetinfo["Org Name Column"]
+        return datasetinfo

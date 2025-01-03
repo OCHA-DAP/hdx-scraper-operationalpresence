@@ -63,7 +63,37 @@ def main(
             gsheet_auth = getenv("GSHEET_AUTH")
         pipeline = Pipeline(configuration, countryiso3s, gsheet_auth)
         pipeline.find_datasets_resources()
-        pipeline.process()
+        countryiso3s, startdate, enddate = pipeline.process()
+        dataset = pipeline.generate_org_dataset(temp_folder)
+        if dataset:
+            dataset.add_other_location("World")
+            dataset.set_time_period(startdate, enddate)
+            dataset.update_from_yaml(
+                script_dir_plus_file(
+                    join("config", "hdx_dataset_static.yaml"), main
+                )
+            )
+            dataset["notes"] = "This dataset contains standardised Organisation data"
+            dataset.create_in_hdx(
+                remove_additional_resources=False,
+                hxl_update=False,
+                updated_by_script=updated_by_script,
+            )
+        dataset = pipeline.generate_3w_dateset(temp_folder)
+        if dataset:
+            dataset.add_country_locations(countryiso3s)
+            dataset.set_time_period(startdate, enddate)
+            dataset.update_from_yaml(
+                script_dir_plus_file(
+                    join("config", "hdx_dataset_static.yaml"), main
+                )
+            )
+            dataset["notes"] = "This dataset contains standardised Operational Presence data"
+            dataset.create_in_hdx(
+                remove_additional_resources=False,
+                hxl_update=False,
+                updated_by_script=updated_by_script,
+            )
 
     logger.info("HDX Scraper Operational Presence pipeline completed!")
 
