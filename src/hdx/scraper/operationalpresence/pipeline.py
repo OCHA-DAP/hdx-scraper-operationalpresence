@@ -53,7 +53,6 @@ class Pipeline:
                 )
             admin.load_pcode_formats()
             self._admins.append(admin)
-        self._global_rows = {}
         self._org = Org(
             datasetinfo=configuration["org"],
         )
@@ -65,7 +64,7 @@ class Pipeline:
             datasetinfo=configuration["sector"],
             sector_map=configuration["sector_map"],
         )
-        self._rows = []
+        self._rows = set()
 
     def find_datasets_resources(self):
         datasets_found = self._reader.search_datasets(
@@ -255,6 +254,44 @@ class Pipeline:
                 )
         logger.info(f"{norows} rows preprocessed from {dataset_name}")
 
+    def get_adm_info(
+        self,
+        countryiso3: str,
+        row: Dict,
+        adm_code_cols: List[str],
+        adm_name_cols: List[str],
+    ) -> Tuple[List, List]:
+        adm_codes = ["", "", ""]
+        adm_names = ["", "", ""]
+        prev_pcode = None
+        for i, adm_name_col in reversed(list(enumerate(adm_name_cols))):
+            adm_names[i] = row[adm_name_col]
+            if adm_code_cols:
+                adm_code_col = adm_code_cols[i]
+                if adm_code_col:
+                    pcode = row[adm_code_cols[i]]
+                else:
+                    pcode = None
+                if not pcode and prev_pcode:
+                    pcode = self._admins[i + 1].pcode_to_parent[prev_pcode]
+                adm_codes[i] = pcode
+                prev_pcode = pcode
+
+        parent = None
+        for i, adm_code in enumerate(adm_codes):
+            if adm_code:
+                continue
+            adm_name = adm_names[i]
+            if not adm_name:
+                continue
+            adm_code, _ = self._admins[i].get_pcode(
+                countryiso3, adm_name, parent=parent
+            )
+            if adm_code:
+                adm_codes[i] = adm_code
+                parent = adm_code
+        return adm_codes, adm_names
+
     def process_country(
         self, countryiso3: str, datasetinfo: Dict, errors: Set[str]
     ) -> Tuple[datetime, datetime]:
@@ -274,7 +311,7 @@ class Pipeline:
         start_date = datasetinfo["source_date"]["default_date"]["start"]
         end_date = datasetinfo["source_date"]["default_date"]["end"]
         norowsin = 0
-        norowsout = 0
+        output_rows = set()
         for row in iterator:
             sector_orig = row[sector_col]
             if sector_orig[0] == "#":
@@ -293,56 +330,31 @@ class Pipeline:
                 org_str = org_acronym
             org_info = self._org.get_org_info(org_str, location=countryiso3)
 
-            adm_codes = ["", "", ""]
-            adm_names = ["", "", ""]
-            prev_pcode = None
-            for i, adm_name_col in reversed(list(enumerate(adm_name_cols))):
-                adm_names[i] = row[adm_name_col]
-                if adm_code_cols:
-                    adm_code_col = adm_code_cols[i]
-                    if adm_code_col:
-                        pcode = row[adm_code_cols[i]]
-                    else:
-                        pcode = None
-                    if not pcode and prev_pcode:
-                        pcode = self._admins[i + 1].pcode_to_parent[prev_pcode]
-                    adm_codes[i] = pcode
-                    prev_pcode = pcode
+            # * Adm processing
+            adm_codes, adm_names = self.get_adm_info(
+                countryiso3, row, adm_code_cols, adm_name_cols
+            )
 
-            parent = None
-            for i, adm_code in enumerate(adm_codes):
-                if adm_code:
-                    continue
-                adm_name = adm_names[i]
-                if not adm_name:
-                    continue
-                adm_code, _ = self._admins[i].get_pcode(
-                    countryiso3, adm_name, parent=parent
-                )
-                if adm_code:
-                    adm_codes[i] = adm_code
-                    parent = adm_code
-
-            output_row = {
-                "Country ISO3": countryiso3,
-                "Admin 1 Code": adm_codes[0],
-                "Admin 1 Name": adm_names[0],
-                "Admin 2 Code": adm_codes[1],
-                "Admin 2 Name": adm_names[1],
-                "Admin 3 Code": adm_codes[2],
-                "Admin 3 Name": adm_names[2],
-                "Org Name": org_info.canonical_name,
-                "Org Acronym": org_info.acronym,
-                "Org Type": org_info.type_code,
-                "Sector": sector_code,
-                "Start Date": iso_string_from_datetime(start_date),
-                "End Date": iso_string_from_datetime(end_date),
-            }
-            self._rows.append(output_row)
-            norowsout += 1
+            output_row = (
+                countryiso3,
+                adm_codes[0],
+                adm_names[0],
+                adm_codes[1],
+                adm_names[1],
+                adm_codes[2],
+                adm_names[2],
+                org_info.canonical_name,
+                org_info.acronym,
+                org_info.type_code,
+                sector_code,
+                iso_string_from_datetime(start_date),
+                iso_string_from_datetime(end_date),
+            )
+            output_rows.add(output_row)
         logger.info(
-            f"{norowsin} rows processed from {dataset_name} producing {norowsout} rows."
+            f"{norowsin} rows processed from {dataset_name} producing {len(output_rows)} rows."
         )
+        self._rows.update(output_rows)
         return start_date, end_date
 
     def process(self) -> Tuple[List, datetime, datetime]:
@@ -396,27 +408,20 @@ class Pipeline:
             "description": "Global Operational Presence data with HXL hashtags",
         }
         filename = "operational_presence.csv"
-
         hxltags = self._configuration["hxltags"]
-        success, results = dataset.generate_resource_from_iterable(
-            list(hxltags.keys()),
-            sorted(
-                self._rows,
-                key=lambda x: (
-                    x["Country ISO3"],
-                    x["Admin 1 Code"],
-                    x["Admin 2 Code"],
-                    x["Admin 3 Code"],
-                ),
-            ),
-            hxltags,
-            folder,
-            filename,
-            resourcedata,
-        )
-        if success is False:
+
+        rows = sorted(self._rows)
+        if len(rows) == 0:
             logger.warning(f"{title} has no data!")
             return None
+        dataset.generate_resource_from_rows(
+            folder,
+            filename,
+            [list(hxltags.keys())]
+            + [list(hxltags.values())]
+            + sorted(self._rows),
+            resourcedata,
+        )
         return dataset
 
     def generate_org_dataset(self, folder: str) -> Optional[Dataset]:
