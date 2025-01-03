@@ -177,14 +177,23 @@ class Sheet:
             datasetinfo[header] = row[i + 9]
         # Config must contain an org name and a sector
         if not datasetinfo["Org Name Column"]:
-            logger.warning(f"Ignoring {countryiso3} from config spreadsheet because it has no Org Name Column!")
+            logger.warning(
+                f"Ignoring {countryiso3} from config spreadsheet because it has no Org Name Column!"
+            )
             return {}
         if not datasetinfo["Sector Column"]:
-            logger.warning(f"Ignoring {countryiso3} from config spreadsheet because it has no Sector Column!")
+            logger.warning(
+                f"Ignoring {countryiso3} from config spreadsheet because it has no Sector Column!"
+            )
             return {}
         # Config must contain either adm code or adm name columns
-        if not datasetinfo["Adm Code Columns"] and not datasetinfo["Adm Name Columns"]:
-            logger.warning(f"Ignoring {countryiso3} from config spreadsheet because it has no Adm Code Columns and no Adm Name Columns!")
+        if (
+            not datasetinfo["Adm Code Columns"]
+            and not datasetinfo["Adm Name Columns"]
+        ):
+            logger.warning(
+                f"Ignoring {countryiso3} from config spreadsheet because it has no Adm Code Columns and no Adm Name Columns!"
+            )
             return {}
         if datasetinfo["Org Name Column"][0] == "#":
             use_hxl = True

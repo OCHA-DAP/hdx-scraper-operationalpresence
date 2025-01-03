@@ -1,6 +1,6 @@
 from datetime import datetime
 from logging import getLogger
-from typing import Dict, Optional, Set, Tuple, List
+from typing import Dict, List, Optional, Set, Tuple
 
 from slugify import slugify
 
@@ -41,7 +41,7 @@ class Pipeline:
         self._reader = Read.get_reader("hdx")
         self._admins = []
         for i in range(3):
-            admin = AdminLevel(admin_level=i+1, retriever=self._reader)
+            admin = AdminLevel(admin_level=i + 1, retriever=self._reader)
             if i == 2:
                 admin.setup_from_url(
                     admin_url=configuration["global_all_pcodes"],
@@ -192,7 +192,9 @@ class Pipeline:
                 new_adm_code_cols = []
                 for adm_code_col in adm_code_cols.split(","):
                     if adm_code_col:
-                        new_adm_code_cols.append(hxltag_to_header[adm_code_col])
+                        new_adm_code_cols.append(
+                            hxltag_to_header[adm_code_col]
+                        )
                     else:
                         new_adm_code_cols.append("")
                 adm_code_cols = ",".join(new_adm_code_cols)
@@ -290,10 +292,10 @@ class Pipeline:
             if not org_str:
                 org_str = org_acronym
             org_info = self._org.get_org_info(org_str, location=countryiso3)
+
             adm_codes = ["", "", ""]
             adm_names = ["", "", ""]
             prev_pcode = None
-
             for i, adm_name_col in reversed(list(enumerate(adm_name_cols))):
                 adm_names[i] = row[adm_name_col]
                 if adm_code_cols:
@@ -303,9 +305,23 @@ class Pipeline:
                     else:
                         pcode = None
                     if not pcode and prev_pcode:
-                        pcode = self._admins[i+1].pcode_to_parent[prev_pcode]
+                        pcode = self._admins[i + 1].pcode_to_parent[prev_pcode]
                     adm_codes[i] = pcode
                     prev_pcode = pcode
+
+            parent = None
+            for i, adm_code in enumerate(adm_codes):
+                if adm_code:
+                    continue
+                adm_name = adm_names[i]
+                if not adm_name:
+                    continue
+                adm_code, _ = self._admins[i].get_pcode(
+                    countryiso3, adm_name, parent=parent
+                )
+                if adm_code:
+                    adm_codes[i] = adm_code
+                    parent = adm_code
 
             output_row = {
                 "Country ISO3": countryiso3,
@@ -324,7 +340,9 @@ class Pipeline:
             }
             self._rows.append(output_row)
             norowsout += 1
-        logger.info(f"{norowsin} rows processed from {dataset_name} producing {norowsout} rows.")
+        logger.info(
+            f"{norowsin} rows processed from {dataset_name} producing {norowsout} rows."
+        )
         return start_date, end_date
 
     def process(self) -> Tuple[List, datetime, datetime]:
@@ -382,7 +400,15 @@ class Pipeline:
         hxltags = self._configuration["hxltags"]
         success, results = dataset.generate_resource_from_iterable(
             list(hxltags.keys()),
-            sorted(self._rows, key=lambda x: (x["Country ISO3"], x["Admin 1 Code"], x["Admin 2 Code"], x["Admin 3 Code"])),
+            sorted(
+                self._rows,
+                key=lambda x: (
+                    x["Country ISO3"],
+                    x["Admin 1 Code"],
+                    x["Admin 2 Code"],
+                    x["Admin 3 Code"],
+                ),
+            ),
             hxltags,
             folder,
             filename,

@@ -73,7 +73,9 @@ def main(
                     join("config", "hdx_dataset_static.yaml"), main
                 )
             )
-            dataset["notes"] = "This dataset contains standardised Organisation data"
+            dataset["notes"] = (
+                "This dataset contains standardised Organisation data"
+            )
             dataset.create_in_hdx(
                 remove_additional_resources=False,
                 hxl_update=False,
@@ -88,7 +90,9 @@ def main(
                     join("config", "hdx_dataset_static.yaml"), main
                 )
             )
-            dataset["notes"] = "This dataset contains standardised Operational Presence data"
+            dataset["notes"] = (
+                "This dataset contains standardised Operational Presence data"
+            )
             dataset.create_in_hdx(
                 remove_additional_resources=False,
                 hxl_update=False,
