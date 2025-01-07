@@ -11,6 +11,7 @@ from hdx.api.configuration import Configuration
 from hdx.data.user import User
 from hdx.facades.infer_arguments import facade
 from hdx.scraper.framework.utilities.reader import Read
+from hdx.scraper.operationalpresence.sheet import Sheet
 from hdx.utilities.dateparse import now_utc
 from hdx.utilities.easy_logging import setup_logging
 from hdx.utilities.path import script_dir_plus_file, temp_dir
@@ -28,8 +29,23 @@ def main(
     countryiso3s: str = "",
     save_test_data: bool = False,
     gsheet_auth: Optional[str] = None,
+    email_server: Optional[str] = None,
+    recipients: Optional[str] = None,
 ) -> None:
-    """Generate datasets and create them in HDX
+    """Generate datasets and create them in HDX.
+
+    An optional authorisation string for Google Sheets can be supplied of the
+    form:
+    {"type": "service_account", "project_id": "hdx-bot", "private_key_id": ...
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",...}
+
+    An optional email server can be supplied in the form:
+    connection type (eg. ssl),host,port,username,password,sender email
+    If not supplied, no emails will be sent.
+
+    recipients is a list of email addresses of the people who should be emailed
+    when new datasets or resources are detected.
 
     Args:
         save (bool): Save downloaded data. Defaults to False.
@@ -37,6 +53,8 @@ def main(
         countryiso3s (str): Countries to process. Defaults to "" (all countries).
         save_test_data (bool): Whether to save test data. Defaults to False.
         gsheet_auth (Optional[str]): Google Sheets authorisation. Defaults to None.
+        email_server (Optional[str]): Email server to use. Defaults to None.
+        recipients (Optional[str]): Email addresses. Defaults to None.
     Returns:
         None
     """
@@ -61,7 +79,12 @@ def main(
         )
         if gsheet_auth is None:
             gsheet_auth = getenv("GSHEET_AUTH")
-        pipeline = Pipeline(configuration, countryiso3s, gsheet_auth)
+        if email_server is None:
+            email_server = getenv("EMAIL_SERVER")
+        if recipients is None:
+            recipients = getenv("RECIPIENTS")
+        sheet = Sheet(configuration, gsheet_auth, email_server, recipients)
+        pipeline = Pipeline(configuration, sheet, countryiso3s)
         pipeline.find_datasets_resources()
         countryiso3s, startdate, enddate = pipeline.process()
         dataset = pipeline.generate_org_dataset(temp_folder)
@@ -98,13 +121,14 @@ def main(
                 hxl_update=False,
                 updated_by_script=updated_by_script,
             )
-
+        pipeline.output_errors()
     logger.info("HDX Scraper Operational Presence pipeline completed!")
 
 
 if __name__ == "__main__":
     facade(
         main,
+        hdx_site="feature",
         user_agent_config_yaml=join(expanduser("~"), ".useragents.yaml"),
         user_agent_lookup=lookup,
         project_config_yaml=script_dir_plus_file(

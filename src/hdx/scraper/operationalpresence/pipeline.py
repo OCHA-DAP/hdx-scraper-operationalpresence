@@ -1,16 +1,19 @@
+import traceback
 from datetime import datetime
 from logging import getLogger
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from slugify import slugify
 
-from .logging_helpers import add_message, add_missing_value_message
-from .org import Org, OrgInfo
+from .logging_helpers import add_message
+from .mappings import Row
+from .org import Org
 from .org_type import OrgType
 from .sector import Sector
 from .sheet import Sheet
 from hdx.api.configuration import Configuration
 from hdx.data.dataset import Dataset
+from hdx.data.resource import Resource
 from hdx.location.adminlevel import AdminLevel
 from hdx.scraper.framework.utilities.reader import Read
 from hdx.utilities.dateparse import (
@@ -19,7 +22,6 @@ from hdx.utilities.dateparse import (
     iso_string_from_datetime,
     parse_date,
 )
-from hdx.utilities.text import normalise
 
 logger = getLogger(__name__)
 
@@ -28,15 +30,15 @@ class Pipeline:
     def __init__(
         self,
         configuration: Configuration,
+        sheet: Sheet,
         countryiso3s_to_process: str = "",
-        gsheet_auth: Optional[str] = None,
     ) -> None:
         self._configuration = configuration
+        self._sheet = sheet
         if countryiso3s_to_process:
             self._countryiso3s_to_process = countryiso3s_to_process.split(",")
         else:
             self._countryiso3s_to_process = None
-        self._sheet = Sheet(configuration, gsheet_auth)
 
         self._reader = Read.get_reader("hdx")
         self._admins = []
@@ -53,18 +55,48 @@ class Pipeline:
                 )
             admin.load_pcode_formats()
             self._admins.append(admin)
-        self._org = Org(
-            datasetinfo=configuration["org"],
-        )
         self._org_type = OrgType(
             datasetinfo=configuration["org_type"],
             org_type_map=configuration["org_type_map"],
+        )
+        self._org = Org(
+            datasetinfo=configuration["org"],
+            org_type=self._org_type,
         )
         self._sector = Sector(
             datasetinfo=configuration["sector"],
             sector_map=configuration["sector_map"],
         )
         self._rows = set()
+        self._errors = set()
+
+    def get_format_from_url(self, resource: Resource) -> Optional[str]:
+        format = resource["url"][-4:].lower()
+        if format not in self._configuration["allowed_formats"]:
+            format = resource["url"][-3:].lower()
+        if format in self._configuration["allowed_formats"]:
+            return format
+        return None
+
+    def get_format(
+        self, dataset_name: str, resource: Resource
+    ) -> Tuple[bool, str]:
+        resource_name = resource["name"]
+        hdx_format = resource.get_format()
+        # handle erroneously entered HDX format
+        format = self.get_format_from_url(resource)
+        if format:
+            if format != hdx_format:
+                add_message(
+                    self._errors,
+                    dataset_name,
+                    f"Resource {resource_name} has url with format {format} that is different to HDX format {hdx_format}",
+                )
+        else:
+            format = hdx_format
+        if format in self._configuration["allowed_formats"]:
+            return True, format
+        return False, format
 
     def find_datasets_resources(self):
         datasets_found = self._reader.search_datasets(
@@ -138,44 +170,18 @@ class Pipeline:
             dataset_name = dataset["name"]
             resource_name = resource_to_process["name"]
             resource_format = resource_to_process.get_format()
+            resource_url_format = self.get_format_from_url(resource_to_process)
             self._sheet.add_update_row(
-                countryiso3, dataset_name, resource_name, resource_format
+                countryiso3,
+                dataset_name,
+                resource_name,
+                resource_format,
+                resource_url_format,
             )
         self._sheet.write(list(datasets_by_iso3.keys()))
+        self._sheet.send_email()
 
-    def complete_org_info(
-        self,
-        org_info: OrgInfo,
-        org_acronym: Optional[str],
-        org_type_name: Optional[str],
-        errors: Set[str],
-        dataset_name: str,
-    ):
-        if org_info.acronym is None and org_acronym is not None:
-            if len(org_acronym) > 32:
-                org_acronym = org_acronym[:32]
-            org_info.acronym = org_acronym
-            org_info.normalised_acronym = normalise(org_acronym)
-
-        # * Org type processing
-        if org_info.type_code is None and org_type_name is not None:
-            org_type_code = self._org_type.get_org_type_code(org_type_name)
-            if org_type_code:
-                org_info.type_code = org_type_code
-            else:
-                add_missing_value_message(
-                    errors,
-                    dataset_name,
-                    "org type",
-                    org_type_name,
-                )
-
-        # * Org matching
-        self._org.add_or_match_org(org_info)
-
-    def preprocess_country(
-        self, countryiso3: str, datasetinfo: Dict, errors: Set[str]
-    ):
+    def preprocess_country(self, countryiso3: str, datasetinfo: Dict) -> bool:
         dataset_name = datasetinfo["dataset"]
         adm_code_cols = datasetinfo["Adm Code Columns"]
         adm_name_cols = datasetinfo["Adm Name Columns"]
@@ -183,7 +189,32 @@ class Pipeline:
         org_acronym_col = datasetinfo["Org Acronym Column"]
         org_type_col = datasetinfo["Org Type Column"]
         sector_col = datasetinfo["Sector Column"]
-        headers, iterator = self._reader.read(datasetinfo)
+        start_date = datasetinfo["Start Date"]
+        if start_date:
+            end_date = datasetinfo["End Date"]
+            datasetinfo["source_date"] = {"start": start_date, "end": end_date}
+        resource = self._reader.read_hdx_metadata(datasetinfo)
+        resource_name = resource["name"]
+        success, format = self.get_format(dataset_name, resource)
+        if not success:
+            add_message(
+                self._errors,
+                dataset_name,
+                f"Resource {resource_name} has format {format} which is not allowed",
+            )
+            return False
+        filename = self._reader.construct_filename(resource_name, format)
+        datasetinfo["filename"] = filename
+        datasetinfo["format"] = format
+        try:
+            headers, iterator = self._reader.read_tabular(datasetinfo)
+        except Exception:
+            add_message(
+                self._errors,
+                dataset_name,
+                traceback.format_exc(),
+            )
+            return False
         if datasetinfo["use_hxl"]:
             header_to_hxltag = next(iterator)
             hxltag_to_header = {v: k for k, v in header_to_hxltag.items()}
@@ -229,7 +260,7 @@ class Pipeline:
             # Skip rows that are missing a sector
             if not sector_orig:
                 add_message(
-                    errors,
+                    self._errors,
                     dataset_name,
                     f"org {org_str} missing sector",
                 )
@@ -245,14 +276,15 @@ class Pipeline:
                     org_type_name = row[org_type_col]
                 else:
                     org_type_name = None
-                self.complete_org_info(
+                self._org.complete_org_info(
                     org_info,
                     org_acronym,
                     org_type_name,
-                    errors,
+                    self._errors,
                     dataset_name,
                 )
         logger.info(f"{norows} rows preprocessed from {dataset_name}")
+        return True
 
     def get_adm_info(
         self,
@@ -265,7 +297,9 @@ class Pipeline:
         adm_names = ["", "", ""]
         prev_pcode = None
         for i, adm_name_col in reversed(list(enumerate(adm_name_cols))):
-            adm_names[i] = row[adm_name_col]
+            adm_name = row[adm_name_col]
+            if adm_name:
+                adm_names[i] = adm_name
             if adm_code_cols:
                 adm_code_col = adm_code_cols[i]
                 if adm_code_col:
@@ -273,7 +307,9 @@ class Pipeline:
                 else:
                     pcode = None
                 if not pcode and prev_pcode:
-                    pcode = self._admins[i + 1].pcode_to_parent[prev_pcode]
+                    pcode = self._admins[i + 1].pcode_to_parent.get(prev_pcode)
+                if not pcode:
+                    pcode = ""
                 adm_codes[i] = pcode
                 prev_pcode = pcode
 
@@ -293,13 +329,9 @@ class Pipeline:
         return adm_codes, adm_names
 
     def process_country(
-        self, countryiso3: str, datasetinfo: Dict, errors: Set[str]
+        self, countryiso3: str, datasetinfo: Dict
     ) -> Tuple[datetime, datetime]:
         dataset_name = datasetinfo["dataset"]
-        start_date = datasetinfo["Start Date"]
-        if start_date:
-            end_date = datasetinfo["End Date"]
-            datasetinfo["source_date"] = {"start": start_date, "end": end_date}
         adm_code_cols = datasetinfo["Adm Code Columns"]
         if adm_code_cols:
             adm_code_cols = adm_code_cols.split(",")
@@ -307,16 +339,18 @@ class Pipeline:
         org_name_col = datasetinfo["Org Name Column"]
         org_acronym_col = datasetinfo["Org Acronym Column"]
         sector_col = datasetinfo["Sector Column"]
-        headers, iterator = self._reader.read(datasetinfo)
-        start_date = datasetinfo["source_date"]["default_date"]["start"]
-        end_date = datasetinfo["source_date"]["default_date"]["end"]
+        start_date = datasetinfo["time_period"]["start"]
+        end_date = datasetinfo["time_period"]["end"]
+        start_date_str = iso_string_from_datetime(start_date)
+        end_date_str = iso_string_from_datetime(end_date)
+        headers, iterator = self._reader.read_tabular(datasetinfo)
         norowsin = 0
         output_rows = set()
+        if datasetinfo["use_hxl"]:
+            next(iterator)
         for row in iterator:
-            sector_orig = row[sector_col]
-            if sector_orig[0] == "#":
-                continue
             norowsin += 1
+            sector_orig = row[sector_col]
             if not sector_orig:
                 continue
             # Skip rows that are missing a sector
@@ -335,7 +369,8 @@ class Pipeline:
                 countryiso3, row, adm_code_cols, adm_name_cols
             )
 
-            output_row = (
+            resource_id = datasetinfo["hapi_resource_metadata"]["hdx_id"]
+            output_row = Row(
                 countryiso3,
                 adm_codes[0],
                 adm_names[0],
@@ -347,8 +382,9 @@ class Pipeline:
                 org_info.acronym,
                 org_info.type_code,
                 sector_code,
-                iso_string_from_datetime(start_date),
-                iso_string_from_datetime(end_date),
+                start_date_str,
+                end_date_str,
+                resource_id,
             )
             output_rows.add(output_row)
         logger.info(
@@ -364,15 +400,15 @@ class Pipeline:
         earliest_start_date = default_enddate
         latest_end_date = default_date
         iso3_to_datasetinfo = {}
-        errors = set()
         for countryiso3 in self._sheet.get_countries():
             datasetinfo = self._sheet.get_datasetinfo(countryiso3)
             if datasetinfo:
-                iso3_to_datasetinfo[countryiso3] = datasetinfo
-                self.preprocess_country(countryiso3, datasetinfo, errors)
+                success = self.preprocess_country(countryiso3, datasetinfo)
+                if success:
+                    iso3_to_datasetinfo[countryiso3] = datasetinfo
         for countryiso3, datasetinfo in iso3_to_datasetinfo.items():
             start_date, end_date = self.process_country(
-                countryiso3, datasetinfo, errors
+                countryiso3, datasetinfo
             )
             if start_date < earliest_start_date:
                 earliest_start_date = start_date
@@ -468,3 +504,7 @@ class Pipeline:
             logger.warning(f"{title} has no data!")
             return None
         return dataset
+
+    def output_errors(self):
+        for error in sorted(self._errors):
+            logger.error(error)

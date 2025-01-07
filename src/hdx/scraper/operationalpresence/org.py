@@ -3,9 +3,13 @@
 import logging
 from dataclasses import dataclass
 from os.path import join
-from typing import Dict, NamedTuple
+from typing import Dict, NamedTuple, Optional, Set
 
 from hdx.scraper.framework.utilities.reader import Read
+from hdx.scraper.operationalpresence.logging_helpers import (
+    add_missing_value_message,
+)
+from hdx.scraper.operationalpresence.org_type import OrgType
 from hdx.utilities.dictandlist import write_list_to_csv
 from hdx.utilities.text import normalise
 
@@ -16,9 +20,9 @@ logger = logging.getLogger(__name__)
 class OrgInfo:
     canonical_name: str
     normalised_name: str
-    acronym: str | None
-    normalised_acronym: str | None
-    type_code: str | None
+    acronym: str  # can be ""
+    normalised_acronym: str  # can be ""
+    type_code: str  # can be ""
     used: bool = False
     complete: bool = False
 
@@ -33,8 +37,10 @@ class Org:
     def __init__(
         self,
         datasetinfo: Dict[str, str],
+        org_type: OrgType,
     ):
         self._datasetinfo = datasetinfo
+        self._org_type = org_type
         self.data = {}
         self._org_map = {}
 
@@ -98,9 +104,9 @@ class Org:
         org_info = OrgInfo(
             canonical_name=org_str,
             normalised_name=normalised_str,
-            acronym=None,
-            normalised_acronym=None,
-            type_code=None,
+            acronym="",
+            normalised_acronym="",
+            type_code="",
         )
         self._org_map[key] = org_info
         return org_info
@@ -131,6 +137,36 @@ class Org:
             org_info.complete = True
         org_info.used = True
         return org_data
+
+    def complete_org_info(
+        self,
+        org_info: OrgInfo,
+        org_acronym: Optional[str],
+        org_type_name: Optional[str],
+        errors: Set[str],
+        dataset_name: str,
+    ):
+        if not org_info.acronym and org_acronym:
+            if len(org_acronym) > 32:
+                org_acronym = org_acronym[:32]
+            org_info.acronym = org_acronym
+            org_info.normalised_acronym = normalise(org_acronym)
+
+        # * Org type processing
+        if not org_info.type_code and org_type_name:
+            org_type_code = self._org_type.get_org_type_code(org_type_name)
+            if org_type_code:
+                org_info.type_code = org_type_code
+            else:
+                add_missing_value_message(
+                    errors,
+                    dataset_name,
+                    "org type",
+                    org_type_name,
+                )
+
+        # * Org matching
+        self.add_or_match_org(org_info)
 
     def output_org_map(self, folder: str) -> None:
         rows = [

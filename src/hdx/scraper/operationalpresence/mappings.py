@@ -1,9 +1,26 @@
-from typing import Dict, List
+from typing import Dict, List, NamedTuple
 
 from hdx.location.phonetics import Phonetics
 from hdx.utilities.text import normalise
 
 MATCH_THRESHOLD = 5
+
+
+class Row(NamedTuple):
+    countryiso3: str
+    adm_code_0: str
+    adm_name_0: str
+    adm_code_1: str
+    adm_name_1: str
+    adm_code_2: str
+    adm_name_2: str
+    canonical_name: str
+    acronym: str
+    type_code: str
+    sector_code: str
+    start_date: str
+    end_date: str
+    resource_id: str
 
 
 def get_code_from_name(

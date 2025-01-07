@@ -5,6 +5,7 @@ from typing import Dict, Iterable, List, Optional
 import gspread
 
 from hdx.api.configuration import Configuration
+from hdx.utilities.email import Email
 
 logger = getLogger(__name__)
 
@@ -48,13 +49,35 @@ class Sheet:
     ]
 
     def __init__(
-        self, configuration: Configuration, gsheet_auth: Optional[str] = None
+        self,
+        configuration: Configuration,
+        gsheet_auth: Optional[str] = None,
+        email_server: Optional[str] = None,
+        recipients: Optional[str] = None,
     ):
-        self.configuration = configuration
+        self._configuration = configuration
         self.spreadsheet_rows = {}
         self.sheet = None
         if gsheet_auth:
             self.read_existing(gsheet_auth)
+        if email_server:  # Get email server details
+            email_config = email_server.split(",")
+            email_config_dict = {
+                "connection_type": email_config[0],
+                "host": email_config[1],
+                "port": int(email_config[2]),
+                "username": email_config[3],
+                "password": email_config[4],
+            }
+            if len(email_config) > 5:
+                email_config_dict["sender"] = email_config[5]
+            self._emailer = Email(email_config_dict=email_config_dict)
+            logger.info(f"> Email host: {email_config[1]}")
+            self._recipients = recipients
+        else:
+            self._emailer = None
+            self._recipients = None
+        self.email_text = []
 
     def read_existing(self, gsheet_auth: str) -> None:
         try:
@@ -63,7 +86,7 @@ class Sheet:
             gc = gspread.service_account_from_dict(info, scopes=scopes)
             logger.info("Opening operational presence datasets gsheet")
             self.spreadsheet = gc.open_by_url(
-                self.configuration["spreadsheet"]
+                self._configuration["spreadsheet"]
             )
             self.sheet = self.spreadsheet.get_worksheet(0)
             gsheet_rows = self.sheet.get_values()
@@ -79,7 +102,14 @@ class Sheet:
         dataset_name: str,
         resource_name: str,
         resource_format: str,
+        resource_url_format: Optional[str],
     ) -> None:
+        if resource_url_format and resource_url_format != resource_format:
+            text = (
+                f"Resource {resource_name} has url with format {resource_url_format} that is different to HDX format {resource_format}",
+            )
+            logger.warning(text)
+            self.email_text.append(text)
         row = self.spreadsheet_rows.get(countryiso3)
         if row is None:
             row = [countryiso3, dataset_name, resource_name, resource_format]
@@ -87,21 +117,21 @@ class Sheet:
         else:
             current_dataset = row[self.automated_dataset_ind]
             if current_dataset != dataset_name:
-                logger.info(
-                    f"{countryiso3}: Updating dataset from {current_dataset} to {dataset_name}"
-                )
+                text = f"{countryiso3}: Updating dataset from {current_dataset} to {dataset_name}"
+                logger.info(text)
+                self.email_text.append(text)
                 row[self.automated_dataset_ind] = dataset_name
             current_resource = row[self.automated_resource_ind]
             if current_resource != resource_name:
-                logger.info(
-                    f"{countryiso3}: Updating resource from {current_resource} to {resource_name}"
-                )
+                text = f"{countryiso3}: Updating resource from {current_resource} to {resource_name}"
+                logger.info(text)
+                self.email_text.append(text)
                 row[self.automated_resource_ind] = resource_name
             current_format = row[self.automated_format_ind]
             if current_format != resource_format:
-                logger.info(
-                    f"{countryiso3}: Updating resource format from {current_format} to {resource_format}"
-                )
+                text = f"{countryiso3}: Updating resource format from {current_format} to {resource_format}"
+                logger.info(text)
+                self.email_text.append(text)
                 row[self.automated_format_ind] = resource_format
 
     def write(self, countryiso3s: List) -> None:
@@ -123,6 +153,15 @@ class Sheet:
                 "Error updating Google Sheet! Trying to restore old values", ex
             )
             self.sheet.update("A1", sheet_copy)
+
+    def send_email(self) -> None:
+        if self._emailer is None or len(self.email_text) == 0:
+            return
+        self._emailer.send(
+            self._recipients,
+            "Operational presence - updates detected!",
+            "\n".join(self.email_text),
+        )
 
     def get_countries(self) -> Iterable[str]:
         return self.spreadsheet_rows.keys()

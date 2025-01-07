@@ -73,7 +73,7 @@ hdx-python-utilities==3.7.4
     #   hdx-python-scraper
 humanize==4.11.0
     # via frictionless
-identify==2.6.4
+identify==2.6.5
     # via pre-commit
 idna==3.10
     # via
@@ -151,7 +151,7 @@ pydantic==2.10.4
     # via frictionless
 pydantic-core==2.27.2
     # via pydantic
-pygments==2.18.0
+pygments==2.19.1
     # via rich
 pyphonetics==0.5.3
     # via hdx-python-country
@@ -209,11 +209,11 @@ rpds-py==0.22.3
     #   referencing
 rsa==4.9
     # via google-auth
-ruamel-yaml==0.18.8
+ruamel-yaml==0.18.10
     # via hdx-python-utilities
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-setuptools==75.6.0
+setuptools==75.7.0
     # via ckanapi
 shellingham==1.5.4
     # via typer
