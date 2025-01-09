@@ -1,3 +1,4 @@
+import re
 import traceback
 from datetime import datetime
 from logging import getLogger
@@ -5,7 +6,7 @@ from typing import Dict, List, Optional, Tuple
 
 from slugify import slugify
 
-from .logging_helpers import add_message
+from .logging_helpers import add_message, add_missing_value_message
 from .mappings import Row
 from .org import Org
 from .org_type import OrgType
@@ -22,8 +23,13 @@ from hdx.utilities.dateparse import (
     iso_string_from_datetime,
     parse_date,
 )
+from hdx.utilities.text import multiple_replace
 
 logger = getLogger(__name__)
+
+
+# eg. row['#date+year']=='2024' and row['#date+quarter']=='Q3'
+ROW_LOOKUP = re.compile(r"row\[['\"](.*?)['\"]\]")
 
 
 class Pipeline:
@@ -215,6 +221,7 @@ class Pipeline:
                 traceback.format_exc(),
             )
             return False
+        filter = datasetinfo["Filter"]
         if datasetinfo["use_hxl"]:
             header_to_hxltag = next(iterator)
             hxltag_to_header = {v: k for k, v in header_to_hxltag.items()}
@@ -247,13 +254,29 @@ class Pipeline:
             datasetinfo["Org Acronym Column"] = org_acronym_col
             datasetinfo["Org Type Column"] = org_type_col
             datasetinfo["Sector Column"] = sector_col
+
+            if filter:
+                replace = {}
+                for match in ROW_LOOKUP.finditer(filter):
+                    hxltag = match.group(1)
+                    header = hxltag_to_header[hxltag]
+                    replace[hxltag] = header
+                filter = multiple_replace(filter, replace)
+                datasetinfo["Filter"] = filter
+
         norows = 0
         for row in iterator:
+            if filter:
+                if not eval(filter):
+                    continue
             norows += 1
             org_str = row[org_name_col]
             org_acronym = row[org_acronym_col]
             if not org_str:
                 org_str = org_acronym
+            # Skip rows with no org name or acronym
+            if not org_str:
+                continue
 
             # * Sector processing
             sector_orig = row[sector_col]
@@ -292,18 +315,28 @@ class Pipeline:
         row: Dict,
         adm_code_cols: List[str],
         adm_name_cols: List[str],
+        dataset_name: str,
     ) -> Tuple[List, List]:
         adm_codes = ["", "", ""]
         adm_names = ["", "", ""]
         prev_pcode = None
         for i, adm_name_col in reversed(list(enumerate(adm_name_cols))):
-            adm_name = row[adm_name_col]
-            if adm_name:
-                adm_names[i] = adm_name
+            if adm_name_col:
+                adm_name = row[adm_name_col]
+                if adm_name:
+                    adm_names[i] = adm_name
             if adm_code_cols:
                 adm_code_col = adm_code_cols[i]
                 if adm_code_col:
                     pcode = row[adm_code_cols[i]]
+                    if pcode and pcode not in self._admins[i].pcodes:
+                        add_missing_value_message(
+                            self._errors,
+                            dataset_name,
+                            f"admin {i+1} pcode",
+                            pcode,
+                        )
+                        pcode = None
                 else:
                     pcode = None
                 if not pcode and prev_pcode:
@@ -348,7 +381,11 @@ class Pipeline:
         output_rows = set()
         if datasetinfo["use_hxl"]:
             next(iterator)
+        filter = datasetinfo["Filter"]
         for row in iterator:
+            if filter:
+                if not eval(filter):
+                    continue
             norowsin += 1
             sector_orig = row[sector_col]
             if not sector_orig:
@@ -362,11 +399,14 @@ class Pipeline:
             org_acronym = row[org_acronym_col]
             if not org_str:
                 org_str = org_acronym
+            # Skip rows with no org name or acronym
+            if not org_str:
+                continue
             org_info = self._org.get_org_info(org_str, location=countryiso3)
 
             # * Adm processing
             adm_codes, adm_names = self.get_adm_info(
-                countryiso3, row, adm_code_cols, adm_name_cols
+                countryiso3, row, adm_code_cols, adm_name_cols, dataset_name
             )
 
             resource_id = datasetinfo["hapi_resource_metadata"]["hdx_id"]

@@ -22,12 +22,13 @@ class Sheet:
     headers_ind = 8
     # start_date_ind = 9
     # end_date_ind = 10
-    # admin_codes_ind = 11
-    # admin_names_ind = 12
-    # org_name_ind = 13
-    # org_acronym_ind = 14
-    # org_type_ind = 15
-    # sector_ind = 16
+    # filter_ind = 11
+    # admin_codes_ind = 12
+    # admin_names_ind = 13
+    # org_name_ind = 14
+    # org_acronym_ind = 15
+    # org_type_ind = 16
+    # sector_ind = 17
     headers = [
         "Country ISO3",
         "Automated Dataset",
@@ -40,6 +41,7 @@ class Sheet:
         "Headers",
         "Start Date",
         "End Date",
+        "Filter",
         "Adm Code Columns",
         "Adm Name Columns",
         "Org Name Column",
