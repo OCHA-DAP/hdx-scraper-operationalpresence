@@ -56,12 +56,13 @@ class Sheet:
         gsheet_auth: Optional[str] = None,
         email_server: Optional[str] = None,
         recipients: Optional[str] = None,
+        gsheet_key: str = "spreadsheet",
     ):
         self._configuration = configuration
         self.spreadsheet_rows = {}
         self.sheet = None
         if gsheet_auth:
-            self.read_existing(gsheet_auth)
+            self.read_existing(gsheet_auth, gsheet_key)
         if email_server:  # Get email server details
             email_config = email_server.split(",")
             email_config_dict = {
@@ -81,15 +82,13 @@ class Sheet:
             self._recipients = None
         self.email_text = []
 
-    def read_existing(self, gsheet_auth: str) -> None:
+    def read_existing(self, gsheet_auth: str, gsheet_key: str) -> None:
         try:
             info = json.loads(gsheet_auth)
             scopes = ["https://www.googleapis.com/auth/spreadsheets"]
             gc = gspread.service_account_from_dict(info, scopes=scopes)
             logger.info("Opening operational presence datasets gsheet")
-            self.spreadsheet = gc.open_by_url(
-                self._configuration["spreadsheet"]
-            )
+            self.spreadsheet = gc.open_by_url(self._configuration[gsheet_key])
             self.sheet = self.spreadsheet.get_worksheet(0)
             gsheet_rows = self.sheet.get_values()
             for row in gsheet_rows[1:]:

@@ -441,6 +441,11 @@ class Pipeline:
         latest_end_date = default_date
         iso3_to_datasetinfo = {}
         for countryiso3 in self._sheet.get_countries():
+            if (
+                self._countryiso3s_to_process
+                and countryiso3 not in self._countryiso3s_to_process
+            ):
+                continue
             datasetinfo = self._sheet.get_datasetinfo(countryiso3)
             if datasetinfo:
                 success = self.preprocess_country(countryiso3, datasetinfo)
