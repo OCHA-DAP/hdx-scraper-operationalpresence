@@ -40,6 +40,8 @@ email-validator==2.2.0
     # via hdx-python-api
 et-xmlfile==2.0.0
     # via openpyxl
+ezodf==0.3.2
+    # via hdx-scraper-operationalpresence (pyproject.toml)
 filelock==3.16.1
     # via virtualenv
 frictionless==5.18.0
