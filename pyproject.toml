@@ -34,7 +34,7 @@ classifiers = [
 requires-python = ">=3.8"
 
 dependencies = [
-    "ezodf",
+    "frictionless[ods]",
     "gspread",
     "hdx-python-scraper>= 2.5.0",
     "hdx-python-api>= 6.3.5",

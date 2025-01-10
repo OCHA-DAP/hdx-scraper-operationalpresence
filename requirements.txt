@@ -41,11 +41,13 @@ email-validator==2.2.0
 et-xmlfile==2.0.0
     # via openpyxl
 ezodf==0.3.2
-    # via hdx-scraper-operationalpresence (pyproject.toml)
+    # via frictionless
 filelock==3.16.1
     # via virtualenv
 frictionless==5.18.0
-    # via hdx-python-utilities
+    # via
+    #   hdx-scraper-operationalpresence (pyproject.toml)
+    #   hdx-python-utilities
 google-auth==2.37.0
     # via
     #   google-auth-oauthlib
@@ -107,6 +109,8 @@ libhxl==5.2.2
     #   hdx-python-country
 loguru==0.7.3
     # via hdx-python-utilities
+lxml==5.3.0
+    # via frictionless
 makefun==1.15.6
     # via hdx-python-api
 markdown-it-py==3.0.0
