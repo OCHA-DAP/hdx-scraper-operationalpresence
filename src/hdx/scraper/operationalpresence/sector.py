@@ -3,8 +3,8 @@
 import logging
 from typing import Dict
 
-from .mappings import get_code_from_name
 from hdx.scraper.framework.utilities.reader import Read
+from hdx.utilities.matching import get_code_from_name
 from hdx.utilities.text import normalise
 
 logger = logging.getLogger(__name__)

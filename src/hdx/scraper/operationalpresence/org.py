@@ -5,10 +5,8 @@ from dataclasses import dataclass
 from os.path import join
 from typing import Dict, NamedTuple, Optional, Set
 
+from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.scraper.framework.utilities.reader import Read
-from hdx.scraper.operationalpresence.logging_helpers import (
-    add_missing_value_message,
-)
 from hdx.scraper.operationalpresence.org_type import OrgType
 from hdx.utilities.dictandlist import write_list_to_csv
 from hdx.utilities.text import normalise
@@ -38,9 +36,11 @@ class Org:
         self,
         datasetinfo: Dict[str, str],
         org_type: OrgType,
+        error_handler: HDXErrorHandler,
     ):
         self._datasetinfo = datasetinfo
         self._org_type = org_type
+        self._error_handler = error_handler
         self.data = {}
         self._org_map = {}
 
@@ -158,11 +158,12 @@ class Org:
             if org_type_code:
                 org_info.type_code = org_type_code
             else:
-                add_missing_value_message(
-                    errors,
+                self._error_handler.add_missing_value_message(
+                    "OperationalPresence",
                     dataset_name,
                     "org type",
                     org_type_name,
+                    message_type="warning",
                 )
 
         # * Org matching

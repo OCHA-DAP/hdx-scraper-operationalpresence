@@ -2,12 +2,11 @@ import re
 import traceback
 from datetime import datetime
 from logging import getLogger
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, NamedTuple
 
+from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from slugify import slugify
 
-from .logging_helpers import add_message, add_missing_value_message
-from .mappings import Row
 from .org import Org
 from .org_type import OrgType
 from .sector import Sector
@@ -23,7 +22,7 @@ from hdx.utilities.dateparse import (
     iso_string_from_datetime,
     parse_date,
 )
-from hdx.utilities.text import multiple_replace
+from hdx.utilities.matching import multiple_replace
 
 logger = getLogger(__name__)
 
@@ -31,16 +30,33 @@ logger = getLogger(__name__)
 # eg. row['#date+year']=='2024' and row['#date+quarter']=='Q3'
 ROW_LOOKUP = re.compile(r"row\[['\"](.*?)['\"]\]")
 
+class Row(NamedTuple):
+    countryiso3: str
+    adm_code_0: str
+    adm_name_0: str
+    adm_code_1: str
+    adm_name_1: str
+    adm_code_2: str
+    adm_name_2: str
+    canonical_name: str
+    acronym: str
+    type_code: str
+    sector_code: str
+    start_date: str
+    end_date: str
+    resource_id: str
 
 class Pipeline:
     def __init__(
         self,
         configuration: Configuration,
         sheet: Sheet,
+        error_handler: HDXErrorHandler,
         countryiso3s_to_process: str = "",
     ) -> None:
         self._configuration = configuration
         self._sheet = sheet
+        self._error_handler = error_handler
         if countryiso3s_to_process:
             self._countryiso3s_to_process = countryiso3s_to_process.split(",")
         else:
@@ -68,6 +84,7 @@ class Pipeline:
         self._org = Org(
             datasetinfo=configuration["org"],
             org_type=self._org_type,
+            error_handler=error_handler,
         )
         self._sector = Sector(
             datasetinfo=configuration["sector"],
@@ -93,10 +110,13 @@ class Pipeline:
         format = self.get_format_from_url(resource)
         if format:
             if format != hdx_format:
-                add_message(
-                    self._errors,
+                self._error_handler.add_message(
+                    "OperationalPresence",
                     dataset_name,
                     f"Resource {resource_name} has url with format {format} that is different to HDX format {hdx_format}",
+                    resource_name,
+                    "error",
+                    True
                 )
         else:
             format = hdx_format
@@ -203,10 +223,11 @@ class Pipeline:
         resource_name = resource["name"]
         success, format = self.get_format(dataset_name, resource)
         if not success:
-            add_message(
-                self._errors,
+            self._error_handler.add_message(
+                "OperationalPresence",
                 dataset_name,
                 f"Resource {resource_name} has format {format} which is not allowed",
+                message_type="warning",
             )
             return False
         filename = self._reader.construct_filename(resource_name, format)
@@ -215,8 +236,8 @@ class Pipeline:
         try:
             headers, iterator = self._reader.read_tabular(datasetinfo)
         except Exception:
-            add_message(
-                self._errors,
+            self._error_handler.add_message(
+                "OperationalPresence",
                 dataset_name,
                 traceback.format_exc(),
             )
@@ -282,10 +303,11 @@ class Pipeline:
             sector_orig = row[sector_col]
             # Skip rows that are missing a sector
             if not sector_orig:
-                add_message(
-                    self._errors,
+                self._error_handler.add_message(
+                    "OperationalPresence",
                     dataset_name,
                     f"org {org_str} missing sector",
+                    message_type="warning",
                 )
                 continue
             sector_code = self._sector.get_sector_code(sector_orig)
@@ -330,8 +352,8 @@ class Pipeline:
                 if adm_code_col:
                     pcode = row[adm_code_cols[i]]
                     if pcode and pcode not in self._admins[i].pcodes:
-                        add_missing_value_message(
-                            self._errors,
+                        self._error_handler.add_missing_value_message(
+                            "OperationalPresence",
                             dataset_name,
                             f"admin {i+1} pcode",
                             pcode,
@@ -550,6 +572,5 @@ class Pipeline:
             return None
         return dataset
 
-    def output_errors(self):
-        for error in sorted(self._errors):
-            logger.error(error)
+    def output_errors(self, err_to_hdx: bool = False):
+        self._error_handler.output_errors(err_to_hdx)
