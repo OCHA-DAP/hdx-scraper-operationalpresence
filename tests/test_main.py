@@ -87,7 +87,9 @@ class TestOperationalPresence:
                     configuration, gsheet_auth, None, None, "spreadsheet_test"
                 )
                 countryiso3s = "BDI,LBN"
-                pipeline = Pipeline(configuration, sheet, error_handler, countryiso3s)
+                pipeline = Pipeline(
+                    configuration, sheet, error_handler, countryiso3s
+                )
                 pipeline.find_datasets_resources()
                 countryiso3s, startdate, enddate = pipeline.process()
                 assert countryiso3s == ["BDI", "LBN"]

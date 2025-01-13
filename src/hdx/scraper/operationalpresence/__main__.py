@@ -5,11 +5,10 @@ from os import getenv
 from os.path import expanduser, join
 from typing import Optional
 
-from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
-
 from ._version import __version__
 from .pipeline import Pipeline
 from hdx.api.configuration import Configuration
+from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.data.user import User
 from hdx.facades.infer_arguments import facade
 from hdx.scraper.framework.utilities.reader import Read
@@ -87,7 +86,9 @@ def main(
             if recipients is None:
                 recipients = getenv("RECIPIENTS")
             sheet = Sheet(configuration, gsheet_auth, email_server, recipients)
-            pipeline = Pipeline(configuration, sheet, error_handler, countryiso3s)
+            pipeline = Pipeline(
+                configuration, sheet, error_handler, countryiso3s
+            )
             pipeline.find_datasets_resources()
             countryiso3s, startdate, enddate = pipeline.process()
             dataset = pipeline.generate_org_dataset(temp_folder)

@@ -2,9 +2,8 @@ import re
 import traceback
 from datetime import datetime
 from logging import getLogger
-from typing import Dict, List, Optional, Tuple, NamedTuple
+from typing import Dict, List, NamedTuple, Optional, Tuple
 
-from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from slugify import slugify
 
 from .org import Org
@@ -12,6 +11,7 @@ from .org_type import OrgType
 from .sector import Sector
 from .sheet import Sheet
 from hdx.api.configuration import Configuration
+from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.data.dataset import Dataset
 from hdx.data.resource import Resource
 from hdx.location.adminlevel import AdminLevel
@@ -30,6 +30,7 @@ logger = getLogger(__name__)
 # eg. row['#date+year']=='2024' and row['#date+quarter']=='Q3'
 ROW_LOOKUP = re.compile(r"row\[['\"](.*?)['\"]\]")
 
+
 class Row(NamedTuple):
     countryiso3: str
     adm_code_0: str
@@ -45,6 +46,7 @@ class Row(NamedTuple):
     start_date: str
     end_date: str
     resource_id: str
+
 
 class Pipeline:
     def __init__(
@@ -116,7 +118,7 @@ class Pipeline:
                     f"Resource {resource_name} has url with format {format} that is different to HDX format {hdx_format}",
                     resource_name,
                     "error",
-                    True
+                    True,
                 )
         else:
             format = hdx_format
