@@ -5,11 +5,11 @@ global_all_pcodes: "https://data.humdata.org/dataset/cb963915-d7d1-4ffa-90dc-312
 
 hxltags:
     "Country ISO3": "#country+code"
-    "Admin 1 Code": "#adm1+code"
+    "Admin 1 PCode": "#adm1+code"
     "Admin 1 Name": "#adm1+name"
-    "Admin 2 Code": "#adm2+code"
+    "Admin 2 PCode": "#adm2+code"
     "Admin 2 Name": "#adm2+name"
-    "Admin 3 Code": "#adm3+code"
+    "Admin 3 PCode": "#adm3+code"
     "Admin 3 Name": "#adm3+name"
     "Org Name": "#org+name"
     "Org Acronym": "#org+acronym"

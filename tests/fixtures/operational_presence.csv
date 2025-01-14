@@ -1,4 +1,4 @@
-Country ISO3,Admin 1 Code,Admin 1 Name,Admin 2 Code,Admin 2 Name,Admin 3 Code,Admin 3 Name,Org Name,Org Acronym,Org Type,Sector,Start Date,End Date,Resource Id
+Country ISO3,Admin 1 PCode,Admin 1 Name,Admin 2 PCode,Admin 2 Name,Admin 3 PCode,Admin 3 Name,Org Name,Org Acronym,Org Type,Sector,Start Date,End Date,Resource Id
 #country+code,#adm1+code,#adm1+name,#adm2+code,#adm2+name,#adm3+code,#adm3+name,#org+name,#org+acronym,#org+type,#sector+code,#date+start,#date+end,#meta+resource_id
 BDI,,,,,,,ABMPD,ABMPD,,PRO-GBV,2021-03-31,2023-02-28,1824fca1-f7ff-43d1-b62b-8ca934425088
 BDI,,,,,,,AFV,AFV,,PRO-GBV,2021-03-31,2023-02-28,1824fca1-f7ff-43d1-b62b-8ca934425088

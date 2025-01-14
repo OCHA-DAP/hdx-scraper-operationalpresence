@@ -66,7 +66,7 @@ def main(
         raise PermissionError(
             "API Token does not give access to HDX organisation!"
         )
-    with HDXErrorHandler(should_exit_on_error=False) as error_handler:
+    with HDXErrorHandler(write_to_hdx=err_to_hdx) as error_handler:
         with temp_dir() as temp_folder:
             configuration = Configuration.read()
             today = now_utc()
@@ -125,7 +125,6 @@ def main(
                     hxl_update=False,
                     updated_by_script=updated_by_script,
                 )
-            pipeline.output_errors(err_to_hdx)
     logger.info("HDX Scraper Operational Presence pipeline completed!")
 
 

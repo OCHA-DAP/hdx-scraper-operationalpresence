@@ -58,7 +58,7 @@ gspread==6.1.4
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper
-hdx-python-api==6.3.6
+hdx-python-api==6.3.7
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper
@@ -69,7 +69,7 @@ hdx-python-country==3.8.6
     #   hdx-python-scraper
 hdx-python-scraper==2.5.1
     # via hdx-scraper-operationalpresence (pyproject.toml)
-hdx-python-utilities==3.8.0
+hdx-python-utilities==3.8.2
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-api
