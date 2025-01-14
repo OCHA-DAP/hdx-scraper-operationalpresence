@@ -4,8 +4,8 @@ name: Run script
 
 on:
   workflow_dispatch: # add run button in github
-#  schedule:
-#    - cron: "27 21 * * 6"
+  schedule:
+    - cron: "27 21 * * 6"
 
 jobs:
   run:
@@ -24,23 +24,22 @@ jobs:
         pip install .
     - name: Run script
       env:
-        HDX_SITE: ${{ secrets.HDX_SITE }}
+        HDX_SITE: ${{ vars.HDX_SITE }}
         HDX_KEY: ${{ secrets.HDX_BOT_SCRAPERS_API_TOKEN }}
-        PREPREFIX: ${{ secrets.PREPREFIX }}
-        USER_AGENT: ${{ secrets.USER_AGENT }}
-        EXTRA_PARAMS: ${{ secrets.EXTRA_PARAMS }}
+        PREPREFIX: ${{ vars.HDX_USER_AGENT_PREPREFIX }}
+        USER_AGENT: ${{ vars.USER_AGENT }}
       run: |
         python -m hdx.scraper.operationalpresence
     - name: Send mail
       if: failure()
       uses: dawidd6/action-send-mail@v3
       with:
-        server_address: ${{secrets.EMAIL_SERVER}}
-        server_port: ${{secrets.EMAIL_PORT}}
-        username: ${{secrets.EMAIL_USERNAME}}
-        password: ${{secrets.EMAIL_PASSWORD}}
+        server_address: ${{secrets.HDX_PIPELINE_EMAIL_SERVER}}
+        server_port: ${{secrets.HDX_PIPELINE_EMAIL_PORT}}
+        username: ${{secrets.HDX_PIPELINE_EMAIL_USERNAME}}
+        password: ${{secrets.HDX_PIPELINE_EMAIL_PASSWORD}}
         subject: "FAILED: ${{github.repository}} run job"
         body: GitHub Actions run job for ${{github.repository}} failed!
-        to: ${{secrets.EMAIL_LIST}}
-        from: ${{secrets.EMAIL_FROM}}
+        to: ${{vars.HDX_PIPELINE_EMAIL_LIST}}
+        from: ${{secrets.HDX_PIPELINE_EMAIL_FROM}}
         content_type: text/html
