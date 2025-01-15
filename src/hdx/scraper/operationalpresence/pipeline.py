@@ -8,7 +8,6 @@ from slugify import slugify
 
 from .org import Org
 from .org_type import OrgType
-from .sector import Sector
 from .sheet import Sheet
 from hdx.api.configuration import Configuration
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
@@ -16,6 +15,7 @@ from hdx.data.dataset import Dataset
 from hdx.data.resource import Resource
 from hdx.location.adminlevel import AdminLevel
 from hdx.scraper.framework.utilities.reader import Read
+from hdx.scraper.framework.utilities.sector import Sector
 from hdx.utilities.dateparse import (
     default_date,
     default_enddate,
@@ -88,10 +88,7 @@ class Pipeline:
             org_type=self._org_type,
             error_handler=error_handler,
         )
-        self._sector = Sector(
-            datasetinfo=configuration["sector"],
-            sector_map=configuration["sector_map"],
-        )
+        self._sector = Sector()
         self._rows = set()
         self._errors = set()
 
