@@ -311,6 +311,13 @@ class Pipeline:
                 continue
             sector_code = self._sector.get_sector_code(sector_orig)
             if not sector_code:
+                self._error_handler.add_missing_value_message(
+                    "OperationalPresence",
+                    dataset_name,
+                    "sector",
+                    sector_orig,
+                    message_type="warning",
+                )
                 continue
 
             # * Org processing
