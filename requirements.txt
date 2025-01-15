@@ -67,7 +67,7 @@ hdx-python-country==3.8.6
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-api
     #   hdx-python-scraper
-hdx-python-scraper==2.5.2
+hdx-python-scraper==2.5.4
     # via hdx-scraper-operationalpresence (pyproject.toml)
 hdx-python-utilities==3.8.2
     # via
@@ -268,7 +268,7 @@ urllib3==2.3.0
     #   requests
 validators==0.34.0
     # via frictionless
-virtualenv==20.28.1
+virtualenv==20.29.0
     # via pre-commit
 wheel==0.45.1
     # via libhxl

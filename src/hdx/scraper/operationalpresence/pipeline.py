@@ -306,7 +306,6 @@ class Pipeline:
                     "OperationalPresence",
                     dataset_name,
                     f"org {org_str} missing sector",
-                    message_type="warning",
                 )
                 continue
             sector_code = self._sector.get_sector_code(sector_orig)
@@ -316,7 +315,6 @@ class Pipeline:
                     dataset_name,
                     "sector",
                     sector_orig,
-                    message_type="warning",
                 )
                 continue
 
@@ -577,6 +575,3 @@ class Pipeline:
             logger.warning(f"{title} has no data!")
             return None
         return dataset
-
-    def output_errors(self, err_to_hdx: bool = False):
-        self._error_handler.output_errors(err_to_hdx)

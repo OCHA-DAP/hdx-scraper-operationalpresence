@@ -66,7 +66,7 @@ class TestOperationalPresence:
         fixtures_dir,
         input_dir,
     ):
-        with HDXErrorHandler(should_exit_on_error=False) as error_handler:
+        with HDXErrorHandler() as error_handler:
             with temp_dir(
                 "TestOperationalPresence",
                 delete_on_success=True,
