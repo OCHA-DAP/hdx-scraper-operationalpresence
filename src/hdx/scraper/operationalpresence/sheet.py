@@ -76,7 +76,7 @@ class Sheet:
                 email_config_dict["sender"] = email_config[5]
             self._emailer = Email(email_config_dict=email_config_dict)
             logger.info(f"> Email host: {email_config[1]}")
-            self._recipients = recipients
+            self._recipients = recipients.split(",")
         else:
             self._emailer = None
             self._recipients = None
