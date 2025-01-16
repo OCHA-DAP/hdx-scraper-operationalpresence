@@ -220,6 +220,7 @@ class Pipeline:
             datasetinfo["source_date"] = {"start": start_date, "end": end_date}
         resource = self._reader.read_hdx_metadata(datasetinfo)
         resource_name = resource["name"]
+        rows = []
         success, format = self.get_format(dataset_name, resource)
         if not success:
             self._error_handler.add_message(
@@ -232,15 +233,7 @@ class Pipeline:
         filename = self._reader.construct_filename(resource_name, format)
         datasetinfo["filename"] = filename
         datasetinfo["format"] = format
-        try:
-            headers, iterator = self._reader.read_tabular(datasetinfo)
-        except Exception:
-            self._error_handler.add_message(
-                "OperationalPresence",
-                dataset_name,
-                traceback.format_exc(),
-            )
-            return False
+        headers, iterator = self._reader.read_tabular(datasetinfo)
         filter = datasetinfo["Filter"]
         if datasetinfo["use_hxl"]:
             header_to_hxltag = next(iterator)
@@ -317,6 +310,8 @@ class Pipeline:
                     sector_orig,
                 )
                 continue
+            row[sector_col] = sector_code
+            rows.append(row)
 
             # * Org processing
             org_info = self._org.get_org_info(org_str, location=countryiso3)
@@ -333,6 +328,7 @@ class Pipeline:
                     dataset_name,
                 )
         logger.info(f"{norows} rows preprocessed from {dataset_name}")
+        datasetinfo["rows"] = rows
         return True
 
     def get_adm_info(
@@ -402,32 +398,15 @@ class Pipeline:
         end_date = datasetinfo["time_period"]["end"]
         start_date_str = iso_string_from_datetime(start_date)
         end_date_str = iso_string_from_datetime(end_date)
-        headers, iterator = self._reader.read_tabular(datasetinfo)
-        norowsin = 0
         output_rows = set()
-        if datasetinfo["use_hxl"]:
-            next(iterator)
-        filter = datasetinfo["Filter"]
-        for row in iterator:
-            if filter:
-                if not eval(filter):
-                    continue
-            norowsin += 1
-            sector_orig = row[sector_col]
-            if not sector_orig:
-                continue
-            # Skip rows that are missing a sector
-            sector_code = self._sector.get_sector_code(sector_orig)
-            if not sector_code:
-                continue
+        rows = datasetinfo["rows"]
+        for row in rows:
+            sector_code = row[sector_col]
             # * Org processing
             org_str = row[org_name_col]
             org_acronym = row[org_acronym_col]
             if not org_str:
                 org_str = org_acronym
-            # Skip rows with no org name or acronym
-            if not org_str:
-                continue
             org_info = self._org.get_org_info(org_str, location=countryiso3)
 
             # * Adm processing
@@ -454,9 +433,10 @@ class Pipeline:
             )
             output_rows.add(output_row)
         logger.info(
-            f"{norowsin} rows processed from {dataset_name} producing {len(output_rows)} rows."
+            f"{len(rows)} rows processed from {dataset_name} producing {len(output_rows)} rows."
         )
         self._rows.update(output_rows)
+        del datasetinfo["rows"]
         return start_date, end_date
 
     def process(self) -> Tuple[List, datetime, datetime]:
@@ -474,9 +454,17 @@ class Pipeline:
                 continue
             datasetinfo = self._sheet.get_datasetinfo(countryiso3)
             if datasetinfo:
-                success = self.preprocess_country(countryiso3, datasetinfo)
-                if success:
-                    iso3_to_datasetinfo[countryiso3] = datasetinfo
+                try:
+                    success = self.preprocess_country(countryiso3, datasetinfo)
+                    if success:
+                        iso3_to_datasetinfo[countryiso3] = datasetinfo
+                except Exception:
+                    self._error_handler.add_message(
+                        "OperationalPresence",
+                        datasetinfo["dataset"],
+                        traceback.format_exc(),
+                    )
+
         for countryiso3, datasetinfo in iso3_to_datasetinfo.items():
             start_date, end_date = self.process_country(
                 countryiso3, datasetinfo
