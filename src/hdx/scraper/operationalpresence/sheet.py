@@ -105,33 +105,42 @@ class Sheet:
         resource_format: str,
         resource_url_format: Optional[str],
     ) -> None:
-        if resource_url_format and resource_url_format != resource_format:
-            text = f"Resource {resource_name} has url with format {resource_url_format} that is different to HDX format {resource_format}"
-            logger.warning(text)
-            self.email_text.append(text)
         row = self.spreadsheet_rows.get(countryiso3)
         if row is None:
+            changed = True
             row = [countryiso3, dataset_name, resource_name, resource_format]
             self.spreadsheet_rows[countryiso3] = row
         else:
+            changed = False
             current_dataset = row[self.automated_dataset_ind]
             if current_dataset != dataset_name:
+                changed = True
                 text = f"{countryiso3}: Updating dataset from {current_dataset} to {dataset_name}"
                 logger.info(text)
                 self.email_text.append(text)
                 row[self.automated_dataset_ind] = dataset_name
             current_resource = row[self.automated_resource_ind]
             if current_resource != resource_name:
+                changed = True
                 text = f"{countryiso3}: Updating resource from {current_resource} to {resource_name}"
                 logger.info(text)
                 self.email_text.append(text)
                 row[self.automated_resource_ind] = resource_name
             current_format = row[self.automated_format_ind]
             if current_format != resource_format:
+                changed = True
                 text = f"{countryiso3}: Updating resource format from {current_format} to {resource_format}"
                 logger.info(text)
                 self.email_text.append(text)
                 row[self.automated_format_ind] = resource_format
+        if (
+            changed
+            and resource_url_format
+            and resource_url_format != resource_format
+        ):
+            text = f"Resource {resource_name} has url with format {resource_url_format} that is different to HDX format {resource_format}"
+            logger.warning(text)
+            self.email_text.append(text)
 
     def write(self, countryiso3s: List) -> None:
         if self.sheet is None:
