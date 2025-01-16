@@ -106,9 +106,7 @@ class Sheet:
         resource_url_format: Optional[str],
     ) -> None:
         if resource_url_format and resource_url_format != resource_format:
-            text = (
-                f"Resource {resource_name} has url with format {resource_url_format} that is different to HDX format {resource_format}",
-            )
+            text = f"Resource {resource_name} has url with format {resource_url_format} that is different to HDX format {resource_format}"
             logger.warning(text)
             self.email_text.append(text)
         row = self.spreadsheet_rows.get(countryiso3)
