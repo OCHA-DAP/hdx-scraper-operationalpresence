@@ -28,6 +28,9 @@ jobs:
         HDX_KEY: ${{ secrets.HDX_BOT_SCRAPERS_API_TOKEN }}
         PREPREFIX: ${{ vars.HDX_USER_AGENT_PREPREFIX }}
         USER_AGENT: ${{ vars.USER_AGENT }}
+        GSHEET_AUTH: ${{ secrets.HDX_PIPELINE_GSHEET_AUTH }}
+        EMAIL_SERVER: ${{ format('ssl,{0},{1},{2},{3},{4},operationalpresence@humdata.org',  secrets.HDX_PIPELINE_EMAIL_SERVER, secrets.HDX_PIPELINE_EMAIL_PORT, secrets.HDX_PIPELINE_EMAIL_USERNAME, secrets.HDX_PIPELINE_EMAIL_PASSWORD) }}
+        RECIPIENTS: ${{vars.HDX_PIPELINE_EMAIL_LIST}}
       run: |
         python -m hdx.scraper.operationalpresence
     - name: Send mail
