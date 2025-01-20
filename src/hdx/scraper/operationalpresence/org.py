@@ -6,8 +6,8 @@ from os.path import join
 from typing import Dict, NamedTuple, Optional, Set
 
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
+from hdx.scraper.framework.utilities.org_type import OrgType
 from hdx.scraper.framework.utilities.reader import Read
-from hdx.scraper.operationalpresence.org_type import OrgType
 from hdx.utilities.dictandlist import write_list_to_csv
 from hdx.utilities.text import normalise
 
@@ -35,11 +35,10 @@ class Org:
     def __init__(
         self,
         datasetinfo: Dict[str, str],
-        org_type: OrgType,
         error_handler: HDXErrorHandler,
     ):
         self._datasetinfo = datasetinfo
-        self._org_type = org_type
+        self._org_type = OrgType()
         self._error_handler = error_handler
         self.data = {}
         self._org_map = {}
@@ -154,7 +153,7 @@ class Org:
 
         # * Org type processing
         if not org_info.type_code and org_type_name:
-            org_type_code = self._org_type.get_org_type_code(org_type_name)
+            org_type_code = self._org_type.get_code(org_type_name)
             if org_type_code:
                 org_info.type_code = org_type_code
             else:

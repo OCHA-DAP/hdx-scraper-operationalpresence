@@ -7,7 +7,6 @@ from typing import Dict, List, NamedTuple, Optional, Tuple
 from slugify import slugify
 
 from .org import Org
-from .org_type import OrgType
 from .sheet import Sheet
 from hdx.api.configuration import Configuration
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
@@ -79,13 +78,8 @@ class Pipeline:
                 )
             admin.load_pcode_formats()
             self._admins.append(admin)
-        self._org_type = OrgType(
-            datasetinfo=configuration["org_type"],
-            org_type_map=configuration["org_type_map"],
-        )
         self._org = Org(
             datasetinfo=configuration["org"],
-            org_type=self._org_type,
             error_handler=error_handler,
         )
         self._sector = Sector()
@@ -301,7 +295,7 @@ class Pipeline:
                     f"org {org_str} missing sector",
                 )
                 continue
-            sector_code = self._sector.get_sector_code(sector_orig)
+            sector_code = self._sector.get_code(sector_orig)
             if not sector_code:
                 self._error_handler.add_missing_value_message(
                     "OperationalPresence",
@@ -441,8 +435,6 @@ class Pipeline:
 
     def process(self) -> Tuple[List, datetime, datetime]:
         self._org.populate()
-        self._org_type.populate()
-        self._sector.populate()
         earliest_start_date = default_enddate
         latest_end_date = default_date
         iso3_to_datasetinfo = {}
