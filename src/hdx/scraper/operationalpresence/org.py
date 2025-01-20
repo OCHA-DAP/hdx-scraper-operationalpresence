@@ -3,7 +3,7 @@
 import logging
 from dataclasses import dataclass
 from os.path import join
-from typing import Dict, NamedTuple, Optional, Set
+from typing import Dict, NamedTuple, Optional
 
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.scraper.framework.utilities.org_type import OrgType
@@ -21,8 +21,8 @@ class OrgInfo:
     acronym: str  # can be ""
     normalised_acronym: str  # can be ""
     type_code: str  # can be ""
-    used: bool = False
     complete: bool = False
+    used: bool = False
 
 
 class OrgData(NamedTuple):
@@ -68,12 +68,17 @@ class Org:
                 normalised_acronym = None
             org_name = row["#x_pattern"]
             type_code = row["#org+type+code"]
+            if acronym and type_code:
+                complete = True
+            else:
+                complete = False
             org_info = OrgInfo(
-                canonical_name,
-                normalised_name,
-                acronym,
-                normalised_acronym,
-                type_code,
+                canonical_name=canonical_name,
+                normalised_name=normalised_name,
+                acronym=acronym,
+                normalised_acronym=normalised_acronym,
+                type_code=type_code,
+                complete=complete,
             )
             self._org_map[(country_code, canonical_name)] = org_info
             self._org_map[(country_code, normalised_name)] = org_info
@@ -142,7 +147,6 @@ class Org:
         org_info: OrgInfo,
         org_acronym: Optional[str],
         org_type_name: Optional[str],
-        errors: Set[str],
         dataset_name: str,
     ):
         if not org_info.acronym and org_acronym:
@@ -165,10 +169,7 @@ class Org:
                     message_type="warning",
                 )
 
-        # * Org matching
-        self.add_or_match_org(org_info)
-
-    def output_org_map(self, folder: str) -> None:
+    def output_org_map(self, folder: str) -> str:
         rows = [
             (
                 "Country Code",
@@ -178,8 +179,8 @@ class Org:
                 "Acronym",
                 "Normalised Acronym",
                 "Type Code",
-                "Used",
                 "Complete",
+                "Used",
             )
         ]
         for key, org_info in self._org_map.items():
@@ -193,8 +194,10 @@ class Org:
                     org_info.acronym,
                     org_info.normalised_acronym,
                     org_info.type_code,
-                    "Y" if org_info.used else "N",
                     "Y" if org_info.complete else "N",
+                    "Y" if org_info.used else "N",
                 )
             )
-        write_list_to_csv(join(folder, "org_map.csv"), rows)
+        path = join(folder, "org_map.csv")
+        write_list_to_csv(path, rows)
+        return path

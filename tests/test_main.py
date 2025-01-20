@@ -161,3 +161,7 @@ class TestOperationalPresence:
                 expected_file = join(fixtures_dir, filename)
                 actual_file = join(temp_folder, filename)
                 assert_files_same(expected_file, actual_file)
+
+                expected_file = join(fixtures_dir, "org_map.csv")
+                actual_file = pipeline._org.output_org_map(temp_folder)
+                assert_files_same(expected_file, actual_file)
