@@ -319,9 +319,11 @@ class Pipeline:
                     org_info,
                     org_acronym,
                     org_type_name,
-                    self._errors,
                     dataset_name,
                 )
+            # * Org matching
+            self._org.add_or_match_org(org_info)
+
         logger.info(f"{norows} rows preprocessed from {dataset_name}")
         datasetinfo["rows"] = rows
         return True

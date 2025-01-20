@@ -1,0 +1,541 @@
+Country Code,Lookup,Canonical Name,Normalised Name,Acronym,Normalised Acronym,Type Code,Complete,Used
+,United Nations Children's Fund,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,united nations childrens fund,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,UNICEF,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,unicef,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,Fonds des Nations Unies pour l'Enfance,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,fonds des nations unies pour lenfance,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,United Nations Children's Emergency Fund,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,united nations childrens emergency fund,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,Fond des Nations Unies pour l'Enfance,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,fond des nations unies pour lenfance,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,United Nations International Childrens Emergency Fund,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,united nations international childrens emergency fund,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,UNICEF - Fondo de las Naciones Unidas para la Infancia,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,unicef fondo de las naciones unidas para la infancia,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,N
+,World Health Organization,World Health Organization,world health organization,WHO,who,447,Y,N
+,world health organization,World Health Organization,world health organization,WHO,who,447,Y,N
+,WHO,World Health Organization,world health organization,WHO,who,447,Y,N
+,who,World Health Organization,world health organization,WHO,who,447,Y,N
+,Organisation Mondiale de la Santé,World Health Organization,world health organization,WHO,who,447,Y,N
+,organisation mondiale de la sante,World Health Organization,world health organization,WHO,who,447,Y,N
+,International Rescue Committee,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,international rescue committee,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,IRC,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,irc,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,International Rescue Comity,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,international rescue comity,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,World Food Programme,World Food Programme,world food programme,WFP,wfp,447,Y,Y
+,world food programme,World Food Programme,world food programme,WFP,wfp,447,Y,Y
+,WFP,World Food Programme,world food programme,WFP,wfp,447,Y,Y
+,wfp,World Food Programme,world food programme,WFP,wfp,447,Y,Y
+,Programme Alimentaire Mondial,World Food Programme,world food programme,WFP,wfp,447,Y,N
+,programme alimentaire mondial,World Food Programme,world food programme,WFP,wfp,447,Y,N
+,PAM,World Food Programme,world food programme,WFP,wfp,447,Y,N
+,pam,World Food Programme,world food programme,WFP,wfp,447,Y,N
+,Population Services International,Population Services International,population services international,PSI,psi,437,Y,N
+,population services international,Population Services International,population services international,PSI,psi,437,Y,N
+,PSI,Population Services International,population services international,PSI,psi,437,Y,N
+,psi,Population Services International,population services international,PSI,psi,437,Y,N
+,Population Service International,Population Services International,population services international,PSI,psi,437,Y,N
+,population service international,Population Services International,population services international,PSI,psi,437,Y,N
+,Catholic Relief Services,Catholic Relief Services,catholic relief services,CRS,crs,437,Y,N
+,catholic relief services,Catholic Relief Services,catholic relief services,CRS,crs,437,Y,N
+,CRS,Catholic Relief Services,catholic relief services,CRS,crs,437,Y,N
+,crs,Catholic Relief Services,catholic relief services,CRS,crs,437,Y,N
+,Catholic Relief Service,Catholic Relief Services,catholic relief services,CRS,crs,437,Y,N
+,catholic relief service,Catholic Relief Services,catholic relief services,CRS,crs,437,Y,N
+,Catholic Relief Services (CRS),Catholic Relief Services,catholic relief services,CRS,crs,437,Y,N
+,catholic relief services crs,Catholic Relief Services,catholic relief services,CRS,crs,437,Y,N
+,Norwegian Refugee Council,Norwegian Refugee Council,norwegian refugee council,NRC,nrc,437,Y,N
+,norwegian refugee council,Norwegian Refugee Council,norwegian refugee council,NRC,nrc,437,Y,N
+,NRC,Norwegian Refugee Council,norwegian refugee council,NRC,nrc,437,Y,N
+,nrc,Norwegian Refugee Council,norwegian refugee council,NRC,nrc,437,Y,N
+,Danish Refugee Council,Danish Refugee Council,danish refugee council,DRC,drc,437,Y,N
+,danish refugee council,Danish Refugee Council,danish refugee council,DRC,drc,437,Y,N
+,DRC,Danish Refugee Council,danish refugee council,DRC,drc,437,Y,N
+,drc,Danish Refugee Council,danish refugee council,DRC,drc,437,Y,N
+MLI,Muso,Muso,muso,,,441,N,N
+MLI,muso,Muso,muso,,,441,N,N
+MLI,,Muso,muso,,,441,N,N
+MLI,ONG MUSO,Muso,muso,,,441,N,N
+MLI,ong muso,Muso,muso,,,441,N,N
+,Marie Stopes International,Marie Stopes International,marie stopes international,MSI,msi,437,Y,N
+,marie stopes international,Marie Stopes International,marie stopes international,MSI,msi,437,Y,N
+,MSI,Marie Stopes International,marie stopes international,MSI,msi,437,Y,N
+,msi,Marie Stopes International,marie stopes international,MSI,msi,437,Y,N
+,Association Malienne pour la Protection de l'Environnement,Association Malienne pour la Protection de l'Environnement,association malienne pour la protection de lenvironnement,STOP-SAHEL,stop sahel,441,Y,N
+,association malienne pour la protection de lenvironnement,Association Malienne pour la Protection de l'Environnement,association malienne pour la protection de lenvironnement,STOP-SAHEL,stop sahel,441,Y,N
+,STOP-SAHEL,Association Malienne pour la Protection de l'Environnement,association malienne pour la protection de lenvironnement,STOP-SAHEL,stop sahel,441,Y,N
+,stop sahel,Association Malienne pour la Protection de l'Environnement,association malienne pour la protection de lenvironnement,STOP-SAHEL,stop sahel,441,Y,N
+,Association Malienne pour la Protection et le Développement de l'Environnement du Sahel,Association Malienne pour la Protection de l'Environnement,association malienne pour la protection de lenvironnement,STOP-SAHEL,stop sahel,441,Y,N
+,association malienne pour la protection et le developpement de lenvironnement du sahel,Association Malienne pour la Protection de l'Environnement,association malienne pour la protection de lenvironnement,STOP-SAHEL,stop sahel,441,Y,N
+,United Nations Population Fund,United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,N
+,united nations population fund,United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,N
+,UNFPA,United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,N
+,unfpa,United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,N
+,Fonds des Nations Unies pour la Population,United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,N
+,fonds des nations unies pour la population,United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,N
+,UNFPA - United Nations Population Fund,United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,N
+,unfpa united nations population fund,United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,N
+,Plan International,Plan International,plan international,PI,pi,437,Y,Y
+,plan international,Plan International,plan international,PI,pi,437,Y,Y
+,PI,Plan International,plan international,PI,pi,437,Y,Y
+,pi,Plan International,plan international,PI,pi,437,Y,Y
+,International Committee of the Red Cross,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,international committee of the red cross,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,ICRC,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,icrc,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,Comité International de la Croix Rouge,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,comite international de la croix rouge,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,International Organization for Migration,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,international organization for migration,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,IOM,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,iom,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,International Organisation for Migrations,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,international organisation for migrations,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,INTERNATIONALE ORGANISATION FOR MIGRATION,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,internationale organisation for migration,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,Organisation Internationale des Migrations,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,organisation internationale des migrations,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,OIM - International Organization for Migration,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,oim international organization for migration,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,Organisation Internationale pour les Migrations,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,organisation internationale pour les migrations,International Organization for Migration,international organization for migration,IOM,iom,447,Y,N
+,International Medical Corps,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
+,international medical corps,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
+,IMC,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
+,imc,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
+,Food and Agriculture Organization,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,food and agriculture organization,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,FAO,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,fao,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,Organisation des Nations Unies pour l'Alimentation et l'Agriculture,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,organisation des nations unies pour lalimentation et lagriculture,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,FAO - Food & Agriculture Organization of the United Nations,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,fao food agriculture organization of the united nations,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,Fond des Nations Unies pour l'Agriculture,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,fond des nations unies pour lagriculture,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,Food & Agriculture Organization of the United Nations,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,food agriculture organization of the united nations,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,Food Agricultural organization,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,food agricultural organization,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,Food and Agriculture Organization of the United Nations,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,food and agriculture organization of the united nations,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,Food and Agriculture Organisation,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,food and agriculture organisation,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,N
+,Save the Children International,Save the Children International,save the children international,SCI,sci,437,Y,Y
+,save the children international,Save the Children International,save the children international,SCI,sci,437,Y,Y
+,SCI,Save the Children International,save the children international,SCI,sci,437,Y,Y
+,sci,Save the Children International,save the children international,SCI,sci,437,Y,Y
+,Save the Children Federation International,Save the Children International,save the children international,SCI,sci,437,Y,N
+,save the children federation international,Save the Children International,save the children international,SCI,sci,437,Y,N
+,Save The Children International,Save the Children International,save the children international,SCI,sci,437,Y,N
+,Save the Children,Save the Children International,save the children international,SCI,sci,437,Y,N
+,save the children,Save the Children International,save the children international,SCI,sci,437,Y,N
+,SC - Save the Children,Save the Children International,save the children international,SCI,sci,437,Y,Y
+,sc save the children,Save the Children International,save the children international,SCI,sci,437,Y,Y
+,Action against Hunger - Spain,Action against Hunger - Spain,action against hunger spain,ACF Spain,acf spain,437,Y,N
+,action against hunger spain,Action against Hunger - Spain,action against hunger spain,ACF Spain,acf spain,437,Y,N
+,ACF Spain,Action against Hunger - Spain,action against hunger spain,ACF Spain,acf spain,437,Y,N
+,acf spain,Action against Hunger - Spain,action against hunger spain,ACF Spain,acf spain,437,Y,N
+,Action Contre la Faim-Espagne,Action against Hunger - Spain,action against hunger spain,ACF Spain,acf spain,437,Y,N
+,action contre la faim espagne,Action against Hunger - Spain,action against hunger spain,ACF Spain,acf spain,437,Y,N
+,Action against Hunger,Action against Hunger,action against hunger,ACF,acf,437,Y,N
+,action against hunger,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
+,ACF,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
+,acf,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
+,Acción Contra el Hambre,Action against Hunger,action against hunger,ACF,acf,437,Y,N
+,accion contra el hambre,Action against Hunger,action against hunger,ACF,acf,437,Y,N
+,ACH,Action against Hunger,action against hunger,ACF,acf,437,Y,N
+,ach,Action against Hunger,action against hunger,ACF,acf,437,Y,N
+,Action Against Hunger,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
+,Action Contre la Faim,Action against Hunger,action against hunger,ACF,acf,437,Y,N
+,action contre la faim,Action against Hunger,action against hunger,ACF,acf,437,Y,N
+,Action against Hunger - US,Action against Hunger - US,action against hunger us,ACF - US,acf us,437,Y,N
+,action against hunger us,Action against Hunger - US,action against hunger us,ACF - US,acf us,437,Y,N
+,ACF - US,Action against Hunger - US,action against hunger us,ACF - US,acf us,437,Y,N
+,acf us,Action against Hunger - US,action against hunger us,ACF - US,acf us,437,Y,N
+,Action Against Hunger | ACF-USA,Action against Hunger - US,action against hunger us,ACF - US,acf us,437,Y,N
+,action against hunger acf usa,Action against Hunger - US,action against hunger us,ACF - US,acf us,437,Y,N
+,Mali Red Cross,Mali Red Cross,mali red cross,,,441,N,N
+,mali red cross,Mali Red Cross,mali red cross,,,441,N,N
+,,Action Education,action education,,,437,N,N
+,Croix Rouge Malienne,Mali Red Cross,mali red cross,,,441,N,N
+,croix rouge malienne,Mali Red Cross,mali red cross,,,441,N,N
+,World Food Program,World Food Programme,world food programme,WFP,wfp,447,Y,N
+,world food program,World Food Programme,world food programme,WFP,wfp,447,Y,N
+,World Vision International,World Vision International,world vision international,WVI,wvi,437,Y,N
+,world vision international,World Vision International,world vision international,WVI,wvi,437,Y,N
+,WVI,World Vision International,world vision international,WVI,wvi,437,Y,N
+,wvi,World Vision International,world vision international,WVI,wvi,437,Y,N
+,World Vision,World Vision International,world vision international,WVI,wvi,437,Y,Y
+,world vision,World Vision International,world vision international,WVI,wvi,437,Y,Y
+,World Vision Interationale,World Vision International,world vision international,WVI,wvi,437,Y,N
+,world vision interationale,World Vision International,world vision international,WVI,wvi,437,Y,N
+,Action Education,Action Education,action education,,,437,N,N
+,action education,Action Education,action education,,,437,N,N
+,CARE International,CARE International,care international,CARE,care,437,Y,N
+,care international,CARE International,care international,CARE,care,437,Y,N
+,CARE,CARE International,care international,CARE,care,437,Y,N
+,care,CARE International,care international,CARE,care,437,Y,N
+,UN Refugee Agency,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,un refugee agency,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,UNHCR,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,unhcr,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,United Nations High Commissioner for Refugees,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,united nations high commissioner for refugees,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,United Nations High Commisionner for Refugees,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,united nations high commisionner for refugees,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,Haut Commissariat des Nations Unies pour les Réfugiés,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,haut commissariat des nations unies pour les refugies,UN Refugee Agency,un refugee agency,UNHCR,unhcr,447,Y,N
+,INTERNATIONAL MEDICAL CORPS,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
+,Mercy Corps International,Mercy Corps International,mercy corps international,MCI,mci,437,Y,N
+,mercy corps international,Mercy Corps International,mercy corps international,MCI,mci,437,Y,N
+,MCI,Mercy Corps International,mercy corps international,MCI,mci,437,Y,N
+,mci,Mercy Corps International,mercy corps international,MCI,mci,437,Y,N
+,Mercy Corps,Mercy Corps International,mercy corps international,MCI,mci,437,Y,N
+,mercy corps,Mercy Corps International,mercy corps international,MCI,mci,437,Y,N
+,Aga Khan Foundation,Aga Khan Foundation,aga khan foundation,AKF,akf,438,Y,N
+,aga khan foundation,Aga Khan Foundation,aga khan foundation,AKF,akf,438,Y,N
+,AKF,Aga Khan Foundation,aga khan foundation,AKF,akf,438,Y,N
+,akf,Aga Khan Foundation,aga khan foundation,AKF,akf,438,Y,N
+,United Nations Office for the Coordination of Humanitarian Affairs,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,united nations office for the coordination of humanitarian affairs,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,OCHA,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,ocha,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,Bureau des Nations Unies pour la Coordination des Affaires Humanitaires,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,bureau des nations unies pour la coordination des affaires humanitaires,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,Bureau des Nation Unies pour la Coordination des Affaires Humanitaires,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,bureau des nation unies pour la coordination des affaires humanitaires,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,Bureau de la coordination des affaires humanitaires,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,bureau de la coordination des affaires humanitaires,United Nations Office for the Coordination of Humanitarian Affairs,united nations office for the coordination of humanitarian affairs,OCHA,ocha,447,Y,N
+,Islamic Relief Worldwide,Islamic Relief Worldwide,islamic relief worldwide,IR,ir,437,Y,N
+,islamic relief worldwide,Islamic Relief Worldwide,islamic relief worldwide,IR,ir,437,Y,N
+,IR,Islamic Relief Worldwide,islamic relief worldwide,IR,ir,437,Y,N
+,ir,Islamic Relief Worldwide,islamic relief worldwide,IR,ir,437,Y,N
+,Islamic Relief,Islamic Relief Worldwide,islamic relief worldwide,IR,ir,437,Y,N
+,islamic relief,Islamic Relief Worldwide,islamic relief worldwide,IR,ir,437,Y,N
+,Médecins du Monde,Médecins du Monde,medecins du monde,MDM,mdm,437,Y,N
+,medecins du monde,Médecins du Monde,medecins du monde,MDM,mdm,437,Y,N
+,MDM,Médecins du Monde,medecins du monde,MDM,mdm,437,Y,N
+,mdm,Médecins du Monde,medecins du monde,MDM,mdm,437,Y,N
+,Terre des Hommes,Terre des Hommes,terre des hommes,TdH,tdh,437,Y,N
+,terre des hommes,Terre des Hommes,terre des hommes,TdH,tdh,437,Y,N
+,TdH,Terre des Hommes,terre des hommes,TdH,tdh,437,Y,N
+,tdh,Terre des Hommes,terre des hommes,TdH,tdh,437,Y,N
+AFG,Organization for Coordination of Humanitarian Relief,Organization for Coordination of Humanitarian Relief,organization for coordination of humanitarian relief,OCHR,ochr,441,Y,N
+AFG,organization for coordination of humanitarian relief,Organization for Coordination of Humanitarian Relief,organization for coordination of humanitarian relief,OCHR,ochr,441,Y,N
+AFG,OCHR,Organization for Coordination of Humanitarian Relief,organization for coordination of humanitarian relief,OCHR,ochr,441,Y,N
+AFG,ochr,Organization for Coordination of Humanitarian Relief,organization for coordination of humanitarian relief,OCHR,ochr,441,Y,N
+,Doctors Without Borders,Doctors Without Borders,doctors without borders,MSF,msf,437,Y,N
+,doctors without borders,Doctors Without Borders,doctors without borders,MSF,msf,437,Y,N
+,MSF,Doctors Without Borders,doctors without borders,MSF,msf,437,Y,N
+,msf,Doctors Without Borders,doctors without borders,MSF,msf,437,Y,N
+,Médecins Sans Frontière,Doctors Without Borders,doctors without borders,MSF,msf,437,Y,N
+,medecins sans frontiere,Doctors Without Borders,doctors without borders,MSF,msf,437,Y,N
+,Medecins Sans Frontieres (Doctors Without Borders),Doctors Without Borders,doctors without borders,MSF,msf,437,Y,N
+,medecins sans frontieres doctors without borders,Doctors Without Borders,doctors without borders,MSF,msf,437,Y,N
+,Doctors Without Borders France,Doctors Without Borders France,doctors without borders france,MSF-F,msf f,437,Y,N
+,doctors without borders france,Doctors Without Borders France,doctors without borders france,MSF-F,msf f,437,Y,N
+,MSF-F,Doctors Without Borders France,doctors without borders france,MSF-F,msf f,437,Y,N
+,msf f,Doctors Without Borders France,doctors without borders france,MSF-F,msf f,437,Y,N
+,Médecins Sans Frontière-France,Doctors Without Borders France,doctors without borders france,MSF-F,msf f,437,Y,N
+,medecins sans frontiere france,Doctors Without Borders France,doctors without borders france,MSF-F,msf f,437,Y,N
+,Médecins sans frontières France,Doctors Without Borders France,doctors without borders france,MSF-F,msf f,437,Y,N
+,medecins sans frontieres france,Doctors Without Borders France,doctors without borders france,MSF-F,msf f,437,Y,N
+,Doctors Without Borders Holland,Doctors Without Borders Holland,doctors without borders holland,MSF-H,msf h,437,Y,N
+,doctors without borders holland,Doctors Without Borders Holland,doctors without borders holland,MSF-H,msf h,437,Y,N
+,MSF-H,Doctors Without Borders Holland,doctors without borders holland,MSF-H,msf h,437,Y,N
+,msf h,Doctors Without Borders Holland,doctors without borders holland,MSF-H,msf h,437,Y,N
+,Médecins sans frontières Hollande,Doctors Without Borders Holland,doctors without borders holland,MSF-H,msf h,437,Y,N
+,medecins sans frontieres hollande,Doctors Without Borders Holland,doctors without borders holland,MSF-H,msf h,437,Y,N
+,Médecins sans frontières Holland,Doctors Without Borders Holland,doctors without borders holland,MSF-H,msf h,437,Y,N
+,medecins sans frontieres holland,Doctors Without Borders Holland,doctors without borders holland,MSF-H,msf h,437,Y,N
+,Doctors Without Borders Switzerland,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,N
+,doctors without borders switzerland,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,N
+,MSF-CH,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,N
+,msf ch,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,N
+,Médecins sans frontières Switezerland,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,N
+,medecins sans frontieres switezerland,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,N
+,Médecins sans frontières Suisse,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,N
+,medecins sans frontieres suisse,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,N
+,United Nations Office for Project Services,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,N
+,united nations office for project services,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,N
+,UNOPS,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,N
+,unops,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,N
+,INTERSOS - Humanitarian Aid Organization,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
+,intersos humanitarian aid organization,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
+,INTERSOS,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
+,intersos,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
+,Intersos Humanitarian Aid,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,N
+,intersos humanitarian aid,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,N
+,Intersos - Humanitarian Organization for Emergency,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,N
+,intersos humanitarian organization for emergency,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,N
+,Humanitarian Aid Organization,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,N
+,humanitarian aid organization,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,N
+,Intersos Humanitarian Aid Organization,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
+,Doctors of the World,Médecins du Monde,medecins du monde,MDM,mdm,437,Y,N
+,doctors of the world,Médecins du Monde,medecins du monde,MDM,mdm,437,Y,N
+,Agency for Technical Cooperation and Development,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,agency for technical cooperation and development,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,ACTED,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,acted,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,ACTED |Agency for Technical Coop,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,acted agency for technical coop,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,ACTED |Agency for Technical Cooperation and Development,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,acted agency for technical cooperation and development,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,Agency for Technical Cooperation,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,agency for technical cooperation,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,Agency for Technical Cooperation and Development (ACTED),Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,agency for technical cooperation and development acted,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,Agency For Technical Cooperation & Development,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,agency for technical cooperation development,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,ACTED - Agencia de Cooperación Técnica y Desarrollo,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,acted agencia de cooperacion tecnica y desarrollo,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,Agence d'Aide à la Coopération Technique et au Développement,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,agence daide a la cooperation technique et au developpement,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,N
+,"United Nations Educational, Scientific and Cultural Organization","United Nations Educational, Scientific and Cultural Organization",united nations educational scientific and cultural organization,UNESCO,unesco,447,Y,N
+,united nations educational scientific and cultural organization,"United Nations Educational, Scientific and Cultural Organization",united nations educational scientific and cultural organization,UNESCO,unesco,447,Y,N
+,UNESCO,"United Nations Educational, Scientific and Cultural Organization",united nations educational scientific and cultural organization,UNESCO,unesco,447,Y,N
+,unesco,"United Nations Educational, Scientific and Cultural Organization",united nations educational scientific and cultural organization,UNESCO,unesco,447,Y,N
+,"The United Nations Educational, Scientific and Cultural Organization","United Nations Educational, Scientific and Cultural Organization",united nations educational scientific and cultural organization,UNESCO,unesco,447,Y,N
+,the united nations educational scientific and cultural organization,"United Nations Educational, Scientific and Cultural Organization",united nations educational scientific and cultural organization,UNESCO,unesco,447,Y,N
+,United Nations Mine Action Service,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,N
+,united nations mine action service,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,N
+,UNMAS,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,N
+,unmas,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,N
+,United Nations Mine Action Services,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,N
+,united nations mine action services,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,N
+,United Nationsl Mine Action Service,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,N
+,united nationsl mine action service,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,N
+,British Red Cross,British Red Cross,british red cross,BRC,brc,445,Y,N
+,british red cross,British Red Cross,british red cross,BRC,brc,445,Y,N
+,BRC,British Red Cross,british red cross,BRC,brc,445,Y,N
+,brc,British Red Cross,british red cross,BRC,brc,445,Y,N
+,International Federation of Red Cross and Red Crescent Societies,International Federation of Red Cross and Red Crescent Societies,international federation of red cross and red crescent societies,IFRC,ifrc,445,Y,N
+,international federation of red cross and red crescent societies,International Federation of Red Cross and Red Crescent Societies,international federation of red cross and red crescent societies,IFRC,ifrc,445,Y,N
+,IFRC,International Federation of Red Cross and Red Crescent Societies,international federation of red cross and red crescent societies,IFRC,ifrc,445,Y,N
+,ifrc,International Federation of Red Cross and Red Crescent Societies,international federation of red cross and red crescent societies,IFRC,ifrc,445,Y,N
+,Catholic Organization for Relief and Development Aid,Catholic Organization for Relief and Development Aid,catholic organization for relief and development aid,CORDAID,cordaid,437,Y,N
+,catholic organization for relief and development aid,Catholic Organization for Relief and Development Aid,catholic organization for relief and development aid,CORDAID,cordaid,437,Y,N
+,CORDAID,Catholic Organization for Relief and Development Aid,catholic organization for relief and development aid,CORDAID,cordaid,437,Y,N
+,cordaid,Catholic Organization for Relief and Development Aid,catholic organization for relief and development aid,CORDAID,cordaid,437,Y,N
+,Catholic Organization for relief Development and Aid,Catholic Organization for Relief and Development Aid,catholic organization for relief and development aid,CORDAID,cordaid,437,Y,N
+,catholic organization for relief development and aid,Catholic Organization for Relief and Development Aid,catholic organization for relief and development aid,CORDAID,cordaid,437,Y,N
+,United Nations Development Programme,United Nations Development Programme,united nations development programme,UNDP,undp,447,Y,N
+,united nations development programme,United Nations Development Programme,united nations development programme,UNDP,undp,447,Y,N
+,UNDP,United Nations Development Programme,united nations development programme,UNDP,undp,447,Y,N
+,undp,United Nations Development Programme,united nations development programme,UNDP,undp,447,Y,N
+,Programme des Nations Unies pour le Développement,United Nations Development Programme,united nations development programme,UNDP,undp,447,Y,N
+,programme des nations unies pour le developpement,United Nations Development Programme,united nations development programme,UNDP,undp,447,Y,N
+,United Nations Human Settlements Programme,United Nations Human Settlements Programme,united nations human settlements programme,UN-Habitat,un habitat,447,Y,N
+,united nations human settlements programme,United Nations Human Settlements Programme,united nations human settlements programme,UN-Habitat,un habitat,447,Y,N
+,UN-Habitat,United Nations Human Settlements Programme,united nations human settlements programme,UN-Habitat,un habitat,447,Y,N
+,un habitat,United Nations Human Settlements Programme,united nations human settlements programme,UN-Habitat,un habitat,447,Y,N
+,United Nations Entity for Gender Equality and the Empowerment of Women,United Nations Entity for Gender Equality and the Empowerment of Women,united nations entity for gender equality and the empowerment of women,UN Women,un women,447,Y,N
+,united nations entity for gender equality and the empowerment of women,United Nations Entity for Gender Equality and the Empowerment of Women,united nations entity for gender equality and the empowerment of women,UN Women,un women,447,Y,N
+,UN Women,United Nations Entity for Gender Equality and the Empowerment of Women,united nations entity for gender equality and the empowerment of women,UN Women,un women,447,Y,N
+,un women,United Nations Entity for Gender Equality and the Empowerment of Women,united nations entity for gender equality and the empowerment of women,UN Women,un women,447,Y,N
+,United Nations Entity for Gender Equality and,United Nations Entity for Gender Equality and the Empowerment of Women,united nations entity for gender equality and the empowerment of women,UN Women,un women,447,Y,N
+,united nations entity for gender equality and,United Nations Entity for Gender Equality and the Empowerment of Women,united nations entity for gender equality and the empowerment of women,UN Women,un women,447,Y,N
+,United Nations Department for Safety and Security,United Nations Department for Safety and Security,united nations department for safety and security,UNDSS,undss,447,Y,N
+,united nations department for safety and security,United Nations Department for Safety and Security,united nations department for safety and security,UNDSS,undss,447,Y,N
+,UNDSS,United Nations Department for Safety and Security,united nations department for safety and security,UNDSS,undss,447,Y,N
+,undss,United Nations Department for Safety and Security,united nations department for safety and security,UNDSS,undss,447,Y,N
+,United Nations Department for Security and Safety,United Nations Department for Safety and Security,united nations department for safety and security,UNDSS,undss,447,Y,N
+,united nations department for security and safety,United Nations Department for Safety and Security,united nations department for safety and security,UNDSS,undss,447,Y,N
+,Centre d'Etude et de Cooperation Internationale,Centre d'Etude et de Cooperation Internationale,centre detude et de cooperation internationale,CECI,ceci,437,Y,N
+,centre detude et de cooperation internationale,Centre d'Etude et de Cooperation Internationale,centre detude et de cooperation internationale,CECI,ceci,437,Y,N
+,CECI,Centre d'Etude et de Cooperation Internationale,centre detude et de cooperation internationale,CECI,ceci,437,Y,N
+,ceci,Centre d'Etude et de Cooperation Internationale,centre detude et de cooperation internationale,CECI,ceci,437,Y,N
+,CENTRE D'ETUDE ET COOPERATION INTERNATIONALE,Centre d'Etude et de Cooperation Internationale,centre detude et de cooperation internationale,CECI,ceci,437,Y,N
+,centre detude et cooperation internationale,Centre d'Etude et de Cooperation Internationale,centre detude et de cooperation internationale,CECI,ceci,437,Y,N
+,German Development Cooperation,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,german development cooperation,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,GIZ,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,giz,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,German Society for International Cooperation,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,german society for international cooperation,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,Cooperation Allemande,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,cooperation allemande,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,Deutsche Gesellschaft für Internationale Zusammenarbeit,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,deutsche gesellschaft fur internationale zusammenarbeit,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
+,Première Urgence Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,premiere urgence internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,PUI,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,pui,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,Premiere Urgence International,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,premiere urgence international,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,Première Urgence,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,premiere urgence,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,PUI - Première Urgence Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,pui premiere urgence internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,Premiere Urgence-Aide Medicale Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,premiere urgence aide medicale internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,Première Urgence - Aide Médicale Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,Solidarities International,Solidarities International,solidarities international,SI,si,437,Y,N
+,solidarities international,Solidarities International,solidarities international,SI,si,437,Y,N
+,SI,Solidarities International,solidarities international,SI,si,437,Y,N
+,si,Solidarities International,solidarities international,SI,si,437,Y,N
+,SOLIDARITÉS INTERNATIONALE,Solidarities International,solidarities international,SI,si,437,Y,N
+,solidarites internationale,Solidarities International,solidarities international,SI,si,437,Y,N
+,Solidarites International,Solidarities International,solidarities international,SI,si,437,Y,N
+,solidarites international,Solidarities International,solidarities international,SI,si,437,Y,N
+,Welthungerhilfe,Welthungerhilfe,welthungerhilfe,WHH,whh,437,Y,N
+,welthungerhilfe,Welthungerhilfe,welthungerhilfe,WHH,whh,437,Y,N
+,WHH,Welthungerhilfe,welthungerhilfe,WHH,whh,437,Y,N
+,whh,Welthungerhilfe,welthungerhilfe,WHH,whh,437,Y,N
+,WELTHUNGERHILFE/AGRO ACTION ALLEMANDE,Welthungerhilfe,welthungerhilfe,WHH,whh,437,Y,N
+,welthungerhilfe agro action allemande,Welthungerhilfe,welthungerhilfe,WHH,whh,437,Y,N
+,Deutsche Welthungerhilfe e. V. (German Agro Action),Welthungerhilfe,welthungerhilfe,WHH,whh,437,Y,N
+,deutsche welthungerhilfe e v german agro action,Welthungerhilfe,welthungerhilfe,WHH,whh,437,Y,N
+,Adventist Development and Relief Agency,Adventist Development and Relief Agency,adventist development and relief agency,ADRA,adra,437,Y,N
+,adventist development and relief agency,Adventist Development and Relief Agency,adventist development and relief agency,ADRA,adra,437,Y,N
+,ADRA,Adventist Development and Relief Agency,adventist development and relief agency,ADRA,adra,437,Y,N
+,adra,Adventist Development and Relief Agency,adventist development and relief agency,ADRA,adra,437,Y,N
+,AGENCE ADVENTISTE DE DÉVELOPPEMENT ET DE SECOURS,Adventist Development and Relief Agency,adventist development and relief agency,ADRA,adra,437,Y,N
+,agence adventiste de developpement et de secours,Adventist Development and Relief Agency,adventist development and relief agency,ADRA,adra,437,Y,N
+,Family Health International,Family Health International,family health international,FHI360,fhi360,437,Y,N
+,family health international,Family Health International,family health international,FHI360,fhi360,437,Y,N
+,FHI360,Family Health International,family health international,FHI360,fhi360,437,Y,N
+,fhi360,Family Health International,family health international,FHI360,fhi360,437,Y,N
+,HelpCode,HelpCode,helpcode,HelpCode,helpcode,437,Y,N
+,helpcode,HelpCode,helpcode,HelpCode,helpcode,437,Y,N
+,OXFAM,OXFAM,oxfam,OXFAM,oxfam,437,Y,N
+,oxfam,OXFAM,oxfam,OXFAM,oxfam,437,Y,N
+,Oxford Committee for Famine Relief GB,OXFAM,oxfam,OXFAM,oxfam,437,Y,N
+,oxford committee for famine relief gb,OXFAM,oxfam,OXFAM,oxfam,437,Y,N
+,Caritas,Caritas,caritas,Caritas,caritas,437,Y,Y
+,caritas,Caritas,caritas,Caritas,caritas,437,Y,Y
+,Caritas Internationalis,Caritas,caritas,Caritas,caritas,437,Y,Y
+,caritas internationalis,Caritas,caritas,Caritas,caritas,437,Y,Y
+,Street Child,Street Child,street child,Street Child,street child,437,Y,N
+,street child,Street Child,street child,Street Child,street child,437,Y,N
+,Handicap International - Humanity & Inclusion,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,N
+,handicap international humanity inclusion,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,N
+,HI,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,N
+,hi,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,N
+,Handicap International,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,Y
+,handicap international,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,Y
+,Humanité & Inclusion,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,N
+,humanite inclusion,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,N
+,Street Child (Consortium),Street Child,street child,Street Child,street child,437,Y,N
+,street child consortium,Street Child,street child,Street Child,street child,437,Y,N
+,Action for Development,Action for Development,action for development,AFD,afd,441,Y,N
+,action for development,Action for Development,action for development,AFD,afd,441,Y,N
+,AFD,Action for Development,action for development,AFD,afd,441,Y,N
+,afd,Action for Development,action for development,AFD,afd,441,Y,N
+,ActionAid Mozambique,ActionAid Mozambique,actionaid mozambique,AA Moz,aa moz,437,Y,N
+,actionaid mozambique,ActionAid Mozambique,actionaid mozambique,AA Moz,aa moz,437,Y,N
+,AA Moz,ActionAid Mozambique,actionaid mozambique,AA Moz,aa moz,437,Y,N
+,aa moz,ActionAid Mozambique,actionaid mozambique,AA Moz,aa moz,437,Y,N
+,Habitat for Humanity,Habitat for Humanity,habitat for humanity,HFH,hfh,437,Y,N
+,habitat for humanity,Habitat for Humanity,habitat for humanity,HFH,hfh,437,Y,N
+,HFH,Habitat for Humanity,habitat for humanity,HFH,hfh,437,Y,N
+,hfh,Habitat for Humanity,habitat for humanity,HFH,hfh,437,Y,N
+,Building Foundation for Development,Building Foundation for Development,building foundation for development,BFI,bfi,441,Y,N
+,building foundation for development,Building Foundation for Development,building foundation for development,BFI,bfi,441,Y,N
+,BFI,Building Foundation for Development,building foundation for development,BFI,bfi,441,Y,N
+,bfi,Building Foundation for Development,building foundation for development,BFI,bfi,441,Y,N
+,Global Communities,Global Communities,global communities,GC,gc,437,Y,N
+,global communities,Global Communities,global communities,GC,gc,437,Y,N
+,GC,Global Communities,global communities,GC,gc,437,Y,N
+,gc,Global Communities,global communities,GC,gc,437,Y,N
+,Good Neighbors,Good Neighbors,good neighbors,GN,gn,437,Y,N
+,good neighbors,Good Neighbors,good neighbors,GN,gn,437,Y,N
+,GN,Good Neighbors,good neighbors,GN,gn,437,Y,N
+,gn,Good Neighbors,good neighbors,GN,gn,437,Y,N
+,IsraAid,IsraAid,israaid,IsraAid,israaid,437,Y,N
+,israaid,IsraAid,israaid,IsraAid,israaid,437,Y,N
+,Concern Worldwide,Concern Worldwide,concern worldwide,CWW,cww,437,Y,N
+,concern worldwide,Concern Worldwide,concern worldwide,CWW,cww,437,Y,N
+,CWW,Concern Worldwide,concern worldwide,CWW,cww,437,Y,N
+,cww,Concern Worldwide,concern worldwide,CWW,cww,437,Y,N
+,Comité international de la Croix-Rouge,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,Fédération internationale des sociétés de la Croix-Rouge et du Croissant-Rouge,International Federation of Red Cross and Red Crescent Societies,international federation of red cross and red crescent societies,IFRC,ifrc,445,Y,N
+,federation internationale des societes de la croix rouge et du croissant rouge,International Federation of Red Cross and Red Crescent Societies,international federation of red cross and red crescent societies,IFRC,ifrc,445,Y,N
+,ACF - Action Contre la Faim International,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
+,acf action contre la faim international,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
+,DRC - Danish Refugee Council,Danish Refugee Council,danish refugee council,DRC,drc,437,Y,N
+,drc danish refugee council,Danish Refugee Council,danish refugee council,DRC,drc,437,Y,N
+,INTERNATIONAL RESCUE COMMETEE,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,international rescue commetee,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,INTERNATIONAL RESCUE COMMETTEE,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,international rescue commettee,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,INTERNATIONAL RESCUE COMMITEE,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,international rescue commitee,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,INTERNATION RESCUE COMMETTEE,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,internation rescue commettee,International Rescue Committee,international rescue committee,IRC,irc,437,Y,N
+,Médecins du Monde France,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,N
+,medecins du monde france,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,N
+,MDM-F,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,N
+,mdm f,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,N
+,Médecin Du Monde - France,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,N
+,medecin du monde france,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,N
+,Médecin du Monde France,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,N
+BDI,CBK,CBK,cbk,CBK,cbk,,N,Y
+BDI,Fondation STAMM,Fondation STAMM,fondation stamm,Fondation STAMM,fondation stamm,,N,Y
+BDI,DIACONIA BURUNDI,DIACONIA BURUNDI,diaconia burundi,DIACONIA BURUNDI,diaconia burundi,,N,Y
+BDI,ACPDH,ACPDH,acpdh,ACPDH,acpdh,,N,Y
+BDI,APADECO,APADECO,apadeco,APADECO,apadeco,,N,Y
+BDI,HHA Burundi,HHA Burundi,hha burundi,HHA Burundi,hha burundi,,N,Y
+BDI,ABMPD,ABMPD,abmpd,ABMPD,abmpd,,N,Y
+BDI,IPREBAD,IPREBAD,iprebad,IPREBAD,iprebad,,N,Y
+BDI,FVS/AMADE,FVS/AMADE,fvs amade,FVS/AMADE,fvs amade,,N,Y
+BDI,CSF,CSF,csf,CSF,csf,,N,Y
+BDI,ICIRORE C'AMAHORO,ICIRORE C'AMAHORO,icirore camahoro,ICIRORE C'AMAHORO,icirore camahoro,,N,Y
+BDI,CEP,CEP,cep,CEP,cep,,N,Y
+BDI,LIFEDEF,LIFEDEF,lifedef,LIFEDEF,lifedef,,N,Y
+BDI,PPSM,PPSM,ppsm,PPSM,ppsm,,N,Y
+BDI,AICNDH,AICNDH,aicndh,AICNDH,aicndh,,N,Y
+BDI,YELI BURUNDI,YELI BURUNDI,yeli burundi,YELI BURUNDI,yeli burundi,,N,Y
+BDI,NASWA-BURUNDI,NASWA-BURUNDI,naswa burundi,NASWA-BURUNDI,naswa burundi,,N,Y
+BDI,ARCEV,ARCEV,arcev,ARCEV,arcev,,N,Y
+BDI,JSBM ,JSBM ,jsbm,JSBM ,jsbm,,N,Y
+BDI,A.BU.S.E.D,A.BU.S.E.D,a bu s e d,A.BU.S.E.D,a bu s e d,,N,Y
+BDI,SAD,SAD,sad,SAD,sad,,N,Y
+BDI,FOMUPRODH,FOMUPRODH,fomuprodh,FOMUPRODH,fomuprodh,,N,Y
+BDI,GIRIYUJA ,GIRIYUJA ,giriyuja,GIRIYUJA ,giriyuja,,N,Y
+BDI,UPHB,UPHB,uphb,UPHB,uphb,,N,Y
+BDI,COPED,COPED,coped,COPED,coped,,N,Y
+BDI,CARITAS BURUNDI,CARITAS BURUNDI,caritas burundi,CARITAS BURUNDI,caritas burundi,,N,Y
+BDI,IMIF,IMIF,imif,IMIF,imif,,N,Y
+BDI,APROSAP,APROSAP,aprosap,APROSAP,aprosap,,N,Y
+BDI,SFBSP-BURUNDI,SFBSP-BURUNDI,sfbsp burundi,SFBSP-BURUNDI,sfbsp burundi,,N,Y
+BDI,ABUBEF,ABUBEF,abubef,ABUBEF,abubef,,N,Y
+BDI,NACHAM AFRICA,NACHAM AFRICA,nacham africa,NACHAM AFRICA,nacham africa,,N,Y
+BDI,IADH,IADH,iadh,IADH,iadh,,N,Y
+BDI,CREOP-JEUNES,CREOP-JEUNES,creop jeunes,CREOP-JEUNES,creop jeunes,,N,Y
+BDI,FAWE BURUNDI,FAWE BURUNDI,fawe burundi,FAWE BURUNDI,fawe burundi,,N,Y
+BDI,ISV,ISV,isv,ISV,isv,,N,Y
+BDI,CRB,CRB,crb,CRB,crb,,N,Y
+BDI,AFV,AFV,afv,AFV,afv,,N,Y
+BDI,CENTRE SERUKA,CENTRE SERUKA,centre seruka,CENTRE SERUKA,centre seruka,,N,Y
+BDI,AVEDEC,AVEDEC,avedec,AVEDEC,avedec,,N,Y
+BDI,AIDE,AIDE,aide,AIDE,aide,,N,Y
+BDI,PENACONI,PENACONI,penaconi,PENACONI,penaconi,,N,Y
+BDI,SACODE,SACODE,sacode,SACODE,sacode,,N,Y
+BDI,OAP,OAP,oap,OAP,oap,,N,Y
+LBN,Nusaned - Sawa blessed - WCK,Nusaned - Sawa blessed - WCK,nusaned sawa blessed wck,Nusaned - Sawa blessed - WCK,nusaned sawa blessed wck,,N,Y
+LBN,ACF,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
+LBN,Mercy corps - Sheild,Mercy corps - Sheild,mercy corps sheild,Mercy corps - Sheild,mercy corps sheild,,N,Y
+LBN,ISF + MCC,ISF + MCC,isf mcc,ISF + MCC,isf mcc,,N,Y
+LBN,WFP,World Food Programme,world food programme,WFP,wfp,447,Y,Y
+LBN,MCC + ISF,MCC + ISF,mcc isf,MCC + ISF,mcc isf,,N,Y
+LBN,Caritas,Caritas,caritas,Caritas,caritas,437,Y,Y
+LBN,World vision,World Vision International,world vision international,WVI,wvi,437,Y,Y
+LBN,Plan International,Plan International,plan international,PI,pi,437,Y,Y
+LBN,AMEL,AMEL,amel,AMEL,amel,441,Y,Y
+LBN,International Medical Corps,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
+LBN,Imam Sadr Foundation,Imam Sadr Foundation,imam sadr foundation,Imam Sadr Foundation,imam sadr foundation,441,Y,Y
+LBN,Association of Volunteers in International Service,Association of Volunteers in International Service,association of volunteers in international service,AVSI,avsi,437,Y,Y
+LBN,Mouvement Social,Mouvement Social,mouvement social,Mouvement Social,mouvement social,441,Y,Y
+LBN,Save the Children International,Save the Children International,save the children international,SCI,sci,437,Y,Y
+LBN,Caritas Lebanon,Caritas Lebanon,caritas lebanon,Caritas Lebanon,caritas lebanon,441,Y,Y
+LBN,Action contre la Faim Spain,Action contre la Faim Spain,action contre la faim spain,ACF Spain,acf spain,437,Y,Y
+LBN,SHEILD,SHEILD,sheild,SHEILD,sheild,441,Y,Y
+LBN,Intersos,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
+LBN,Handicap International,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,Y
+LBN,Norweigan Refugee Council,Norweigan Refugee Council,norweigan refugee council,NRC,nrc,437,Y,Y
+LBN,International Orthodox Christian Charities - Lebanon,International Orthodox Christian Charities - Lebanon,international orthodox christian charities lebanon,IOCC Lebanon,iocc lebanon,437,Y,Y
