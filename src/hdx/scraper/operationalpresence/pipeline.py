@@ -44,6 +44,7 @@ class Row(NamedTuple):
     sector_code: str
     start_date: str
     end_date: str
+    dataset_id: str
     resource_id: str
 
 
@@ -408,6 +409,7 @@ class Pipeline:
                 countryiso3, row, adm_code_cols, adm_name_cols, dataset_name
             )
 
+            dataset_id = datasetinfo["hapi_dataset_metadata"]["hdx_id"]
             resource_id = datasetinfo["hapi_resource_metadata"]["hdx_id"]
             output_row = Row(
                 countryiso3,
@@ -423,6 +425,7 @@ class Pipeline:
                 sector_code,
                 start_date_str,
                 end_date_str,
+                dataset_id,
                 resource_id,
             )
             output_rows.add(output_row)

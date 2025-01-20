@@ -17,6 +17,7 @@ hxltags:
     "Sector": "#sector+code"
     "Start Date": "#date+start"
     "End Date": "#date+end"
+    "Dataset Id": "#meta+dataset_id"
     "Resource Id": "#meta+resource_id"
 
 org_hxltags:
