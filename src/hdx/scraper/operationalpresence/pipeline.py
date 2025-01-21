@@ -285,6 +285,10 @@ class Pipeline:
             # Skip rows with no org name or acronym
             if not org_str:
                 continue
+            # Skip HXL tag row
+            if org_str[0] == "#":
+                norows -= 1
+                continue
 
             # * Sector processing
             sector_orig = row[sector_col]
@@ -343,7 +347,9 @@ class Pipeline:
             if adm_name_col:
                 adm_name = row[adm_name_col]
                 if adm_name:
-                    adm_names[i] = adm_name
+                    adm_name = adm_name.strip()
+                    if adm_name:
+                        adm_names[i] = adm_name
             if adm_code_cols:
                 adm_code_col = adm_code_cols[i]
                 if adm_code_col:
