@@ -4,7 +4,6 @@ from datetime import datetime
 from logging import getLogger
 from typing import Dict, List, NamedTuple, Optional, Tuple
 
-from hdx.utilities.dictandlist import invert_dictionary
 from slugify import slugify
 
 from .org import Org
@@ -22,6 +21,7 @@ from hdx.utilities.dateparse import (
     iso_string_from_datetime,
     parse_date,
 )
+from hdx.utilities.dictandlist import invert_dictionary
 from hdx.utilities.matching import multiple_replace
 
 logger = getLogger(__name__)
