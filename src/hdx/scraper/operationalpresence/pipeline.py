@@ -4,6 +4,7 @@ from datetime import datetime
 from logging import getLogger
 from typing import Dict, List, NamedTuple, Optional, Tuple
 
+from hdx.utilities.dictandlist import invert_dictionary
 from slugify import slugify
 
 from .org import Org
@@ -232,7 +233,7 @@ class Pipeline:
         filter = datasetinfo["Filter"]
         if datasetinfo["use_hxl"]:
             header_to_hxltag = next(iterator)
-            hxltag_to_header = {v: k for k, v in header_to_hxltag.items()}
+            hxltag_to_header = invert_dictionary(header_to_hxltag)
             if adm_code_cols:
                 new_adm_code_cols = []
                 for adm_code_col in adm_code_cols.split(","):

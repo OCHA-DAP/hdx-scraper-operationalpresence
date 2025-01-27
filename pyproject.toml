@@ -38,8 +38,8 @@ dependencies = [
     "gspread",
     "hdx-python-scraper>= 2.5.5",
     "hdx-python-api>= 6.3.7",
-    "hdx-python-country>= 3.8.6",
-    "hdx-python-utilities>= 3.8.2",
+    "hdx-python-country>= 3.8.7",
+    "hdx-python-utilities>= 3.8.3",
 ]
 dynamic = ["version"]
 
