@@ -32,6 +32,14 @@ class OrgData(NamedTuple):
 
 
 class Org:
+    blank_org_info = OrgInfo(
+        canonical_name="",
+        normalised_name="",
+        acronym="",
+        normalised_acronym="",
+        type_code="",
+    )
+
     def __init__(
         self,
         datasetinfo: Dict[str, str],
@@ -114,6 +122,10 @@ class Org:
         )
         self._org_map[key] = org_info
         return org_info
+
+    @classmethod
+    def get_blank_org_info(cls):
+        return cls.blank_org_info
 
     def add_or_match_org(self, org_info: OrgInfo) -> OrgData:
         key = (org_info.normalised_acronym, org_info.normalised_name)

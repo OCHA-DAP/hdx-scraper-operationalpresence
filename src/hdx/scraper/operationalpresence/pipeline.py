@@ -33,12 +33,16 @@ ROW_LOOKUP = re.compile(r"row\[['\"](.*?)['\"]\]")
 
 class Row(NamedTuple):
     countryiso3: str
-    adm_code_0: str
-    adm_name_0: str
-    adm_code_1: str
-    adm_name_1: str
-    adm_code_2: str
-    adm_name_2: str
+    provider_adm1_name: str
+    provider_adm2_name: str
+    provider_adm3_name: str
+    adm1_code: str
+    adm1_name: str
+    adm2_code: str
+    adm2_name: str
+    adm3_code: str
+    adm3_name: str
+    adm_level: int
     canonical_name: str
     acronym: str
     type_code: str
@@ -47,6 +51,7 @@ class Row(NamedTuple):
     end_date: str
     dataset_id: str
     resource_id: str
+    error: str
 
 
 class Pipeline:
@@ -278,18 +283,28 @@ class Pipeline:
             if filter:
                 if not eval(filter):
                     continue
+            # Skip HXL tag row
+            hxlrow = False
+            for value in row.values():
+                if value and value[0] == "#":
+                    hxlrow = True
+                    break
+            if hxlrow:
+                continue
             norows += 1
+            row["Error"] = []
             org_str = row[org_name_col]
             org_acronym = row[org_acronym_col]
             if not org_str:
                 org_str = org_acronym
             # Skip rows with no org name or acronym
             if not org_str:
-                continue
-            # Skip HXL tag row
-            if org_str[0] == "#":
-                norows -= 1
-                continue
+                self._error_handler.add_message(
+                    "OperationalPresence",
+                    dataset_name,
+                    f"row {norows} missing organisation",
+                )
+                row["Error"].append("No org!")
 
             # * Sector processing
             sector_orig = row[sector_col]
@@ -300,18 +315,21 @@ class Pipeline:
                     dataset_name,
                     f"org {org_str} missing sector",
                 )
-                continue
+                row["Error"].append("No sector!")
             sector_code = self._sector.get_code(sector_orig)
-            if not sector_code:
+            if sector_code:
+                row[sector_col] = sector_code
+            else:
                 self._error_handler.add_missing_value_message(
                     "OperationalPresence",
                     dataset_name,
                     "sector",
                     sector_orig,
                 )
-                continue
-            row[sector_col] = sector_code
+                row["Error"].append(f"Unknown sector {sector_orig}!")
             rows.append(row)
+            if row["Error"]:
+                continue
 
             # * Org processing
             org_info = self._org.get_org_info(org_str, location=countryiso3)
@@ -340,29 +358,38 @@ class Pipeline:
         adm_code_cols: List[str],
         adm_name_cols: List[str],
         dataset_name: str,
-    ) -> Tuple[List, List]:
+    ) -> Tuple[List, List, List, int]:
+        provider_adm_names = ["", "", ""]
         adm_codes = ["", "", ""]
         adm_names = ["", "", ""]
         prev_pcode = None
+        adm_level = 0
         for i, adm_name_col in reversed(list(enumerate(adm_name_cols))):
             if adm_name_col:
-                adm_name = row[adm_name_col]
-                if adm_name:
-                    adm_name = adm_name.strip()
-                    if adm_name:
-                        adm_names[i] = adm_name
+                provider_adm_name = row[adm_name_col]
+                if provider_adm_name:
+                    provider_adm_name = provider_adm_name.strip()
+                    if provider_adm_name:
+                        provider_adm_names[i] = provider_adm_name
+                        if i >= adm_level:
+                            adm_level = i + 1
             if adm_code_cols:
                 adm_code_col = adm_code_cols[i]
                 if adm_code_col:
                     pcode = row[adm_code_cols[i]]
-                    if pcode and pcode not in self._admins[i].pcodes:
-                        self._error_handler.add_missing_value_message(
-                            "OperationalPresence",
-                            dataset_name,
-                            f"admin {i+1} pcode",
-                            pcode,
-                        )
-                        pcode = None
+                    if pcode:
+                        if pcode in self._admins[i].pcodes:
+                            if i >= adm_level:
+                                adm_level = i + 1
+                        else:
+                            self._error_handler.add_missing_value_message(
+                                "OperationalPresence",
+                                dataset_name,
+                                f"admin {i+1} pcode",
+                                pcode,
+                            )
+                            pcode = None
+                            row["Error"].append(f"Unknown pcode {pcode}!")
                 else:
                     pcode = None
                 if not pcode and prev_pcode:
@@ -375,17 +402,21 @@ class Pipeline:
         parent = None
         for i, adm_code in enumerate(adm_codes):
             if adm_code:
+                adm_name = self._admins[i].pcode_to_name.get(adm_code, "")
+                adm_names[i] = adm_name
                 continue
-            adm_name = adm_names[i]
-            if not adm_name:
+            provider_adm_name = provider_adm_names[i]
+            if not provider_adm_name:
                 continue
             adm_code, _ = self._admins[i].get_pcode(
-                countryiso3, adm_name, parent=parent
+                countryiso3, provider_adm_name, parent=parent
             )
             if adm_code:
                 adm_codes[i] = adm_code
+                adm_name = self._admins[i].pcode_to_name.get(adm_code, "")
+                adm_names[i] = adm_name
                 parent = adm_code
-        return adm_codes, adm_names
+        return provider_adm_names, adm_codes, adm_names, adm_level
 
     def process_country(
         self, countryiso3: str, datasetinfo: Dict
@@ -411,23 +442,39 @@ class Pipeline:
             org_acronym = row[org_acronym_col]
             if not org_str:
                 org_str = org_acronym
-            org_info = self._org.get_org_info(org_str, location=countryiso3)
+            if org_str:
+                org_info = self._org.get_org_info(
+                    org_str, location=countryiso3
+                )
+            else:
+                org_info = self._org.get_blank_org_info()
 
             # * Adm processing
-            adm_codes, adm_names = self.get_adm_info(
-                countryiso3, row, adm_code_cols, adm_name_cols, dataset_name
+            provider_adm_names, adm_codes, adm_names, adm_level = (
+                self.get_adm_info(
+                    countryiso3,
+                    row,
+                    adm_code_cols,
+                    adm_name_cols,
+                    dataset_name,
+                )
             )
 
             dataset_id = datasetinfo["hapi_dataset_metadata"]["hdx_id"]
             resource_id = datasetinfo["hapi_resource_metadata"]["hdx_id"]
+
             output_row = Row(
                 countryiso3,
+                provider_adm_names[0],
+                provider_adm_names[1],
+                provider_adm_names[2],
                 adm_codes[0],
                 adm_names[0],
                 adm_codes[1],
                 adm_names[1],
                 adm_codes[2],
                 adm_names[2],
+                adm_level,
                 org_info.canonical_name,
                 org_info.acronym,
                 org_info.type_code,
@@ -436,6 +483,7 @@ class Pipeline:
                 end_date_str,
                 dataset_id,
                 resource_id,
+                "".join(row["Error"]),
             )
             output_rows.add(output_row)
         logger.info(
