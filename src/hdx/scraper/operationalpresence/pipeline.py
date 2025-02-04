@@ -4,6 +4,7 @@ from datetime import datetime
 from logging import getLogger
 from typing import Dict, List, NamedTuple, Optional, Tuple
 
+from hdx.location.country import Country
 from slugify import slugify
 
 from .org import Org
@@ -32,23 +33,27 @@ ROW_LOOKUP = re.compile(r"row\[['\"](.*?)['\"]\]")
 
 
 class Row(NamedTuple):
-    countryiso3: str
-    provider_adm1_name: str
-    provider_adm2_name: str
-    provider_adm3_name: str
-    adm1_code: str
-    adm1_name: str
-    adm2_code: str
-    adm2_name: str
-    adm3_code: str
-    adm3_name: str
-    adm_level: int
-    canonical_name: str
-    acronym: str
-    type_code: str
+    location_code: str
+    has_hrp: str
+    in_gho: str
+    provider_admin1_name: str
+    provider_admin2_name: str
+    provider_admin3_name: str
+    admin1_code: str
+    admin1_name: str
+    admin2_code: str
+    admin2_name: str
+    admin3_code: str
+    admin3_name: str
+    admin_level: int
+    org_name: str
+    org_acronym: str
+    org_type_code: str
+    org_type_description: str
     sector_code: str
-    start_date: str
-    end_date: str
+    sector_name: str
+    reference_period_start: str
+    reference_period_end: str
     dataset_id: str
     resource_id: str
     error: str
@@ -465,6 +470,8 @@ class Pipeline:
 
             output_row = Row(
                 countryiso3,
+                "Y" if Country.get_hrp_status_from_iso3(countryiso3) else "N",
+                "Y" if Country.get_gho_status_from_iso3(countryiso3) else "N",
                 provider_adm_names[0],
                 provider_adm_names[1],
                 provider_adm_names[2],
@@ -478,7 +485,9 @@ class Pipeline:
                 org_info.canonical_name,
                 org_info.acronym,
                 org_info.type_code,
+                self._org.get_org_type_description(org_info.type_code),
                 sector_code,
+                self._sector.get_code_to_name().get(sector_code, ""),
                 start_date_str,
                 end_date_str,
                 dataset_id,
@@ -597,9 +606,10 @@ class Pipeline:
         hxltags = self._configuration["org_hxltags"]
         org_rows = [
             {
-                "Acronym": org_data.acronym,
-                "Name": org_data.name,
-                "Org Type Code": org_data.type_code,
+                "acronym": org_data.acronym,
+                "name": org_data.name,
+                "org_type_code": org_data.type_code,
+                "org_type_description": self._org.get_org_type_description(org_data.type_code)
             }
             for org_data in sorted(self._org.data.values())
         ]

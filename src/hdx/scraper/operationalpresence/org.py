@@ -213,3 +213,6 @@ class Org:
         path = join(folder, "org_map.csv")
         write_list_to_csv(path, rows)
         return path
+
+    def get_org_type_description(self, org_type_code: str) -> str:
+        return self._org_type.get_code_to_name().get(org_type_code, "")
