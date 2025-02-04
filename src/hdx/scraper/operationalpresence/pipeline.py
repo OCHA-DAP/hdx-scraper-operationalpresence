@@ -4,9 +4,6 @@ from datetime import datetime
 from logging import getLogger
 from typing import Dict, List, NamedTuple, Optional, Tuple
 
-from hdx.location.country import Country
-from slugify import slugify
-
 from .org import Org
 from .sheet import Sheet
 from hdx.api.configuration import Configuration
@@ -14,6 +11,7 @@ from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.data.dataset import Dataset
 from hdx.data.resource import Resource
 from hdx.location.adminlevel import AdminLevel
+from hdx.location.country import Country
 from hdx.scraper.framework.utilities.reader import Read
 from hdx.scraper.framework.utilities.sector import Sector
 from hdx.utilities.dateparse import (
@@ -537,10 +535,11 @@ class Pipeline:
         countryiso3s = list(iso3_to_datasetinfo.keys())
         return countryiso3s, earliest_start_date, latest_end_date
 
-    def generate_3w_dateset(self, folder: str) -> Optional[Dataset]:
-        title = "Global Operational Presence"
+    def generate_dataset(self, key: str) -> Tuple[Dataset, Dict]:
+        dataset_config = self._configuration[key]
+        title = dataset_config["title"]
         logger.info(f"Creating dataset: {title}")
-        slugified_name = slugify(title).lower()
+        slugified_name = dataset_config["name"]
         dataset = Dataset(
             {
                 "name": slugified_name,
@@ -548,31 +547,30 @@ class Pipeline:
             }
         )
         dataset.set_maintainer("196196be-6037-4488-8b71-d786adf4c081")
-        dataset.set_organization("hdx")
-        dataset.set_expected_update_frequency("Every three months")
+        dataset.set_organization("40d10ece-49de-4791-9aed-e164f1d16dd1")
+        dataset.set_expected_update_frequency("Every month")
+        dataset.add_tags(dataset_config["tags"])
 
-        tags = [
-            "hxl",
-            "operational presence",
-        ]
-        dataset.add_tags(tags)
+        resource_config = dataset_config["resource"]
+        return dataset, resource_config
 
-        dataset.set_subnational(True)
-
-        resourcedata = {
-            "name": "Operational Presence",
-            "description": "Global Operational Presence data with HXL hashtags",
-        }
-        filename = "operational_presence.csv"
-        hxltags = self._configuration["hxltags"]
-
+    def generate_3w_dateset(self, folder: str) -> Optional[Dataset]:
         rows = sorted(self._rows)
         if len(rows) == 0:
-            logger.warning(f"{title} has no data!")
+            logger.warning("Operational presence has no data!")
             return None
+
+        dataset, resource_config = self.generate_dataset("dataset")
+        dataset.set_subnational(True)
+        resourcedata = {
+            "name": resource_config["name"],
+            "description": resource_config["description"],
+        }
+        hxltags = resource_config["hxltags"]
+
         dataset.generate_resource_from_rows(
             folder,
-            filename,
+            resource_config["filename"],
             [list(hxltags.keys())]
             + [list(hxltags.values())]
             + sorted(self._rows),
@@ -581,35 +579,22 @@ class Pipeline:
         return dataset
 
     def generate_org_dataset(self, folder: str) -> Optional[Dataset]:
-        title = "Global Organisations"
-        logger.info(f"Creating dataset: {title}")
-        slugified_name = slugify(title).lower()
-        dataset = Dataset(
-            {
-                "name": slugified_name,
-                "title": title,
-            }
-        )
-        dataset.set_maintainer("196196be-6037-4488-8b71-d786adf4c081")
-        dataset.set_organization("hdx")
-        dataset.set_expected_update_frequency("Every three months")
-        dataset.add_tag("hxl")
-
+        dataset, resource_config = self.generate_dataset("org_dataset")
         dataset.set_subnational(False)
 
         resourcedata = {
-            "name": "Organisations",
-            "description": "Global organisation data with HXL hashtags",
+            "name": resource_config["name"],
+            "description": resource_config["description"],
         }
-        filename = "organisations.csv"
-
-        hxltags = self._configuration["org_hxltags"]
+        hxltags = resource_config["hxltags"]
         org_rows = [
             {
                 "acronym": org_data.acronym,
                 "name": org_data.name,
                 "org_type_code": org_data.type_code,
-                "org_type_description": self._org.get_org_type_description(org_data.type_code)
+                "org_type_description": self._org.get_org_type_description(
+                    org_data.type_code
+                ),
             }
             for org_data in sorted(self._org.data.values())
         ]
@@ -618,10 +603,10 @@ class Pipeline:
             org_rows,
             hxltags,
             folder,
-            filename,
+            resource_config["filename"],
             resourcedata,
         )
         if success is False:
-            logger.warning(f"{title} has no data!")
+            logger.warning("Organisations has no data!")
             return None
         return dataset

@@ -3,38 +3,59 @@ spreadsheet_test: "https://docs.google.com/spreadsheets/d/1KaDWsUcnYQdiCQ5qFqXOj
 
 global_all_pcodes: "https://data.humdata.org/dataset/cb963915-d7d1-4ffa-90dc-31277e24406f/resource/793e66fe-4cdb-4076-b037-fb8c053239e2/download/global_pcodes.csv"
 
-hxltags:
-    "location_code": "#country+code"
-    "has_hrp": "#meta+has_hrp"
-    "in_gho": "#meta+in_gho"
-    "provider_admin1_name": "#adm1+name+provider"
-    "provider_admin2_name": "#adm2+name+provider"
-    "provider_admin3_name": "#adm3+name+provider"
-    "admin1_code": "#adm1+code"
-    "admin1_name": "#adm1+name"
-    "admin2_code": "#adm2+code"
-    "admin2_name": "#adm2+name"
-    "admin3_code": "#adm3+code"
-    "admin3_name": "#adm3+name"
-    "admin_level": "#adm+level"
-    "org_name": "#org+name"
-    "org_acronym": "#org+acronym"
-    "org_type": "#org+type+code"
-    "org_type_description": "#org+type+desc"
-    "sector_code": "#sector+code"
-    "sector_name": "#sector+name"
-    "reference_period_start": "#date+start"
-    "reference_period_end": "#date+end"
-    "dataset_hdx_id": "#meta+dataset_id"
-    "resource_hdx_id": "#meta+resource_id"
-    "error": "#meta+error"
 
-org_hxltags:
-    "acronym": "#org+acronym"
-    "name": "#org+name"
-    "org_type_code": "#org+type+code"
-    "org_type_description": "#org+type+desc"
 
+dataset:
+  name: "hdx-hapi-operational-presence"
+  title: "HDX HAPI - Coordination & Context: 3W - Operational Presence"
+  tags:
+    - "hxl"
+    - "operational presence"
+    - "who is doing what and where-3w-4w-5w"
+  resource:
+    name: "Global Coordination & Context: 3W - Operational Presence"
+    description: "Who is doing What Where - Operational Presence data from HDX HAPI, please see [the documentation](https://hdx-hapi.readthedocs.io/en/latest/data_usage_guides/coordination_and_context/#who-is-doing-what-where-operational-presence) for more information"
+    filename: "hdx_hapi_operational_presence_global.csv"
+    hxltags:
+      "location_code": "#country+code"
+      "has_hrp": "#meta+has_hrp"
+      "in_gho": "#meta+in_gho"
+      "provider_admin1_name": "#adm1+name+provider"
+      "provider_admin2_name": "#adm2+name+provider"
+      "provider_admin3_name": "#adm3+name+provider"
+      "admin1_code": "#adm1+code"
+      "admin1_name": "#adm1+name"
+      "admin2_code": "#adm2+code"
+      "admin2_name": "#adm2+name"
+      "admin3_code": "#adm3+code"
+      "admin3_name": "#adm3+name"
+      "admin_level": "#adm+level"
+      "org_name": "#org+name"
+      "org_acronym": "#org+acronym"
+      "org_type": "#org+type+code"
+      "org_type_description": "#org+type+desc"
+      "sector_code": "#sector+code"
+      "sector_name": "#sector+name"
+      "reference_period_start": "#date+start"
+      "reference_period_end": "#date+end"
+      "dataset_hdx_id": "#meta+dataset_id"
+      "resource_hdx_id": "#meta+resource_id"
+      "error": "#meta+error"
+
+org_dataset:
+  name: "hdx-hapi-organisations"
+  title: "HDX HAPI - Coordination & Context: Organisations"
+  tags:
+    - "hxl"
+  resource:
+    name: "Global Coordination & Context: 3W - Organisations"
+    description: "Organisation data from HDX HAPI"
+    filename: "hdx_hapi_organisations_global.csv"
+    hxltags:
+        "acronym": "#org+acronym"
+        "name": "#org+name"
+        "org_type_code": "#org+type+code"
+        "org_type_description": "#org+type+desc"
 
 dataseries_ignore:
   - "Fields Data - Operational Presence"

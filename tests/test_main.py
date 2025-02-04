@@ -102,10 +102,10 @@ class TestOperationalPresence:
 
                 dataset = pipeline.generate_org_dataset(temp_folder)
                 assert dataset == {
-                    "data_update_frequency": "90",
+                    "data_update_frequency": "30",
                     "maintainer": "196196be-6037-4488-8b71-d786adf4c081",
-                    "name": "global-organisations",
-                    "owner_org": "hdx",
+                    "name": "hdx-hapi-organisations",
+                    "owner_org": "40d10ece-49de-4791-9aed-e164f1d16dd1",
                     "subnational": "0",
                     "tags": [
                         {
@@ -113,28 +113,28 @@ class TestOperationalPresence:
                             "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
                         }
                     ],
-                    "title": "Global Organisations",
+                    "title": "HDX HAPI - Coordination & Context: Organisations",
                 }
                 assert dataset.get_resources() == [
                     {
-                        "name": "Organisations",
-                        "description": "Global organisation data with HXL hashtags",
+                        "description": "Organisation data from HDX HAPI",
                         "format": "csv",
+                        "name": "Global Coordination & Context: 3W - Organisations",
                         "resource_type": "file.upload",
                         "url_type": "upload",
                     }
                 ]
-                filename = "organisations.csv"
+                filename = "hdx_hapi_organisations_global.csv"
                 expected_file = join(fixtures_dir, filename)
                 actual_file = join(temp_folder, filename)
                 assert_files_same(expected_file, actual_file)
 
                 dataset = pipeline.generate_3w_dateset(temp_folder)
                 assert dataset == {
-                    "data_update_frequency": "90",
+                    "data_update_frequency": "30",
                     "maintainer": "196196be-6037-4488-8b71-d786adf4c081",
-                    "name": "global-operational-presence",
-                    "owner_org": "hdx",
+                    "name": "hdx-hapi-operational-presence",
+                    "owner_org": "40d10ece-49de-4791-9aed-e164f1d16dd1",
                     "subnational": "1",
                     "tags": [
                         {
@@ -146,18 +146,21 @@ class TestOperationalPresence:
                             "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
                         },
                     ],
-                    "title": "Global Operational Presence",
+                    "title": "HDX HAPI - Coordination & Context: 3W - Operational Presence",
                 }
                 assert dataset.get_resources() == [
                     {
-                        "name": "Operational Presence",
-                        "description": "Global Operational Presence data with HXL hashtags",
+                        "description": "Who is doing What Where - Operational Presence data from HDX "
+                        "HAPI, please see [the "
+                        "documentation](https://hdx-hapi.readthedocs.io/en/latest/data_usage_guides/coordination_and_context/#who-is-doing-what-where-operational-presence) "
+                        "for more information",
                         "format": "csv",
+                        "name": "Global Coordination & Context: 3W - Operational Presence",
                         "resource_type": "file.upload",
                         "url_type": "upload",
                     }
                 ]
-                filename = "operational_presence.csv"
+                filename = "hdx_hapi_operational_presence_global.csv"
                 expected_file = join(fixtures_dir, filename)
                 actual_file = join(temp_folder, filename)
                 assert_files_same(expected_file, actual_file)
