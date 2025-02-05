@@ -299,15 +299,7 @@ class Pipeline:
                 continue
             row["Error"] = []
             norows += 1
-            if row in orig_rows:
-                self._error_handler.add_message(
-                    "OperationalPresence",
-                    dataset_name,
-                    f"row {str(row)} is a duplicate in {countryiso3}",
-                )
-                row["Error"].append("duplicate")
-            else:
-                orig_rows.append(row)
+            orig_rows.append(str(row))
             org_str = row[org_name_col]
             org_acronym = row[org_acronym_col]
             if not org_str:
@@ -364,6 +356,14 @@ class Pipeline:
                 )
             # * Org matching
             self._org.add_or_match_org(org_info)
+
+        no_duplicates = len(orig_rows) - len(set(orig_rows))
+        if no_duplicates:
+            self._error_handler.add_message(
+                "OperationalPresence",
+                dataset_name,
+                f"{countryiso3} has {no_duplicates} duplicate rows",
+            )
 
         logger.info(f"{norows} rows preprocessed from {dataset_name}")
         datasetinfo["rows"] = rows
