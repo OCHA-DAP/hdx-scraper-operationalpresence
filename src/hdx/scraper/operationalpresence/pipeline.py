@@ -226,7 +226,6 @@ class Pipeline:
             datasetinfo["source_date"] = {"start": start_date, "end": end_date}
         resource = self._reader.read_hdx_metadata(datasetinfo)
         resource_name = resource["name"]
-        rows = []
         success, format = self.get_format(dataset_name, resource)
         if not success:
             self._error_handler.add_message(
@@ -283,6 +282,8 @@ class Pipeline:
                 filter = multiple_replace(filter, replace)
                 datasetinfo["Filter"] = filter
 
+        orig_rows = []
+        rows = []
         norows = 0
         for row in iterator:
             if filter:
@@ -296,8 +297,17 @@ class Pipeline:
                     break
             if hxlrow:
                 continue
-            norows += 1
             row["Error"] = []
+            norows += 1
+            if row in orig_rows:
+                self._error_handler.add_message(
+                    "OperationalPresence",
+                    dataset_name,
+                    f"row {str(row)} is a duplicate in {countryiso3}",
+                )
+                row["Error"].append("duplicate")
+            else:
+                orig_rows.append(row)
             org_str = row[org_name_col]
             org_acronym = row[org_acronym_col]
             if not org_str:
