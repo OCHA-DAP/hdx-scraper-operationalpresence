@@ -1,8 +1,11 @@
 import re
 import traceback
+from collections import Counter
 from datetime import datetime
 from logging import getLogger
 from typing import Dict, List, NamedTuple, Optional, Tuple
+
+from xlsx2csv import Xlsx2csv
 
 from .org import Org
 from .sheet import Sheet
@@ -238,7 +241,36 @@ class Pipeline:
         filename = self._reader.construct_filename(resource_name, format)
         datasetinfo["filename"] = filename
         datasetinfo["format"] = format
-        headers, iterator = self._reader.read_tabular(datasetinfo)
+        kwargs = {}
+        url = self._reader.setup_tabular(datasetinfo, kwargs)
+        path = self._reader.download_file(url, **kwargs)
+        xlsx2csv = kwargs.pop("xlsx2csv", False)
+        if xlsx2csv:
+            outpath = path.replace(".xlsx", ".csv")
+            sheet = kwargs.pop("sheet", 1)
+            if isinstance(sheet, int):
+                sheet_args = {"sheetid": sheet}
+            else:
+                sheet_args = {"sheetname": sheet}
+            Xlsx2csv(path).convert(outpath, **sheet_args)
+            path = outpath
+            kwargs["format"] = "csv"  # format takes precedence over file_type
+            kwargs.pop("fill_merged_cells", None)
+        with open(path, "r") as file:
+            lines = file.readlines()
+            line_counts = Counter(lines)
+            for line, count in line_counts.items():
+                if count > 1:
+                    self._error_handler.add_message(
+                        "OperationalPresence",
+                        dataset_name,
+                        f"{line} is duplicated {count} times",
+                    )
+        has_hxl = datasetinfo.get("use_hxl", False)
+        kwargs.pop("filename", None)
+        headers, iterator = self._reader.downloader.get_tabular_rows(
+            path, has_hxl=has_hxl, dict_form=True, **kwargs
+        )
         filter = datasetinfo["Filter"]
         if datasetinfo["use_hxl"]:
             header_to_hxltag = next(iterator)
@@ -356,14 +388,6 @@ class Pipeline:
                 )
             # * Org matching
             self._org.add_or_match_org(org_info)
-
-        no_duplicates = len(orig_rows) - len(set(orig_rows))
-        if no_duplicates:
-            self._error_handler.add_message(
-                "OperationalPresence",
-                dataset_name,
-                f"{countryiso3} has {no_duplicates} duplicate rows",
-            )
 
         logger.info(f"{norows} rows preprocessed from {dataset_name}")
         datasetinfo["rows"] = rows
