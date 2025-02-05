@@ -1,11 +1,8 @@
 import re
 import traceback
-from collections import Counter
 from datetime import datetime
 from logging import getLogger
 from typing import Dict, List, NamedTuple, Optional, Tuple
-
-from xlsx2csv import Xlsx2csv
 
 from .org import Org
 from .sheet import Sheet
@@ -241,36 +238,7 @@ class Pipeline:
         filename = self._reader.construct_filename(resource_name, format)
         datasetinfo["filename"] = filename
         datasetinfo["format"] = format
-        kwargs = {}
-        url = self._reader.setup_tabular(datasetinfo, kwargs)
-        path = self._reader.download_file(url, **kwargs)
-        xlsx2csv = kwargs.pop("xlsx2csv", False)
-        if xlsx2csv:
-            outpath = path.replace(".xlsx", ".csv")
-            sheet = kwargs.pop("sheet", 1)
-            if isinstance(sheet, int):
-                sheet_args = {"sheetid": sheet}
-            else:
-                sheet_args = {"sheetname": sheet}
-            Xlsx2csv(path).convert(outpath, **sheet_args)
-            path = outpath
-            kwargs["format"] = "csv"  # format takes precedence over file_type
-            kwargs.pop("fill_merged_cells", None)
-        with open(path, "r") as file:
-            lines = file.readlines()
-            line_counts = Counter(lines)
-            for line, count in line_counts.items():
-                if count > 1:
-                    self._error_handler.add_message(
-                        "OperationalPresence",
-                        dataset_name,
-                        f"{line} is duplicated {count} times",
-                    )
-        has_hxl = datasetinfo.get("use_hxl", False)
-        kwargs.pop("filename", None)
-        headers, iterator = self._reader.downloader.get_tabular_rows(
-            path, has_hxl=has_hxl, dict_form=True, **kwargs
-        )
+        headers, iterator = self._reader.read_tabular(datasetinfo)
         filter = datasetinfo["Filter"]
         if datasetinfo["use_hxl"]:
             header_to_hxltag = next(iterator)
@@ -314,7 +282,6 @@ class Pipeline:
                 filter = multiple_replace(filter, replace)
                 datasetinfo["Filter"] = filter
 
-        orig_rows = []
         rows = []
         norows = 0
         for row in iterator:
@@ -331,7 +298,6 @@ class Pipeline:
                 continue
             row["Error"] = []
             norows += 1
-            orig_rows.append(str(row))
             org_str = row[org_name_col]
             org_acronym = row[org_acronym_col]
             if not org_str:
