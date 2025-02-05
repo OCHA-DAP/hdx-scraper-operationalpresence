@@ -7,13 +7,13 @@ global_all_pcodes: "https://data.humdata.org/dataset/cb963915-d7d1-4ffa-90dc-312
 
 dataset:
   name: "hdx-hapi-operational-presence"
-  title: "HDX HAPI - Coordination & Context: 3W - Operational Presence"
+  title: "HDX HAPI - Coordination & Context: Operational Presence"
   tags:
     - "hxl"
     - "operational presence"
     - "who is doing what and where-3w-4w-5w"
   resource:
-    name: "Global Coordination & Context: 3W - Operational Presence"
+    name: "Global Coordination & Context: Operational Presence"
     description: "Who is doing What Where - Operational Presence data from HDX HAPI, please see [the documentation](https://hdx-hapi.readthedocs.io/en/latest/data_usage_guides/coordination_and_context/#who-is-doing-what-where-operational-presence) for more information"
     filename: "hdx_hapi_operational_presence_global.csv"
     hxltags:
@@ -22,13 +22,10 @@ dataset:
       "in_gho": "#meta+in_gho"
       "provider_admin1_name": "#adm1+name+provider"
       "provider_admin2_name": "#adm2+name+provider"
-      "provider_admin3_name": "#adm3+name+provider"
       "admin1_code": "#adm1+code"
       "admin1_name": "#adm1+name"
       "admin2_code": "#adm2+code"
       "admin2_name": "#adm2+name"
-      "admin3_code": "#adm3+code"
-      "admin3_name": "#adm3+name"
       "admin_level": "#adm+level"
       "org_name": "#org+name"
       "org_acronym": "#org+acronym"
@@ -48,7 +45,7 @@ org_dataset:
   tags:
     - "hxl"
   resource:
-    name: "Global Coordination & Context: 3W - Organisations"
+    name: "Global Coordination & Context: Organisations"
     description: "Organisation data from HDX HAPI"
     filename: "hdx_hapi_organisations_global.csv"
     hxltags:

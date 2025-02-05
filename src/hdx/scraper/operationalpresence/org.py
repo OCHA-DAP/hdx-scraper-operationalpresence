@@ -215,4 +215,6 @@ class Org:
         return path
 
     def get_org_type_description(self, org_type_code: str) -> str:
+        if org_type_code == "":
+            return ""
         return self._org_type.get_code_to_name().get(org_type_code, "")

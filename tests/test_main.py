@@ -91,18 +91,25 @@ class TestOperationalPresence:
                     configuration, sheet, error_handler, countryiso3s
                 )
                 pipeline.find_datasets_resources()
-                countryiso3s, startdate, enddate = pipeline.process()
-                assert countryiso3s == ["BDI", "LBN"]
-                assert startdate == datetime(
+                pipeline.process()
+                assert sorted(pipeline._iso3_to_datasetinfo.keys()) == [
+                    "BDI",
+                    "LBN",
+                ]
+                assert pipeline._start_date == datetime(
                     2021, 3, 31, 0, 0, tzinfo=timezone.utc
                 )
-                assert enddate == datetime(
+                assert pipeline._end_date == datetime(
                     2024, 9, 2, 23, 59, 59, 999999, tzinfo=timezone.utc
                 )
 
                 dataset = pipeline.generate_org_dataset(temp_folder)
                 assert dataset == {
                     "data_update_frequency": "30",
+                    "dataset_date": "[2021-03-31T00:00:00 TO 2024-09-02T23:59:59]",
+                    "dataset_source": "Humanitarian partners",
+                    "groups": [{"name": "world"}],
+                    "license_id": "cc-by-igo",
                     "maintainer": "196196be-6037-4488-8b71-d786adf4c081",
                     "name": "hdx-hapi-organisations",
                     "owner_org": "40d10ece-49de-4791-9aed-e164f1d16dd1",
@@ -119,7 +126,7 @@ class TestOperationalPresence:
                     {
                         "description": "Organisation data from HDX HAPI",
                         "format": "csv",
-                        "name": "Global Coordination & Context: 3W - Organisations",
+                        "name": "Global Coordination & Context: Organisations",
                         "resource_type": "file.upload",
                         "url_type": "upload",
                     }
@@ -132,6 +139,14 @@ class TestOperationalPresence:
                 dataset = pipeline.generate_3w_dateset(temp_folder)
                 assert dataset == {
                     "data_update_frequency": "30",
+                    "dataset_date": "[2021-03-31T00:00:00 TO 2024-09-02T23:59:59]",
+                    "dataset_source": "OCHA Burundi,OCHA Lebanon",
+                    "groups": [{"name": "bdi"}, {"name": "lbn"}],
+                    "license_id": "hdx-other",
+                    "license_other": "[Creative Commons Attribution "
+                    "International](http://www.opendefinition.org/licenses/cc-by),[Creative "
+                    "Commons Attribution for Intergovernmental "
+                    "Organisations](http://creativecommons.org/licenses/by/3.0/igo/legalcode)",
                     "maintainer": "196196be-6037-4488-8b71-d786adf4c081",
                     "name": "hdx-hapi-operational-presence",
                     "owner_org": "40d10ece-49de-4791-9aed-e164f1d16dd1",
@@ -146,7 +161,7 @@ class TestOperationalPresence:
                             "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
                         },
                     ],
-                    "title": "HDX HAPI - Coordination & Context: 3W - Operational Presence",
+                    "title": "HDX HAPI - Coordination & Context: Operational Presence",
                 }
                 assert dataset.get_resources() == [
                     {
@@ -155,7 +170,7 @@ class TestOperationalPresence:
                         "documentation](https://hdx-hapi.readthedocs.io/en/latest/data_usage_guides/coordination_and_context/#who-is-doing-what-where-operational-presence) "
                         "for more information",
                         "format": "csv",
-                        "name": "Global Coordination & Context: 3W - Operational Presence",
+                        "name": "Global Coordination & Context: Operational Presence",
                         "resource_type": "file.upload",
                         "url_type": "upload",
                     }

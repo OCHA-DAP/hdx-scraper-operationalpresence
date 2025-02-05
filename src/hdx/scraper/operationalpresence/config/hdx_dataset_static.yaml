@@ -15,5 +15,3 @@ caveats: >
   update schedules. Please refer to the source datasets for each subcategory
   to verify their specific update frequency.
 private: False
-license_id: "cc-by-igo"
-dataset_source: "Humanitarian partners"

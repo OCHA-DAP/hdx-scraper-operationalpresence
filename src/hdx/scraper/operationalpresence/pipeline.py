@@ -36,13 +36,10 @@ class Row(NamedTuple):
     in_gho: str
     provider_admin1_name: str
     provider_admin2_name: str
-    provider_admin3_name: str
     admin1_code: str
     admin1_name: str
     admin2_code: str
     admin2_name: str
-    admin3_code: str
-    admin3_name: str
     admin_level: int
     org_name: str
     org_acronym: str
@@ -93,6 +90,11 @@ class Pipeline:
             error_handler=error_handler,
         )
         self._sector = Sector()
+        self._iso3_to_datasetinfo = {}
+        self._start_date = default_enddate
+        self._end_date = default_date
+        self._hdx_providers = set()
+        self._licenses = set()
         self._rows = set()
         self._errors = set()
 
@@ -312,24 +314,27 @@ class Pipeline:
             # * Sector processing
             sector_orig = row[sector_col]
             # Skip rows that are missing a sector
-            if not sector_orig:
+            if sector_orig:
+                sector_code = self._sector.get_code(sector_orig)
+                if sector_code:
+                    row[sector_col] = sector_code
+                else:
+                    self._error_handler.add_missing_value_message(
+                        "OperationalPresence",
+                        dataset_name,
+                        "sector",
+                        sector_orig,
+                    )
+                    row["Error"].append(f"Unknown sector {sector_orig}!")
+                    row[sector_col] = ""
+            else:
                 self._error_handler.add_message(
                     "OperationalPresence",
                     dataset_name,
                     f"org {org_str} missing sector",
                 )
                 row["Error"].append("No sector!")
-            sector_code = self._sector.get_code(sector_orig)
-            if sector_code:
-                row[sector_col] = sector_code
-            else:
-                self._error_handler.add_missing_value_message(
-                    "OperationalPresence",
-                    dataset_name,
-                    "sector",
-                    sector_orig,
-                )
-                row["Error"].append(f"Unknown sector {sector_orig}!")
+                row[sector_col] = ""
             rows.append(row)
             if row["Error"]:
                 continue
@@ -466,19 +471,18 @@ class Pipeline:
             dataset_id = datasetinfo["hapi_dataset_metadata"]["hdx_id"]
             resource_id = datasetinfo["hapi_resource_metadata"]["hdx_id"]
 
+            if adm_level > 2:
+                adm_level = 2
             output_row = Row(
                 countryiso3,
                 "Y" if Country.get_hrp_status_from_iso3(countryiso3) else "N",
                 "Y" if Country.get_gho_status_from_iso3(countryiso3) else "N",
                 provider_adm_names[0],
                 provider_adm_names[1],
-                provider_adm_names[2],
                 adm_codes[0],
                 adm_names[0],
                 adm_codes[1],
                 adm_names[1],
-                adm_codes[2],
-                adm_names[2],
                 adm_level,
                 org_info.canonical_name,
                 org_info.acronym,
@@ -500,11 +504,8 @@ class Pipeline:
         del datasetinfo["rows"]
         return start_date, end_date
 
-    def process(self) -> Tuple[List, datetime, datetime]:
+    def process(self) -> None:
         self._org.populate()
-        earliest_start_date = default_enddate
-        latest_end_date = default_date
-        iso3_to_datasetinfo = {}
         for countryiso3 in self._sheet.get_countries():
             if (
                 self._countryiso3s_to_process
@@ -516,7 +517,7 @@ class Pipeline:
                 try:
                     success = self.preprocess_country(countryiso3, datasetinfo)
                     if success:
-                        iso3_to_datasetinfo[countryiso3] = datasetinfo
+                        self._iso3_to_datasetinfo[countryiso3] = datasetinfo
                 except Exception:
                     self._error_handler.add_message(
                         "OperationalPresence",
@@ -524,16 +525,18 @@ class Pipeline:
                         traceback.format_exc(),
                     )
 
-        for countryiso3, datasetinfo in iso3_to_datasetinfo.items():
+        for countryiso3, datasetinfo in self._iso3_to_datasetinfo.items():
             start_date, end_date = self.process_country(
                 countryiso3, datasetinfo
             )
-            if start_date < earliest_start_date:
-                earliest_start_date = start_date
-            if end_date > latest_end_date:
-                latest_end_date = end_date
-        countryiso3s = list(iso3_to_datasetinfo.keys())
-        return countryiso3s, earliest_start_date, latest_end_date
+            if start_date < self._start_date:
+                self._start_date = start_date
+            if end_date > self._end_date:
+                self._end_date = end_date
+            hapi_dataset_metadata = datasetinfo["hapi_dataset_metadata"]
+            hdx_provider_name = hapi_dataset_metadata["hdx_provider_name"]
+            self._hdx_providers.add(hdx_provider_name)
+            self._licenses.add(hapi_dataset_metadata["license"])
 
     def generate_dataset(self, key: str) -> Tuple[Dataset, Dict]:
         dataset_config = self._configuration[key]
@@ -562,6 +565,13 @@ class Pipeline:
 
         dataset, resource_config = self.generate_dataset("dataset")
         dataset.set_subnational(True)
+        dataset.add_country_locations(sorted(self._iso3_to_datasetinfo.keys()))
+        dataset["dataset_source"] = ",".join(sorted(self._hdx_providers))
+        dataset["license_id"] = "hdx-other"
+        dataset["license_other"] = ",".join(sorted(self._licenses))
+
+        dataset.set_time_period(self._start_date, self._end_date)
+
         resourcedata = {
             "name": resource_config["name"],
             "description": resource_config["description"],
@@ -581,6 +591,10 @@ class Pipeline:
     def generate_org_dataset(self, folder: str) -> Optional[Dataset]:
         dataset, resource_config = self.generate_dataset("org_dataset")
         dataset.set_subnational(False)
+        dataset.add_other_location("World")
+        dataset["dataset_source"] = "Humanitarian partners"
+        dataset["license_id"] = "cc-by-igo"
+        dataset.set_time_period(self._start_date, self._end_date)
 
         resourcedata = {
             "name": resource_config["name"],
