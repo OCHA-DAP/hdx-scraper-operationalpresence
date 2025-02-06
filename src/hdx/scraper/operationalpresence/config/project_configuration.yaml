@@ -29,7 +29,6 @@ dataset:
       "admin_level": "#adm+level"
       "org_name": "#org+name"
       "org_acronym": "#org+acronym"
-      "org_type": "#org+type+code"
       "org_type_description": "#org+type+desc"
       "sector_code": "#sector+code"
       "sector_name": "#sector+name"

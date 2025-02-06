@@ -43,7 +43,6 @@ class Row(NamedTuple):
     admin_level: int
     org_name: str
     org_acronym: str
-    org_type_code: str
     org_type_description: str
     sector_code: str
     sector_name: str
@@ -396,8 +395,8 @@ class Pipeline:
                                 f"admin {i+1} pcode",
                                 pcode,
                             )
-                            pcode = None
                             row["Error"].append(f"Unknown pcode {pcode}!")
+                            pcode = None
                 else:
                     pcode = None
                 if not pcode and prev_pcode:
@@ -486,7 +485,6 @@ class Pipeline:
                 adm_level,
                 org_info.canonical_name,
                 org_info.acronym,
-                org_info.type_code,
                 self._org.get_org_type_description(org_info.type_code),
                 sector_code,
                 self._sector.get_code_to_name().get(sector_code, ""),
@@ -494,7 +492,7 @@ class Pipeline:
                 end_date_str,
                 dataset_id,
                 resource_id,
-                "".join(row["Error"]),
+                ",".join(row["Error"]),
             )
             output_rows.add(output_row)
         logger.info(
