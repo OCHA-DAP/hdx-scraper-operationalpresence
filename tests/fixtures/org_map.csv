@@ -361,10 +361,10 @@ AFG,ochr,Organization for Coordination of Humanitarian Relief,organization for c
 ,cooperation allemande,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
 ,Deutsche Gesellschaft für Internationale Zusammenarbeit,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
 ,deutsche gesellschaft fur internationale zusammenarbeit,German Development Cooperation,german development cooperation,GIZ,giz,437,Y,N
-,Première Urgence Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
-,premiere urgence internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
-,PUI,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
-,pui,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,Première Urgence Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,Y
+,premiere urgence internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,Y
+,PUI,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,Y
+,pui,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,Y
 ,Premiere Urgence International,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
 ,premiere urgence international,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
 ,Première Urgence,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
@@ -372,8 +372,8 @@ AFG,ochr,Organization for Coordination of Humanitarian Relief,organization for c
 ,PUI - Première Urgence Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
 ,pui premiere urgence internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
 ,Premiere Urgence-Aide Medicale Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
-,premiere urgence aide medicale internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
-,Première Urgence - Aide Médicale Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
+,premiere urgence aide medicale internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,Y
+,Première Urgence - Aide Médicale Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,Y
 ,Solidarities International,Solidarities International,solidarities international,SI,si,437,Y,N
 ,solidarities international,Solidarities International,solidarities international,SI,si,437,Y,N
 ,SI,Solidarities International,solidarities international,SI,si,437,Y,N
@@ -500,6 +500,8 @@ BDI,GIRIYUJA ,GIRIYUJA ,giriyuja,GIRIYUJA ,giriyuja,,N,Y
 BDI,UPHB,UPHB,uphb,UPHB,uphb,,N,Y
 BDI,COPED,COPED,coped,COPED,coped,,N,Y
 BDI,CARITAS BURUNDI,CARITAS BURUNDI,caritas burundi,CARITAS BURUNDI,caritas burundi,,N,Y
+BDI,PACT,PACT,pact,PACT,pact,,N,Y
+BDI,OPIRCO,OPIRCO,opirco,OPIRCO,opirco,,N,Y
 BDI,IMIF,IMIF,imif,IMIF,imif,,N,Y
 BDI,APROSAP,APROSAP,aprosap,APROSAP,aprosap,,N,Y
 BDI,SFBSP-BURUNDI,SFBSP-BURUNDI,sfbsp burundi,SFBSP-BURUNDI,sfbsp burundi,,N,Y
@@ -508,6 +510,11 @@ BDI,NACHAM AFRICA,NACHAM AFRICA,nacham africa,NACHAM AFRICA,nacham africa,,N,Y
 BDI,IADH,IADH,iadh,IADH,iadh,,N,Y
 BDI,CREOP-JEUNES,CREOP-JEUNES,creop jeunes,CREOP-JEUNES,creop jeunes,,N,Y
 BDI,FAWE BURUNDI,FAWE BURUNDI,fawe burundi,FAWE BURUNDI,fawe burundi,,N,Y
+BDI,UCBUM,UCBUM,ucbum,UCBUM,ucbum,,N,Y
+BDI,SOJPAE,SOJPAE,sojpae,SOJPAE,sojpae,,N,Y
+BDI,FeA,FeA,fea,FeA,fea,,N,Y
+BDI,AFJB,AFJB,afjb,AFJB,afjb,,N,Y
+BDI,FENADEB,FENADEB,fenadeb,FENADEB,fenadeb,,N,Y
 BDI,ISV,ISV,isv,ISV,isv,,N,Y
 BDI,CRB,CRB,crb,CRB,crb,,N,Y
 BDI,AFV,AFV,afv,AFV,afv,,N,Y
@@ -526,28 +533,21 @@ LBN,MCC + ISF,MCC + ISF,mcc isf,MCC + ISF,mcc isf,,N,Y
 LBN,Caritas,Caritas,caritas,Caritas,caritas,437,Y,Y
 LBN,World vision,World Vision International,world vision international,WVI,wvi,437,Y,Y
 LBN,Plan International,Plan International,plan international,PI,pi,437,Y,Y
+LBN,Action contre la Faim Spain,Action contre la Faim Spain,action contre la faim spain,ACF Spain,acf spain,437,Y,Y
+LBN,World Food Programme,World Food Programme,world food programme,WFP,wfp,447,Y,Y
+LBN,SHEILD,SHEILD,sheild,SHEILD,sheild,441,Y,Y
+LBN,Norweigan Refugee Council,Norweigan Refugee Council,norweigan refugee council,NRC,nrc,437,Y,Y
+LBN,Save the Children International,Save the Children International,save the children international,SCI,sci,437,Y,Y
+LBN,Association of Volunteers in International Service,Association of Volunteers in International Service,association of volunteers in international service,AVSI,avsi,437,Y,Y
+LBN,Caritas Lebanon,Caritas Lebanon,caritas lebanon,Caritas Lebanon,caritas lebanon,441,Y,Y
+LBN,DanChurch Aid,DanChurch Aid,danchurch aid,DCA,dca,437,Y,Y
 LBN,AMEL,AMEL,amel,AMEL,amel,441,Y,Y
 LBN,International Medical Corps,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
 LBN,Imam Sadr Foundation,Imam Sadr Foundation,imam sadr foundation,Imam Sadr Foundation,imam sadr foundation,441,Y,Y
-LBN,Association of Volunteers in International Service,Association of Volunteers in International Service,association of volunteers in international service,AVSI,avsi,437,Y,Y
 LBN,Mouvement Social,Mouvement Social,mouvement social,Mouvement Social,mouvement social,441,Y,Y
-LBN,Save the Children International,Save the Children International,save the children international,SCI,sci,437,Y,Y
-LBN,Caritas Lebanon,Caritas Lebanon,caritas lebanon,Caritas Lebanon,caritas lebanon,441,Y,Y
-LBN,Action contre la Faim Spain,Action contre la Faim Spain,action contre la faim spain,ACF Spain,acf spain,437,Y,Y
-LBN,SHEILD,SHEILD,sheild,SHEILD,sheild,441,Y,Y
 LBN,Intersos,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
 LBN,Handicap International,Handicap International - Humanity & Inclusion,handicap international humanity inclusion,HI,hi,437,Y,Y
-LBN,Norweigan Refugee Council,Norweigan Refugee Council,norweigan refugee council,NRC,nrc,437,Y,Y
+LBN,MEDAIR International Humanitarian Aid Organisation,MEDAIR International Humanitarian Aid Organisation,medair international humanitarian aid organisation,MEDAIR,medair,437,Y,Y
+LBN,Première Urgence - Aide Médicale Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,Y
+LBN,International Organisation of Migration,International Organisation of Migration,international organisation of migration,IOM,iom,447,Y,Y
 LBN,International Orthodox Christian Charities - Lebanon,International Orthodox Christian Charities - Lebanon,international orthodox christian charities lebanon,IOCC Lebanon,iocc lebanon,437,Y,Y
-BDI,PACT,PACT,pact,,,,N,N
-BDI,OPIRCO,OPIRCO,opirco,,,,N,N
-BDI,UCBUM,UCBUM,ucbum,,,,N,N
-BDI,SOJPAE,SOJPAE,sojpae,,,,N,N
-BDI,FeA,FeA,fea,,,,N,N
-BDI,AFJB,AFJB,afjb,,,,N,N
-BDI,FENADEB,FENADEB,fenadeb,,,,N,N
-LBN,World Food Programme,World Food Programme,world food programme,WFP,wfp,447,Y,Y
-LBN,DanChurch Aid,DanChurch Aid,danchurch aid,,,,N,N
-LBN,MEDAIR International Humanitarian Aid Organisation,MEDAIR International Humanitarian Aid Organisation,medair international humanitarian aid organisation,,,,N,N
-LBN,Première Urgence - Aide Médicale Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,N
-LBN,International Organisation of Migration,International Organisation of Migration,international organisation of migration,,,,N,N
