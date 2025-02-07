@@ -36,7 +36,7 @@ requires-python = ">=3.8"
 dependencies = [
     "frictionless[ods]",
     "gspread",
-    "hdx-python-scraper@git+ssh://git@github.com/OCHA-DAP/hdx-python-scraper@tabular_setup#egg=hdx-python-scraper",
+    "hdx-python-scraper>= 2.5.8",
     "hdx-python-api>= 6.3.7",
     "hdx-python-country>= 3.8.8",
     "hdx-python-utilities>= 3.8.3",
