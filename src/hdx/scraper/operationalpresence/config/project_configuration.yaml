@@ -36,6 +36,7 @@ dataset:
       "reference_period_end": "#date+end"
       "dataset_hdx_id": "#meta+dataset_id"
       "resource_hdx_id": "#meta+resource_id"
+      "warning": "#meta+warning"
       "error": "#meta+error"
 
 org_dataset:
@@ -48,10 +49,10 @@ org_dataset:
     description: "Organisation data from HDX HAPI"
     filename: "hdx_hapi_organisations_global.csv"
     hxltags:
-        "acronym": "#org+acronym"
-        "name": "#org+name"
-        "org_type_code": "#org+type+code"
-        "org_type_description": "#org+type+desc"
+      "acronym": "#org+acronym"
+      "name": "#org+name"
+      "org_type_code": "#org+type+code"
+      "org_type_description": "#org+type+desc"
 
 dataseries_ignore:
   - "Fields Data - Operational Presence"

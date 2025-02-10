@@ -2,9 +2,10 @@ import re
 import traceback
 from datetime import datetime
 from logging import getLogger
-from typing import Dict, List, NamedTuple, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from .org import Org
+from .row import Row
 from .sheet import Sheet
 from hdx.api.configuration import Configuration
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
@@ -28,29 +29,6 @@ logger = getLogger(__name__)
 
 # eg. row['#date+year']=='2024' and row['#date+quarter']=='Q3'
 ROW_LOOKUP = re.compile(r"row\[['\"](.*?)['\"]\]")
-
-
-class Row(NamedTuple):
-    location_code: str
-    has_hrp: str
-    in_gho: str
-    provider_admin1_name: str
-    provider_admin2_name: str
-    admin1_code: str
-    admin1_name: str
-    admin2_code: str
-    admin2_name: str
-    admin_level: int
-    org_name: str
-    org_acronym: str
-    org_type_description: str
-    sector_code: str
-    sector_name: str
-    reference_period_start: str
-    reference_period_end: str
-    dataset_id: str
-    resource_id: str
-    error: str
 
 
 class Pipeline:
@@ -95,7 +73,6 @@ class Pipeline:
         self._hdx_providers = set()
         self._licenses = set()
         self._rows = set()
-        self._errors = set()
 
     def get_format_from_url(self, resource: Resource) -> Optional[str]:
         format = resource["url"][-4:].lower()
@@ -295,6 +272,7 @@ class Pipeline:
                     break
             if hxlrow:
                 continue
+            row["Warning"] = []
             row["Error"] = []
             norows += 1
             org_str = row[org_name_col]
@@ -395,7 +373,7 @@ class Pipeline:
                                 f"admin {i+1} pcode",
                                 pcode,
                             )
-                            row["Error"].append(f"Unknown pcode {pcode}!")
+                            row["Warning"].append(f"Unknown pcode {pcode}!")
                             pcode = None
                 else:
                     pcode = None
@@ -492,6 +470,7 @@ class Pipeline:
                 end_date_str,
                 dataset_id,
                 resource_id,
+                ",".join(row["Warning"]),
                 ",".join(row["Error"]),
             )
             output_rows.add(output_row)
@@ -556,8 +535,7 @@ class Pipeline:
         return dataset, resource_config
 
     def generate_3w_dateset(self, folder: str) -> Optional[Dataset]:
-        rows = sorted(self._rows)
-        if len(rows) == 0:
+        if len(self._rows) == 0:
             logger.warning("Operational presence has no data!")
             return None
 
