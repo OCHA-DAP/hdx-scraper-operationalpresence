@@ -370,7 +370,7 @@ class Pipeline:
                             self._error_handler.add_missing_value_message(
                                 "OperationalPresence",
                                 dataset_name,
-                                f"admin {i+1} pcode",
+                                f"admin {i + 1} pcode",
                                 pcode,
                             )
                             row["Warning"].append(f"Unknown pcode {pcode}!")
