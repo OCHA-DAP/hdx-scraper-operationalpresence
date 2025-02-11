@@ -90,38 +90,28 @@ def main(
                 configuration, sheet, error_handler, countryiso3s
             )
             pipeline.find_datasets_resources()
-            countryiso3s, startdate, enddate = pipeline.process()
+            pipeline.process()
             dataset = pipeline.generate_org_dataset(temp_folder)
             if dataset:
-                dataset.add_other_location("World")
-                dataset.set_time_period(startdate, enddate)
                 dataset.update_from_yaml(
                     script_dir_plus_file(
                         join("config", "hdx_dataset_static.yaml"), main
                     )
                 )
-                dataset["notes"] = (
-                    "This dataset contains standardised Organisation data"
-                )
                 dataset.create_in_hdx(
-                    remove_additional_resources=False,
+                    remove_additional_resources=True,
                     hxl_update=False,
                     updated_by_script=updated_by_script,
                 )
             dataset = pipeline.generate_3w_dateset(temp_folder)
             if dataset:
-                dataset.add_country_locations(countryiso3s)
-                dataset.set_time_period(startdate, enddate)
                 dataset.update_from_yaml(
                     script_dir_plus_file(
                         join("config", "hdx_dataset_static.yaml"), main
                     )
                 )
-                dataset["notes"] = (
-                    "This dataset contains standardised Operational Presence data"
-                )
                 dataset.create_in_hdx(
-                    remove_additional_resources=False,
+                    remove_additional_resources=True,
                     hxl_update=False,
                     updated_by_script=updated_by_script,
                 )

@@ -2,17 +2,17 @@ import re
 import traceback
 from datetime import datetime
 from logging import getLogger
-from typing import Dict, List, NamedTuple, Optional, Tuple
-
-from slugify import slugify
+from typing import Dict, List, Optional, Tuple
 
 from .org import Org
+from .row import Row
 from .sheet import Sheet
 from hdx.api.configuration import Configuration
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.data.dataset import Dataset
 from hdx.data.resource import Resource
 from hdx.location.adminlevel import AdminLevel
+from hdx.location.country import Country
 from hdx.scraper.framework.utilities.reader import Read
 from hdx.scraper.framework.utilities.sector import Sector
 from hdx.utilities.dateparse import (
@@ -29,24 +29,6 @@ logger = getLogger(__name__)
 
 # eg. row['#date+year']=='2024' and row['#date+quarter']=='Q3'
 ROW_LOOKUP = re.compile(r"row\[['\"](.*?)['\"]\]")
-
-
-class Row(NamedTuple):
-    countryiso3: str
-    adm_code_0: str
-    adm_name_0: str
-    adm_code_1: str
-    adm_name_1: str
-    adm_code_2: str
-    adm_name_2: str
-    canonical_name: str
-    acronym: str
-    type_code: str
-    sector_code: str
-    start_date: str
-    end_date: str
-    dataset_id: str
-    resource_id: str
 
 
 class Pipeline:
@@ -85,8 +67,12 @@ class Pipeline:
             error_handler=error_handler,
         )
         self._sector = Sector()
-        self._rows = set()
-        self._errors = set()
+        self._iso3_to_datasetinfo = {}
+        self._start_date = default_enddate
+        self._end_date = default_date
+        self._hdx_providers = set()
+        self._licenses = set()
+        self._rows = []
 
     def get_format_from_url(self, resource: Resource) -> Optional[str]:
         format = resource["url"][-4:].lower()
@@ -216,7 +202,6 @@ class Pipeline:
             datasetinfo["source_date"] = {"start": start_date, "end": end_date}
         resource = self._reader.read_hdx_metadata(datasetinfo)
         resource_name = resource["name"]
-        rows = []
         success, format = self.get_format(dataset_name, resource)
         if not success:
             self._error_handler.add_message(
@@ -273,11 +258,22 @@ class Pipeline:
                 filter = multiple_replace(filter, replace)
                 datasetinfo["Filter"] = filter
 
+        rows = []
         norows = 0
         for row in iterator:
             if filter:
                 if not eval(filter):
                     continue
+            # Skip HXL tag row
+            hxlrow = False
+            for value in row.values():
+                if value and value[0] == "#":
+                    hxlrow = True
+                    break
+            if hxlrow:
+                continue
+            row["Warning"] = []
+            row["Error"] = []
             norows += 1
             org_str = row[org_name_col]
             org_acronym = row[org_acronym_col]
@@ -285,33 +281,40 @@ class Pipeline:
                 org_str = org_acronym
             # Skip rows with no org name or acronym
             if not org_str:
-                continue
-            # Skip HXL tag row
-            if org_str[0] == "#":
-                norows -= 1
-                continue
+                self._error_handler.add_message(
+                    "OperationalPresence",
+                    dataset_name,
+                    f"row {norows} missing organisation",
+                )
+                row["Error"].append("No org")
 
             # * Sector processing
             sector_orig = row[sector_col]
             # Skip rows that are missing a sector
-            if not sector_orig:
+            if sector_orig:
+                sector_code = self._sector.get_code(sector_orig)
+                if sector_code:
+                    row[sector_col] = sector_code
+                else:
+                    self._error_handler.add_missing_value_message(
+                        "OperationalPresence",
+                        dataset_name,
+                        "sector",
+                        sector_orig,
+                    )
+                    row["Error"].append(f"Unknown sector {sector_orig}")
+                    row[sector_col] = ""
+            else:
                 self._error_handler.add_message(
                     "OperationalPresence",
                     dataset_name,
                     f"org {org_str} missing sector",
                 )
-                continue
-            sector_code = self._sector.get_code(sector_orig)
-            if not sector_code:
-                self._error_handler.add_missing_value_message(
-                    "OperationalPresence",
-                    dataset_name,
-                    "sector",
-                    sector_orig,
-                )
-                continue
-            row[sector_col] = sector_code
+                row["Error"].append("No sector")
+                row[sector_col] = ""
             rows.append(row)
+            if row["Error"]:
+                continue
 
             # * Org processing
             org_info = self._org.get_org_info(org_str, location=countryiso3)
@@ -340,33 +343,53 @@ class Pipeline:
         adm_code_cols: List[str],
         adm_name_cols: List[str],
         dataset_name: str,
-    ) -> Tuple[List, List]:
+    ) -> Tuple[List, List, List, int]:
+        provider_adm_names = ["", "", ""]
         adm_codes = ["", "", ""]
         adm_names = ["", "", ""]
         prev_pcode = None
+        adm_level = 0
         for i, adm_name_col in reversed(list(enumerate(adm_name_cols))):
             if adm_name_col:
-                adm_name = row[adm_name_col]
-                if adm_name:
-                    adm_name = adm_name.strip()
-                    if adm_name:
-                        adm_names[i] = adm_name
+                provider_adm_name = row[adm_name_col]
+                if provider_adm_name:
+                    provider_adm_name = provider_adm_name.strip()
+                    if provider_adm_name:
+                        provider_adm_names[i] = provider_adm_name
+                        if i >= adm_level:
+                            adm_level = i + 1
             if adm_code_cols:
                 adm_code_col = adm_code_cols[i]
                 if adm_code_col:
                     pcode = row[adm_code_cols[i]]
-                    if pcode and pcode not in self._admins[i].pcodes:
-                        self._error_handler.add_missing_value_message(
-                            "OperationalPresence",
-                            dataset_name,
-                            f"admin {i+1} pcode",
-                            pcode,
-                        )
-                        pcode = None
+                    if pcode:
+                        if pcode in self._admins[i].pcodes:
+                            if i >= adm_level:
+                                adm_level = i + 1
+                        else:
+                            self._error_handler.add_missing_value_message(
+                                "OperationalPresence",
+                                dataset_name,
+                                f"admin {i + 1} pcode",
+                                pcode,
+                            )
+                            row["Warning"].append(f"Unknown pcode {pcode}")
+                            pcode = None
                 else:
                     pcode = None
-                if not pcode and prev_pcode:
-                    pcode = self._admins[i + 1].pcode_to_parent.get(prev_pcode)
+                if prev_pcode:
+                    pcode_from_parent = self._admins[
+                        i + 1
+                    ].pcode_to_parent.get(prev_pcode)
+                    if pcode and pcode_from_parent != pcode:
+                        self._error_handler.add_message(
+                            "OperationalPresence",
+                            dataset_name,
+                            f"Corrected parent pcode of {prev_pcode} from {pcode} to {pcode_from_parent}",
+                            message_type="warning",
+                        )
+                        row["Warning"].append(f"Parent pcode not {pcode}")
+                    pcode = pcode_from_parent
                 if not pcode:
                     pcode = ""
                 adm_codes[i] = pcode
@@ -375,17 +398,21 @@ class Pipeline:
         parent = None
         for i, adm_code in enumerate(adm_codes):
             if adm_code:
+                adm_name = self._admins[i].pcode_to_name.get(adm_code, "")
+                adm_names[i] = adm_name
                 continue
-            adm_name = adm_names[i]
-            if not adm_name:
+            provider_adm_name = provider_adm_names[i]
+            if not provider_adm_name:
                 continue
             adm_code, _ = self._admins[i].get_pcode(
-                countryiso3, adm_name, parent=parent
+                countryiso3, provider_adm_name, parent=parent
             )
             if adm_code:
                 adm_codes[i] = adm_code
+                adm_name = self._admins[i].pcode_to_name.get(adm_code, "")
+                adm_names[i] = adm_name
                 parent = adm_code
-        return adm_codes, adm_names
+        return provider_adm_names, adm_codes, adm_names, adm_level
 
     def process_country(
         self, countryiso3: str, datasetinfo: Dict
@@ -402,7 +429,7 @@ class Pipeline:
         end_date = datasetinfo["time_period"]["end"]
         start_date_str = iso_string_from_datetime(start_date)
         end_date_str = iso_string_from_datetime(end_date)
-        output_rows = set()
+        output_rows = {}
         rows = datasetinfo["rows"]
         for row in rows:
             sector_code = row[sector_col]
@@ -411,45 +438,73 @@ class Pipeline:
             org_acronym = row[org_acronym_col]
             if not org_str:
                 org_str = org_acronym
-            org_info = self._org.get_org_info(org_str, location=countryiso3)
+            if org_str:
+                org_info = self._org.get_org_info(
+                    org_str, location=countryiso3
+                )
+            else:
+                org_info = self._org.get_blank_org_info()
 
             # * Adm processing
-            adm_codes, adm_names = self.get_adm_info(
-                countryiso3, row, adm_code_cols, adm_name_cols, dataset_name
+            provider_adm_names, adm_codes, adm_names, adm_level = (
+                self.get_adm_info(
+                    countryiso3,
+                    row,
+                    adm_code_cols,
+                    adm_name_cols,
+                    dataset_name,
+                )
             )
 
             dataset_id = datasetinfo["hapi_dataset_metadata"]["hdx_id"]
             resource_id = datasetinfo["hapi_resource_metadata"]["hdx_id"]
+
+            if adm_level > 2:
+                adm_level = 2
+            key = (
+                countryiso3,
+                provider_adm_names[0],
+                provider_adm_names[1],
+                adm_codes[0],
+                adm_codes[1],
+                org_info.acronym,
+                org_info.canonical_name,
+                sector_code,
+                start_date_str,
+            )
             output_row = Row(
                 countryiso3,
+                "Y" if Country.get_hrp_status_from_iso3(countryiso3) else "N",
+                "Y" if Country.get_gho_status_from_iso3(countryiso3) else "N",
+                provider_adm_names[0],
+                provider_adm_names[1],
                 adm_codes[0],
                 adm_names[0],
                 adm_codes[1],
                 adm_names[1],
-                adm_codes[2],
-                adm_names[2],
-                org_info.canonical_name,
+                adm_level,
                 org_info.acronym,
-                org_info.type_code,
+                org_info.canonical_name,
+                self._org.get_org_type_description(org_info.type_code),
                 sector_code,
+                self._sector.get_code_to_name().get(sector_code, ""),
                 start_date_str,
                 end_date_str,
                 dataset_id,
                 resource_id,
+                "|".join(row["Warning"]),
+                "|".join(row["Error"]),
             )
-            output_rows.add(output_row)
+            output_rows[key] = output_row
         logger.info(
             f"{len(rows)} rows processed from {dataset_name} producing {len(output_rows)} rows."
         )
-        self._rows.update(output_rows)
+        self._rows.extend(sorted(output_rows.values()))
         del datasetinfo["rows"]
         return start_date, end_date
 
-    def process(self) -> Tuple[List, datetime, datetime]:
+    def process(self) -> None:
         self._org.populate()
-        earliest_start_date = default_enddate
-        latest_end_date = default_date
-        iso3_to_datasetinfo = {}
         for countryiso3 in self._sheet.get_countries():
             if (
                 self._countryiso3s_to_process
@@ -461,7 +516,7 @@ class Pipeline:
                 try:
                     success = self.preprocess_country(countryiso3, datasetinfo)
                     if success:
-                        iso3_to_datasetinfo[countryiso3] = datasetinfo
+                        self._iso3_to_datasetinfo[countryiso3] = datasetinfo
                 except Exception:
                     self._error_handler.add_message(
                         "OperationalPresence",
@@ -469,21 +524,24 @@ class Pipeline:
                         traceback.format_exc(),
                     )
 
-        for countryiso3, datasetinfo in iso3_to_datasetinfo.items():
+        for countryiso3, datasetinfo in self._iso3_to_datasetinfo.items():
             start_date, end_date = self.process_country(
                 countryiso3, datasetinfo
             )
-            if start_date < earliest_start_date:
-                earliest_start_date = start_date
-            if end_date > latest_end_date:
-                latest_end_date = end_date
-        countryiso3s = list(iso3_to_datasetinfo.keys())
-        return countryiso3s, earliest_start_date, latest_end_date
+            if start_date < self._start_date:
+                self._start_date = start_date
+            if end_date > self._end_date:
+                self._end_date = end_date
+            hapi_dataset_metadata = datasetinfo["hapi_dataset_metadata"]
+            hdx_provider_name = hapi_dataset_metadata["hdx_provider_name"]
+            self._hdx_providers.add(hdx_provider_name)
+            self._licenses.add(hapi_dataset_metadata["license"])
 
-    def generate_3w_dateset(self, folder: str) -> Optional[Dataset]:
-        title = "Global Operational Presence"
+    def generate_dataset(self, key: str) -> Tuple[Dataset, Dict]:
+        dataset_config = self._configuration[key]
+        title = dataset_config["title"]
         logger.info(f"Creating dataset: {title}")
-        slugified_name = slugify(title).lower()
+        slugified_name = dataset_config["name"]
         dataset = Dataset(
             {
                 "name": slugified_name,
@@ -491,67 +549,62 @@ class Pipeline:
             }
         )
         dataset.set_maintainer("196196be-6037-4488-8b71-d786adf4c081")
-        dataset.set_organization("hdx")
-        dataset.set_expected_update_frequency("Every three months")
+        dataset.set_organization("40d10ece-49de-4791-9aed-e164f1d16dd1")
+        dataset.set_expected_update_frequency("Every month")
+        dataset.add_tags(dataset_config["tags"])
 
-        tags = [
-            "hxl",
-            "operational presence",
-        ]
-        dataset.add_tags(tags)
+        resource_config = dataset_config["resource"]
+        return dataset, resource_config
 
+    def generate_3w_dateset(self, folder: str) -> Optional[Dataset]:
+        if len(self._rows) == 0:
+            logger.warning("Operational presence has no data!")
+            return None
+
+        dataset, resource_config = self.generate_dataset("dataset")
         dataset.set_subnational(True)
+        dataset.add_country_locations(sorted(self._iso3_to_datasetinfo.keys()))
+        dataset["dataset_source"] = ",".join(sorted(self._hdx_providers))
+        dataset["license_id"] = "hdx-other"
+        dataset["license_other"] = ",".join(sorted(self._licenses))
+
+        dataset.set_time_period(self._start_date, self._end_date)
 
         resourcedata = {
-            "name": "Operational Presence",
-            "description": "Global Operational Presence data with HXL hashtags",
+            "name": resource_config["name"],
+            "description": resource_config["description"],
         }
-        filename = "operational_presence.csv"
-        hxltags = self._configuration["hxltags"]
+        hxltags = resource_config["hxltags"]
 
-        rows = sorted(self._rows)
-        if len(rows) == 0:
-            logger.warning(f"{title} has no data!")
-            return None
         dataset.generate_resource_from_rows(
             folder,
-            filename,
-            [list(hxltags.keys())]
-            + [list(hxltags.values())]
-            + sorted(self._rows),
+            resource_config["filename"],
+            [list(hxltags.keys())] + [list(hxltags.values())] + self._rows,
             resourcedata,
         )
         return dataset
 
     def generate_org_dataset(self, folder: str) -> Optional[Dataset]:
-        title = "Global Organisations"
-        logger.info(f"Creating dataset: {title}")
-        slugified_name = slugify(title).lower()
-        dataset = Dataset(
-            {
-                "name": slugified_name,
-                "title": title,
-            }
-        )
-        dataset.set_maintainer("196196be-6037-4488-8b71-d786adf4c081")
-        dataset.set_organization("hdx")
-        dataset.set_expected_update_frequency("Every three months")
-        dataset.add_tag("hxl")
-
+        dataset, resource_config = self.generate_dataset("org_dataset")
         dataset.set_subnational(False)
+        dataset.add_other_location("World")
+        dataset["dataset_source"] = "Humanitarian partners"
+        dataset["license_id"] = "cc-by-igo"
+        dataset.set_time_period(self._start_date, self._end_date)
 
         resourcedata = {
-            "name": "Organisations",
-            "description": "Global organisation data with HXL hashtags",
+            "name": resource_config["name"],
+            "description": resource_config["description"],
         }
-        filename = "organisations.csv"
-
-        hxltags = self._configuration["org_hxltags"]
+        hxltags = resource_config["hxltags"]
         org_rows = [
             {
-                "Acronym": org_data.acronym,
-                "Name": org_data.name,
-                "Org Type Code": org_data.type_code,
+                "acronym": org_data.acronym,
+                "name": org_data.name,
+                "org_type_code": org_data.type_code,
+                "org_type_description": self._org.get_org_type_description(
+                    org_data.type_code
+                ),
             }
             for org_data in sorted(self._org.data.values())
         ]
@@ -560,10 +613,10 @@ class Pipeline:
             org_rows,
             hxltags,
             folder,
-            filename,
+            resource_config["filename"],
             resourcedata,
         )
         if success is False:
-            logger.warning(f"{title} has no data!")
+            logger.warning("Organisations has no data!")
             return None
         return dataset

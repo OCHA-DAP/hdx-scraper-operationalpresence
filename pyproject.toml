@@ -36,9 +36,9 @@ requires-python = ">=3.8"
 dependencies = [
     "frictionless[ods]",
     "gspread",
-    "hdx-python-scraper>= 2.5.5",
+    "hdx-python-scraper>= 2.5.8",
     "hdx-python-api>= 6.3.7",
-    "hdx-python-country>= 3.8.7",
+    "hdx-python-country>= 3.8.8",
     "hdx-python-utilities>= 3.8.3",
 ]
 dynamic = ["version"]
@@ -95,7 +95,7 @@ run = """
        """
 
 [tool.hatch.envs.hatch-static-analysis]
-dependencies = ["ruff==0.8.6"]
+dependencies = ["ruff==0.9.6"]
 
 [tool.hatch.envs.hatch-static-analysis.scripts]
 format-check = ["ruff format --config .config/ruff.toml --check --diff {args:.}",]
