@@ -344,9 +344,9 @@ class Pipeline:
         adm_name_cols: List[str],
         dataset_name: str,
     ) -> Tuple[List, List, List, int]:
-        provider_adm_names = ["", "", ""]
-        adm_codes = ["", "", ""]
-        adm_names = ["", "", ""]
+        provider_adm_names = ["" for _ in self._admins]
+        adm_codes = ["" for _ in self._admins]
+        adm_names = ["" for _ in self._admins]
         prev_pcode = None
         adm_level = 0
         for i, adm_name_col in reversed(list(enumerate(adm_name_cols))):
