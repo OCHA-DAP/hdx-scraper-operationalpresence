@@ -72,7 +72,7 @@ class Pipeline:
         self._end_date = default_date
         self._hdx_providers = set()
         self._licenses = set()
-        self._rows = set()
+        self._rows = []
 
     def get_format_from_url(self, resource: Resource) -> Optional[str]:
         format = resource["url"][-4:].lower()
@@ -286,7 +286,7 @@ class Pipeline:
                     dataset_name,
                     f"row {norows} missing organisation",
                 )
-                row["Error"].append("No org!")
+                row["Error"].append("No org")
 
             # * Sector processing
             sector_orig = row[sector_col]
@@ -302,7 +302,7 @@ class Pipeline:
                         "sector",
                         sector_orig,
                     )
-                    row["Error"].append(f"Unknown sector {sector_orig}!")
+                    row["Error"].append(f"Unknown sector {sector_orig}")
                     row[sector_col] = ""
             else:
                 self._error_handler.add_message(
@@ -310,7 +310,7 @@ class Pipeline:
                     dataset_name,
                     f"org {org_str} missing sector",
                 )
-                row["Error"].append("No sector!")
+                row["Error"].append("No sector")
                 row[sector_col] = ""
             rows.append(row)
             if row["Error"]:
@@ -373,12 +373,23 @@ class Pipeline:
                                 f"admin {i + 1} pcode",
                                 pcode,
                             )
-                            row["Warning"].append(f"Unknown pcode {pcode}!")
+                            row["Warning"].append(f"Unknown pcode {pcode}")
                             pcode = None
                 else:
                     pcode = None
-                if not pcode and prev_pcode:
-                    pcode = self._admins[i + 1].pcode_to_parent.get(prev_pcode)
+                if prev_pcode:
+                    pcode_from_parent = self._admins[
+                        i + 1
+                    ].pcode_to_parent.get(prev_pcode)
+                    if pcode and pcode_from_parent != pcode:
+                        self._error_handler.add_message(
+                            "OperationalPresence",
+                            dataset_name,
+                            f"Corrected parent pcode of {prev_pcode} from {pcode} to {pcode_from_parent}",
+                            message_type="warning",
+                        )
+                        row["Warning"].append(f"Parent pcode not {pcode}")
+                    pcode = pcode_from_parent
                 if not pcode:
                     pcode = ""
                 adm_codes[i] = pcode
@@ -418,7 +429,7 @@ class Pipeline:
         end_date = datasetinfo["time_period"]["end"]
         start_date_str = iso_string_from_datetime(start_date)
         end_date_str = iso_string_from_datetime(end_date)
-        output_rows = set()
+        output_rows = {}
         rows = datasetinfo["rows"]
         for row in rows:
             sector_code = row[sector_col]
@@ -450,6 +461,17 @@ class Pipeline:
 
             if adm_level > 2:
                 adm_level = 2
+            key = (
+                countryiso3,
+                provider_adm_names[0],
+                provider_adm_names[1],
+                adm_codes[0],
+                adm_codes[1],
+                org_info.acronym,
+                org_info.canonical_name,
+                sector_code,
+                start_date_str,
+            )
             output_row = Row(
                 countryiso3,
                 "Y" if Country.get_hrp_status_from_iso3(countryiso3) else "N",
@@ -461,8 +483,8 @@ class Pipeline:
                 adm_codes[1],
                 adm_names[1],
                 adm_level,
-                org_info.canonical_name,
                 org_info.acronym,
+                org_info.canonical_name,
                 self._org.get_org_type_description(org_info.type_code),
                 sector_code,
                 self._sector.get_code_to_name().get(sector_code, ""),
@@ -470,14 +492,14 @@ class Pipeline:
                 end_date_str,
                 dataset_id,
                 resource_id,
-                ",".join(row["Warning"]),
-                ",".join(row["Error"]),
+                "|".join(row["Warning"]),
+                "|".join(row["Error"]),
             )
-            output_rows.add(output_row)
+            output_rows[key] = output_row
         logger.info(
             f"{len(rows)} rows processed from {dataset_name} producing {len(output_rows)} rows."
         )
-        self._rows.update(output_rows)
+        self._rows.extend(sorted(output_rows.values()))
         del datasetinfo["rows"]
         return start_date, end_date
 
@@ -557,9 +579,7 @@ class Pipeline:
         dataset.generate_resource_from_rows(
             folder,
             resource_config["filename"],
-            [list(hxltags.keys())]
-            + [list(hxltags.values())]
-            + sorted(self._rows),
+            [list(hxltags.keys())] + [list(hxltags.values())] + self._rows,
             resourcedata,
         )
         return dataset
