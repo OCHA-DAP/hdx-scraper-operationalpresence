@@ -13,6 +13,7 @@ from hdx.data.dataset import Dataset
 from hdx.data.resource import Resource
 from hdx.location.adminlevel import AdminLevel
 from hdx.location.country import Country
+from hdx.scraper.framework.utilities.hapi_admins import complete_admins
 from hdx.scraper.framework.utilities.reader import Read
 from hdx.scraper.framework.utilities.sector import Sector
 from hdx.utilities.dateparse import (
@@ -395,23 +396,9 @@ class Pipeline:
                 adm_codes[i] = pcode
                 prev_pcode = pcode
 
-        parent = None
-        for i, adm_code in enumerate(adm_codes):
-            if adm_code:
-                adm_name = self._admins[i].pcode_to_name.get(adm_code, "")
-                adm_names[i] = adm_name
-                continue
-            provider_adm_name = provider_adm_names[i]
-            if not provider_adm_name:
-                continue
-            adm_code, _ = self._admins[i].get_pcode(
-                countryiso3, provider_adm_name, parent=parent
-            )
-            if adm_code:
-                adm_codes[i] = adm_code
-                adm_name = self._admins[i].pcode_to_name.get(adm_code, "")
-                adm_names[i] = adm_name
-                parent = adm_code
+        complete_admins(
+            self._admins, countryiso3, provider_adm_names, adm_codes, adm_names
+        )
         return provider_adm_names, adm_codes, adm_names, adm_level
 
     def process_country(
@@ -487,7 +474,7 @@ class Pipeline:
                 org_info.canonical_name,
                 self._org.get_org_type_description(org_info.type_code),
                 sector_code,
-                self._sector.get_code_to_name().get(sector_code, ""),
+                self._sector.get_name(sector_code, ""),
                 start_date_str,
                 end_date_str,
                 dataset_id,
