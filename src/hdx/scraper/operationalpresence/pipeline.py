@@ -13,7 +13,10 @@ from hdx.data.dataset import Dataset
 from hdx.data.resource import Resource
 from hdx.location.adminlevel import AdminLevel
 from hdx.location.country import Country
-from hdx.scraper.framework.utilities.hapi_admins import complete_admins, pad_admins
+from hdx.scraper.framework.utilities.hapi_admins import (
+    complete_admins,
+    pad_admins,
+)
 from hdx.scraper.framework.utilities.reader import Read
 from hdx.scraper.framework.utilities.sector import Sector
 from hdx.utilities.dateparse import (
