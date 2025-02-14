@@ -103,7 +103,7 @@ def main(
                     hxl_update=False,
                     updated_by_script=updated_by_script,
                 )
-            dataset = pipeline.generate_3w_dateset(temp_folder)
+            dataset = pipeline.generate_3w_dataset(temp_folder)
             if dataset:
                 dataset.update_from_yaml(
                     script_dir_plus_file(

@@ -136,7 +136,7 @@ class TestOperationalPresence:
                 actual_file = join(temp_folder, filename)
                 assert_files_same(expected_file, actual_file)
 
-                dataset = pipeline.generate_3w_dateset(temp_folder)
+                dataset = pipeline.generate_3w_dataset(temp_folder)
                 assert dataset == {
                     "data_update_frequency": "30",
                     "dataset_date": "[2021-03-31T00:00:00 TO 2024-09-02T23:59:59]",

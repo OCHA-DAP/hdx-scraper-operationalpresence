@@ -13,7 +13,7 @@ from hdx.data.dataset import Dataset
 from hdx.data.resource import Resource
 from hdx.location.adminlevel import AdminLevel
 from hdx.location.country import Country
-from hdx.scraper.framework.utilities.hapi_admins import complete_admins
+from hdx.scraper.framework.utilities.hapi_admins import complete_admins, pad_admins
 from hdx.scraper.framework.utilities.reader import Read
 from hdx.scraper.framework.utilities.sector import Sector
 from hdx.utilities.dateparse import (
@@ -345,60 +345,32 @@ class Pipeline:
         adm_name_cols: List[str],
         dataset_name: str,
     ) -> Tuple[List, List, List, int]:
-        provider_adm_names = ["" for _ in self._admins]
-        adm_codes = ["" for _ in self._admins]
-        adm_names = ["" for _ in self._admins]
-        prev_pcode = None
-        adm_level = 0
-        for i, adm_name_col in reversed(list(enumerate(adm_name_cols))):
+        provider_adm_names = []
+        for adm_name_col in adm_name_cols:
             if adm_name_col:
                 provider_adm_name = row[adm_name_col]
                 if provider_adm_name:
                     provider_adm_name = provider_adm_name.strip()
                     if provider_adm_name:
-                        provider_adm_names[i] = provider_adm_name
-                        if i >= adm_level:
-                            adm_level = i + 1
-            if adm_code_cols:
-                adm_code_col = adm_code_cols[i]
-                if adm_code_col:
-                    pcode = row[adm_code_cols[i]]
-                    if pcode:
-                        if pcode in self._admins[i].pcodes:
-                            if i >= adm_level:
-                                adm_level = i + 1
-                        else:
-                            self._error_handler.add_missing_value_message(
-                                "OperationalPresence",
-                                dataset_name,
-                                f"admin {i + 1} pcode",
-                                pcode,
-                            )
-                            row["Warning"].append(f"Unknown pcode {pcode}")
-                            pcode = None
-                else:
-                    pcode = None
-                if prev_pcode:
-                    pcode_from_parent = self._admins[
-                        i + 1
-                    ].pcode_to_parent.get(prev_pcode)
-                    if pcode and pcode_from_parent != pcode:
-                        self._error_handler.add_message(
-                            "OperationalPresence",
-                            dataset_name,
-                            f"Corrected parent pcode of {prev_pcode} from {pcode} to {pcode_from_parent}",
-                            message_type="warning",
-                        )
-                        row["Warning"].append(f"Parent pcode not {pcode}")
-                    pcode = pcode_from_parent
-                if not pcode:
-                    pcode = ""
-                adm_codes[i] = pcode
-                prev_pcode = pcode
-
-        complete_admins(
+                        provider_adm_names.append(provider_adm_name)
+                        continue
+            provider_adm_names.append("")
+        if adm_code_cols:
+            adm_codes = [row[x] if x else "" for x in adm_code_cols]
+        else:
+            adm_codes = ["" for _ in provider_adm_names]
+        adm_names = ["" for _ in provider_adm_names]
+        adm_level, warnings = complete_admins(
             self._admins, countryiso3, provider_adm_names, adm_codes, adm_names
         )
+        for warning in warnings:
+            self._error_handler.add_message(
+                "OperationalPresence",
+                dataset_name,
+                warning,
+                message_type="warning",
+            )
+            row["Warning"].append(warning)
         return provider_adm_names, adm_codes, adm_names, adm_level
 
     def process_country(
@@ -448,6 +420,9 @@ class Pipeline:
 
             if adm_level > 2:
                 adm_level = 2
+            else:
+                pad_admins(provider_adm_names, adm_codes, adm_names)
+
             key = (
                 countryiso3,
                 provider_adm_names[0],
@@ -543,7 +518,7 @@ class Pipeline:
         resource_config = dataset_config["resource"]
         return dataset, resource_config
 
-    def generate_3w_dateset(self, folder: str) -> Optional[Dataset]:
+    def generate_3w_dataset(self, folder: str) -> Optional[Dataset]:
         if len(self._rows) == 0:
             logger.warning("Operational presence has no data!")
             return None
