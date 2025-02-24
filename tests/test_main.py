@@ -165,7 +165,7 @@ class TestOperationalPresence:
                 }
                 assert dataset.get_resources() == [
                     {
-                        "description": "Who is doing What Where - Operational Presence data from HDX "
+                        "description": "Operational Presence data from HDX "
                         "HAPI, please see [the "
                         "documentation](https://hdx-hapi.readthedocs.io/en/latest/data_usage_guides/coordination_and_context/#operational-presence) "
                         "for more information",
