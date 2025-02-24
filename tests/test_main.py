@@ -167,7 +167,7 @@ class TestOperationalPresence:
                     {
                         "description": "Who is doing What Where - Operational Presence data from HDX "
                         "HAPI, please see [the "
-                        "documentation](https://hdx-hapi.readthedocs.io/en/latest/data_usage_guides/coordination_and_context/#who-is-doing-what-where-operational-presence) "
+                        "documentation](https://hdx-hapi.readthedocs.io/en/latest/data_usage_guides/coordination_and_context/#operational-presence) "
                         "for more information",
                         "format": "csv",
                         "name": "Global Coordination & Context: Operational Presence",

@@ -14,7 +14,7 @@ dataset:
     - "who is doing what and where-3w-4w-5w"
   resource:
     name: "Global Coordination & Context: Operational Presence"
-    description: "Who is doing What Where - Operational Presence data from HDX HAPI, please see [the documentation](https://hdx-hapi.readthedocs.io/en/latest/data_usage_guides/coordination_and_context/#who-is-doing-what-where-operational-presence) for more information"
+    description: "Who is doing What Where - Operational Presence data from HDX HAPI, please see [the documentation](https://hdx-hapi.readthedocs.io/en/latest/data_usage_guides/coordination_and_context/#operational-presence) for more information"
     filename: "hdx_hapi_operational_presence_global.csv"
     hxltags:
       "location_code": "#country+code"
