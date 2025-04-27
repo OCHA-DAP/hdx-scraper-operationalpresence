@@ -46,3 +46,11 @@ jobs:
         to: ${{vars.HDX_PIPELINE_EMAIL_LIST}}
         from: ${{secrets.HDX_PIPELINE_EMAIL_FROM}}
         content_type: text/html
+
+  workflow-keepalive:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: liskin/gh-workflow-keepalive@v1
