@@ -538,6 +538,7 @@ class Pipeline:
         resourcedata = {
             "name": resource_config["name"],
             "description": resource_config["description"],
+            "p_coded": True,
         }
         hxltags = resource_config["hxltags"]
 

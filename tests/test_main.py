@@ -171,6 +171,7 @@ class TestOperationalPresence:
                         "for more information",
                         "format": "csv",
                         "name": "Global Coordination & Context: Operational Presence",
+                        "p_coded": True,
                         "resource_type": "file.upload",
                         "url_type": "upload",
                     }
