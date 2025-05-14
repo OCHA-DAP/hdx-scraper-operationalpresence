@@ -161,7 +161,9 @@ class Org:
         org_type_name: Optional[str],
         dataset_name: str,
     ):
-        if not org_info.acronym and org_acronym:
+        if not org_info.acronym:
+            if not org_acronym:
+                org_acronym = org_info.canonical_name
             if len(org_acronym) > 32:
                 org_acronym = org_acronym[:32]
             org_info.acronym = org_acronym
