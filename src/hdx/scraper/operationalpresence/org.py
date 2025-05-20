@@ -132,9 +132,7 @@ class Org:
         org_data = self.data.get(key)
         if org_data:
             if not org_data.type_code and org_info.type_code:
-                org_data = OrgData(
-                    org_data.acronym, org_data.name, org_info.type_code
-                )
+                org_data = OrgData(org_data.acronym, org_data.name, org_info.type_code)
                 self.data[key] = org_data
                 # TODO: should we flag orgs if we find more than one org type?
             else:
