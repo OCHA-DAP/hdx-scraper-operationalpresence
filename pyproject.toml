@@ -36,7 +36,7 @@ requires-python = ">=3.8"
 dependencies = [
     "frictionless[ods]",
     "gspread",
-    "hdx-python-scraper>= 2.6.4",
+    "hdx-python-scraper>= 2.6.5",
     "hdx-python-api>= 6.4.0",
     "hdx-python-country>= 3.9.4",
     "hdx-python-utilities>= 3.8.7",

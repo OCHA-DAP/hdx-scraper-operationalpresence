@@ -96,7 +96,7 @@ hdx-python-country==3.9.4
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-api
     #   hdx-python-scraper
-hdx-python-scraper==2.6.4
+hdx-python-scraper==2.6.5
     # via
     #   -c requirements.txt
     #   hdx-scraper-operationalpresence (pyproject.toml)
