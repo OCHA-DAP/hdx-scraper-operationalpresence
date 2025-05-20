@@ -87,9 +87,7 @@ class TestOperationalPresence:
                     configuration, gsheet_auth, None, None, "spreadsheet_test"
                 )
                 countryiso3s = "BDI,LBN"
-                pipeline = Pipeline(
-                    configuration, sheet, error_handler, countryiso3s
-                )
+                pipeline = Pipeline(configuration, sheet, error_handler, countryiso3s)
                 pipeline.find_datasets_resources()
                 pipeline.process()
                 assert sorted(pipeline._iso3_to_datasetinfo.keys()) == [

@@ -60,12 +60,8 @@ def main(
         None
     """
     logger.info(f"##### {lookup} version {__version__} ####")
-    if not User.check_current_user_organization_access(
-        "hdx", "create_dataset"
-    ):
-        raise PermissionError(
-            "API Token does not give access to HDX organisation!"
-        )
+    if not User.check_current_user_organization_access("hdx", "create_dataset"):
+        raise PermissionError("API Token does not give access to HDX organisation!")
     with HDXErrorHandler(write_to_hdx=err_to_hdx) as error_handler:
         with temp_dir() as temp_folder:
             configuration = Configuration.read()
@@ -86,9 +82,7 @@ def main(
             if recipients is None:
                 recipients = getenv("RECIPIENTS")
             sheet = Sheet(configuration, gsheet_auth, email_server, recipients)
-            pipeline = Pipeline(
-                configuration, sheet, error_handler, countryiso3s
-            )
+            pipeline = Pipeline(configuration, sheet, error_handler, countryiso3s)
             pipeline.find_datasets_resources()
             pipeline.process()
             dataset = pipeline.generate_org_dataset(temp_folder)

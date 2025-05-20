@@ -133,11 +133,7 @@ class Sheet:
                 logger.info(text)
                 self.email_text.append(text)
                 row[self.automated_format_ind] = resource_format
-        if (
-            changed
-            and resource_url_format
-            and resource_url_format != resource_format
-        ):
+        if changed and resource_url_format and resource_url_format != resource_format:
             text = f"Resource {resource_name} has url with format {resource_url_format} that is different to HDX format {resource_format}"
             logger.warning(text)
             self.email_text.append(text)
@@ -234,10 +230,7 @@ class Sheet:
             )
             return {}
         # Config must contain either adm code or adm name columns
-        if (
-            not datasetinfo["Adm Code Columns"]
-            and not datasetinfo["Adm Name Columns"]
-        ):
+        if not datasetinfo["Adm Code Columns"] and not datasetinfo["Adm Name Columns"]:
             logger.warning(
                 f"Ignoring {countryiso3} from config spreadsheet because it has no Adm Code Columns and no Adm Name Columns!"
             )

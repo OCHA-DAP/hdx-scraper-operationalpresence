@@ -9,12 +9,12 @@ notes: |
   [landing page](https://data.humdata.org/hapi)
   and
   [documentation](https://hdx-hapi.readthedocs.io/en/latest/).
-  
-  Warnings typically indicate corrections have been made to 
-  the data or show things to look out for. Rows with only warnings 
-  are considered complete, and are made available via the API. 
-  Errors usually mean that the data is incomplete or unusable. 
-  Rows with any errors are not present in the API but are included 
+
+  Warnings typically indicate corrections have been made to
+  the data or show things to look out for. Rows with only warnings
+  are considered complete, and are made available via the API.
+  Errors usually mean that the data is incomplete or unusable.
+  Rows with any errors are not present in the API but are included
   here for transparency.
 methodology: "Registry"
 caveats: >

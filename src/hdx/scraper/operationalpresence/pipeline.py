@@ -61,9 +61,7 @@ class Pipeline:
                     countryiso3s=self._countryiso3s_to_process,
                 )
             else:
-                admin.setup_from_url(
-                    countryiso3s=self._countryiso3s_to_process
-                )
+                admin.setup_from_url(countryiso3s=self._countryiso3s_to_process)
             admin.load_pcode_formats()
             self._admins.append(admin)
         self._org = Org(
@@ -86,9 +84,7 @@ class Pipeline:
             return format
         return None
 
-    def get_format(
-        self, dataset_name: str, resource: Resource
-    ) -> Tuple[bool, str]:
+    def get_format(self, dataset_name: str, resource: Resource) -> Tuple[bool, str]:
         resource_name = resource["name"]
         hdx_format = resource.get_format()
         # handle erroneously entered HDX format
@@ -133,10 +129,7 @@ class Pipeline:
                 in self._configuration["dataseries_ignore"]
             ):
                 continue
-            if any(
-                x in self._configuration["tags_ignore"]
-                for x in dataset.get_tags()
-            ):
+            if any(x in self._configuration["tags_ignore"] for x in dataset.get_tags()):
                 continue
             if any(
                 x in dataset["name"].lower()
@@ -145,19 +138,14 @@ class Pipeline:
                 continue
             allowed_format = False
             for resource in dataset.get_resources():
-                if (
-                    resource.get_format()
-                    in self._configuration["allowed_formats"]
-                ):
+                if resource.get_format() in self._configuration["allowed_formats"]:
                     allowed_format = True
                     break
             if not allowed_format:
                 continue
             existing_dataset = datasets_by_iso3.get(countryiso3)
             if existing_dataset:
-                existing_enddate = existing_dataset.get_time_period()[
-                    "enddate"
-                ]
+                existing_enddate = existing_dataset.get_time_period()["enddate"]
                 enddate = dataset.get_time_period()["enddate"]
                 if enddate > existing_enddate:
                     datasets_by_iso3[countryiso3] = dataset
@@ -169,10 +157,7 @@ class Pipeline:
             resource_to_process = None
             latest_last_modified = default_date
             for resource in dataset.get_resources():
-                if (
-                    resource.get_format()
-                    not in self._configuration["allowed_formats"]
-                ):
+                if resource.get_format() not in self._configuration["allowed_formats"]:
                     continue
                 last_modified = parse_date(resource["last_modified"])
                 if last_modified > latest_last_modified:
@@ -227,9 +212,7 @@ class Pipeline:
                 new_adm_code_cols = []
                 for adm_code_col in adm_code_cols.split(","):
                     if adm_code_col:
-                        new_adm_code_cols.append(
-                            hxltag_to_header[adm_code_col]
-                        )
+                        new_adm_code_cols.append(hxltag_to_header[adm_code_col])
                     else:
                         new_adm_code_cols.append("")
                 adm_code_cols = ",".join(new_adm_code_cols)
@@ -401,21 +384,17 @@ class Pipeline:
             if not org_str:
                 org_str = org_acronym
             if org_str:
-                org_info = self._org.get_org_info(
-                    org_str, location=countryiso3
-                )
+                org_info = self._org.get_org_info(org_str, location=countryiso3)
             else:
                 org_info = self._org.get_blank_org_info()
 
             # * Adm processing
-            provider_adm_names, adm_codes, adm_names, adm_level = (
-                self.get_adm_info(
-                    countryiso3,
-                    row,
-                    adm_code_cols,
-                    adm_name_cols,
-                    dataset_name,
-                )
+            provider_adm_names, adm_codes, adm_names, adm_level = self.get_adm_info(
+                countryiso3,
+                row,
+                adm_code_cols,
+                adm_name_cols,
+                dataset_name,
             )
 
             dataset_id = datasetinfo["hapi_dataset_metadata"]["hdx_id"]
@@ -490,9 +469,7 @@ class Pipeline:
                     )
 
         for countryiso3, datasetinfo in self._iso3_to_datasetinfo.items():
-            start_date, end_date = self.process_country(
-                countryiso3, datasetinfo
-            )
+            start_date, end_date = self.process_country(countryiso3, datasetinfo)
             if start_date < self._start_date:
                 self._start_date = start_date
             if end_date > self._end_date:
