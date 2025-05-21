@@ -60,10 +60,10 @@ def main(
         None
     """
     logger.info(f"##### {lookup} version {__version__} ####")
-    User.check_current_user_write_access("hdx")
+    configuration = Configuration.read()
+    User.check_current_user_write_access("hdx", configuration=configuration)
     with HDXErrorHandler(write_to_hdx=err_to_hdx) as error_handler:
         with temp_dir() as temp_folder:
-            configuration = Configuration.read()
             today = now_utc()
             Read.create_readers(
                 temp_folder,
