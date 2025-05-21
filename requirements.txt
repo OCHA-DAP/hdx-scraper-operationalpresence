@@ -50,7 +50,7 @@ gspread==6.2.1
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper
-hdx-python-api==6.4.1
+hdx-python-api==6.4.2
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper

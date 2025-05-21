@@ -37,7 +37,7 @@ dependencies = [
     "frictionless[ods]",
     "gspread",
     "hdx-python-scraper>= 2.6.5",
-    "hdx-python-api >= 6.4.1",
+    "hdx-python-api >= 6.4.2",
     "hdx-python-country>= 3.9.4",
     "hdx-python-utilities>= 3.8.7",
 ]
