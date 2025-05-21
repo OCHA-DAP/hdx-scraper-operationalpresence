@@ -50,7 +50,7 @@ gspread==6.2.1
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper
-hdx-python-api @ git+https://git@github.com/OCHA-DAP/hdx-python-api@8603b1dcb4ddf56fc3bf037cceb37d4b9618b00d#egg=hdx-python-api
+hdx-python-api==6.4.1
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper
