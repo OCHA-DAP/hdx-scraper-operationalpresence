@@ -85,7 +85,7 @@ gspread==6.2.1
     #   -c requirements.txt
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper
-hdx-python-api==6.4.0
+hdx-python-api==6.4.1
     # via
     #   -c requirements.txt
     #   hdx-scraper-operationalpresence (pyproject.toml)
@@ -323,7 +323,7 @@ ruamel-yaml==0.18.10
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
-setuptools==80.7.1
+setuptools==80.8.0
     # via
     #   -c requirements.txt
     #   ckanapi
