@@ -60,8 +60,7 @@ def main(
         None
     """
     logger.info(f"##### {lookup} version {__version__} ####")
-    if not User.check_current_user_organization_access("hdx", "create_dataset"):
-        raise PermissionError("API Token does not give access to HDX organisation!")
+    User.check_current_user_write_access("hdx")
     with HDXErrorHandler(write_to_hdx=err_to_hdx) as error_handler:
         with temp_dir() as temp_folder:
             configuration = Configuration.read()

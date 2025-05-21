@@ -50,7 +50,7 @@ gspread==6.2.1
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper
-hdx-python-api==6.4.0
+hdx-python-api @ git+https://git@github.com/OCHA-DAP/hdx-python-api@8603b1dcb4ddf56fc3bf037cceb37d4b9618b00d#egg=hdx-python-api
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper
@@ -188,7 +188,7 @@ rsa==4.9.1
     # via google-auth
 ruamel-yaml==0.18.10
     # via hdx-python-utilities
-setuptools==80.7.1
+setuptools==80.8.0
     # via ckanapi
 shellingham==1.5.4
     # via typer
