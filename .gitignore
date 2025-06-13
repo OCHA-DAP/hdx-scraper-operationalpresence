@@ -161,7 +161,7 @@ cython_debug/
 
 ## Project
 # Version file
-src/hapi/pipeline/hno/_version.py
+_version.py
 
 #OS Files
 *DS_Store
