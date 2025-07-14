@@ -73,7 +73,7 @@ class Sheet:
                 "password": email_config[4],
             }
             if len(email_config) > 5:
-                email_config_dict["sender"] = email_config[5]
+                email_config_dict["sender"] = "operationalpresence@humdata.org"
             self._emailer = Email(email_config_dict=email_config_dict)
             logger.info(f"> Email host: {email_config[1]}")
             self._recipients = recipients.split(",")
