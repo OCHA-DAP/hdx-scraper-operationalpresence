@@ -44,6 +44,7 @@ org_dataset:
   title: "HDX HAPI - Coordination & Context: Organisations"
   tags:
     - "hxl"
+    - "operational partners"
   resource:
     name: "Global Coordination & Context: Organisations"
     description: "Organisation data from HDX HAPI"
