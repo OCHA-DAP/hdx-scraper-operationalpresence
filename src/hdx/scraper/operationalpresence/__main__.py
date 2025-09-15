@@ -32,6 +32,7 @@ def main(
     save: bool = False,
     use_saved: bool = False,
     err_to_hdx: bool = False,
+    dont_update_hdx: bool = False,
 ) -> None:
     """Generate datasets and create them in HDX.
 
@@ -56,6 +57,7 @@ def main(
         save (bool): Save downloaded data. Defaults to False.
         use_saved (bool): Use saved data. Defaults to False.
         err_to_hdx (bool): Whether to write any errors to HDX metadata. Defaults to False.
+        dont_update_hdx (bool): Whether to update HDX metadata. Defaults to False.
     Returns:
         None
     """
@@ -80,12 +82,18 @@ def main(
                 email_server = getenv("EMAIL_SERVER")
             if recipients is None:
                 recipients = getenv("RECIPIENTS")
-            sheet = Sheet(configuration, gsheet_auth, email_server, recipients)
+            sheet = Sheet(
+                configuration,
+                gsheet_auth,
+                email_server,
+                recipients,
+                gsheet_key="spreadsheet_test",
+            )
             pipeline = Pipeline(configuration, sheet, error_handler, countryiso3s)
             pipeline.find_datasets_resources()
             pipeline.process()
             dataset = pipeline.generate_org_dataset(temp_folder)
-            if dataset:
+            if dataset and not dont_update_hdx:
                 dataset.update_from_yaml(
                     script_dir_plus_file(
                         join("config", "hdx_dataset_static.yaml"), main
@@ -97,7 +105,7 @@ def main(
                     updated_by_script=updated_by_script,
                 )
             dataset = pipeline.generate_3w_dataset(temp_folder)
-            if dataset:
+            if dataset and not dont_update_hdx:
                 dataset.update_from_yaml(
                     script_dir_plus_file(
                         join("config", "hdx_dataset_static.yaml"), main

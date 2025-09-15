@@ -1,78 +1,754 @@
 acronym,name,org_type_code,org_type_description
 #org+acronym,#org+name,#org+type+code,#org+type+desc
-A.BU.S.E.D,A.BU.S.E.D,,
-ABMPD,ABMPD,,
-ABUBEF,ABUBEF,,
+AACDS,Aide et Action à la Coopération au développent et la Solidarité,441,National NGO
+AAI,Action Aid International,437,International NGO
+AAP,Agence d’Achat des Performances,441,National NGO
+ABAMUS,Association pour la Bienfaisaince et d'Appui Multi-Sectoriel,441,National NGO
+ABCOM,Action pour le Bien-être Communautaire,441,National NGO
+ABDI,Association Billia pour le Développement Intégré,441,National NGO
+ACAD,Action Chrétienne pour l'Aide et le Développement,441,National NGO
+ACCCLIDEV,Action contre le changement climatique pour le développement,441,National NGO
+ACD Alliance,Alliance communautaire pour le Développement,441,National NGO
+ACDD,Advocacy Center for Democracy and Development,441,National NGO
+ACDDI/ONGD,Actions Communautaires pour le Développement Durable et Intégral,441,National NGO
 ACF,Action Against Hunger,437,International NGO
-ACF Spain,Action contre la Faim Spain,437,International NGO
-ACPDH,ACPDH,,
-AFJB,AFJB,,
-AFV,AFV,,
-AICNDH,AICNDH,,
-AIDE,AIDE,,
-AMEL,AMEL,441,National NGO
-APADECO,APADECO,,
-APROSAP,APROSAP,,
-ARCEV,ARCEV,,
-AVEDEC,AVEDEC,,
-AVSI,Association of Volunteers in International Service,437,International NGO
-CARITAS BURUNDI,CARITAS BURUNDI,,
-CBK,CBK,,
-CENTRE SERUKA,CENTRE SERUKA,,
-CEP,CEP,,
-COPED,COPED,,
-CRB,CRB,,
-CREOP-JEUNES,CREOP-JEUNES,,
-CSF,CSF,,
+ACF,Action Contre la Faim International,437,International NGO
+ACHDEV,Action Humanitaire pour le Développement,441,National NGO
+ACHDR,Association pour l'Action Humanitaire et le Développement Durable,441,National NGO
+ACHUD,Actions Communautaires et Humanitaires pour le Développement,441,National NGO
+ACID,Association pour la Cooperation Internationale au Developpement,441,National NGO
+ACIEDD,Action Citoyenne pour l'Information et l'Education au Développement Durable,441,National NGO
+ACODE,Action et Coopération pour le Développement,441,National NGO
+ACOPE,Actions Concrètes pour la Protection de l'Enfance,441,National NGO
+ACORD,Association des Coopératives de Recherches pour le Developpement,437,International NGO
+ACRA,Associazione di Cooperazione Rurale in Africa e America Latina,437,International NGO
+ACTED,Agency for Technical Cooperation and Development,437,International NGO
+ADA,Amhara Development Association,441,National NGO
+ADD,ADD,441,National NGO
+ADDP,Action pour le développement durable des populations,441,National NGO
+ADECO,ASSOCIATION POUR  LE DEVELOPPEMENT COMMUNAUTAIRE ,441,National NGO
+ADECOM,Alternative pour le développement communautaire,441,National NGO
+ADEDD,Association pour la Défense de l'Environnement et le Développement,441,National NGO
+ADEFOP,Agence de Developpement et de la Formation Proffessionnelle,441,National NGO
+ADELUC,Association pour le Développement Socio-économique et la Lutte contre le Chômage,441,National NGO
+ADES,Association pour le Développement Economique et Social,437,International NGO
+ADESOH,Action pour le Développement Social et Humanitaire,441,National NGO
+ADESOL,Association pour le Développement Economique et Social du Lac,441,National NGO
+ADIL,Association pour le développement des initiatives locales,441,National NGO
+ADRA,Adventist Development and Relief Agency,437,International NGO
+ADRAH,Association pour le Développement et le Renforcement des Actions Humanitaires,441,National NGO
+ADRB,ADRB,441,National NGO
+ADRF,Association de développement et reeducation des enfants et femmes,441,National NGO
+ADRO,Association d'appui au développement de la province du Ouaddaï,441,National NGO
+ADS,ADS,441,National NGO
+ADSCO,Action pour le Développement et Santé Communautaire,441,National NGO
+ADSSE,Association pour le Développement Social et la Sauvegarde de l'Environnement,441,National NGO
+AEID,Afro Ethiopia Integrated Development,441,National NGO
+AEN,Association des Eleveurs Nomades,441,National NGO
+AFA,Association des femmes allaintantes,441,National NGO
+AFD,Action des Femmes pour le Droit et le développement,441,National NGO
+AFDI,Association des Femmes pour le Développement Intégré,441,National NGO
+AFEDEM,Appui aux Femmes Démunies et Enfants Marginalisés,441,National NGO
+AFEDEV,Action de la Femme pour le Développement,441,National NGO
+AFEED,AFEED,441,National NGO
+AFEMA-RDC,ACTION POUR LES FEMMES ET ENFANTS MARGINALISÉS,441,National NGO
+AFEST ,Association des Femmes Unies pour l'Eau potable et Santé pour Tous,441,National NGO
+AFJT,Association des Femme Juristes du Tchad,441,National NGO
+AFRIC'OMPETENCE,AFRIC'OMPETENCE,441,National NGO
+AFRILAM,Afrique pour la Lutte Antimines,441,National NGO
+AFRIYAN,YOUTH ALLIANCE FOR REPRODUCTIVE HEALTH,437,International NGO
+AFY,AFY-ACTION FURAHA YETU(ONG Nationale),441,National NGO
+AHA,Agence Humanitaire Africaine,437,International NGO
+AHDPE,Action Humanitaire pour le Dévéloppement et la Protection de l'Enfant,441,National NGO
+AHI,Adventis Health International,437,International NGO
+AHUSADEC,Action Humanitaire pour la santé et la developpement communautaire,441,National NGO
+AI,Adawa Islamique,437,International NGO
+AIBEF,Appui aux Initiatives de Bien Être Familial,441,National NGO
+AICRL,Aide Internationale de la Croix Rouge Luxembourgeoise,445,Red Cross / Red Crescent
+AIDER,AIDER,441,National NGO
+AIDES,Actions et Interventions pour le Développement et l’Encadrement Social,441,National NGO
+AIRD,African Initiative for Relief and Development,437,International NGO
+AIRD,African Initiatives for Relief and Development,437,International NGO
+AJECUD,Association Etoile des Jeunes pour la Culture et le Dévelopement,441,National NGO
+AJEDEC,Association des Jeunes pour le Développement Communautaire,441,National NGO
+AJID,Association des Jeunes Islamiques pour le Développement,441,National NGO
+AKAD,Association Kari Assoungha Developpement,441,National NGO
+AL-TAKHADOUM,AL-TAKHADOUM,441,National NGO
+ALIMA,Alliance for International Medical Action,437,International NGO
+ALIMA,Alliance for Medical Action,437,International NGO
+ALIMA / AS,The Alliance for International Medical - Alerte Santé,437,International NGO
+AM,AM,,
+AMA,Afia Mama,441,National NGO
+AMAIN,Action pour la mobilisation et l'atténuation de l'impact négatif,441,National NGO
+AMAPA Afrique,Association Médicale pour l'Assistance aux Personnes âgées en Afrique,437,International NGO
+AMDD,ACTION MIXTE POUR LE DÉVELOPPEMENT DÉBOUT,441,National NGO
+ANATS,ANATS,435,Government
+ANE,Action for the Needy in Ethiopia,441,National NGO
+AOF,Action of the Future,441,National NGO
+APDC,Association Pour le Développement Communautaire,441,National NGO
+APDCN,Actions Paysannes pour le Développement et la Conservation de la Nature,441,National NGO
+APDD,Action pour la paix et le développement durable,441,National NGO
+APED,Aides aux Personnes Démunies,441,National NGO
+APEDC-RDC,Agir pour la protection de l'enfant et le développement communautaire,441,National NGO
+APES,Action pour la Promotion de l’Environnement Social,441,National NGO
+APESA,Action pour la Promotion de l’Elevage et la Sécurité Alimentaire,441,National NGO
+APETAMACO,"Association des Petits Eleveurs, Tanneurs et Maroquiniers du Congo",441,National NGO
+APIDEL,Association pour la Promotion des Initiatives de Développement Local,441,National NGO
+APIDO,Association pour la Promotion des Initiatives pour le Développement Durable des Organisations,441,National NGO
+APLFT,Association pour la Promotion des Libertés Fondamentales,441,National NGO
+APMR,Association pour la promotion du monde rural,441,National NGO
+APRESA,APRESA ONG,441,National NGO
+APROBES,Actions Pour La Promotion Du Bien-Être Social,441,National NGO
+APRODEV,Action pour la Promotion et développement durable,441,National NGO
+APRODIF,APRODIF,441,National NGO
+APROFODEL,Association des Professionnels Formateurs pour le Développement Rural,441,National NGO
+APROSAN,APROSAN,441,National NGO
+APSELPA,"Action pour la Protection de la Santé, de l'Environnement et la Lutte contre la Pénurie Alimentaire",441,National NGO
+ARDED,Action pour la Recherhe et le Développement Durable,441,National NGO
+ARDEE,Action Rurale pour un Développement Equitable et Endogène,441,National NGO
+ARDEK,ARDEK,441,National NGO
+ARDI,"Action pour la Rédevabilité et le devéloppement Integral, ARDI",441,National NGO
+ASAME,Association d'appui à la sécurité Alimentaire et aux Moyens d'Existence,441,National NGO
+ASDC,Action Sociale pour le Développement communautaire,441,National NGO
+ASDEMR,Action pour le Développement Engagé en Milieu Rural,441,National NGO
+ASDEPO,Action for Social Development and Environmental Protection Organization,441,National NGO
+ASEIPEV,Action de lutte xontre les Stupéfiants pour l'Encadrement et l'Intégration des personnes Vulnérable,441,National NGO
+ASER,Association Sauver les Enfants de la Rue,441,National NGO
+ASF,Avocat sans frontière,437,International NGO
+ASHDR,Association au Secours Humanitaire pour Developpement Rural/Climat,441,National NGO
+ASIDD,Association de Santé Intégrée pour le Développement Durable,441,National NGO
+ASPAD,ASPAD,,
+ASRADD,Association Sahélienne de Recherches Appliquées pour le Développement Durable,441,National NGO
+ATADER,Association tchadienne des Acteurs de Développement,441,National NGO
+ATDRUSE,"Association Tchadienne pour le Développement Rural, Social et Economique",441,National NGO
+ATPCS,ATPCS,441,National NGO
+ATPD,Association Tiré Pour le Déve,441,National NGO
+ATPDH,Association Tchadienne pour la Promotion des Droits de l’Homme,441,National NGO
+ATPDI,Association Tchadienne pour la Promotion du Dévéloppement Intégré,441,National NGO
+ATRENVIRO,ATRENVIRO,441,National NGO
+ATTADAMOUN,ATTADAMOUN,441,National NGO
+ATURAD,Association des Témoins des Urgences et des Actions de Développement,441,National NGO
+AVIRD,AVIRD,,
+AVREO,Association des Volontaires pour la Récupération des Enfants Orphelins Abandonnés et Malnutris,441,National NGO
+AVSD,Action des volontaires pour la solidarité et le développement,441,National NGO
+AVSI,Associazione Volontari per il Servizio Internationale,437,International NGO
+AVUDS,Action des Volontaires Unis pour le Développement et la Santé,441,National NGO
+AWA, Amhara Women Association,441,National NGO
+AWSAD,Association for Women's Sanctuary And Development,441,National NGO
+Aamin Organziation (AAMIN),Aamin Organziation (AAMIN),441,National NGO
+Action Against Disasters Somalia,Action Against Disasters Somalia (AADSOM),441,National NGO
+Action Against Hunger (ACF),Action Against Hunger (ACF),437,International NGO
+Action Contre Lafeim (ACF),Action Contre Lafeim (ACF),437,International NGO
+Action Santé,Action Santé,441,National NGO
+Action for Relief Organisation (,Action for Relief Organisation (AFR),441,National NGO
+Action for Relief and Developmen,Action for Relief and Development (ARD),441,National NGO
+Action for Social and Economic P,Action for Social and Economic Progress (ASEP),441,National NGO
+ActionAid,Action Aid Ethiopia,437,International NGO
+Active in Development Aid (ADA),Active in Development Aid (ADA),441,National NGO
+Adventist Development and Relief,Adventist Development and Relief Agency (ADRA),437,International NGO
+AeA,Ayuda en Accion,437,International NGO
+Africa CDC,Africa CDC,437,International NGO
+Africa for Rural Development (AR,Africa for Rural Development (ARD),441,National NGO
+African Children's Rights Founda,African Children's Rights Foundation (ACRIF),441,National NGO
+African Network for The Preventi,African Network for The Prevention and Protection Against Child Abuse and Neglect (ANPPCAN),441,National NGO
+African Relief and Development (,African Relief and Development (ARD),441,National NGO
+African Social Empowerment Netwo,African Social Empowerment Network (ASEN),441,National NGO
+Africare,Africare,437,International NGO
+Agency For Minority Rights And D,Agency For Minority Rights And Development (AMARD),441,National NGO
+Agro Pastoral Charity Centre (AP,Agro Pastoral Charity Centre (APCC),441,National NGO
+Agro-Action,Agro-Action,441,National NGO
+Aid Vision (AV),Aid Vision (AV),441,National NGO
+Al Bir,Al Bir,441,National NGO
+Al Nassour,A Nassour,441,National NGO
+Alight American Refugee Committe,Alight American Refugee Committee (ALIGHT-ARC),437,International NGO
+Alisei,Alisei,437,International NGO
+Amref,Amref Health Africa,437,International NGO
+Arche Nova,Arche Nova,437,International NGO
+Association of Volunteers in Int,Association of Volunteers in International Service (AVSI),437,International NGO
+Aussie Association of Somalia (A,Aussie Association of Somalia (AAS),437,International NGO
+Ayuub NGO (AYUUB),Ayuub NGO (AYUUB),441,National NGO
+BAOBAB,Bureau d'Appui des Organisations de Base,441,National NGO
+BAP,BAP,441,National NGO
+BASE,BASE,441,National NGO
+BCI,Bureau Consult International,441,National NGO
+BDD Luebo,Bureau Diocesain de Developpement Luebo,441,National NGO
+BDRint,Bon Dieu dans la Rue,441,National NGO
+BEHCOGEN,BEHCOGEN,441,National NGO
+BEM,Bercail des Enfants et des Mères,441,National NGO
+BIFERD,"Bureau d'Informations, Formations, Echanges et Recherches pour le Dévelopment",441,National NGO
+Baahi-Koob Centre (BKC),Baahi-Koob Centre (BKC),441,National NGO
+Banadir Development Foundation (,Banadir Development Foundation (BADEF),441,National NGO
+Banadir Primary Health Care Cent,Banadir Primary Health Care Center (BPHCC),441,National NGO
+BoWCYA,Bureau of Women Children and Youth Affairs,435,Government
+Burhakaba Town Section Committee,Burhakaba Town Section Committee (BTSC),441,National NGO
+CA17,CA17/PREPASS,437,International NGO
+CAAP,COMMUNITY IN ACTION AGAINST POVERTY,441,National NGO
+CAIDEL,Centre d'Appui aux Initiatives de Développement Local,441,National NGO
+CAJED,CONCERT D'ACTIONS POUR JEUNES ET ENFANTS DÉFAVORISÉS,441,National NGO
+CAPE,Conseil des Agriculteurs des Pecheurs et des Eleveurs,441,National NGO
+CAPSY-ONGD,Cabinet des psychologues du Congo,441,National NGO
+CARE,CARE International,437,International NGO
+CARE,Cooperative for Assistance and Relief Every where,437,International NGO
+CARE,Cooperative for Assistance and Relief Everywhere,437,International NGO
+CARITAS SUISSE,CARITAS SUISSE,437,International NGO
+CARITAS SUISSE,Cartias Suisse,437,International NGO
+CARITAS-BELACD,CARITAS-BELACD,441,National NGO
+CBCA,Communauté Baptiste au Centre de l'Afrique,437,International NGO
+CCT,Congo Connect and thrive,441,National NGO
+CDJP,Commission Diocésaine Justice et Paix,441,National NGO
+CEAPRONUT,Centre d'Appui à la Promotion Nutritionnelle,441,National NGO
+CEASD ONG,Centre d'Encadrent et d'Assistance Sociale pour le Développement,441,National NGO
+CEDERU,Centre de Développement Rural,441,National NGO
+CEF-JDD,Collecfif d'encadrement des femmes et jeunes pour les développements durable,441,National NGO
+CEFA ETS,Comitato Europeo per la Formazione e L'Agricoltura,437,International NGO
+CEIDEI,Centre d'Etudes et d'Initiatives pour un Développement Intégral,441,National NGO
+CELIAF,Cellule de Liaison et d'Information des Associations Féminines,441,National NGO
+CENEAS,Centre d'Etudes et d'Actions Sociales,441,National NGO
+CEPSD,Centre d'Encadrement et Protection des Personnes en Situation Difficile,441,National NGO
+CERAO,CENTRE D'ENCADREMENT D'ENFANTS RESCAPES NON ACCOMPAGNES ET ORPHELINS,441,National NGO
+CERDI,Coopération pour les Etudes et Recherches pour le Développement Intégral,441,National NGO
+CETAF,CENTRE TECHNIQUE D'APPUI FEMININ,441,National NGO
+CEVANUTRI,CEVANUTRI,441,National NGO
+CF,ChildFund International,437,International NGO
+CFAD,Centre de Formation et d’Action pour le Développement,441,National NGO
+CFED,CRIS DES FEMMES ET DES ENFANTS EN DETRESSE,441,National NGO
+CHAILD,Cercle Humanitaire d'Appui aux Initiatives de Developpeùment,441,National NGO
+CHORA,Organisation Tchadienne pour le Développement,441,National NGO
+CI,Counterpart Inernational,437,International NGO
+CIAUD,Comité International pour l'Aide d'Urgence et le Développement,437,International NGO
+CIAUD Canada,Comité International pour l’aide d’Urgence et de Développement,437,International NGO
+CIFA ETS,International Centre for Children and Families,437,International NGO
+CISP,Comitato Internazionale Per Lo Sviluppo Dei Popoli,437,International NGO
+CNARR,Centre National d'Appui et de Reinsertion des Refugies,435,Government
+COBAD RDC,Collectif d'accompagnement des Organisations de Base pour le Développement en République Démocratique du Congo,441,National NGO
+CODEVAH,Comité pour le Développement et Assistance Humanitaire,441,National NGO
+CODIF,Confédération congolaise pour le développement intégral en faveur de la femme,441,National NGO
+CONOPRO,Congo Nouveau Prospère Food and Nutrition for Life of Vulnerables,441,National NGO
+COOPI,Cooperazione Internazionale,437,International NGO
+CORD,Christian Outreach Relief And Development,437,International NGO
+CORDAID,Catholic Organization for Relief and Development Aid,437,International NGO
+COSAMED,COSAMED,441,National NGO
+COSCES,"Collectif des organisations de la société civile des secteurs de l'éducation, de la sante et de l'agriculture",441,National NGO
+CR,Cause Rurale,441,National NGO
+CR-RDC,Croix-Rouge de la République Démocratique du Congo,445,Red Cross / Red Crescent
+CRF,Croix Rouge Française,445,Red Cross / Red Crescent
+CRLux,Croix rouge luxembourgeoise,445,Red Cross / Red Crescent
+CRS,Catholic Relief Services,437,International NGO
+CRT,Croix Rouge Tchadienne,445,Red Cross / Red Crescent
+CRW,Child Rights Watch,441,National NGO
+CSDF,CENTRE POUR LA SANTE ET LES DROITS DES FEMMES,441,National NGO
+CSSI,Centre de Support en Santé Internationale,441,National NGO
+CUAMM,Doctors with Africa CUAMM,437,International NGO
+CWW,Concern Worldwide,437,International NGO
+CaCH,Caritas Switzerland,437,International NGO
+Cadaado District Administration ,Cadaado District Administration Office (CDAO),435,Government
+Candle of Hope Foundation (COHF),Candle of Hope Foundation (COHF),441,National NGO
+"Candlelight for Environment, Edu","Candlelight for Environment, Education and Health (CEEH)",441,National NGO
+Care International (CARE),Care International (CARE),437,International NGO
+Caritas,CARITAS CONGO Asbl,441,National NGO
+Caritas,CARITAS DEVELOPPEMENT MAHAGI-NIOKA,441,National NGO
 Caritas,Caritas,437,International NGO
-Caritas Lebanon,Caritas Lebanon,441,National NGO
-DCA,DanChurch Aid,437,International NGO
-DIACONIA BURUNDI,DIACONIA BURUNDI,,
-FAWE BURUNDI,FAWE BURUNDI,,
-FENADEB,FENADEB,,
-FOMUPRODH,FOMUPRODH,,
-FVS/AMADE,FVS/AMADE,,
-FeA,FeA,,
-Fondation STAMM,Fondation STAMM,,
-GIRIYUJA ,GIRIYUJA ,,
-HHA Burundi,HHA Burundi,,
+Caritas,Caritas Bunia,441,National NGO
+Caritas,Caritas Développement Goma,441,National NGO
+Caritas Tchad,Caritas Tchad,441,National NGO
+Centre for Empowering Marginaliz,Centre for Empowering Marginalized Communities (CEMCo),441,National NGO
+Centre for Research and Integrat,Centre for Research and Integrated Development (CERID),441,National NGO
+Centre for Rural Prosperity and ,Centre for Rural Prosperity and Development (CRPD),441,National NGO
+Centre koweitien,Centre koweitien,437,International NGO
+Children's Legal Defense Center ,Children's Legal Defense Center (CLDC),441,National NGO
+Christian Aid,Christian Aid,437,International NGO
+CoC,Center of Concern,441,National NGO
+Comitato Internazionale per lo S,Comitato Internazionale per lo Sviluppo dei Popoli (CISP),437,International NGO
+Community Development and Humani,Community Development and Humanitarian Netork (CoDHNet),441,National NGO
+Community Empowerment and Develo,Community Empowerment and Development Action (CEDA),441,National NGO
+Concern,Concern World Wide,437,International NGO
+Concern WorldWide (CWW),Concern WorldWide (CWW),437,International NGO
+Congo.Ju/RDC,Congo-Jura Antenne de la RDC,441,National NGO
+Cooperazione Internazionale (COO,Cooperazione Internazionale (COOPI),437,International NGO
+Cooperazione e Sviluppo Fondazio,Cooperazione e Sviluppo Fondazione Onlus (CESVI),437,International NGO
+Cordaid,Catholic Organisation for Relief and Development Aid,437,International NGO
+DADS,Domaine d'appui aux développement du sankuru,441,National NGO
+DANFE,Development through Adult and Non-Formal Education,441,National NGO
+DARDO AID (DA),DARDO AID (DA),441,National NGO
+DCA,Danish Church Aid,437,International NGO
+DEC,Development Expertise Center,441,National NGO
+DFJ,Dynamique des femmes juristes,441,National NGO
+DMP-RDC,Diaspora Médicale Plus-RDC,441,National NGO
+DPF,Dynamique Paysanne Féminine,441,National NGO
+DPO,Development for Peace Organization,441,National NGO
+DRC,Danish Refugee Council,437,International NGO
+DRC AID,CONGO AGENCY FOR INTERNATIONAL DEVELOPMENT,441,National NGO
+Danish Refugee Council (DRC),Danish Refugee Council (DRC),437,International NGO
+Daryeel Bulsho Guud (DBG),Daryeel Bulsho Guud (DBG),441,National NGO
+Deeg-Roor Medical Organization (,Deeg-Roor Medical Organization (DMO),441,National NGO
+Deegroor Medical Organization (D,Deegroor Medical Organization (DMO),441,National NGO
+Development and Empowerment for ,Development and Empowerment for Humanity (DEH),441,National NGO
+Diakonie,Diakonie,437,International NGO
+Diakonie Katastrophenhilfe (DKH),Diakonie Katastrophenhilfe (DKH),437,International NGO
+Dignity First Somalia (DFS),Dignity First Somalia (DFS),441,National NGO
+Direct-Aid(Kuweit),Direct-Aid(Kuweit),437,International NGO
+Divigenre,"Division du genre, famille et enfant",435,Government
+DoC,Daughters of Charity,441,National NGO
+EADEV,Enfant pour l'Avenir et le Développement,441,National NGO
+EBD asbl,Ensemble pour la Biodiversité et le Développement,441,National NGO
+EC,ECHO-CITOYEN,441,National NGO
+ECC-SADCO,Ethiopia Catholic Church-Social and Development Coordinating office,441,National NGO
+ECC-SADCO Emdebir,Ethiopia Catholic Church-Social and Development Coordinating office Emdebir,441,National NGO
+ECC-SADCO Hararghe,Ethiopian Catholic Church Social Development Commission Office,441,National NGO
+EDA,Emannuel Development Association,441,National NGO
+EDA DRC,Agency for EDucation and Development in DRC,441,National NGO
+EDU,Enfants de l'Univers,441,National NGO
+EDUKANS,Edukans,437,International NGO
+EECMY-DASSC,Ethiopian Evangelical Church Mekane Yesus Development and social Services commission,441,National NGO
+ELiDA,Empathy for Life Integrated Development Association,441,National NGO
+EM,Echo Médical,441,National NGO
+EME,ESPERANCE MERES ET ENFANTS EN RDC,441,National NGO
+EOTC-DICAC,Ethiopian Orthodox Church Development and Inter Church Aid Commission,441,National NGO
+EOTC-DICAC,Ethiopian Orthodox Tewahdo Church Development and Inter-Church Aid Commission,441,National NGO
+EPHRATA,EPHRATA,441,National NGO
+ERCS,Ethiopian Red Cross Society,441,National NGO
+ESEDD,Education Santé et Environnement pour le Développement Durable.,441,National NGO
+EdM,Enfants du Monde,437,International NGO
+Elman Peace Center (EPC),Elman Peace Center (EPC),441,National NGO
+Elman Peace and Human Rights Cen,Elman Peace and Human Rights Center (EPHRC),441,National NGO
+Empowering the Vulnerable Societ,Empowering the Vulnerable Society Organization (EVSO),441,National NGO
+FAO,Food and Agriculture Organization,447,United Nations
+FARMAMUNDI,FARMAMUNDI,437,International NGO
+FCD,FEMME CONGOLAISE POUR LE DÉVELOPPEMENT,441,National NGO
+FDA,FOCUS DROITS ET ACCES,441,National NGO
+FECONDE,Femme Congolaise pour le Développement,441,National NGO
+FEMISA,Femmes en Mission pour Soutien et Actions aux vulnérables confondus,441,National NGO
+FH,Food for the Hungry,437,International NGO
+FHI 360,Family Health International 360,437,International NGO
+FIA,"Faith in Action,",437,International NGO
+FICR,Fédération Internationale des Sociétés de la Croix-Rouge et Croissant Rouge,437,International NGO
+FIDO,Fayyaa Integrated Development Organization,441,National NGO
+FJBNKM,Fondation Jean Baptiste Nkongolo Kabila Mutshi,441,National NGO
+FJCC,Force de Jeune Contre le Chômage,441,National NGO
+FJDF,Femmes Juristes pour lesDdroits de la Femme et de l'enfant,441,National NGO
+FLM,Fondation Lutherienne Mondiale,437,International NGO
+FLM,Lutheran World Federation,437,International NGO
+FMMDI,Femmes mains dans la main pour le développement intégral,441,National NGO
+FOCHAM,Fondation CHAMSAL-HOUDA pour le Bien –être Social et le Développement Humain,441,National NGO
+FOMI,FORUM DES MAMANS DE L'ITURI,441,National NGO
+FONLIV,Food and Nutrition for Life of Vulnerables,441,National NGO
+FP,FONDATION PANZI,441,National NGO
+FPT,Future Porte du Tchad,441,National NGO
+FRACARITA,FRACARITA,441,National NGO
+FRC,Finish Refugee Council,437,International NGO
+FRC,Finnish Refugee Council,437,International NGO
+FSA,Friendship Support Association,441,National NGO
+FSH,Fondation Solidarité des Hommes,441,National NGO
+Fayadhowr Orientation Organizati,Fayadhowr Orientation Organization (FOO),441,National NGO
+Finn Church Aid (FCA),Finn Church Aid (FCA),437,International NGO
+Fondation Carter,Fondation Carter,437,International NGO
+Food and Agriculture Organizatio,Food and Agriculture Organization (FAO),447,United Nations
+Formal Education Network for Pri,Formal Education Network for Private Schools (FENPS),441,National NGO
+GADI,Groupe d'appui au developpement integral,441,National NGO
+GG,Geneva Global,437,International NGO
+GHOVODI,Groupe des Hommes voués au Développement Intercommunautaire,441,National NGO
+GIZ,German Development Cooperation,437,International NGO
+GN,Good Neighbors,437,International NGO
+GOAL,GOAL Ethiopia,437,International NGO
+GRACE ONGD,GROUPE D'APPUI-CONSEILS AUX REALISATIONS OUR LE DEVELOPPEMENT ENDOGENE,441,National NGO
+GRAINES,Groupe De Recherche Et D'Appui Aux Interventions Integrées De La Nutrition En Santé,441,National NGO
+GRAM,GROUPE D'ACCOMPAGNEMENT DES MALADES,441,National NGO
+GST,Global Soutien pour tous,441,National NGO
+Gargaar Humanitarian & Developme,Gargaar Humanitarian & Development Organization (GARGAR),441,National NGO
+Gargaar Relief And Development O,Gargaar Relief And Development Organization (GREDO),441,National NGO
+Garsoor Social Development Organ,Garsoor Social Development Organization (GSDO),441,National NGO
+Gedo Women Development Organizat,Gedo Women Development Organization (GEWDO),441,National NGO
+Geeska Afrika Social Development,Geeska Afrika Social Development Organization (GASDO),441,National NGO
+Golweyne Relief and Rehabilitati,Golweyne Relief and Rehabilitation (GRR),441,National NGO
+Gurmuu,Gurmuu Development Association,441,National NGO
+HALO Trust (HT),HALO Trust (HT),437,International NGO
+HATD,HOPE FOR ALL AND TOGETHER FOR DEVELOPMENT,441,National NGO
+HCC,Halt Children in Crisis,437,International NGO
+HDAMA,"Health, Development and Anti-Malaria",441,National NGO
+HDH,Humanity Developpment Help,441,National NGO
+HDS,Halt Death Stalker,441,National NGO
+HEKS-EPER,Entraide Protestante Suisse,437,International NGO
+HEKS/EPER,Hilfswerk der Evangelischen Kirchen Schweiz,437,International NGO
 HI,Handicap International - Humanity & Inclusion,437,International NGO
-IADH,IADH,,
-ICIRORE C'AMAHORO,ICIRORE C'AMAHORO,,
+HI,Humanitarian Inclusion,437,International NGO
+HIAS,Hebrew Immigrant Aid Society,437,International NGO
+HL/HPA,Health Limited/ Health Poverty Action,437,International NGO
+HPRDC,Helpage Programme RDC,437,International NGO
+HYFRO,Hydraulique Sans Frontière,441,National NGO
+HaC,Help a Child DRC,441,National NGO
+Heal Africa,Health Education Action for Leadership in Africa,437,International NGO
+Heal Our People,Heal Our People,441,National NGO
+Health Education Agro-Pastoralis,Health Education Agro-Pastoralist Liaison (HEAL),441,National NGO
+Help Action Network (HAN),Help Action Network (HAN),441,National NGO
+Help Tchad,Help Tchad,441,National NGO
+HelpAge,HelpAge,437,International NGO
+Hidig Relief and Development Org,Hidig Relief and Development Organization (HIDIG),441,National NGO
+Himilo Foundation (HIMFO),Himilo Foundation (HIMFO),441,National NGO
+Himilo Organization for Developm,Himilo Organization for Development (HOD),441,National NGO
+Himilo Relief and Development As,Himilo Relief and Development Association (HIRDA),441,National NGO
+Hope In Life International (HILI,Hope In Life International (HILI),441,National NGO
+Horn Aid for Development and Hum,Horn Aid for Development and Human Right (HADHR),441,National NGO
+Horn International Relief & Deve,Horn International Relief & Development Organization (HIRDO),441,National NGO
+Horn Of Africa Voluntary Youth C,Horn Of Africa Voluntary Youth Committee (HAVOYOCO),441,National NGO
+Human Appeal (HA),Human Appeal (HA),437,International NGO
+Humanitarian Integrity For Women,Humanitarian Integrity For Women Action (HIWA),441,National NGO
+Humanitarian Umbrella For Relief,Humanitarian Umbrella For Relief And Development Organization (HURDO),441,National NGO
+Humedica e.V,Humedica e.V,437,International NGO
+I1D,Imagen 1 Day,437,International NGO
+I1D,Imagine 1 Day,437,International NGO
+IAS,International Aid Services,437,International NGO
+ICDW,International Cooperation and Developpment World,437,International NGO
+ICRC,International Committee of the Red Cross,445,Red Cross / Red Crescent
+ID,Initiative Developpement ,437,International NGO
+IDAV,INITIATIVE POUR DEVELOPPEMENT ET ACCOMPAGNEMENT DES VULNERABLES,441,National NGO
+IDIC,Initiative pour le Developpement Integral au Congo,441,National NGO
+IDO,Idée de l'eau,441,National NGO
+IDRISS,IDRISS,441,National NGO
+IEDA Relief,International Emergency and Development Aid,437,International NGO
+IFAPPDE,Initiative des Femmes Autochtones Pygmées pour la Paix et le Développement Endogène,441,National NGO
+IFRC,International Federation of Red Cross and Red Crescent Societies,445,Red Cross / Red Crescent
+IHDL,Initiative Humanitaire pour le Developpement Local,441,National NGO
+IHS,Innovative Humanitarian Solution,437,International NGO
+IIYL,International Islamic Youth League,437,International NGO
 IMC,International Medical Corps,437,International NGO
-IMIF,IMIF,,
+IMD,IMD,,
 INTERSOS,INTERSOS - Humanitarian Aid Organization,437,International NGO
-IOCC Lebanon,International Orthodox Christian Charities - Lebanon,437,International NGO
-IOM,International Organisation of Migration,447,United Nations
-IPREBAD,IPREBAD,,
-ISF + MCC,ISF + MCC,,
-ISV,ISV,,
-Imam Sadr Foundation,Imam Sadr Foundation,441,National NGO
-JSBM ,JSBM ,,
-LIFEDEF,LIFEDEF,,
-MCC + ISF,MCC + ISF,,
-MEDAIR,MEDAIR International Humanitarian Aid Organisation,437,International NGO
-Mercy corps - Sheild,Mercy corps - Sheild,,
-Mouvement Social,Mouvement Social,441,National NGO
-NACHAM AFRICA,NACHAM AFRICA,,
-NASWA-BURUNDI,NASWA-BURUNDI,,
-NRC,Norweigan Refugee Council,437,International NGO
-Nusaned - Sawa blessed - WCK,Nusaned - Sawa blessed - WCK,,
-OAP,OAP,,
-OPIRCO,OPIRCO,,
-PACT,PACT,,
-PENACONI,PENACONI,,
+INTERSOS,Internazional SOS,437,International NGO
+IOCC,International Orthodox Christian Charities,437,International NGO
+IOM,International Organization for Migration,447,United Nations
+IPAS RDC,IPAS RDC,441,National NGO
+IR,Islamic Relief Worldwide,437,International NGO
+IRC,International Rescue Committee,437,International NGO
+IREDIE ASBL,Initiative Régionale pour le Developpement Integral et Endogene,441,National NGO
+IRMAN Human Rights Development O,IRMAN Human Rights Development Organization (IHRDO),441,National NGO
+Ifrah Foundation (IF),Ifrah Foundation (IF),441,National NGO
+Integrated Community Action Netw,Integrated Community Action Network (ICAN),441,National NGO
+Integrated Services for Displace,Integrated Services for Displaced Population (ISDP),441,National NGO
+International Medical Corps (IMC,International Medical Corps (IMC),437,International NGO
+International Organization for M,International Organization for Migration (IOM),447,United Nations
+International Rescue Committee (,International Rescue Committee (IRC),437,International NGO
+Intersom Relief And Development ,Intersom Relief And Development Organization (Intersom),441,National NGO
+Islamic Relief Worldwide (IRW),Islamic Relief Worldwide (IRW),437,International NGO
+JHP,Jericho Hope and Peace ASBL,441,National NGO
+JHPIEGO,Johns Hopkins pour l'éducation internationale en gynécologie et en obstétrique,437,International NGO
+JOHANNITER,The Johanniter International Assistance,437,International NGO
+JRS,Jesuit Refugees Service,437,International NGO
+JRS,Jesuite Refugee Service,437,International NGO
+JSD,Jeunesse pour la Solidarité et le Développement,441,National NGO
+JT ASBL,JENGA TUMAINI ASBL,441,National NGO
+JUH,The Johanniter Unfall Hilfe,437,International NGO
+JeCCDO,Jerusalem Children and Community Development Organization,441,National NGO
+Juba Foundation (JF),Juba Foundation (JF),441,National NGO
+Jubaland Mine Action Network (JU,Jubaland Mine Action Network (JUMAN),435,Government
+Juweyria Women Relief (JWR),Juweyria Women Relief (JWR),441,National NGO
+KCA,KIJIJI CHA AMNI ,441,National NGO
+KITES,KITES,441,National NGO
+Kaah Relief and Development Orga,Kaah Relief and Development Organization (KAAH),441,National NGO
+Kalkal Human Rights Development ,Kalkal Human Rights Development Organization (KAHRDO),441,National NGO
+King Salman Humanitarian Aid and,King Salman Humanitarian Aid and Relief Centre (KSRELIEF),437,International NGO
+LA FLORAISON,LA FLORAISON,441,National NGO
+LM International (LMI),LM International (LMI),437,International NGO
+LMI,LM International,437,International NGO
+LTDH,Ligue Tchadienne des Droits de l’Homme,441,National NGO
+LVIA,Lay Volunteer International Association,437,International NGO
+LWF,Lutheran World Federation,437,International NGO
+LYEX,LYEX,441,National NGO
+Label Relief and Development Org,Label Relief and Development Organization (LARDO),441,National NGO
+Legal Aid (LA),Legal Aid (LA),441,National NGO
+Lifeline-Gedo Organization (LLG),Lifeline-Gedo Organization (LLG) ,441,National NGO
+Lutheran World Federation (LWF),Lutheran World Federation (LWF),437,International NGO
+MAEDOTAID,MAEDOTAID,441,National NGO
+MAG,Mine Advisor Group,437,International NGO
+MAGNA,Magna enfants en peril,437,International NGO
+MAVUNO,MAVUNO,441,National NGO
+MCC,Mennonite Central Commitee,437,International NGO
+MCDO,Mothers and Children Development Organization,441,National NGO
+MCI,Mercy Corps International,437,International NGO
+MCMDO,Mothers and Children Multisectoral Development Organization,441,National NGO
+MD,Migration et Developpement Ici et Là-bas,437,International NGO
+MDA,Médecins d'Afrique,437,International NGO
+MDM,Médecins du Monde,437,International NGO
+MDM-F,Médecins du Monde France,437,International NGO
+MDM-G,Medecins Du Monde - Germany,437,International NGO
+MEDAIR,MEDAIR,437,International NGO
+MESAS,Marchons Ensemble et Sûrement dans l'Assistance Scolaire et Humanitaire,441,National NGO
+MI,Malteser International,437,International NGO
+MIC,Most Inclusive Connect,441,National NGO
+MIDEFEHOPS,Mouvement International des Droits de l'enfant de la Femme de l'Homme veuf et de leur Promotion sociale,441,National NGO
+MOH Puntland,MOH Puntland,435,Government
+MSD,Mahibere Hiwot for Social Development,441,National NGO
+MSF WaCA,Médecins sans frontières West and Central Africa,437,International NGO
+MSF-B,Médecins Sans Frontière Belgique,437,International NGO
+MSF-CH,Doctors Without Borders Switzerland,437,International NGO
+MSF-E,Médecins sans frontières Espagne,437,International NGO
+MSF-F,Doctors Without Borders France,437,International NGO
+MSF-H,Doctors Without Borders Holland,437,International NGO
+MSI,Marie Stopes International Ethiopia,437,International NGO
+MTI,Medical Teams International,437,International NGO
+MUSACA,MUSACA - Mutuelle de santé Canaan,441,National NGO
+Mandher Relief and Development O,Mandher Relief and Development Organization (MARDO),441,National NGO
+Mandhere Relief and Development ,Mandhere Relief and Development Organisation (MRDO),441,National NGO
+Marginalized Communities Advocac,Marginalized Communities Advocacy Network (MCAN),441,National NGO
+Marginalized Inclusion Network (,Marginalized Inclusion Network (MIN),441,National NGO
+MdM BE,Médecins du Monde Belgique,437,International NGO
+Mercy Corps (MC),Mercy Corps (MC),437,International NGO
+Mercy-USA for Aid and Developmen,Mercy-USA for Aid and Development (Mercy-USA),437,International NGO
+Ministry Of Employment Social Af,Ministry Of Employment Social Affairs And Family (MESAF),435,Government
+Ministry Of Women Development An,Ministry Of Women Development And Family Affairs (MOWDAFA),435,Government
+"Ministry Of Women, Family Affair","Ministry Of Women, Family Affairs And Human Rights Of Galmudug State Of Somalia (MoWHRD Galmudug)",435,Government
+"Ministry Of Women, Family Affair","Ministry Of Women, Family Affairs And Human Rights Of Hirshabelle State Of Somalia (MoWHRD Hirshabelle)",435,Government
+"Ministry Of Women, Family Affair","Ministry Of Women, Family Affairs And Human Rights Of South West State Of Somalia (MoWHRD South West)",435,Government
+Ministry of Health (MOH),Ministry of Health (MOH),435,Government
+Minority Empowerment And Develop,Minority Empowerment And Development Agency (MEDA),441,National NGO
+Mission for Emergency Aid and Li,Mission for Emergency Aid and Lifesaving (MEAL),441,National NGO
+MoA-DRAP,Government of Ethiopia MoA,435,Government
+Moustagbal,Moustagbal,441,National NGO
+Mums for Mums,Mums for Mums,441,National NGO
+Munazzamat Al-Dawa (DAWA),Munazzamat Al-Dawa (DAWA),441,National NGO
+Mustaqbal Development and Relief,Mustaqbal Development and Relief Organization (MURDO),441,National NGO
+NCA,Norwegian Church Aid,437,International NGO
+NHB,NEW HOPE BETHESDA,441,National NGO
+NIRVANA,NIRVANA,441,National NGO
+NMWEO,New millennium women empowerment organization,441,National NGO
+NRC,Norwegian Refugee Council,437,International NGO
+Network Against Female Genital M,Network Against Female Genital Mutilation in Somaliland (NAFIS),441,National NGO
+New Ways Organisation (NWO),New Ways Organisation (NWO),441,National NGO
+Nexus,Nexus Ethiopia,441,National NGO
+Nomadic Assistance for Peace and,Nomadic Assistance for Peace and Development (NAPAD),441,National NGO
+Northern Frontier Youth League (,Northern Frontier Youth League (NoFYL),441,National NGO
+Norwegian Church Aid (NCA),Norwegian Church Aid (NCA),437,International NGO
+Norwegian Refugee Council (NRC),Norwegian Refugee Council (NRC),437,International NGO
+Not in the list,Not in the list,,
+Nour Akoura,Nour Akoura,441,National NGO
+OCHA,United Nations Office for the Coordination of Humanitarian Affairs,447,United Nations
+ODA,Oromia Development Association,441,National NGO
+ODH,Observatoire des Droits Humains,441,National NGO
+OHAV RDC,Organisation Humanitaire pour l'Assistance aux Vulnérables,441,National NGO
+OHCHR,United Nations High Office of Commisioner for Human Right,447,United Nations
+OHDEL,Organisation Humanitaire pour le Développement Local,441,National NGO
+OHDL,Organisation Humanitaire et de Dévéloppement Local,441,National NGO
+ONUSIDA,ONUSIDA,447,United Nations
+OPET,Organisation pour la Promotion de l'Enseignement au Tchad,441,National NGO
+ORDA,Organization for Rehabilitation and Development in Amhara,441,National NGO
+OSAF,Organisme de la Santé Familiale,441,National NGO
+OSSHD,OSSHD,441,National NGO
+OSSHD,Organization for Social Services Health and Development ,441,National NGO
+OTOBPFE,Organisation Tchadienne d'Œuvre Bienfaisante pour la Protection de La femme et de l'Enfant,441,National NGO
+OWDA,Organization for Welfare & Development in Action,441,National NGO
+OWS-DF,OWS Development Fund,441,National NGO
+OXFAM,OXFAM,437,International NGO
+OXFAM (OXFAM),OXFAM (OXFAM),437,International NGO
+OXFAM GB,Oxfam Grande Bretagne,437,International NGO
+OXFAM Netherlands (NOVIB),OXFAM Netherlands (NOVIB),437,International NGO
+Organization For Minority Rights,Organization For Minority Rights Advocate (OMRA),441,National NGO
+Oromia Physicians Association,Oromia Physicians Association,441,National NGO
+Other,Other,443,Other
+Oxfam GB,Oxfam GB,437,International NGO
+PACIF,Paysans Actifs Contre l’Ignorance et la Faim,441,National NGO
+PAD,Positive Action for Development,441,National NGO
+PADEPUA,Programme d'Action pour le Développement des Paysans unis en Afrique,441,National NGO
+PADIESSE,Partenariat pour l'Appui et le Développement des Innovations en Education Santé et Environnement,441,National NGO
+PAEV,Programme d'Approvisionnement en Eau pour les Villages,441,National NGO
+PAF-AFRICA,Partnership for Food Security in Africa,437,International NGO
+PAM,Programme Alimentaire Mondiale,447,United Nations
+PAMI,PROGRAMME D'APPUI A LA LUTTE CONTRE LA MISERE,441,National NGO
+PAPDA,Partnership for Pastoralist Development Association,441,National NGO
+PARCA,Projet d'Appui aux Réfugiés et Communautés d'Accueil,437,International NGO
+PDEH,PONT DE L'HUMANITE,441,National NGO
+PDFE,Paix Pour le Développement de la Femme et de l'Enfant,441,National NGO
+PEDC,Projet Evangélique de Développement Communautaire.,441,National NGO
+PFP,LA PROMOTION DE LA FEMME PAYSANNE,441,National NGO
+PHIAS,PHIAS,,
 PI,Plan International,437,International NGO
-PPSM,PPSM,,
+PIN,People in Need,437,International NGO
+PLAN International (PI),PLAN International (PI),437,International NGO
+PMNS/UG-PDSS,Projet Multisectoriel de Nutrition et Santé (PMNS) de l'Unité de Gestion du Programme de Développement du Système de Santé (UG-PDSS),435,Government
+PPSSP,Programme de Promotion des Soins de Santé Primaire,441,National NGO
+PRODAEWI,Projet de Développement Agricole et d’Élevage à Walu-Ituri,441,National NGO
+PRODECOM,PROJET DE DEVELOPPEMENT LA COMMUNION FRATERNELLE,441,National NGO
 PUI,Première Urgence Internationale,437,International NGO
-SACODE,SACODE,,
-SAD,SAD,,
+Peace and Development Action (PD,Peace and Development Action (PDA),441,National NGO
+Physicians Across Continent (PAC,Physicians Across Continent (PAC),437,International NGO
+Population Services Internationa,Population Services International (PSI),437,International NGO
+Puntland Minority Women Developm,Puntland Minority Women Development Organization (PMWDO),441,National NGO
+Puntland Y-peer Network (PYPN),Puntland Y-peer Network (PYPN),441,National NGO
+QC,Qatar Charity,437,International NGO
+Qatar Charity (QC),Qatar Charity (QC),443,Other
+Qatar Red Crescent Society (QRCS,Qatar Red Crescent Society (QRCS),443,Other
+RACOJ,Réseau des associations congolaises des jeunes,441,National NGO
+RADPI,Réseau d'Action pour le Développement et Progrès Intégré,441,National NGO
+RAPS,"Réseau d’Action, de Partages et de Solidarité pour le Développement",441,National NGO
+RDRMC,Regional Disaster Risk Management Commissions,435,Government
+RDV,Relief and Development for Vulnerable,441,National NGO
+REB,"Regional Education Bureau, Amhara",435,Government
+REDHO,RESEAU POUR LES DROITS DE L'HOMME,441,National NGO
+REFED,RESEAU FEMME ET DEVELOPPEMENT,441,National NGO
+REST,Relief Society of Tigray,441,National NGO
+RET,Refugee Education Trust,437,International NGO
+RHA,Rebuild Hope for Africa,441,National NGO
+RHB,Oromiya Regional Health Bureau,435,Government
+RHDI,Résilience Humanitaire et Développement Intégré,441,National NGO
+ROPAC,RÉSEAU DES ORGANISATIONS PAYSANNES ET AUTOCHTONES DU CONGO,441,National NGO
+RWB,Oromiya Regional Water Bureau,435,Government
+RaDO,RaDO,437,International NGO
+Rain Water Association of Somali,Rain Water Association of Somalia (RAAS),441,National NGO
+Rajo Relief and Development Orga,Rajo Relief and Development Organization (RARDO),441,National NGO
+Ras-Awad Welfare Association (RA,Ras-Awad Welfare Association (RAWA),441,National NGO
+Resilience Integration Sustabili,Resilience Integration Sustability and Empowerment (RISE),441,National NGO
+Rural Development Support Agency,Rural Development Support Agency (RDSA),441,National NGO
+Rural Education and Agriculture ,Rural Education and Agriculture Development Organization (READO),441,National NGO
+SAD International,Soutien aux actions pour le développement,437,International NGO
+SADEF,Service d'Appui au Développement de la Femme,441,National NGO
+SAFDF,Solidarité des Associations Féminines pour les Droits de la Femme,441,National NGO
+SAHKAL,SAHKAL pour la Solidarité et développement au sahel,441,National NGO
+SANRU,Soins de santé primeiraes en milieu rural et urbain,441,National NGO
 SCI,Save the Children International,437,International NGO
-SFBSP-BURUNDI,SFBSP-BURUNDI,,
-SHEILD,SHEILD,441,National NGO
-SOJPAE,SOJPAE,,
-UCBUM,UCBUM,,
-UPHB,UPHB,,
+SDC,Social Development Center,441,National NGO
+SDI,Société de Développement International,437,International NGO
+SECADEV,Secours Catholique et Développement,441,National NGO
+SECHA,Seconde Chance,441,National NGO
+SEN Ethiopia,SEN Ethiopia,441,National NGO
+SEV,Sauvons les Enfants Vulnerables en RDC,441,National NGO
+SHA,Self Help Africa,437,International NGO
+SI,Solidarities International,437,International NGO
+SID,Secours Islamique pour le Developpement,441,National NGO
+SIF,Secours Islamiques France,437,International NGO
+SIJFMCO,SOLIDARITE INTEGRALE DES JEUNES FILLES FILLES ET MERE AU CONGO,441,National NGO
+SIL,SIL,437,International NGO
+SODAS,Solidarité Pour Le Développement Et L'assistance Sociale,441,National NGO
+SOFEPADI,Solidarité Féminine Pour la Paix et le Développement Intégral,441,National NGO
+SOMALI RELIEF AND DEVELOPMENT SO,SOMALI RELIEF AND DEVELOPMENT SOCIETY (SORDES),441,National NGO
+SONAHU,SONAHU,441,National NGO
+SOS CV,SOS Children's Villages,437,International NGO
+SOS CV,SOS Children’s Village,437,International NGO
+SOS CV,SOS Ethiopia,437,International NGO
+SOS Sahel,SOS Sahel,441,National NGO
+SOS children’s villages Somalila,SOS children’s villages Somaliland (SOS CV SL),441,National NGO
+SOSSIF,SOSSIF,441,National NGO
+SOSVEIT,SOS Villages d'Enfants International au Tchad,437,International NGO
+SP,Samaritan Purse,437,International NGO
+SP,Samaritan's Purse,437,International NGO
+SPS,SOLIDARITÉ DES PRESTATAIRES DE SERVICES,441,National NGO
+STS International Solidarity (ST,STS International Solidarity (STS),441,National NGO
+SVO,Sudan Volunteer Organization,437,International NGO
+SWISSAID,SWISSAID,437,International NGO
+SYHLA,Save Your Holy Land Association ,441,National NGO
+SYLAM,Synergie pour la Lutte Antimines,441,National NGO
+Sahel SNR,Sahel SNR,441,National NGO
+Salama Medical Agency (SAMA),Salama Medical Agency (SAMA),441,National NGO
+Santé Plus,Santé Plus,441,National NGO
+Save Somali Women and Children (,Save Somali Women and Children (SSWC),441,National NGO
+Save The Children International ,Save The Children International (SCI),437,International NGO
+Secours Islamique France (SIF),Secours Islamique France (SIF),437,International NGO
+Serving Together for Social Deve,Serving Together for Social Development (STS),441,National NGO
+Shabelle Community Development O,Shabelle Community Development Organization (SHACDO),441,National NGO
+Skills Active Forward United Kin,Skills Active Forward United Kingdom (SAF-UK),437,International NGO
+Social Environmental Agency (sea,Social Environmental Agency (sea),441,National NGO
+Social Rural Development Initiat,Social Rural Development Initiative (SRDI),441,National NGO
+Socio-Economic Development And H,Socio-Economic Development And Human Rights Organization (SEDHURO),441,National NGO
+Solutions for Humanity Internati,Solutions for Humanity International (SFH),441,National NGO
+Somali Advocacy and Relief Organ,Somali Advocacy and Relief Organization  (SARO),441,National NGO
+Somali Association for Rehabilit,Somali Association for Rehabilitation and Development (SARD),441,National NGO
+Somali Awareness And Social Deve,Somali Awareness And Social Development Organization (SASDO),441,National NGO
+Somali Children Walfare and Righ,Somali Children Walfare and Rights Watch (SCWRW),441,National NGO
+Somali Community Concern (SCC),Somali Community Concern (SCC),441,National NGO
+Somali Humanitarian Relief Actio,Somali Humanitarian Relief Action (SHRA),441,National NGO
+Somali Lifeline Organization (SO,Somali Lifeline Organization (SOLO),441,National NGO
+Somali Livelihood Initiative and,Somali Livelihood Initiative and Disability Organization (LIDOSOM),441,National NGO
+Somali Peace Line (SPL),Somali Peace Line (SPL),441,National NGO
+Somali Red Crescent Society (SRC,Somali Red Crescent Society (SRCS),441,National NGO
+Somali Red Crescent Society Punt,Somali Red Crescent Society Puntland (SRCS_PUNTLAND),441,National NGO
+Somali Relief Center (SRC),Somali Relief Center (SRC),441,National NGO
+Somali Relief and Care Organizat,Somali Relief and Care Organization (SRCO),441,National NGO
+"Somali Relief, Rehabilitation an","Somali Relief, Rehabilitation and Development Organization (SORRDO)",441,National NGO
+Somali Safe Child Right Voluntee,Somali Safe Child Right Volunteers (SSCRV),441,National NGO
+Somali Women Development Centre ,Somali Women Development Centre (SWDC),441,National NGO
+Somali Women Study Center (SWSC),Somali Women Study Center (SWSC),441,National NGO
+Somali Women and Child Care Asso,Somali Women and Child Care Association (SWCCA),441,National NGO
+Somali Young Doctors Association,Somali Young Doctors Association (SOYDA),441,National NGO
+Somali Youthlink (SOYL),Somali Youthlink (SOYL),441,National NGO
+Somaliland Skills Training Assoc,Somaliland Skills Training Association (SOSTA),441,National NGO
+Somaliland Youth Development & V,Somaliland Youth Development & Voluntary Organization (SOYDAVO),441,National NGO
+Sos Children’S Villages Somalia ,Sos Children’S Villages Somalia (SOS CV SO),441,National NGO
+Sos Village d'enfant,SOSVET,437,International NGO
+Street Child,Street Child International,437,International NGO
+Swiss Church Aid (HEKS/EPER),Swiss Church Aid (HEKS/EPER),437,International NGO
+TCHAD SOS,TCHAD SOS,441,National NGO
+TECHNIDEV,Technologie Innovante pour le Développement,441,National NGO
+TGH,Triangle Génération Humanitaire,437,International NGO
+TPO,Transcultural Psychosocial Organization,441,National NGO
+TROCAIRE,Trocaire,437,International NGO
+TSD,Tarkanfi Sustainable Development,441,National NGO
+TYES,Tigray Youth Empowerment Solutions,441,National NGO
+Taakulo (Taakulo),Taakulo (Taakulo),441,National NGO
+Taakulo Somaliland Community (TA,Taakulo Somaliland Community (TASCO),441,National NGO
+Tadamun Social Society (TASS),Tadamun Social Society (TASS),441,National NGO
+TdH NL,Terre des Hommes Netherlands,437,International NGO
+Tearfund,Tearfund,437,International NGO
+Tigray Development Association,Tigray Development Association,441,National NGO
+Trocaire (Trocaire),Trocaire (Trocaire),437,International NGO
+UA RDC,UMOJA AFRICA RDC,441,National NGO
+UCD,UCD,441,National NGO
+UEWCA,Union of Ethiopian Women & Children Associations,441,National NGO
+UGEAFI,Union des groupes d'études et d'actions pour le développement de Fizi-Itombwe,441,National NGO
+UJN,Un Jour Nouveau,441,National NGO
+UNDP,United Nations Development Programme,447,United Nations
+UNDSS,United Nations Department for Safety and Security,447,United Nations
+UNFPA,United Nations Population Fund,447,United Nations
+UNHCR,UN Refugee Agency,447,United Nations
+UNICEF,United Nations Children's Fund,447,United Nations
+UNMAS,United Nations Mine Action Service,447,United Nations
+UNOPS,United Nations Office for Project Services,447,United Nations
+UP,UP,441,National NGO
+UPDECO,Union pour la Paix et la Promotion des Droits de l'Enfant au Congo,441,National NGO
+UiA,Umoja In Action,441,National NGO
+Umbrella for Relief and Rehabili,Umbrella for Relief and Rehabilitation Organization (URRO),441,National NGO
+United Nations Children's Fund (,United Nations Children's Fund (UNICEF),447,United Nations
+United Nations High Commissioner,United Nations High Commissioner for Refugees (UNHCR),447,United Nations
+VADO,Vision with Action Development Organization,441,National NGO
+VESP,Village d'Espoir,441,National NGO
+VIBOSA,Fondation vivre bonne santé,441,National NGO
+VIFEDE,Vision des Femmes pour le Développement Endogène,441,National NGO
+VIS,Volontariato Internazionale per lo Sviluppo,437,International NGO
+VSF-G,VeterinairesSans Frontieres-Germany,437,International NGO
+VSF-G,Vétérinaires sans Frontières Germany,437,International NGO
+VSF-S,Veterinaires Sans Frontieres - Suisse,437,International NGO
+Vision Corps Initiative (VCI),Vision Corps Initiative (VCI),441,National NGO
+Volunteers for Relief and Develo,Volunteers for Relief and Developmen (VRD),441,National NGO
+WAA,WAZA AND ACT,441,National NGO
+WAT,Women Association of Tigray,441,National NGO
+WC-CA,War Child - CA,437,International NGO
+WC-H,War Child Hollande,437,International NGO
+WCDO,World Concern Development Organization,437,International NGO
+WDRO,Women Development and Resilience Organization,441,National NGO
 WFP,World Food Programme,447,United Nations
+WHH,Welthungerhilfe,437,International NGO
+WHO,World Health Organization,447,United Nations
+WR Chad,World Relief Chad,437,International NGO
+WR DRC,World Relief DR Congo,437,International NGO
 WVI,World Vision International,437,International NGO
-YELI BURUNDI,YELI BURUNDI,,
+WW,Wokovu Way,441,National NGO
+Wadajir Rural Development Organi,Wadajir Rural Development Organization (WARDO),441,National NGO
+Wadani Relief Organization (WARO,Wadani Relief Organization (WARO),441,National NGO
+Wajir South Development Associat,Wajir South Development Association (WASDA),441,National NGO
+Wamo Relief and Rehabilitation S,Wamo Relief and Rehabilitation Services (WRRS),441,National NGO
+Wardi Relief and Development Ini,Wardi Relief and Development Initiatives (WARDI),441,National NGO
+Welthhungerrhilfe (WHH),Welthhungerrhilfe (WHH),437,International NGO
+Windle International Somalia (WI,Windle International Somalia (WIS),441,National NGO
+Women Pioneers for Peace and Lif,Women Pioneers for Peace and Life (HINNA),441,National NGO
+Women'S Action For Advocacy And ,Women'S Action For Advocacy And Progress Organization (WAAPO),441,National NGO
+World Food Programme (wfp),World Food Programme (wfp),447,United Nations
+World Vision International (WVI),World Vision International (WVI),437,International NGO
+Worth Vision (WV),Worth Vision (WV),437,International NGO
+YGL,YMES Grand Lac,441,National NGO
+YGL,Yme Grands Lacs,441,National NGO
+Youth Volunteers For Development,Youth Volunteers For Development And Environment Conservation (YOVENCO),441,National NGO
+Youth in Action (YIA),Youth in Action (YIA),441,National NGO
+YouthLink (YL),YouthLink (YL),441,National NGO
+ZOA,ZOA,437,International NGO
+ZamZam Foundation (ZAMZAM),ZamZam Foundation (ZAMZAM),441,National NGO
+daryeel Aid for Relief and Devel,daryeel Aid for Relief and Development organization (DDRO),441,National NGO
+"ministry Of Women, Family Affair","ministry Of Women, Family Affairs And Human Rights Of Jubaland State Of Somalia (MoWHRD Jubaland)",435,Government
+polish Humanitarian Action (PAH),polish Humanitarian Action (PAH),437,International NGO
+we-action,we-action,441,National NGO
+women's Hope International,women's Hope International,437,International NGO
