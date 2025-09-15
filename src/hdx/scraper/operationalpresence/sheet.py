@@ -11,29 +11,14 @@ logger = getLogger(__name__)
 
 
 class Sheet:
-    iso3_ind = 0
-    automated_dataset_ind = 1
-    automated_resource_ind = 2
-    automated_format_ind = 3
-    dataset_ind = 4
-    resource_ind = 5
-    format_ind = 6
-    sheet_ind = 7
-    headers_ind = 8
-    # start_date_ind = 9
-    # end_date_ind = 10
-    # filter_ind = 11
-    # admin_codes_ind = 12
-    # admin_names_ind = 13
-    # org_name_ind = 14
-    # org_acronym_ind = 15
-    # org_type_ind = 16
-    # sector_ind = 17
     headers = [
         "Country ISO3",
+        "Exclude",
         "Automated Dataset",
         "Automated Resource",
         "Automated Format",
+        "Automated Start Date",
+        "Automated End Date",
         "Dataset",
         "Resource",
         "Format",
@@ -42,6 +27,9 @@ class Sheet:
         "Start Date",
         "End Date",
         "Filter",
+        "Filename Dates",
+        "Start Date Column",
+        "End Date Column",
         "Adm Code Columns",
         "Adm Name Columns",
         "Org Name Column",
@@ -92,10 +80,17 @@ class Sheet:
             self.sheet = self.spreadsheet.get_worksheet(0)
             gsheet_rows = self.sheet.get_values()
             for row in gsheet_rows[1:]:
-                countryiso3 = row[self.iso3_ind]
-                self.spreadsheet_rows[countryiso3] = row
+                new_row = {header: row[i] for i, header in enumerate(self.headers)}
+                countryiso3 = new_row["Country ISO3"]
+                self.spreadsheet_rows[countryiso3] = new_row
         except Exception as ex:
             logger.error(ex)
+
+    def get_countries(self) -> Iterable[str]:
+        return self.spreadsheet_rows.keys()
+
+    def get_country_row(self, countryiso3: str) -> Optional[Dict]:
+        return self.spreadsheet_rows.get(countryiso3)
 
     def add_update_row(
         self,
@@ -105,38 +100,68 @@ class Sheet:
         resource_format: str,
         resource_url_format: Optional[str],
     ) -> None:
-        row = self.spreadsheet_rows.get(countryiso3)
+        row = self.get_country_row(countryiso3)
         if row is None:
             changed = True
-            row = [countryiso3, dataset_name, resource_name, resource_format]
+            row = {
+                "Country ISO3": countryiso3,
+                "Exclude": "",
+                "Automated Dataset": dataset_name,
+                "Automated Resource": resource_name,
+                "Automated Format": resource_format,
+            }
             self.spreadsheet_rows[countryiso3] = row
         else:
             changed = False
-            current_dataset = row[self.automated_dataset_ind]
+            current_dataset = row["Automated Dataset"]
             if current_dataset != dataset_name:
                 changed = True
                 text = f"{countryiso3}: Updating dataset from {current_dataset} to {dataset_name}"
                 logger.info(text)
                 self.email_text.append(text)
-                row[self.automated_dataset_ind] = dataset_name
-            current_resource = row[self.automated_resource_ind]
+                row["Automated Dataset"] = dataset_name
+            current_resource = row["Automated Resource"]
             if current_resource != resource_name:
                 changed = True
                 text = f"{countryiso3}: Updating resource from {current_resource} to {resource_name}"
                 logger.info(text)
                 self.email_text.append(text)
-                row[self.automated_resource_ind] = resource_name
-            current_format = row[self.automated_format_ind]
+                row["Automated Resource"] = resource_name
+            current_format = row["Automated Format"]
             if current_format != resource_format:
                 changed = True
                 text = f"{countryiso3}: Updating resource format from {current_format} to {resource_format}"
                 logger.info(text)
                 self.email_text.append(text)
-                row[self.automated_format_ind] = resource_format
+                row["Automated Format"] = resource_format
         if changed and resource_url_format and resource_url_format != resource_format:
             text = f"Resource {resource_name} has url with format {resource_url_format} that is different to HDX format {resource_format}"
             logger.warning(text)
             self.email_text.append(text)
+
+    def add_update_dates(
+        self,
+        countryiso3: str,
+        start_date: Optional[str],
+        end_date: Optional[str],
+    ) -> None:
+        row = self.get_country_row(countryiso3)
+        current_start_date = row.get("Automated Start Date")
+        if current_start_date is None:
+            row["Automated Start Date"] = ""
+        elif current_start_date != start_date:
+            text = f"{countryiso3}: Updating start date from {current_start_date} to {start_date}"
+            logger.info(text)
+            self.email_text.append(text)
+            row["Automated Start Date"] = start_date
+        current_end_date = row.get("Automated End Date")
+        if current_end_date is None:
+            row["Automated End Date"] = ""
+        elif current_end_date != end_date:
+            text = f"{countryiso3}: Updating end date from {current_end_date} to {end_date}"
+            logger.info(text)
+            self.email_text.append(text)
+            row["Automated End Date"] = end_date
 
     def write(self, countryiso3s: List) -> None:
         if self.sheet is None:
@@ -145,9 +170,12 @@ class Sheet:
         for countryiso3 in sorted(self.spreadsheet_rows):
             row = self.spreadsheet_rows[countryiso3]
             if countryiso3 not in countryiso3s:
-                row[self.automated_dataset_ind] = ""
-                row[self.automated_resource_ind] = ""
-            rows.append(row)
+                row["Automated Dataset"] = ""
+                row["Automated Resource"] = ""
+                row["Automated Format"] = ""
+                row["Automated Start Date"] = ""
+                row["Automated End Date"] = ""
+            rows.append([row[header] for header in self.headers])
         sheet_copy = self.sheet.get_all_values()
         try:
             self.sheet.clear()
@@ -167,29 +195,28 @@ class Sheet:
             "\n".join(self.email_text),
         )
 
-    def get_countries(self) -> Iterable[str]:
-        return self.spreadsheet_rows.keys()
-
-    def get_datasetinfo(self, countryiso3: str) -> Dict:
+    def get_datasetinfo(self, countryiso3: str) -> Optional[Dict]:
         row = self.spreadsheet_rows[countryiso3]
-        automated_dataset = row[self.automated_dataset_ind]
-        dataset = row[self.dataset_ind]
+        if row["Exclude"] == "Y":
+            return None
+        automated_dataset = row["Automated Dataset"]
+        dataset = row["Dataset"]
         if dataset:
             logger.info(
                 f"Using override dataset {dataset} instead of {automated_dataset} for {countryiso3}"
             )
         else:
             dataset = automated_dataset
-        automated_resource = row[self.automated_resource_ind]
-        resource = row[self.resource_ind]
+        automated_resource = row["Automated Resource"]
+        resource = row["Resource"]
         if resource:
             logger.info(
                 f"Using override resource {resource} instead of {automated_resource} for {countryiso3}"
             )
         else:
             resource = automated_resource
-        format = row[self.format_ind]
-        automated_format = row[self.automated_format_ind]
+        format = row["Format"]
+        automated_format = row["Automated Format"]
         if format:
             logger.info(
                 f"Using override format {format} instead of {automated_format} for {countryiso3}"
@@ -202,10 +229,10 @@ class Sheet:
             "resource": resource,
             "format": format,
         }
-        sheet = row[self.sheet_ind]
+        sheet = row["Sheet"]
         if sheet:
             datasetinfo["sheet"] = sheet
-        headers = row[self.headers_ind]
+        headers = row["Headers"]
         if headers:
             if "," in headers:
                 headers = headers.split(",")
@@ -216,8 +243,16 @@ class Sheet:
             datasetinfo["headers"] = headers
         if format == "xlsx":
             datasetinfo["xlsx2csv"] = True
-        for i, header in enumerate(self.headers[9:]):
-            datasetinfo[header] = row[i + 9]
+        start_date = row["Start Date"]
+        if not start_date:
+            start_date = row["Automated Start Date"]
+        if start_date:
+            end_date = row["End Date"]
+            if not end_date:
+                end_date = row["Automated End Date"]
+            datasetinfo["source_date"] = {"start": start_date, "end": end_date}
+        for header in self.headers[14:]:
+            datasetinfo[header] = row[header]
         # Config must contain an org name and a sector
         if not datasetinfo["Org Name Column"]:
             logger.warning(

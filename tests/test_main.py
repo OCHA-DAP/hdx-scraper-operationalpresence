@@ -33,9 +33,10 @@ class TestOperationalPresence:
         )
         Locations.set_validlocations(
             [
-                {"name": "afg", "title": "Afghanistan"},
-                {"name": "bdi", "title": "Burundi"},
-                {"name": "lbn", "title": "Lebanon"},
+                {"name": "cod", "title": "Democratic Republic of the Congo"},
+                {"name": "eth", "title": "Ethiopia"},
+                {"name": "som", "title": "Somalia"},
+                {"name": "tcd", "title": "Chad"},
                 {"name": "world", "title": "World"},
             ]
         )
@@ -86,25 +87,133 @@ class TestOperationalPresence:
                 sheet = Sheet(
                     configuration, gsheet_auth, None, None, "spreadsheet_test"
                 )
-                countryiso3s = "BDI,LBN"
+                countryiso3s = "COD,ETH,SOM,TCD"
                 pipeline = Pipeline(configuration, sheet, error_handler, countryiso3s)
                 pipeline.find_datasets_resources()
                 pipeline.process()
                 assert sorted(pipeline._iso3_to_datasetinfo.keys()) == [
-                    "BDI",
-                    "LBN",
+                    "COD",
+                    "ETH",
+                    "SOM",
+                    "TCD",
                 ]
                 assert pipeline._start_date == datetime(
-                    2021, 3, 31, 0, 0, tzinfo=timezone.utc
+                    2017, 5, 9, 0, 0, tzinfo=timezone.utc
                 )
                 assert pipeline._end_date == datetime(
-                    2024, 9, 2, 23, 59, 59, 999999, tzinfo=timezone.utc
+                    2029, 12, 30, 23, 59, 59, 999999, tzinfo=timezone.utc
                 )
+                assert sheet.get_country_row("COD") == {
+                    "Adm Code Columns": "Code Province,Code Terrtoire",
+                    "Adm Name Columns": "Province,Territoire",
+                    "Automated Dataset": "drc_presence_operationnelle",
+                    "Automated End Date": "30/12/2029",
+                    "Automated Format": "xlsx",
+                    "Automated Resource": "Extrait mai 2025.xlsx",
+                    "Automated Start Date": "09/05/2017",
+                    "Country ISO3": "COD",
+                    "Dataset": "",
+                    "End Date": "",
+                    "End Date Column": "DATE FIN",
+                    "Exclude": "",
+                    "Filename Dates": "",
+                    "Filter": "",
+                    "Format": "",
+                    "Headers": "",
+                    "Org Acronym Column": "Acronyme",
+                    "Org Name Column": "Nom organization",
+                    "Org Type Column": "Type organisation",
+                    "Resource": "",
+                    "Sector Column": "CLUSTER (Choisir dans la liste déroulante) Pour les projets "
+                    "humanitaires uniquement",
+                    "Sheet": "",
+                    "Start Date": "",
+                    "Start Date Column": "DATE DEBUT",
+                }
+                assert sheet.get_country_row("ETH") == {
+                    "Adm Code Columns": ",,WoredaPcod",
+                    "Adm Name Columns": "Region,Zone,Woreda",
+                    "Automated Dataset": "ethiopia-operational-presence",
+                    "Automated End Date": "31/07/2025",
+                    "Automated Format": "csv",
+                    "Automated Resource": "Ethiopia Who is Doing What Where (4W) - May to July "
+                    "2025",
+                    "Automated Start Date": "01/05/2025",
+                    "Country ISO3": "ETH",
+                    "Dataset": "",
+                    "End Date": "",
+                    "End Date Column": "",
+                    "Exclude": "",
+                    "Filename Dates": "Y",
+                    "Filter": "",
+                    "Format": "",
+                    "Headers": "",
+                    "Org Acronym Column": "Implementing Partner Acronym",
+                    "Org Name Column": "Implementing Partner Name",
+                    "Org Type Column": "Implementing Partner Type",
+                    "Resource": "",
+                    "Sector Column": "Cluster",
+                    "Sheet": "",
+                    "Start Date": "",
+                    "Start Date Column": "",
+                }
+                assert sheet.get_country_row("SOM") == {
+                    "Adm Code Columns": "RegionPcode,DistrictPcode",
+                    "Adm Name Columns": "Region,District",
+                    "Automated Dataset": "somalia-operational-presence",
+                    "Automated End Date": "30/04/2025",
+                    "Automated Format": "xlsx",
+                    "Automated Resource": "3W_All_Clusters_December_2020",
+                    "Automated Start Date": "01/01/2025",
+                    "Country ISO3": "SOM",
+                    "Dataset": "",
+                    "End Date": "",
+                    "End Date Column": "",
+                    "Exclude": "",
+                    "Filename Dates": "Y",
+                    "Filter": "",
+                    "Format": "",
+                    "Headers": "",
+                    "Org Acronym Column": "",
+                    "Org Name Column": "Organization_Name",
+                    "Org Type Column": "Organization Type",
+                    "Resource": "3W Operational Presence Dataset_January - April 2025.xlsx",
+                    "Sector Column": "Cluster",
+                    "Sheet": "",
+                    "Start Date": "",
+                    "Start Date Column": "",
+                }
+                assert sheet.get_country_row("TCD") == {
+                    "Adm Code Columns": "Title",
+                    "Adm Name Columns": "Province",
+                    "Automated Dataset": "chad-operational-presence",
+                    "Automated End Date": "",
+                    "Automated Format": "xlsx",
+                    "Automated Resource": "3W_TCD_Avr2025",
+                    "Automated Start Date": "",
+                    "Country ISO3": "TCD",
+                    "Dataset": "",
+                    "End Date": "30/04/2025",
+                    "End Date Column": "",
+                    "Exclude": "",
+                    "Filename Dates": "",
+                    "Filter": "",
+                    "Format": "",
+                    "Headers": "",
+                    "Org Acronym Column": "Acronyme",
+                    "Org Name Column": "Organisation",
+                    "Org Type Column": "TypeOrganisation",
+                    "Resource": "",
+                    "Sector Column": "Cluster",
+                    "Sheet": "",
+                    "Start Date": "01/04/2025",
+                    "Start Date Column": "",
+                }
 
                 dataset = pipeline.generate_org_dataset(temp_folder)
                 assert dataset == {
                     "data_update_frequency": "30",
-                    "dataset_date": "[2021-03-31T00:00:00 TO 2024-09-02T23:59:59]",
+                    "dataset_date": "[2017-05-09T00:00:00 TO 2029-12-30T23:59:59]",
                     "dataset_source": "Humanitarian partners",
                     "groups": [{"name": "world"}],
                     "license_id": "cc-by-igo",
@@ -125,8 +234,6 @@ class TestOperationalPresence:
                         "description": "Organisation data from HDX HAPI",
                         "format": "csv",
                         "name": "Global Coordination & Context: Organisations",
-                        "resource_type": "file.upload",
-                        "url_type": "upload",
                     }
                 ]
                 filename = "hdx_hapi_organisations_global.csv"
@@ -137,14 +244,18 @@ class TestOperationalPresence:
                 dataset = pipeline.generate_3w_dataset(temp_folder)
                 assert dataset == {
                     "data_update_frequency": "30",
-                    "dataset_date": "[2021-03-31T00:00:00 TO 2024-09-02T23:59:59]",
-                    "dataset_source": "OCHA Burundi,OCHA Lebanon",
-                    "groups": [{"name": "bdi"}, {"name": "lbn"}],
+                    "dataset_date": "[2017-05-09T00:00:00 TO 2029-12-30T23:59:59]",
+                    "dataset_source": "OCHA Chad,OCHA Democratic Republic of the Congo (DRC),OCHA "
+                    "Ethiopia,OCHA Somalia",
+                    "groups": [
+                        {"name": "cod"},
+                        {"name": "eth"},
+                        {"name": "som"},
+                        {"name": "tcd"},
+                    ],
                     "license_id": "hdx-other",
-                    "license_other": "[Creative Commons Attribution "
-                    "International](http://www.opendefinition.org/licenses/cc-by),[Creative "
-                    "Commons Attribution for Intergovernmental "
-                    "Organisations](http://creativecommons.org/licenses/by/3.0/igo/legalcode)",
+                    "license_other": "[Creative Commons Attribution International (CC "
+                    "BY)](http://www.opendefinition.org/licenses/cc-by)",
                     "maintainer": "196196be-6037-4488-8b71-d786adf4c081",
                     "name": "hdx-hapi-operational-presence",
                     "owner_org": "40d10ece-49de-4791-9aed-e164f1d16dd1",
@@ -170,8 +281,6 @@ class TestOperationalPresence:
                         "format": "csv",
                         "name": "Global Coordination & Context: Operational Presence",
                         "p_coded": True,
-                        "resource_type": "file.upload",
-                        "url_type": "upload",
                     }
                 ]
                 filename = "hdx_hapi_operational_presence_global.csv"

@@ -4,6 +4,9 @@ from datetime import datetime
 from logging import getLogger
 from typing import Dict, List, Optional, Tuple
 
+from dateutil.parser import ParserError
+
+from .date_processing import get_dates_from_filename
 from .org import Org
 from .row import Row
 from .sheet import Sheet
@@ -29,7 +32,6 @@ from hdx.utilities.dictandlist import invert_dictionary
 from hdx.utilities.matching import multiple_replace
 
 logger = getLogger(__name__)
-
 
 # eg. row['#date+year']=='2024' and row['#date+quarter']=='Q3'
 ROW_LOOKUP = re.compile(r"row\[['\"](.*?)['\"]\]")
@@ -69,6 +71,7 @@ class Pipeline:
             error_handler=error_handler,
         )
         self._sector = Sector()
+        self._datasets_by_iso3 = {}
         self._iso3_to_datasetinfo = {}
         self._start_date = default_enddate
         self._end_date = default_date
@@ -109,7 +112,6 @@ class Pipeline:
         datasets_found = self._reader.search_datasets(
             "operational_presence", fq='vocab_Topics:"operational presence"'
         )
-        datasets_by_iso3 = {}
         for dataset in datasets_found:
             countryiso3s = dataset.get_location_iso3s()
             if len(countryiso3s) != 1:
@@ -143,52 +145,71 @@ class Pipeline:
                     break
             if not allowed_format:
                 continue
-            existing_dataset = datasets_by_iso3.get(countryiso3)
+            existing_dataset = self._datasets_by_iso3.get(countryiso3)
             if existing_dataset:
                 existing_enddate = existing_dataset.get_time_period()["enddate"]
                 enddate = dataset.get_time_period()["enddate"]
                 if enddate > existing_enddate:
-                    datasets_by_iso3[countryiso3] = dataset
+                    self._datasets_by_iso3[countryiso3] = dataset
             else:
-                datasets_by_iso3[countryiso3] = dataset
+                self._datasets_by_iso3[countryiso3] = dataset
 
-        for countryiso3 in sorted(datasets_by_iso3):
-            dataset = datasets_by_iso3[countryiso3]
+        for countryiso3 in sorted(self._datasets_by_iso3):
+            dataset = self._datasets_by_iso3[countryiso3]
             resource_to_process = None
+            country_info = self._sheet.get_country_row(countryiso3)
+            if country_info:
+                manual_resource_name = country_info["Resource"]
+            else:
+                manual_resource_name = None
+            manual_resource = None
             latest_last_modified = default_date
             for resource in dataset.get_resources():
                 if resource.get_format() not in self._configuration["allowed_formats"]:
                     continue
+                if (
+                    manual_resource_name is not None
+                    and resource["name"] == manual_resource_name
+                ):
+                    manual_resource = resource
                 last_modified = parse_date(resource["last_modified"])
                 if last_modified > latest_last_modified:
                     latest_last_modified = last_modified
                     resource_to_process = resource
-            dataset_name = dataset["name"]
-            resource_name = resource_to_process["name"]
-            resource_format = resource_to_process.get_format()
-            resource_url_format = self.get_format_from_url(resource_to_process)
+            automated_dataset_name = dataset["name"]
+            automated_resource_name = resource_to_process["name"]
+            automated_resource_format = resource_to_process.get_format()
+            automated_resource_url_format = self.get_format_from_url(
+                resource_to_process
+            )
             self._sheet.add_update_row(
                 countryiso3,
-                dataset_name,
-                resource_name,
-                resource_format,
-                resource_url_format,
+                automated_dataset_name,
+                automated_resource_name,
+                automated_resource_format,
+                automated_resource_url_format,
             )
-        self._sheet.write(list(datasets_by_iso3.keys()))
-        self._sheet.send_email()
+            if manual_resource:
+                start_date, end_date = get_dates_from_filename(
+                    manual_resource, country_info
+                )
+            else:
+                start_date, end_date = get_dates_from_filename(
+                    resource_to_process, country_info
+                )
+            if start_date or end_date:
+                self._sheet.add_update_dates(countryiso3, start_date, end_date)
 
     def preprocess_country(self, countryiso3: str, datasetinfo: Dict) -> bool:
         dataset_name = datasetinfo["dataset"]
+        startdate_col = datasetinfo["Start Date Column"]
+        enddate_col = datasetinfo["End Date Column"]
         adm_code_cols = datasetinfo["Adm Code Columns"]
         adm_name_cols = datasetinfo["Adm Name Columns"]
         org_name_col = datasetinfo["Org Name Column"]
         org_acronym_col = datasetinfo["Org Acronym Column"]
         org_type_col = datasetinfo["Org Type Column"]
         sector_col = datasetinfo["Sector Column"]
-        start_date = datasetinfo["Start Date"]
-        if start_date:
-            end_date = datasetinfo["End Date"]
-            datasetinfo["source_date"] = {"start": start_date, "end": end_date}
         resource = self._reader.read_hdx_metadata(datasetinfo)
         resource_name = resource["name"]
         success, format = self.get_format(dataset_name, resource)
@@ -208,6 +229,10 @@ class Pipeline:
         if datasetinfo["use_hxl"]:
             header_to_hxltag = next(iterator)
             hxltag_to_header = invert_dictionary(header_to_hxltag)
+            if startdate_col:
+                startdate_col = hxltag_to_header[startdate_col]
+            if enddate_col:
+                enddate_col = hxltag_to_header[enddate_col]
             if adm_code_cols:
                 new_adm_code_cols = []
                 for adm_code_col in adm_code_cols.split(","):
@@ -229,6 +254,8 @@ class Pipeline:
             if org_type_col:
                 org_type_col = hxltag_to_header[org_type_col]
             sector_col = hxltag_to_header[sector_col]
+            datasetinfo["Start Date Column"] = startdate_col
+            datasetinfo["End Date Column"] = enddate_col
             datasetinfo["Adm Code Columns"] = adm_code_cols
             datasetinfo["Adm Name Columns"] = adm_name_cols
             datasetinfo["Org Name Column"] = org_name_col
@@ -245,6 +272,14 @@ class Pipeline:
                 filter = multiple_replace(filter, replace)
                 datasetinfo["Filter"] = filter
 
+        if startdate_col:
+            earliest_start_date = default_enddate
+        else:
+            earliest_start_date = None
+        if enddate_col:
+            latest_end_date = default_date
+        else:
+            latest_end_date = None
         rows = []
         norows = 0
         for row in iterator:
@@ -259,6 +294,32 @@ class Pipeline:
                     break
             if hxlrow:
                 continue
+
+            if startdate_col:
+                start_date_val = row[startdate_col]
+                if start_date_val:
+                    try:
+                        start_date = parse_date(start_date_val)
+                        if start_date.year < 2000:
+                            raise ParserError()
+                        if start_date < earliest_start_date:
+                            earliest_start_date = start_date
+                    except ParserError:
+                        logger.info(
+                            f"Ignoring invalid start date {start_date_val} in {countryiso3}"
+                        )
+            if enddate_col:
+                end_date_val = row[enddate_col]
+                if end_date_val:
+                    try:
+                        end_date = parse_date(end_date_val)
+                        if end_date > latest_end_date:
+                            latest_end_date = end_date
+                    except ParserError:
+                        logger.info(
+                            f"Ignoring invalid end date {end_date_val} in {countryiso3}"
+                        )
+
             row["Warning"] = []
             row["Error"] = []
             norows += 1
@@ -318,6 +379,13 @@ class Pipeline:
                 )
             # * Org matching
             self._org.add_or_match_org(org_info)
+
+        if startdate_col or enddate_col:
+            self._sheet.add_update_dates(
+                countryiso3,
+                earliest_start_date.strftime("%d/%m/%Y"),
+                latest_end_date.strftime("%d/%m/%Y"),
+            )
 
         logger.info(f"{norows} rows preprocessed from {dataset_name}")
         datasetinfo["rows"] = rows
@@ -468,6 +536,8 @@ class Pipeline:
                         traceback.format_exc(),
                     )
 
+        self._sheet.write(list(self._datasets_by_iso3.keys()))
+        self._sheet.send_email()
         for countryiso3, datasetinfo in self._iso3_to_datasetinfo.items():
             start_date, end_date = self.process_country(countryiso3, datasetinfo)
             if start_date < self._start_date:
