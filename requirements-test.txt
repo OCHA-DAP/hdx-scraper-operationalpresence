@@ -428,7 +428,7 @@ xlsx2csv==0.8.4
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
-xlsxwriter==3.2.8
+xlsxwriter==3.2.9
     # via
     #   -c requirements.txt
     #   tableschema-to-template
