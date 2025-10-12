@@ -182,21 +182,22 @@ class Pipeline:
             automated_resource_url_format = self.get_format_from_url(
                 resource_to_process
             )
+            if manual_resource:
+                filename_dates_broken, start_date, end_date = get_dates_from_filename(
+                    manual_resource, country_info
+                )
+            else:
+                filename_dates_broken, start_date, end_date = get_dates_from_filename(
+                    resource_to_process, country_info
+                )
             self._sheet.add_update_row(
                 countryiso3,
                 automated_dataset_name,
                 automated_resource_name,
                 automated_resource_format,
                 automated_resource_url_format,
+                filename_dates_broken,
             )
-            if manual_resource:
-                start_date, end_date = get_dates_from_filename(
-                    manual_resource, country_info
-                )
-            else:
-                start_date, end_date = get_dates_from_filename(
-                    resource_to_process, country_info
-                )
             if start_date or end_date:
                 self._sheet.add_update_dates(countryiso3, start_date, end_date)
 

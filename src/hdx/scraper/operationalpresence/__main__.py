@@ -33,7 +33,7 @@ def main(
     use_saved: bool = False,
     err_to_hdx: bool = False,
     dont_update_hdx: bool = False,
-    use_test_gsheet: bool = False,
+    use_scratch_gsheet: bool = False,
 ) -> None:
     """Generate datasets and create them in HDX.
 
@@ -59,7 +59,7 @@ def main(
         use_saved (bool): Use saved data. Defaults to False.
         err_to_hdx (bool): Whether to write any errors to HDX metadata. Defaults to False.
         dont_update_hdx (bool): Whether to update HDX metadata. Defaults to False.
-        use_test_gsheet (bool): Whether to use test Google Sheet. Defaults to False.
+        use_scratch_gsheet (bool): Whether to use scratch Google Sheet. Defaults to False.
     Returns:
         None
     """
@@ -84,8 +84,8 @@ def main(
                 email_server = getenv("EMAIL_SERVER")
             if recipients is None:
                 recipients = getenv("RECIPIENTS")
-            if use_test_gsheet:
-                gsheet_key = "spreadsheet_test"
+            if use_scratch_gsheet:
+                gsheet_key = "spreadsheet_scratch"
             else:
                 gsheet_key = "spreadsheet"
             sheet = Sheet(

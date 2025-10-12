@@ -82,12 +82,12 @@ MLI,ong muso,Muso,muso,,,441,N,N
 ,plan international,Plan International,plan international,PI,pi,437,Y,Y
 ,PI,Plan International,plan international,PI,pi,437,Y,Y
 ,pi,Plan International,plan international,PI,pi,437,Y,Y
-,International Committee of the Red Cross,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,Y
-,international committee of the red cross,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,Y
-,ICRC,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,Y
-,icrc,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,Y
+,International Committee of the Red Cross,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,international committee of the red cross,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,ICRC,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
+,icrc,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
 ,Comité International de la Croix Rouge,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,Y
-,comite international de la croix rouge,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,Y
+,comite international de la croix rouge,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
 ,International Organization for Migration,International Organization for Migration,international organization for migration,IOM,iom,447,Y,Y
 ,international organization for migration,International Organization for Migration,international organization for migration,IOM,iom,447,Y,Y
 ,IOM,International Organization for Migration,international organization for migration,IOM,iom,447,Y,Y
@@ -260,10 +260,10 @@ AFG,ochr,Organization for Coordination of Humanitarian Relief,organization for c
 ,medecins sans frontieres switezerland,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,N
 ,Médecins sans frontières Suisse,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,Y
 ,medecins sans frontieres suisse,Doctors Without Borders Switzerland,doctors without borders switzerland,MSF-CH,msf ch,437,Y,Y
-,United Nations Office for Project Services,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,Y
-,united nations office for project services,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,Y
-,UNOPS,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,Y
-,unops,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,Y
+,United Nations Office for Project Services,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,N
+,united nations office for project services,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,N
+,UNOPS,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,N
+,unops,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,N
 ,INTERSOS - Humanitarian Aid Organization,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
 ,intersos humanitarian aid organization,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
 ,INTERSOS,INTERSOS - Humanitarian Aid Organization,intersos humanitarian aid organization,INTERSOS,intersos,437,Y,Y
@@ -452,7 +452,7 @@ AFG,ochr,Organization for Coordination of Humanitarian Relief,organization for c
 ,concern worldwide,Concern Worldwide,concern worldwide,CWW,cww,437,Y,Y
 ,CWW,Concern Worldwide,concern worldwide,CWW,cww,437,Y,Y
 ,cww,Concern Worldwide,concern worldwide,CWW,cww,437,Y,Y
-,Comité international de la Croix-Rouge,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,Y
+,Comité international de la Croix-Rouge,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,N
 ,Fédération internationale des sociétés de la Croix-Rouge et du Croissant-Rouge,International Federation of Red Cross and Red Crescent Societies,international federation of red cross and red crescent societies,IFRC,ifrc,445,Y,Y
 ,federation internationale des societes de la croix rouge et du croissant rouge,International Federation of Red Cross and Red Crescent Societies,international federation of red cross and red crescent societies,IFRC,ifrc,445,Y,Y
 ,ACF - Action Contre la Faim International,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
@@ -717,149 +717,115 @@ COD,Jericho Hope and Peace ASBL,Jericho Hope and Peace ASBL,jericho hope and pea
 COD,LA FLORAISON,LA FLORAISON,la floraison,LA FLORAISON,la floraison,441,Y,Y
 COD,CARITAS CONGO Asbl,CARITAS CONGO Asbl,caritas congo asbl,Caritas,caritas,441,Y,Y
 COD,Comité International pour l’aide d’Urgence et de Développement,Comité International pour l’aide d’Urgence et de Développement,comite international pour laide durgence et de developpement,CIAUD Canada,ciaud canada,437,Y,Y
-ETH,Organization for Welfare & Development in Action,Organization for Welfare & Development in Action,organization for welfare development in action,OWDA,owda,441,Y,Y
-ETH,Emannuel Development Association,Emannuel Development Association,emannuel development association,EDA,eda,441,Y,Y
-ETH,Edukans,Edukans,edukans,EDUKANS,edukans,437,Y,Y
-ETH,Imagine 1 Day,Imagine 1 Day,imagine 1 day,I1D,i1d,437,Y,Y
-ETH,Norwegian Refugee Council,Norwegian Refugee Council,norwegian refugee council,NRC,nrc,437,Y,Y
-ETH,United Nations High Office of Commisioner for Human Right,United Nations High Office of Commisioner for Human Right,united nations high office of commisioner for human right,OHCHR,ohchr,447,Y,Y
-ETH,Positive Action for Development,Positive Action for Development,positive action for development,PAD,pad,441,Y,Y
-ETH,Plan International,Plan International,plan international,PI,pi,437,Y,Y
-ETH,Ethiopian Orthodox Church Development and Inter Church Aid Commission,Ethiopian Orthodox Church Development and Inter Church Aid Commission,ethiopian orthodox church development and inter church aid commission,EOTC-DICAC,eotc dicac,441,Y,Y
-ETH,Oromia Development Association,Oromia Development Association,oromia development association,ODA,oda,441,Y,Y
-ETH,Save the Children,Save the Children International,save the children international,SCI,sci,437,Y,Y
-ETH,Save Your Holy Land Association ,Save Your Holy Land Association ,save your holy land association,SYHLA,syhla,441,Y,Y
-ETH,OWS Development Fund,OWS Development Fund,ows development fund,OWS-DF,ows df,441,Y,Y
-ETH,Amhara Development Association,Amhara Development Association,amhara development association,ADA,ada,441,Y,Y
-ETH,Innovative Humanitarian Solution,Innovative Humanitarian Solution,innovative humanitarian solution,IHS,ihs,437,Y,Y
-ETH,UNICEF,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,Y
-ETH,United Nations Mine Action Service,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,Y
-ETH,World vision international,World Vision International,world vision international,WVI,wvi,437,Y,Y
-ETH,FARMAMUNDI,FARMAMUNDI,farmamundi,FARMAMUNDI,farmamundi,437,Y,Y
-ETH,Swiss Church Aid (HEKS/EPER),Swiss Church Aid (HEKS/EPER),swiss church aid heks eper,Swiss Church Aid (HEKS/EPER),swiss church aid heks eper,437,Y,Y
-ETH,Cooperative for Assistance and Relief Everywhere,Cooperative for Assistance and Relief Everywhere,cooperative for assistance and relief everywhere,CARE,care,437,Y,Y
-ETH,Concern Worldwide,Concern Worldwide,concern worldwide,CWW,cww,437,Y,Y
-ETH,Family Health International 360,Family Health International 360,family health international 360,FHI 360,fhi 360,437,Y,Y
-ETH,Ethiopia Catholic Church-Social and Development Coordinating office,Ethiopia Catholic Church-Social and Development Coordinating office,ethiopia catholic church social and development coordinating office,ECC-SADCO,ecc sadco,441,Y,Y
-ETH,Food for the Hungry,Food for the Hungry,food for the hungry,FH,fh,437,Y,Y
-ETH,Organization for Rehabilitation and Development in Amhara,Organization for Rehabilitation and Development in Amhara,organization for rehabilitation and development in amhara,ORDA,orda,441,Y,Y
-ETH,Relief Society of Tigray,Relief Society of Tigray,relief society of tigray,REST,rest,441,Y,Y
-ETH,Mercy Corps,Mercy Corps International,mercy corps international,MCI,mci,437,Y,Y
-ETH,Vétérinaires sans Frontières Germany,Vétérinaires sans Frontières Germany,veterinaires sans frontieres germany,VSF-G,vsf g,437,Y,Y
-ETH,Action Against Hunger,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
-ETH,Mothers and Children Multisectoral Development Organization,Mothers and Children Multisectoral Development Organization,mothers and children multisectoral development organization,MCMDO,mcmdo,441,Y,Y
-ETH,Amref Health Africa,Amref Health Africa,amref health africa,Amref,amref,437,Y,Y
-ETH,International Organization for Migration,International Organization for Migration,international organization for migration,IOM,iom,447,Y,Y
-ETH,Veterinaires Sans Frontieres - Suisse,Veterinaires Sans Frontieres - Suisse,veterinaires sans frontieres suisse,VSF-S,vsf s,437,Y,Y
-ETH,Danish Church Aid,Danish Church Aid,danish church aid,DCA,dca,437,Y,Y
-ETH,Terre des Hommes Netherlands,Terre des Hommes Netherlands,terre des hommes netherlands,TdH NL,tdh nl,437,Y,Y
-ETH,Cooperazione Internazionale,Cooperazione Internazionale,cooperazione internazionale,COOPI,coopi,437,Y,Y
-ETH,IOM,International Organization for Migration,international organization for migration,IOM,iom,447,Y,Y
-ETH,Oxfam GB,Oxfam GB,oxfam gb,Oxfam GB,oxfam gb,437,Y,Y
-ETH,People in Need,People in Need,people in need,PIN,pin,437,Y,Y
 ETH,ZOA,ZOA,zoa,ZOA,zoa,437,Y,Y
-ETH,Action for Social Development and Environmental Protection Organization,Action for Social Development and Environmental Protection Organization,action for social development and environmental protection organization,ASDEPO,asdepo,441,Y,Y
-ETH,International Rescue Committee,International Rescue Committee,international rescue committee,IRC,irc,437,Y,Y
-ETH,United Nations International Children's Emergency Fund,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,Y
-ETH,Lutheran World Federation,Lutheran World Federation,lutheran world federation,LWF,lwf,437,Y,Y
-ETH,Humedica e.V,Humedica e.V,humedica e v,Humedica e.V,humedica e v,437,Y,Y
-ETH,Jerusalem Children and Community Development Organization,Jerusalem Children and Community Development Organization,jerusalem children and community development organization,JeCCDO,jeccdo,441,Y,Y
-ETH,Ethiopian Red Cross Society,Ethiopian Red Cross Society,ethiopian red cross society,ERCS,ercs,441,Y,Y
-ETH,Samaritan Purse,Samaritan Purse,samaritan purse,SP,sp,437,Y,Y
-ETH,Agency for Technical Cooperation and Development,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,Y
-ETH,COMMUNITY IN ACTION AGAINST POVERTY,COMMUNITY IN ACTION AGAINST POVERTY,community in action against poverty,CAAP,caap,441,Y,Y
-ETH,Relief and Development for Vulnerable,Relief and Development for Vulnerable,relief and development for vulnerable,RDV,rdv,441,Y,Y
-ETH,Ethiopian Evangelical Church Mekane Yesus Development and social Services commission,Ethiopian Evangelical Church Mekane Yesus Development and social Services commission,ethiopian evangelical church mekane yesus development and social services commission,EECMY-DASSC,eecmy dassc,441,Y,Y
-ETH,Center of Concern,Center of Concern,center of concern,CoC,coc,441,Y,Y
-ETH,Fayyaa Integrated Development Organization,Fayyaa Integrated Development Organization,fayyaa integrated development organization,FIDO,fido,441,Y,Y
-ETH,"Health, Development and Anti-Malaria","Health, Development and Anti-Malaria",health development and anti malaria,HDAMA,hdama,441,Y,Y
-ETH,Imagen 1 Day,Imagen 1 Day,imagen 1 day,I1D,i1d,437,Y,Y
-ETH,New millennium women empowerment organization,New millennium women empowerment organization,new millennium women empowerment organization,NMWEO,nmweo,441,Y,Y
-ETH,Heal Our People,Heal Our People,heal our people,Heal Our People,heal our people,441,Y,Y
-ETH,OSSHD,OSSHD,osshd,OSSHD,osshd,441,Y,Y
-ETH,Action Aid Ethiopia,Action Aid Ethiopia,action aid ethiopia,ActionAid,actionaid,437,Y,Y
-ETH,Organization for Social Services Health and Development ,Organization for Social Services Health and Development ,organization for social services health and development,OSSHD,osshd,441,Y,Y
-ETH,Ethiopian Orthodox Tewahdo Church Development and Inter-Church Aid Commission,Ethiopian Orthodox Tewahdo Church Development and Inter-Church Aid Commission,ethiopianorthodox tewahdo church development and inter church aid commission,EOTC-DICAC,eotc dicac,441,Y,Y
-ETH,Nexus Ethiopia,Nexus Ethiopia,nexus ethiopia,Nexus,nexus,441,Y,Y
-ETH,Empathy for Life Integrated Development Association,Empathy for Life Integrated Development Association,empathy for life integrated development association,ELiDA,elida,441,Y,Y
-ETH,Development Expertise Center,Development Expertise Center,development expertise center,DEC,dec,441,Y,Y
-ETH,Geneva Global,Geneva Global,geneva global,GG,gg,437,Y,Y
-ETH,Tarkanfi Sustainable Development,Tarkanfi Sustainable Development,tarkanfi sustainable development,TSD,tsd,441,Y,Y
-ETH,GOAL Ethiopia,GOAL Ethiopia,goal ethiopia,GOAL,goal,437,Y,Y
-ETH,Medecins Du Monde,Médecins du Monde,medecins du monde,MDM,mdm,437,Y,Y
-ETH,Humanitarian Inclusion,Humanitarian Inclusion,humanitarian inclusion,HI,hi,437,Y,Y
-ETH,Medical Teams International,Medical Teams International,medical teams international,MTI,mti,437,Y,Y
-ETH,Premiere Urgence Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,Y
-ETH,SOS Children's Villages,SOS Children's Villages,sos childrens villages,SOS CV,sos cv,437,Y,Y
-ETH,SEN Ethiopia,SEN Ethiopia,sen ethiopia,SEN Ethiopia,sen ethiopia,441,Y,Y
-ETH,United Nations Office for Project Services,United Nations Office for Project Services,united nations office for project services,UNOPS,unops,447,Y,Y
-ETH,Mums for Mums,Mums for Mums,mums for mums,Mums for Mums,mums for mums,441,Y,Y
-ETH,Comitato Internazionale Per Lo Sviluppo Dei Popoli,Comitato Internazionale Per Lo Sviluppo Dei Popoli,comitato internazionale per lo sviluppo dei popoli,CISP,cisp,437,Y,Y
-ETH,Doctors with Africa CUAMM,Doctors with Africa CUAMM,doctors with africa cuamm,CUAMM,cuamm,437,Y,Y
-ETH,Cooperative for Assistance and Relief Every where,Cooperative for Assistance and Relief Every where,cooperative for assistance and relief every where,CARE,care,437,Y,Y
-ETH,VeterinairesSans Frontieres-Germany,VeterinairesSans Frontieres-Germany,veterinairessans frontieres germany,VSF-G,vsf g,437,Y,Y
-ETH,Association for Women's Sanctuary And Development,Association for Women's Sanctuary And Development,association for womens sanctuary and development,AWSAD,awsad,441,Y,Y
-ETH,International Orthodox Christian Charities,International Orthodox Christian Charities,international orthodox christian charities,IOCC,iocc,437,Y,Y
-ETH,Alliance for Medical Action,Alliance for Medical Action,alliance for medical action,ALIMA,alima,437,Y,Y
-ETH,Ethiopia Catholic Church-Social and Development Coordinating office Emdebir,Ethiopia Catholic Church-Social and Development Coordinating office Emdebir,ethiopia catholic church social and development coordinating office emdebir,ECC-SADCO Emdebir,ecc sadco emdebir,441,Y,Y
-ETH,Danish Refugee Council,Danish Refugee Council,danish refugee council,DRC,drc,437,Y,Y
-ETH,HelpAge,HelpAge,helpage,HelpAge,helpage,437,Y,Y
-ETH,International Medical Corps,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
-ETH,Friendship Support Association,Friendship Support Association,friendship support association,FSA,fsa,441,Y,Y
-ETH,Partnership for Pastoralist Development Association,Partnership for Pastoralist Development Association,partnership for pastoralist development association,PAPDA,papda,441,Y,Y
-ETH,Medecins Du Monde - Germany,Medecins Du Monde - Germany,medecins du monde germany,MDM-G,mdm g,437,Y,Y
-ETH,Norwegian Church Aid,Norwegian Church Aid,norwegian church aid,NCA,nca,437,Y,Y
-ETH,Samaritan's Purse,Samaritan's Purse,samaritans purse,SP,sp,437,Y,Y
-ETH,Ethiopian Catholic Church Social Development Commission Office,Ethiopian Catholic Church Social Development Commission Office,ethiopian catholic church social development commission office,ECC-SADCO Hararghe,ecc sadco hararghe,441,Y,Y
-ETH,Self Help Africa,Self Help Africa,self help africa,SHA,sha,437,Y,Y
-ETH,Health Limited/ Health Poverty Action,Health Limited/ Health Poverty Action,health limited health poverty action,HL/HPA,hl hpa,437,Y,Y
-ETH,Afro Ethiopia Integrated Development,Afro Ethiopia Integrated Development,afro ethiopia integrated development,AEID,aeid,441,Y,Y
-ETH,"Faith in Action,","Faith in Action,",faith in action,FIA,fia,437,Y,Y
-ETH,Vision with Action Development Organization,Vision with Action Development Organization,vision with action development organization,VADO,vado,441,Y,Y
-ETH,Development for Peace Organization,Development for Peace Organization,development for peace organization,DPO,dpo,441,Y,Y
-ETH,Bureau of Women Children and Youth Affairs,Bureau of Women Children and Youth Affairs,bureau of women children and youth affairs,BoWCYA,bowcya,435,Y,Y
-ETH,International Committee of the Red Cross,International Committee of the Red Cross,international committee of the red cross,ICRC,icrc,445,Y,Y
-ETH,Islamic Relief,Islamic Relief Worldwide,islamic relief worldwide,IR,ir,437,Y,Y
-ETH,Tigray Development Association,Tigray Development Association,tigray development association,Tigray Development Association,tigray development association,441,Y,Y
-ETH,Comitato Europeo per la Formazione e L'Agricoltura,Comitato Europeo per la Formazione e L'Agricoltura,comitato europeo per la formazione e lagricoltura,CEFA ETS,cefa ets,437,Y,Y
-ETH,Lay Volunteer International Association,Lay Volunteer International Association,lay volunteer international association,LVIA,lvia,437,Y,Y
-ETH,Women Association of Tigray,Women Association of Tigray,women association of tigray,WAT,wat,441,Y,Y
-ETH,Food and Agriculture Organization,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,Y
-ETH,Tearfund,Tearfund,tearfund,Tearfund,tearfund,437,Y,Y
-ETH,Mahibere Hiwot for Social Development,Mahibere Hiwot for Social Development,mahibere hiwot for social development,MSD,msd,441,Y,Y
-ETH,Action for the Needy in Ethiopia,Action for the Needy in Ethiopia,action for the needy in ethiopia,ANE,ane,441,Y,Y
-ETH,SOS Ethiopia,SOS Ethiopia,sos ethiopia,SOS CV,sos cv,437,Y,Y
-ETH,Oromia Physicians Association,Oromia Physicians Association,oromia physicians association,Oromia Physicians Association,oromia physicians association,441,Y,Y
-ETH,we-action,we-action,we action,we-action,we action,441,Y,Y
-ETH,Advocacy Center for Democracy and Development,Advocacy Center for Democracy and Development,advocacy center for democracy and development,ACDD,acdd,441,Y,Y
-ETH,Hilfswerk der Evangelischen Kirchen Schweiz,Hilfswerk der Evangelischen Kirchen Schweiz,hilfswerk der evangelischen kirchen schweiz,HEKS/EPER,heks eper,437,Y,Y
-ETH,Government of Ethiopia MoA,Government of Ethiopia MoA,government of ethiopia moa,MoA-DRAP,moa drap,435,Y,Y
-ETH,Development through Adult and Non-Formal Education,Development through Adult and Non-Formal Education,development through adult and non formal education,DANFE,danfe,441,Y,Y
-ETH,"Regional Education Bureau, Amhara","Regional Education Bureau, Amhara",regional education bureau amhara,REB,reb,435,Y,Y
-ETH,Volontariato Internazionale per lo Sviluppo,Volontariato Internazionale per lo Sviluppo,volontariato internazionale per lo sviluppo,VIS,vis,437,Y,Y
-ETH,RaDO,RaDO,rado,RaDO,rado,437,Y,Y
-ETH,ChildFund International,ChildFund International,childfund international,CF,cf,437,Y,Y
-ETH,Child Rights Watch,Child Rights Watch,child rights watch,CRW,crw,441,Y,Y
-ETH, Amhara Women Association, Amhara Women Association,amhara women association,AWA,awa,441,Y,Y
-ETH,Daughters of Charity,Daughters of Charity,daughters of charity,DoC,doc,441,Y,Y
-ETH,Union of Ethiopian Women & Children Associations,Union of Ethiopian Women & Children Associations,union of ethiopian women children associations,UEWCA,uewca,441,Y,Y
-ETH,Finish Refugee Council,Finish Refugee Council,finish refugee council,FRC,frc,437,Y,Y
-ETH,MAEDOTAID,MAEDOTAID,maedotaid,MAEDOTAID,maedotaid,441,Y,Y
-ETH,Marie Stopes International Ethiopia,Marie Stopes International Ethiopia,marie stopes international ethiopia,MSI,msi,437,Y,Y
+ETH,World vision international,World Vision International,world vision international,WVI,wvi,437,Y,Y
+ETH,Women Empowerment Action,Women Empowerment Action,women empowerment action,WEA,wea,441,Y,Y
 ETH,Women Development and Resilience Organization,Women Development and Resilience Organization,women development and resilience organization,WDRO,wdro,441,Y,Y
-ETH,SOS Sahel,SOS Sahel,sos sahel,SOS Sahel,sos sahel,441,Y,Y
-ETH,Mothers and Children Development Organization,Mothers and Children Development Organization,mothers and children development organization,MCDO,mcdo,441,Y,Y
-ETH,Ayuda en Accion,Ayuda en Accion,ayuda en accion,AeA,aea,437,Y,Y
+ETH,Women Association of Tigray,Women Association of Tigray,women association of tigray,WAT,wat,441,Y,Y
+ETH,Veterinaires Sans Frontieres - Suisse,Veterinaires Sans Frontieres - Suisse,veterinaires sans frontieres suisse,VSF-S,vsf s,437,Y,Y
+ETH,VeterinairesSans Frontieres-Germany,VeterinairesSans Frontieres-Germany,veterinairessans frontieres germany,VSF-G,vsf g,437,Y,Y
+ETH,Vétérinaires sans Frontières Germany,Vétérinaires sans Frontières Germany,veterinaires sans frontieres germany,VSF-G,vsf g,437,Y,Y
+ETH,Volontariato Internazionale per lo Sviluppo,Volontariato Internazionale per lo Sviluppo,volontariato internazionale per lo sviluppo,VIS,vis,437,Y,Y
+ETH,Vision with Action Development Organization,Vision with Action Development Organization,vision with action development organization,VADO,vado,441,Y,Y
+ETH,United Nations Mine Action Service,United Nations Mine Action Service,united nations mine action service,UNMAS,unmas,447,Y,Y
+ETH,United Nations International Children's Emergency Fund,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,Y
+ETH,UNFPA (United Nations Population Fund),United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,Y
+ETH,Tarkanfi Sustainable Development,Tarkanfi Sustainable Development,tarkanfi sustainable development,TSD,tsd,441,Y,Y
+ETH,Tigray Development Association,Tigray Development Association,tigray development association,Tigray Development Association,tigray development association,441,Y,Y
+ETH,Terre des Hommes Netherlands,Terre des Hommes Netherlands,terre des hommes netherlands,TdH NL,tdh nl,437,Y,Y
+ETH,Swiss Church Aid (HEKS/EPER),Swiss Church Aid (HEKS/EPER),swiss church aid heks eper,Swiss Church Aid (HEKS/EPER),swiss church aid heks eper,437,Y,Y
+ETH,Samaritan's Purse,Samaritan's Purse,samaritans purse,SP,sp,437,Y,Y
 ETH,SOS Children’s Village,SOS Children’s Village,sos childrens village,SOS CV,sos cv,437,Y,Y
+ETH,SOS Children's Villages,SOS Children's Villages,sos childrens villages,SOS CV,sos cv,437,Y,Y
+ETH,Self Help Africa,Self Help Africa,self help africa,SHA,sha,437,Y,Y
+ETH,SEN Ethiopia,SEN Ethiopia,sen ethiopia,SEN Ethiopia,sen ethiopia,441,Y,Y
+ETH,Save the Children,Save the Children International,save the children international,SCI,sci,437,Y,Y
+ETH,Benishangul Gumuz Water Bureau,Benishangul Gumuz Water Bureau,benishangul gumuz water bureau,RWB,rwb,435,Y,Y
+ETH,Rift valley children and women Development organization,Rift valley children and women Development organization,rift valley childrenand women development organization,RCWDO,rcwdo,441,Y,Y
+ETH,Premiere Urgence Internationale,Première Urgence Internationale,premiere urgence internationale,PUI,pui,437,Y,Y
+ETH,People in Need,People in Need,people in need,PIN,pin,437,Y,Y
+ETH,Plan International,Plan International,plan international,PI,pi,437,Y,Y
+ETH,Partnership for Pastoralist Development Association,Partnership for Pastoralist Development Association,partnership for pastoralist development association,PAPDA,papda,441,Y,Y
+ETH,Positive Action for Development,Positive Action for Development,positive action for development,PAD,pad,441,Y,Y
+ETH,PAD,PAD,pad,PAD,pad,441,Y,Y
+ETH,Oxfam GB,Oxfam GB,oxfam gb,Oxfam GB,oxfam gb,437,Y,Y
+ETH,OWS Development Fund,OWS Development Fund,ows development fund,OWS-DF,ows df,441,Y,Y
+ETH,Organization for Welfare & Development in Action,Organization for Welfare & Development in Action,organization for welfare development in action,OWDA,owda,441,Y,Y
+ETH,Organization for Social Services Health and Development ,Organization for Social Services Health and Development ,organization for social services health and development,OSSHD,osshd,441,Y,Y
+ETH,OSSHD,OSSHD,osshd,OSSHD,osshd,441,Y,Y
+ETH,United Nations High Office of Commisioner for Human Right,United Nations High Office of Commisioner for Human Right,united nations high office of commisioner for human right,OHCHR,ohchr,447,Y,Y
+ETH,Oromia Development Association,Oromia Development Association,oromia development association,ODA,oda,441,Y,Y
+ETH,Norwegian Refugee Council,Norwegian Refugee Council,norwegian refugee council,NRC,nrc,437,Y,Y
+ETH,New millennium women empowerment organization,New millennium women empowerment organization,new millennium women empowerment organization,NMWEO,nmweo,441,Y,Y
+ETH,Nexus Ethiopia,Nexus Ethiopia,nexus ethiopia,Nexus,nexus,441,Y,Y
+ETH,Norwegian Church Aid,Norwegian Church Aid,norwegian church aid,NCA,nca,437,Y,Y
+ETH,Mums for Mums,Mums for Mums,mums for mums,Mums for Mums,mums for mums,441,Y,Y
+ETH,Medical Teams International,Medical Teams International,medical teams international,MTI,mti,437,Y,Y
+ETH,Medecins Du Monde - Germany,Medecins Du Monde - Germany,medecins du monde germany,MDM-G,mdm g,437,Y,Y
+ETH,Medecins Du Monde,Médecins du Monde,medecins du monde,MDM,mdm,437,Y,Y
+ETH,Mothers and Children Multisectoral Development Organization,Mothers and Children Multisectoral Development Organization,mothers and children multisectoral development organization,MCMDO,mcmdo,441,Y,Y
+ETH,Mercy Corps,Mercy Corps International,mercy corps international,MCI,mci,437,Y,Y
+ETH,MAEDOTAID,MAEDOTAID,maedotaid,MAEDOTAID,maedotaid,441,Y,Y
+ETH,Lutheran World Federation,Lutheran World Federation,lutheran world federation,LWF,lwf,437,Y,Y
+ETH,International Rescue Committee,International Rescue Committee,international rescue committee,IRC,irc,437,Y,Y
+ETH,Islamic Relief Ethiopia,Islamic Relief Ethiopia,islamic relief ethiopia,IR,ir,437,Y,Y
+ETH,International Organization for Migration,International Organization for Migration,international organization for migration,IOM,iom,447,Y,Y
+ETH,IOM,International Organization for Migration,international organization for migration,IOM,iom,447,Y,Y
+ETH,International Orthodox Christian Charities,International Orthodox Christian Charities,international orthodox christian charities,IOCC,iocc,437,Y,Y
+ETH,International Medical Corps,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
+ETH,Innovative Humanitarian Solution,Innovative Humanitarian Solution,innovative humanitarian solution,IHS,ihs,437,Y,Y
+ETH,Imagine 1 Day,Imagine 1 Day,imagine 1 day,I1D,i1d,437,Y,Y
+ETH,Imagen 1 Day,Imagen 1 Day,imagen 1 day,I1D,i1d,437,Y,Y
+ETH,Hope for Our People,Hope for Our People,hope for our people,HOP,hop,441,Y,Y
+ETH,Health Limited/ Health Poverty Action,Health Limited/ Health Poverty Action,health limited health poverty action,HL/HPA,hl hpa,437,Y,Y
+ETH,Humanitarian Inclusion,Humanitarian Inclusion,humanitarian inclusion,HI,hi,437,Y,Y
+ETH,HelpAge,HelpAge,helpage,HelpAge,helpage,437,Y,Y
+ETH,"Health, Development and Anti-Malaria","Health, Development and Anti-Malaria",health development and anti malaria,HDAMA,hdama,441,Y,Y
 ETH,Gurmuu Development Association,Gurmuu Development Association,gurmuu development association,Gurmuu,gurmuu,441,Y,Y
-ETH,International Centre for Children and Families,International Centre for Children and Families,international centre for children and families,CIFA ETS,cifa ets,437,Y,Y
-ETH,Oromiya Regional Health Bureau,Oromiya Regional Health Bureau,oromiya regional health bureau,RHB,rhb,435,Y,Y
+ETH,GOAL Ethiopia,GOAL Ethiopia,goal ethiopia,GOAL,goal,437,Y,Y
+ETH,Geneva Global,Geneva Global,geneva global,GG,gg,437,Y,Y
+ETH,Friendship Support Association,Friendship Support Association,friendship support association,FSA,fsa,441,Y,Y
+ETH,Finish Refugee Council,Finish Refugee Council,finish refugee council,FRC,frc,437,Y,Y
 ETH,Finnish Refugee Council,Finnish Refugee Council,finnish refugee council,FRC,frc,437,Y,Y
-ETH,Oromiya Regional Water Bureau,Oromiya Regional Water Bureau,oromiya regional water bureau,RWB,rwb,435,Y,Y
-ETH,Regional Disaster Risk Management Commissions,Regional Disaster Risk Management Commissions,regional disaster risk management commissions,RDRMC,rdrmc,435,Y,Y
-ETH,Caritas Switzerland,Caritas Switzerland,caritas switzerland,CaCH,cach,437,Y,Y
-ETH,Tigray Youth Empowerment Solutions,Tigray Youth Empowerment Solutions,tigray youth empowerment solutions,TYES,tyes,441,Y,Y
+ETH,Fayyaa Integrated Development Organization,Fayyaa Integrated Development Organization,fayyaa integrated development organization,FIDO,fido,441,Y,Y
+ETH,Family Health International 360,Family Health International 360,family health international 360,FHI 360,fhi 360,437,Y,Y
+ETH,Food for Hungry Ethiopia,Food for Hungry Ethiopia,food for hungry ethiopia,FH,fh,437,Y,Y
+ETH,Finn Church Aid,Finn Church Aid,finn church aid,FCA,fca,437,Y,Y
+ETH,FARMAMUNDI,FARMAMUNDI,farmamundi,FARMAMUNDI,farmamundi,437,Y,Y
+ETH,Food and Agriculture Organization,Food and Agriculture Organization,food and agriculture organization,FAO,fao,447,Y,Y
+ETH,Education for Sustainable Development,Education for Sustainable Development,education for sustainable development,ESD,esd,441,Y,Y
+ETH,Ethiopian Red Cross Society,Ethiopian Red Cross Society,ethiopian red cross society,ERCS,ercs,441,Y,Y
+ETH,Ethiopian Orthodox Tewahdo Church Development and Inter-Church Aid Commission,Ethiopian Orthodox Tewahdo Church Development and Inter-Church Aid Commission,ethiopianorthodox tewahdo church development and inter church aid commission,EOTC-DICAC,eotc dicac,441,Y,Y
+ETH,Engender Health,Engender Health,engender health,Engender Health,engender health,437,Y,Y
+ETH,Ethiopian Midwives Association,Ethiopian Midwives Association,ethiopian midwives association,EMwA,emwa,441,Y,Y
+ETH,Ethiopian Evangelical Church Mekane Yesus Development and social Services commission,Ethiopian Evangelical Church Mekane Yesus Development and social Services commission,ethiopian evangelical church mekane yesus development and social services commission,EECMY-DASSC,eecmy dassc,441,Y,Y
+ETH,Edukans,Edukans,edukans,EDUKANS,edukans,437,Y,Y
+ETH,Emannuel Development Association,Emannuel Development Association,emannuel development association,EDA,eda,441,Y,Y
+ETH,Ethiopia Catholic Church-Social and Development Coordinating office,Ethiopia Catholic Church-Social and Development Coordinating office,ethiopia catholic church social and development coordinating office,ECC-SADCO,ecc sadco,441,Y,Y
+ETH,Ethiopian Catholic Church -Social and Devt. Coordinating Office ,Ethiopian Catholic Church -Social and Devt. Coordinating Office ,ethiopian catholic church social and devt coordinating office,ECC-SADCO,ecc sadco,441,Y,Y
+ETH,Danish Refugee Council,Danish Refugee Council,danish refugee council,DRC,drc,437,Y,Y
+ETH,Development for Peace Organization,Development for Peace Organization,development for peace organization,DPO,dpo,441,Y,Y
+ETH,Development Expertise Center,Development Expertise Center,development expertise center,DEC,dec,441,Y,Y
+ETH,Danish Church Aid,Danish Church Aid,danish church aid,DCA,dca,437,Y,Y
+ETH,Development through Adult and Non-Formal Education,Development through Adult and Non-Formal Education,development through adult and non formal education,DANFE,danfe,441,Y,Y
+ETH,Concern Worldwide,Concern Worldwide,concern worldwide,CWW,cww,437,Y,Y
+ETH,Doctors with Africa CUAMM,Doctors with Africa CUAMM,doctors with africa cuamm,CUAMM,cuamm,437,Y,Y
 ETH,Cordaid,Catholic Organization for Relief and Development Aid,catholic organization for relief and development aid,CORDAID,cordaid,437,Y,Y
+ETH,Cooperazione Internazionale,Cooperazione Internazionale,cooperazione internazionale,COOPI,coopi,437,Y,Y
+ETH,Center of Concern,Center of Concern,center of concern,CoC,coc,441,Y,Y
+ETH,Cooperative for Assistance and Relief Everywhere,Cooperative for Assistance and Relief Everywhere,cooperative for assistance and relief everywhere,CARE,care,437,Y,Y
+ETH,Cooperative for Assistance and Relief Every where,Cooperative for Assistance and Relief Every where,cooperative for assistance and relief every where,CARE,care,437,Y,Y
+ETH,Bureau of Women Children and Youth Affairs,Bureau of Women Children and Youth Affairs,bureau of women children and youth affairs,BoWCYA,bowcya,435,Y,Y
+ETH,Association for Women's Sanctuary And Development,Association for Women's Sanctuary And Development,association for womens sanctuary and development,AWSAD,awsad,441,Y,Y
+ETH,Action for Social Development and Environmental Protection Organization,Action for Social Development and Environmental Protection Organization,action for social development and environmental protection organization,ASDEPO,asdepo,441,Y,Y
+ETH,African Network for the Prevention and Protection against Child Abuse and Neglect,African Network for the Prevention and Protection against Child Abuse and Neglect,african network for the prevention and protection against child abuse and neglect,ANPPCAN- Ethiopia,anppcan ethiopia,437,Y,Y
+ETH,Action for the Needy in Ethiopia,Action for the Needy in Ethiopia,action for the needy in ethiopia,ANE,ane,441,Y,Y
+ETH,Amref Health Africa,Amref Health Africa,amref health africa,Amref,amref,437,Y,Y
+ETH,Alliance for Medical Action,Alliance for Medical Action,alliance for medical action,ALIMA,alima,437,Y,Y
+ETH,Afro Ethiopia Integrated Development,Afro Ethiopia Integrated Development,afro ethiopia integrated development,AEID,aeid,441,Y,Y
+ETH,Action Aid Ethiopia,Action Aid Ethiopia,action aid ethiopia,ActionAid,actionaid,437,Y,Y
+ETH,Agency for Technical Cooperation and Development,Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,Y
+ETH,Action Against Hunger,Action Against Hunger,action against hunger,ACF,acf,437,Y,Y
 SOM,Agency For Minority Rights And Development (AMARD),Agency For Minority Rights And Development (AMARD),agency for minority rights and development amard,Agency For Minority Rights And D,agency for minority rights and d,441,Y,Y
 SOM,Agency for Technical Cooperation and Development (ACTED),Agency for Technical Cooperation and Development,agency for technical cooperation and development,ACTED,acted,437,Y,Y
 SOM,International Organization for Migration (IOM),International Organization for Migration (IOM),international organization for migration iom,International Organization for M,international organization for m,447,Y,Y
@@ -1110,7 +1076,7 @@ TCD,Centre de Support en Santé Internationale,Centre de Support en Santé Inter
 TCD,Fondation Lutherienne Mondiale,Fondation Lutherienne Mondiale,fondation lutherienne mondiale,FLM,flm,437,Y,Y
 TCD,NIRVANA,NIRVANA,nirvana,NIRVANA,nirvana,441,Y,Y
 TCD,Qatar Charity,Qatar Charity,qatar charity,QC,qc,437,Y,Y
-TCD,SOS Sahel,SOS Sahel,sos sahel,SOS Sahel,sos sahel,441,Y,Y
+TCD,SOS Sahel,SOS Sahel,sos sahel,SOS Sahel,sos sahel,437,Y,Y
 TCD,United Nations Population Fund,United Nations Population Fund,united nations population fund,UNFPA,unfpa,447,Y,Y
 TCD,World Vision international,World Vision International,world vision international,WVI,wvi,437,Y,Y
 TCD,Johns Hopkins pour l'éducation internationale en gynécologie et en obstétrique,Johns Hopkins pour l'éducation internationale en gynécologie et en obstétrique,johns hopkins pour leducation internationale en gynecologie et en obstetrique,JHPIEGO,jhpiego,437,Y,Y
