@@ -75,7 +75,7 @@ class Sheet:
             info = json.loads(gsheet_auth)
             scopes = ["https://www.googleapis.com/auth/spreadsheets"]
             gc = gspread.service_account_from_dict(info, scopes=scopes)
-            logger.info("Opening operational presence datasets gsheet")
+            logger.info(f"Opening operational presence datasets {gsheet_key}")
             self.spreadsheet = gc.open_by_url(self._configuration[gsheet_key])
             self.sheet = self.spreadsheet.get_worksheet(0)
             gsheet_rows = self.sheet.get_values()
@@ -99,6 +99,7 @@ class Sheet:
         resource_name: str,
         resource_format: str,
         resource_url_format: Optional[str],
+        filename_dates_broken: bool,
     ) -> None:
         row = self.get_country_row(countryiso3)
         if row is None:
@@ -134,6 +135,12 @@ class Sheet:
                 logger.info(text)
                 self.email_text.append(text)
                 row["Automated Format"] = resource_format
+            if filename_dates_broken:
+                changed = True
+                text = f"{countryiso3}: Filename dates broken. Turned off flag. Please check resource!"
+                logger.warning(text)
+                self.email_text.append(text)
+                row["Filename Dates"] = ""
         if changed and resource_url_format and resource_url_format != resource_format:
             text = f"Resource {resource_name} has url with format {resource_url_format} that is different to HDX format {resource_format}"
             logger.warning(text)
