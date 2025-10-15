@@ -570,7 +570,7 @@ class Pipeline:
         return dataset, resource_config
 
     def generate_3w_dataset(self, folder: str) -> Optional[Dataset]:
-        if len(self._rows) == 0:
+        if len(self._rows) == 1:
             logger.warning("Operational presence has no data!")
             return None
 
@@ -588,13 +588,14 @@ class Pipeline:
             "description": resource_config["description"],
             "p_coded": True,
         }
-        hxltags = resource_config["hxltags"]
+        headers = resource_config["headers"]
 
-        dataset.generate_resource_from_rows(
+        dataset.generate_resource(
             folder,
             resource_config["filename"],
-            [list(hxltags.keys())] + [list(hxltags.values())] + self._rows,
+            self._rows,
             resourcedata,
+            headers,
         )
         return dataset
 
@@ -610,8 +611,8 @@ class Pipeline:
             "name": resource_config["name"],
             "description": resource_config["description"],
         }
-        hxltags = resource_config["hxltags"]
-        org_rows = [
+        headers = resource_config["headers"]
+        org_rows = (
             {
                 "acronym": org_data.acronym,
                 "name": org_data.name,
@@ -621,14 +622,13 @@ class Pipeline:
                 ),
             }
             for org_data in sorted(self._org.data.values())
-        ]
-        success, results = dataset.generate_resource_from_iterable(
-            list(hxltags.keys()),
-            org_rows,
-            hxltags,
+        )
+        success, results = dataset.generate_resource(
             folder,
             resource_config["filename"],
+            org_rows,
             resourcedata,
+            headers,
         )
         if success is False:
             logger.warning("Organisations has no data!")
