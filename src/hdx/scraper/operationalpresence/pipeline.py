@@ -76,7 +76,6 @@ class Pipeline:
         self._start_date = default_enddate
         self._end_date = default_date
         self._hdx_providers = set()
-        self._licenses = set()
         self._rows = []
 
     def get_format_from_url(self, resource: Resource) -> Optional[str]:
@@ -548,7 +547,6 @@ class Pipeline:
             hapi_dataset_metadata = datasetinfo["hapi_dataset_metadata"]
             hdx_provider_name = hapi_dataset_metadata["hdx_provider_name"]
             self._hdx_providers.add(hdx_provider_name)
-            self._licenses.add(hapi_dataset_metadata["license"])
 
     def generate_dataset(self, key: str) -> Tuple[Dataset, Dict]:
         dataset_config = self._configuration[key]
@@ -578,8 +576,6 @@ class Pipeline:
         dataset.set_subnational(True)
         dataset.add_country_locations(sorted(self._iso3_to_datasetinfo.keys()))
         dataset["dataset_source"] = ",".join(sorted(self._hdx_providers))
-        dataset["license_id"] = "hdx-other"
-        dataset["license_other"] = ",".join(sorted(self._licenses))
 
         dataset.set_time_period(self._start_date, self._end_date)
 
