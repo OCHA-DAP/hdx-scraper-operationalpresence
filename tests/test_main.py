@@ -252,9 +252,6 @@ class TestOperationalPresence:
                         {"name": "som"},
                         {"name": "tcd"},
                     ],
-                    "license_id": "hdx-other",
-                    "license_other": "[Creative Commons Attribution International (CC "
-                    "BY)](http://www.opendefinition.org/licenses/cc-by)",
                     "maintainer": "196196be-6037-4488-8b71-d786adf4c081",
                     "name": "hdx-hapi-operational-presence",
                     "owner_org": "40d10ece-49de-4791-9aed-e164f1d16dd1",
