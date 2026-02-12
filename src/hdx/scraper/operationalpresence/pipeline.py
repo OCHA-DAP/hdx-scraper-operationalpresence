@@ -59,7 +59,7 @@ class Pipeline:
             admin = AdminLevel(admin_level=i + 1, retriever=self._reader)
             if i == 2:
                 admin.setup_from_url(
-                    admin_url=configuration["global_all_pcodes"],
+                    admin_url=AdminLevel.admin_all_pcodes_url,
                     countryiso3s=self._countryiso3s_to_process,
                 )
             else:
