@@ -324,8 +324,12 @@ class Pipeline:
             row["Error"] = []
             norows += 1
             org_str = row[org_name_col]
-            org_acronym = row[org_acronym_col]
-            if not org_str:
+            org_acronym = row[org_acronym_col].strip().replace("\xa0", " ")
+            if org_str:
+                # Replace NBSP with normal space
+                org_str = org_str.strip().replace("\xa0", " ")
+                row[org_name_col] = org_str
+            else:
                 org_str = org_acronym
             # Skip rows with no org name or acronym
             if not org_str:
