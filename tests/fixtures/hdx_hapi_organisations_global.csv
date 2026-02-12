@@ -23,7 +23,7 @@ ACRA,Associazione di Cooperazione Rurale in Africa e America Latina,437,Internat
 ACTED,Agency for Technical Cooperation and Development,437,International NGO
 ADD,ADD,441,National NGO
 ADDP,Action pour le développement durable des populations,441,National NGO
-ADECO,ASSOCIATION POUR  LE DEVELOPPEMENT COMMUNAUTAIRE ,441,National NGO
+ADECO,ASSOCIATION POUR  LE DEVELOPPEMENT COMMUNAUTAIRE,441,National NGO
 ADECOM,Alternative pour le développement communautaire,441,National NGO
 ADEDD,Association pour la Défense de l'Environnement et le Développement,441,National NGO
 ADEFOP,Agence de Developpement et de la Formation Proffessionnelle,441,National NGO
@@ -49,7 +49,7 @@ AFEDEM,Appui aux Femmes Démunies et Enfants Marginalisés,441,National NGO
 AFEDEV,Action de la Femme pour le Développement,441,National NGO
 AFEED,AFEED,441,National NGO
 AFEMA-RDC,ACTION POUR LES FEMMES ET ENFANTS MARGINALISÉS,441,National NGO
-AFEST ,Association des Femmes Unies pour l'Eau potable et Santé pour Tous,441,National NGO
+AFEST,Association des Femmes Unies pour l'Eau potable et Santé pour Tous,441,National NGO
 AFJT,Association des Femme Juristes du Tchad,441,National NGO
 AFRIC'OMPETENCE,AFRIC'OMPETENCE,441,National NGO
 AFRILAM,Afrique pour la Lutte Antimines,441,National NGO
@@ -281,7 +281,7 @@ EADEV,Enfant pour l'Avenir et le Développement,441,National NGO
 EBD asbl,Ensemble pour la Biodiversité et le Développement,441,National NGO
 EC,ECHO-CITOYEN,441,National NGO
 ECC-SADCO,Ethiopia Catholic Church-Social and Development Coordinating office,441,National NGO
-ECC-SADCO,Ethiopian Catholic Church -Social and Devt. Coordinating Office ,441,National NGO
+ECC-SADCO,Ethiopian Catholic Church -Social and Devt. Coordinating Office,441,National NGO
 EDA,Emannuel Development Association,441,National NGO
 EDA DRC,Agency for EDucation and Development in DRC,441,National NGO
 EDU,Enfants de l'Univers,441,National NGO
@@ -290,7 +290,7 @@ EECMY-DASSC,Ethiopian Evangelical Church Mekane Yesus Development and social Ser
 EM,Echo Médical,441,National NGO
 EME,ESPERANCE MERES ET ENFANTS EN RDC,441,National NGO
 EMwA,Ethiopian Midwives Association,441,National NGO
-EOTC-DICAC,Ethiopian Orthodox Tewahdo Church Development and Inter-Church Aid Commission,441,National NGO
+EOTC-DICAC,Ethiopian Orthodox Tewahdo Church Development and Inter-Church Aid Commission,441,National NGO
 EPHRATA,EPHRATA,441,National NGO
 ERCS,Ethiopian Red Cross Society,441,National NGO
 ESD,Education for Sustainable Development,441,National NGO
@@ -385,7 +385,7 @@ I1D,Imagine 1 Day,437,International NGO
 IAS,International Aid Services,437,International NGO
 ICDW,International Cooperation and Developpment World,437,International NGO
 ICRC,International Committee of the Red Cross,445,Red Cross / Red Crescent
-ID,Initiative Developpement ,437,International NGO
+ID,Initiative Developpement,437,International NGO
 IDAV,INITIATIVE POUR DEVELOPPEMENT ET ACCOMPAGNEMENT DES VULNERABLES,441,National NGO
 IDIC,Initiative pour le Developpement Integral au Congo,441,National NGO
 IDO,Idée de l'eau,441,National NGO
@@ -427,7 +427,7 @@ JUH,The Johanniter Unfall Hilfe,437,International NGO
 Juba Foundation (JF),Juba Foundation (JF),441,National NGO
 Jubaland Mine Action Network (JU,Jubaland Mine Action Network (JUMAN),435,Government
 Juweyria Women Relief (JWR),Juweyria Women Relief (JWR),441,National NGO
-KCA,KIJIJI CHA AMNI ,441,National NGO
+KCA,KIJIJI CHA AMNI,441,National NGO
 KITES,KITES,441,National NGO
 Kaah Relief and Development Orga,Kaah Relief and Development Organization (KAAH),441,National NGO
 Kalkal Human Rights Development ,Kalkal Human Rights Development Organization (KAHRDO),441,National NGO
@@ -440,7 +440,7 @@ LWF,Lutheran World Federation,437,International NGO
 LYEX,LYEX,441,National NGO
 Label Relief and Development Org,Label Relief and Development Organization (LARDO),441,National NGO
 Legal Aid (LA),Legal Aid (LA),441,National NGO
-Lifeline-Gedo Organization (LLG),Lifeline-Gedo Organization (LLG) ,441,National NGO
+Lifeline-Gedo Organization (LLG),Lifeline-Gedo Organization (LLG),441,National NGO
 Lutheran World Federation (LWF),Lutheran World Federation (LWF),437,International NGO
 MAEDOTAID,MAEDOTAID,441,National NGO
 MAG,Mine Advisor Group,437,International NGO
@@ -477,9 +477,9 @@ Mercy Corps (MC),Mercy Corps (MC),437,International NGO
 Mercy-USA for Aid and Developmen,Mercy-USA for Aid and Development (Mercy-USA),437,International NGO
 Ministry Of Employment Social Af,Ministry Of Employment Social Affairs And Family (MESAF),435,Government
 Ministry Of Women Development An,Ministry Of Women Development And Family Affairs (MOWDAFA),435,Government
-"Ministry Of Women, Family Affair","Ministry Of Women, Family Affairs And Human Rights Of Galmudug State Of Somalia (MoWHRD Galmudug)",435,Government
-"Ministry Of Women, Family Affair","Ministry Of Women, Family Affairs And Human Rights Of Hirshabelle State Of Somalia (MoWHRD Hirshabelle)",435,Government
-"Ministry Of Women, Family Affair","Ministry Of Women, Family Affairs And Human Rights Of South West State Of Somalia (MoWHRD South West)",435,Government
+"Ministry Of Women, Family Affair","Ministry Of Women, Family Affairs And Human Rights Of Galmudug State Of Somalia (MoWHRD Galmudug)",435,Government
+"Ministry Of Women, Family Affair","Ministry Of Women, Family Affairs And Human Rights Of Hirshabelle State Of Somalia (MoWHRD Hirshabelle)",435,Government
+"Ministry Of Women, Family Affair","Ministry Of Women, Family Affairs And Human Rights Of South West State Of Somalia (MoWHRD South West)",435,Government
 Ministry of Health (MOH),Ministry of Health (MOH),435,Government
 Minority Empowerment And Develop,Minority Empowerment And Development Agency (MEDA),441,National NGO
 Mission for Emergency Aid and Li,Mission for Emergency Aid and Lifesaving (MEAL),441,National NGO
@@ -512,7 +512,7 @@ ONUSIDA,ONUSIDA,447,United Nations
 OPET,Organisation pour la Promotion de l'Enseignement au Tchad,441,National NGO
 OSAF,Organisme de la Santé Familiale,441,National NGO
 OSSHD,OSSHD,441,National NGO
-OSSHD,Organization for Social Services Health and Development ,441,National NGO
+OSSHD,Organization for Social Services Health and Development,441,National NGO
 OTOBPFE,Organisation Tchadienne d'Œuvre Bienfaisante pour la Protection de La femme et de l'Enfant,441,National NGO
 OWDA,Organization for Welfare & Development in Action,441,National NGO
 OWS-DF,OWS Development Fund,441,National NGO
@@ -558,7 +558,7 @@ Qatar Red Crescent Society (QRCS,Qatar Red Crescent Society (QRCS),443,Other
 RACOJ,Réseau des associations congolaises des jeunes,441,National NGO
 RADPI,Réseau d'Action pour le Développement et Progrès Intégré,441,National NGO
 RAPS,"Réseau d’Action, de Partages et de Solidarité pour le Développement",441,National NGO
-RCWDO,Rift valley children and women Development organization,441,National NGO
+RCWDO,Rift valley children and women Development organization,441,National NGO
 REDHO,RESEAU POUR LES DROITS DE L'HOMME,441,National NGO
 REFED,RESEAU FEMME ET DEVELOPPEMENT,441,National NGO
 RET,Refugee Education Trust,437,International NGO
@@ -631,9 +631,9 @@ Somali Peace Line (SPL),Somali Peace Line (SPL),441,National NGO
 Somali Red Crescent Society (SRC,Somali Red Crescent Society (SRCS),441,National NGO
 Somali Red Crescent Society Punt,Somali Red Crescent Society Puntland (SRCS_PUNTLAND),441,National NGO
 Somali Relief Center (SRC),Somali Relief Center (SRC),441,National NGO
-Somali Relief and Care Organizat,Somali Relief and Care Organization (SRCO),441,National NGO
+Somali Relief and Care Organizat,Somali Relief and Care Organization (SRCO),441,National NGO
 "Somali Relief, Rehabilitation an","Somali Relief, Rehabilitation and Development Organization (SORRDO)",441,National NGO
-Somali Safe Child Right Voluntee,Somali Safe Child Right Volunteers (SSCRV),441,National NGO
+Somali Safe Child Right Voluntee,Somali Safe Child Right Volunteers (SSCRV),441,National NGO
 Somali Women Development Centre ,Somali Women Development Centre (SWDC),441,National NGO
 Somali Women Study Center (SWSC),Somali Women Study Center (SWSC),441,National NGO
 Somali Women and Child Care Asso,Somali Women and Child Care Association (SWCCA),441,National NGO
@@ -718,6 +718,6 @@ YouthLink (YL),YouthLink (YL),441,National NGO
 ZOA,ZOA,437,International NGO
 ZamZam Foundation (ZAMZAM),ZamZam Foundation (ZAMZAM),441,National NGO
 daryeel Aid for Relief and Devel,daryeel Aid for Relief and Development organization (DDRO),441,National NGO
-"ministry Of Women, Family Affair","ministry Of Women, Family Affairs And Human Rights Of Jubaland State Of Somalia (MoWHRD Jubaland)",435,Government
+"ministry Of Women, Family Affair","ministry Of Women, Family Affairs And Human Rights Of Jubaland State Of Somalia (MoWHRD Jubaland)",435,Government
 polish Humanitarian Action (PAH),polish Humanitarian Action (PAH),437,International NGO
 women's Hope International,women's Hope International,437,International NGO
