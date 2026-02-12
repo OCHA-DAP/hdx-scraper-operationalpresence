@@ -107,7 +107,6 @@ def main(
                 )
                 dataset.create_in_hdx(
                     remove_additional_resources=True,
-                    hxl_update=False,
                     updated_by_script=updated_by_script,
                 )
             dataset = pipeline.generate_3w_dataset(temp_folder)
@@ -119,7 +118,6 @@ def main(
                 )
                 dataset.create_in_hdx(
                     remove_additional_resources=True,
-                    hxl_update=False,
                     updated_by_script=updated_by_script,
                 )
     logger.info("HDX Scraper Operational Presence pipeline completed!")
