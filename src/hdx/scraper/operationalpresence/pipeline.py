@@ -572,7 +572,7 @@ class Pipeline:
         return dataset, resource_config
 
     def generate_3w_dataset(self, folder: str) -> Optional[Dataset]:
-        if len(self._rows) == 1:
+        if len(self._rows) == 0:
             logger.warning("Operational presence has no data!")
             return None
 
