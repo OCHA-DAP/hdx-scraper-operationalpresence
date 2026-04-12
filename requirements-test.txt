@@ -8,14 +8,14 @@ annotated-types==0.7.0
     # via
     #   -c requirements.txt
     #   pydantic
-attrs==25.4.0
+attrs==26.1.0
     # via
     #   -c requirements.txt
     #   frictionless
     #   jsonlines
     #   jsonschema
     #   referencing
-certifi==2026.1.4
+certifi==2026.2.25
     # via
     #   -c requirements.txt
     #   requests
@@ -23,25 +23,25 @@ cffi==2.0.0
     # via
     #   -c requirements.txt
     #   cryptography
-chardet==5.2.0
+chardet==7.4.1
     # via
     #   -c requirements.txt
     #   frictionless
-charset-normalizer==3.4.4
+charset-normalizer==3.4.7
     # via
     #   -c requirements.txt
     #   requests
-ckanapi==4.9
+ckanapi==4.11
     # via
     #   -c requirements.txt
     #   hdx-python-api
-click==8.3.1
+click==8.3.2
     # via
     #   -c requirements.txt
     #   typer
-coverage==7.13.4
+coverage==7.13.5
     # via pytest-cov
-cryptography==46.0.5
+cryptography==46.0.7
     # via
     #   -c requirements.txt
     #   google-auth
@@ -78,12 +78,12 @@ frictionless==5.18.1
     #   -c requirements.txt
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-utilities
-google-auth==2.48.0
+google-auth==2.49.2
     # via
     #   -c requirements.txt
     #   google-auth-oauthlib
     #   gspread
-google-auth-oauthlib==1.2.4
+google-auth-oauthlib==1.3.1
     # via
     #   -c requirements.txt
     #   gspread
@@ -92,7 +92,7 @@ gspread==6.2.1
     #   -c requirements.txt
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-scraper
-hdx-python-api==6.6.5
+hdx-python-api==6.6.7
     # via
     #   -c requirements.txt
     #   hdx-scraper-operationalpresence (pyproject.toml)
@@ -103,11 +103,11 @@ hdx-python-country==4.1.1
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   hdx-python-api
     #   hdx-python-scraper
-hdx-python-scraper==2.7.2
+hdx-python-scraper==2.7.3
     # via
     #   -c requirements.txt
     #   hdx-scraper-operationalpresence (pyproject.toml)
-hdx-python-utilities==4.0.6
+hdx-python-utilities==4.0.8
     # via
     #   -c requirements.txt
     #   hdx-scraper-operationalpresence (pyproject.toml)
@@ -123,7 +123,7 @@ idna==3.11
     #   -c requirements.txt
     #   email-validator
     #   requests
-ijson==3.4.0.post0
+ijson==3.5.0
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
@@ -141,7 +141,7 @@ jsonlines==4.0.0
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
-jsonpath-ng==1.7.0
+jsonpath-ng==1.8.0
     # via
     #   -c requirements.txt
     #   libhxl
@@ -162,7 +162,7 @@ loguru==0.7.3
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
-lxml==6.0.2
+lxml==6.0.4
     # via
     #   -c requirements.txt
     #   frictionless
@@ -210,17 +210,15 @@ pluggy==1.6.0
 ply==3.11
     # via
     #   -c requirements.txt
-    #   jsonpath-ng
     #   libhxl
 pockets==0.9.1
     # via
     #   -c requirements.txt
     #   sphinxcontrib-napoleon
-pyasn1==0.6.2
+pyasn1==0.6.3
     # via
     #   -c requirements.txt
     #   pyasn1-modules
-    #   rsa
 pyasn1-modules==0.4.2
     # via
     #   -c requirements.txt
@@ -237,7 +235,7 @@ pydantic-core==2.41.5
     # via
     #   -c requirements.txt
     #   pydantic
-pygments==2.19.2
+pygments==2.20.0
     # via
     #   -c requirements.txt
     #   pytest
@@ -246,11 +244,11 @@ pyphonetics==0.5.3
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
-pytest==9.0.2
+pytest==9.0.3
     # via
     #   hdx-scraper-operationalpresence (pyproject.toml)
     #   pytest-cov
-pytest-cov==7.0.0
+pytest-cov==7.1.0
     # via hdx-scraper-operationalpresence (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via
@@ -281,11 +279,11 @@ referencing==0.37.0
     #   -c requirements.txt
     #   jsonschema
     #   jsonschema-specifications
-regex==2026.1.15
+regex==2026.4.4
     # via
     #   -c requirements.txt
     #   hdx-python-scraper
-requests==2.32.5
+requests==2.33.1
     # via
     #   -c requirements.txt
     #   ckanapi
@@ -306,7 +304,7 @@ rfc3986==2.0.0
     # via
     #   -c requirements.txt
     #   frictionless
-rich==14.3.2
+rich==15.0.0
     # via
     #   -c requirements.txt
     #   typer
@@ -315,15 +313,11 @@ rpds-py==0.30.0
     #   -c requirements.txt
     #   jsonschema
     #   referencing
-rsa==4.9.1
-    # via
-    #   -c requirements.txt
-    #   google-auth
 ruamel-yaml==0.19.1
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
-setuptools==82.0.0
+setuptools==82.0.1
     # via
     #   -c requirements.txt
     #   ckanapi
@@ -331,7 +325,7 @@ shellingham==1.5.4
     # via
     #   -c requirements.txt
     #   typer
-simpleeval==1.0.3
+simpleeval==1.0.7
     # via
     #   -c requirements.txt
     #   frictionless
@@ -342,7 +336,6 @@ simplejson==3.20.2
 six==1.17.0
     # via
     #   -c requirements.txt
-    #   ckanapi
     #   pockets
     #   python-dateutil
     #   sphinxcontrib-napoleon
@@ -358,7 +351,7 @@ tableschema-to-template==0.0.13
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
-tabulate==0.9.0
+tabulate==0.10.0
     # via
     #   -c requirements.txt
     #   frictionless
@@ -370,7 +363,7 @@ text-unidecode==1.3
     # via
     #   -c requirements.txt
     #   python-slugify
-typer==0.24.0
+typer==0.24.1
     # via
     #   -c requirements.txt
     #   frictionless

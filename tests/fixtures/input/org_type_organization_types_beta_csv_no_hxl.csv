@@ -1,5 +1,4 @@
 HR.info ID,Preferred Term,Scope,Date Added (dd/mm/yyyy),Date updated (dd/mm/yyyy),RW API ID,RW Alt Term,Match type - RW term is:
-#org +type +code +v_hrinfo,#org +type +preferred,#description +definition,#date +created,#date +updated,#org +type +code +v_reliefweb,#org +type +v_reliefweb,#meta +match
 431,Academic / Research,"Includes universities, colleges, think tanks, private organizations focusing on research and analysis",16/03/2017,,270,Academic and Research Institution,Exact Match
 433,Donor,"Organizations responsible for donating money, goods or other in-kind contributions. ",16/03/2017,,,,
 434,Embassy,Includes embassies as a distinct category of government organisations - the official residence or offices of an ambassador.,16/03/2017,,271,Government,Broader
