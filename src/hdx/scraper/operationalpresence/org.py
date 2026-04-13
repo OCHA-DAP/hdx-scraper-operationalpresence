@@ -56,26 +56,26 @@ class Org:
         reader = Read.get_reader()
         headers, iterator = reader.get_tabular_rows(
             self._datasetinfo["url"],
-            headers=2,
+            headers=1,
             dict_form=True,
             format="csv",
             file_prefix="org",
         )
 
         for i, row in enumerate(iterator):
-            canonical_name = row["#org+name"]
+            canonical_name = row["Canonical org name"]
             if not canonical_name:
                 logger.error(f"Canonical name is empty in row {i}!")
                 continue
             normalised_name = normalise(canonical_name)
-            country_code = row["#country+code"]
-            acronym = row["#org+acronym"]
+            country_code = row["Location code"]
+            acronym = row["Acronym"]
             if acronym:
                 normalised_acronym = normalise(acronym)
             else:
                 normalised_acronym = None
-            org_name = row["#x_pattern"]
-            type_code = row["#org+type+code"]
+            org_name = row["String pattern"]
+            type_code = row["Org type code"]
             if acronym and type_code:
                 complete = True
             else:

@@ -1,5 +1,4 @@
 String pattern,Canonical org name,Acronym,Org type,Location filter,Sector filter,Org type code,Location code,Sector code
-#x_pattern,#org+name,#org+acronym,#org+type,#country+name,#sector+name,#org+type+code,#country+code,#sector+code
 Fonds des Nations Unies pour l'Enfance,United Nations Children's Fund,UNICEF,United Nations,,,447,,
 United Nations Children's Fund,United Nations Children's Fund,UNICEF,United Nations,,,447,,
 United Nations Children's Emergency Fund,United Nations Children's Fund,UNICEF,United Nations,,,447,,
