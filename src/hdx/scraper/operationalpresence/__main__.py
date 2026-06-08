@@ -5,17 +5,18 @@ from os import getenv
 from os.path import expanduser, join
 from typing import Optional
 
-from ._version import __version__
-from .pipeline import Pipeline
 from hdx.api.configuration import Configuration
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.data.user import User
 from hdx.facades.infer_arguments import facade
 from hdx.scraper.framework.utilities.reader import Read
-from hdx.scraper.operationalpresence.sheet import Sheet
 from hdx.utilities.dateparse import now_utc
 from hdx.utilities.easy_logging import setup_logging
 from hdx.utilities.path import script_dir_plus_file, temp_dir
+
+from ._version import __version__
+from .pipeline import Pipeline
+from hdx.scraper.operationalpresence.sheet import Sheet
 
 setup_logging()
 logger = logging.getLogger(__name__)

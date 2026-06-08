@@ -4,18 +4,18 @@ from os import getenv
 from os.path import join
 
 import pytest
-
 from hdx.api.configuration import Configuration
 from hdx.api.locations import Locations
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.data.vocabulary import Vocabulary
 from hdx.scraper.framework.utilities.reader import Read
-from hdx.scraper.operationalpresence.pipeline import Pipeline
-from hdx.scraper.operationalpresence.sheet import Sheet
 from hdx.utilities.compare import assert_files_same
 from hdx.utilities.dateparse import parse_date
 from hdx.utilities.path import script_dir_plus_file, temp_dir
 from hdx.utilities.useragent import UserAgent
+
+from hdx.scraper.operationalpresence.pipeline import Pipeline
+from hdx.scraper.operationalpresence.sheet import Sheet
 
 logger = logging.getLogger(__name__)
 

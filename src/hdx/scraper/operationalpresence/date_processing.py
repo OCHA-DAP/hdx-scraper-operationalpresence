@@ -2,7 +2,6 @@ import re
 from typing import Dict, Optional, Tuple
 
 from dateutil.parser import ParserError
-
 from hdx.data.resource import Resource
 from hdx.utilities.dateparse import (
     parse_date_range,

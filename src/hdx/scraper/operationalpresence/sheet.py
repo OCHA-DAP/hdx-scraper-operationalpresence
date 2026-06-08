@@ -3,7 +3,6 @@ from logging import getLogger
 from typing import Dict, Iterable, List, Optional
 
 import gspread
-
 from hdx.api.configuration import Configuration
 from hdx.utilities.email import Email
 
