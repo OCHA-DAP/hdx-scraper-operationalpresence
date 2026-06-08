@@ -2,12 +2,15 @@
 # Project Configuration #
 #########################
 
+# Project name and version needed to run tests
+
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
 name = "hdx-scraper-operationalpresence"
+dynamic = ["version"]
 requires-python = ">=3.13"
 dependencies = [
   "frictionless[ods]",
@@ -17,7 +20,6 @@ dependencies = [
   "hdx-python-country>= 4.1.1",
   "hdx-python-utilities>= 4.0.8",
 ]
-dynamic = ["version"]
 
 [project.readme]
 file = "README.md"
@@ -26,6 +28,101 @@ content-type = "text/markdown"
 [project.urls]
 Homepage = "https://github.com/OCHA-DAP/hdx-scraper-operationalpresence"
 
-[project.optional-dependencies]
-test = ["pytest", "pytest-cov"]
-dev = ["pre-commit"]
+[dependency-groups]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "pre-commit",
+  "ruff==0.14.14",
+]
+
+[project.scripts]
+run = "hdx.scraper.operationalpresence.__main__:main"
+
+# ----------------------------------------------------------------------------
+# Hatchling (Build & Versioning)
+# ----------------------------------------------------------------------------
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+local_scheme = "no-local-version"
+version_scheme = "python-simplified-semver"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/hdx/scraper/operationalpresence/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hdx"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+# ----------------------------------------------------------------------------
+# Ruff (Linting & Formatting)
+# ----------------------------------------------------------------------------
+
+[tool.ruff]
+target-version = "py313"
+src = ["src"]
+exclude = ["_version.py"]
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "I",   # isort
+]
+ignore = [
+    "E501", # Line too long
+]
+
+[tool.ruff.lint.isort]
+known-local-folder = ["hdx.scraper.operationalpresence"]
+known-third-party = [
+    "hdx.api",
+    "hdx.data",
+    "hdx.facades",
+    "hdx.scraper",
+    "hdx.utilities",
+]
+
+# ----------------------------------------------------------------------------
+# Pytest (Testing)
+# ----------------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+log_cli = true
+addopts = """
+    --color=yes
+    --rootdir=.
+    --junitxml=test-results.xml
+    --cov
+    --no-cov-on-fail
+    --cov-report=lcov
+    --cov-report=term-missing
+"""
+
+# ----------------------------------------------------------------------------
+# Coverage (Reporting)
+# ----------------------------------------------------------------------------
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["*/_version.py"]
+
+[tool.coverage.report]
+exclude_also = [
+    "from ._version",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@(abc\\.)?abstractmethod",
+]
