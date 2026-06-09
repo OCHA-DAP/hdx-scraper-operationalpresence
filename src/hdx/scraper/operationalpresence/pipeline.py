@@ -1,4 +1,3 @@
-import re
 import traceback
 from datetime import datetime
 from logging import getLogger
@@ -11,20 +10,18 @@ from hdx.data.dataset import Dataset
 from hdx.data.resource import Resource
 from hdx.location.adminlevel import AdminLevel
 from hdx.location.country import Country
-from hdx.scraper.framework.utilities.hapi_admins import (
+from hdx.pipelineutils.hapi_admins import (
     complete_admins,
     pad_admins,
 )
-from hdx.scraper.framework.utilities.reader import Read
-from hdx.scraper.framework.utilities.sector import Sector
+from hdx.pipelineutils.reader import Read
+from hdx.pipelineutils.sector import Sector
 from hdx.utilities.dateparse import (
     default_date,
     default_enddate,
     iso_string_from_datetime,
     parse_date,
 )
-from hdx.utilities.dictandlist import invert_dictionary
-from hdx.utilities.matching import multiple_replace
 
 from .date_processing import get_dates_from_filename
 from .org import Org
@@ -32,9 +29,6 @@ from .row import Row
 from .sheet import Sheet
 
 logger = getLogger(__name__)
-
-# eg. row['#date+year']=='2024' and row['#date+quarter']=='Q3'
-ROW_LOOKUP = re.compile(r"row\[['\"](.*?)['\"]\]")
 
 
 class Pipeline:
@@ -204,8 +198,6 @@ class Pipeline:
         dataset_name = datasetinfo["dataset"]
         startdate_col = datasetinfo["Start Date Column"]
         enddate_col = datasetinfo["End Date Column"]
-        adm_code_cols = datasetinfo["Adm Code Columns"]
-        adm_name_cols = datasetinfo["Adm Name Columns"]
         org_name_col = datasetinfo["Org Name Column"]
         org_acronym_col = datasetinfo["Org Acronym Column"]
         org_type_col = datasetinfo["Org Type Column"]
@@ -226,51 +218,6 @@ class Pipeline:
         datasetinfo["format"] = format
         headers, iterator = self._reader.read_tabular(datasetinfo)
         filter = datasetinfo["Filter"]
-        if datasetinfo["use_hxl"]:
-            header_to_hxltag = next(iterator)
-            hxltag_to_header = invert_dictionary(header_to_hxltag)
-            if startdate_col:
-                startdate_col = hxltag_to_header[startdate_col]
-            if enddate_col:
-                enddate_col = hxltag_to_header[enddate_col]
-            if adm_code_cols:
-                new_adm_code_cols = []
-                for adm_code_col in adm_code_cols.split(","):
-                    if adm_code_col:
-                        new_adm_code_cols.append(hxltag_to_header[adm_code_col])
-                    else:
-                        new_adm_code_cols.append("")
-                adm_code_cols = ",".join(new_adm_code_cols)
-            new_adm_name_cols = []
-            for adm_name_col in adm_name_cols.split(","):
-                if adm_name_col:
-                    new_adm_name_cols.append(hxltag_to_header[adm_name_col])
-                else:
-                    new_adm_name_cols.append("")
-            adm_name_cols = ",".join(new_adm_name_cols)
-            org_name_col = hxltag_to_header[org_name_col]
-            if org_acronym_col:
-                org_acronym_col = hxltag_to_header[org_acronym_col]
-            if org_type_col:
-                org_type_col = hxltag_to_header[org_type_col]
-            sector_col = hxltag_to_header[sector_col]
-            datasetinfo["Start Date Column"] = startdate_col
-            datasetinfo["End Date Column"] = enddate_col
-            datasetinfo["Adm Code Columns"] = adm_code_cols
-            datasetinfo["Adm Name Columns"] = adm_name_cols
-            datasetinfo["Org Name Column"] = org_name_col
-            datasetinfo["Org Acronym Column"] = org_acronym_col
-            datasetinfo["Org Type Column"] = org_type_col
-            datasetinfo["Sector Column"] = sector_col
-
-            if filter:
-                replace = {}
-                for match in ROW_LOOKUP.finditer(filter):
-                    hxltag = match.group(1)
-                    header = hxltag_to_header[hxltag]
-                    replace[hxltag] = header
-                filter = multiple_replace(filter, replace)
-                datasetinfo["Filter"] = filter
 
         if startdate_col:
             earliest_start_date = default_enddate

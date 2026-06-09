@@ -6,9 +6,9 @@ from os.path import join
 from typing import Dict, NamedTuple, Optional
 
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
-from hdx.scraper.framework.utilities.org_type import OrgType
-from hdx.scraper.framework.utilities.reader import Read
-from hdx.utilities.dictandlist import write_list_to_csv
+from hdx.pipelineutils.org_type import OrgType
+from hdx.pipelineutils.reader import Read
+from hdx.utilities.saver import save_iterable
 from hdx.utilities.text import normalise
 
 logger = logging.getLogger(__name__)
@@ -182,19 +182,18 @@ class Org:
                 )
 
     def output_org_map(self, folder: str) -> str:
-        rows = [
-            (
-                "Country Code",
-                "Lookup",
-                "Canonical Name",
-                "Normalised Name",
-                "Acronym",
-                "Normalised Acronym",
-                "Type Code",
-                "Complete",
-                "Used",
-            )
+        headers = [
+            "Country Code",
+            "Lookup",
+            "Canonical Name",
+            "Normalised Name",
+            "Acronym",
+            "Normalised Acronym",
+            "Type Code",
+            "Complete",
+            "Used",
         ]
+        rows = []
         for key, org_info in self._org_map.items():
             country_code, lookup = key
             rows.append(
@@ -211,7 +210,7 @@ class Org:
                 )
             )
         path = join(folder, "org_map.csv")
-        write_list_to_csv(path, rows)
+        save_iterable(path, rows, headers=headers)
         return path
 
     def get_org_type_description(self, org_type_code: str) -> str:
