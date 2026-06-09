@@ -276,12 +276,6 @@ class Sheet:
                 f"Ignoring {countryiso3} from config spreadsheet because it has no Adm Code Columns and no Adm Name Columns!"
             )
             return {}
-        if datasetinfo["Org Name Column"][0] == "#":
-            use_hxl = True
-        else:
-            use_hxl = False
-        datasetinfo["use_hxl"] = use_hxl
-        # If no acronym column defined use org name column as acronym column
         if not datasetinfo["Org Acronym Column"]:
             datasetinfo["Org Acronym Column"] = datasetinfo["Org Name Column"]
         return datasetinfo

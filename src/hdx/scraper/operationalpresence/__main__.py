@@ -9,7 +9,7 @@ from hdx.api.configuration import Configuration
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.data.user import User
 from hdx.facades.infer_arguments import facade
-from hdx.scraper.framework.utilities.reader import Read
+from hdx.pipelineutils.reader import Read
 from hdx.utilities.dateparse import now_utc
 from hdx.utilities.easy_logging import setup_logging
 from hdx.utilities.path import script_dir_plus_file, temp_dir
