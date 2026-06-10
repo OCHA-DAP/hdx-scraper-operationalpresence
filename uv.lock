@@ -513,16 +513,16 @@ wheels = [
 
 [[package]]
 name = "hdx-python-pipelineutils"
-version = "0.0.3"
+version = "0.0.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "hdx-python-api" },
     { name = "hdx-python-country" },
     { name = "hdx-python-utilities" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/eb/21/a1167290a9dbb3b7a01e7ba119c987cce7aeafaf9761342e938294317a09/hdx_python_pipelineutils-0.0.3.tar.gz", hash = "sha256:7e77f2f0a132ef0713a444a6eb0240616e3748e688a3c8ee9a091d9c0ff6810a", size = 437485, upload-time = "2026-04-23T23:55:19.706Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/95/00/6fcafb0156f60c9c62dde2dcd5206ddae2921ba9f7b61d14bd85c267ff4a/hdx_python_pipelineutils-0.0.4.tar.gz", hash = "sha256:ca9483ba175c8795d31aa74a351920d5b7c9bb1c0ff595ff162d311264fe1a95", size = 430212, upload-time = "2026-06-10T04:35:45.497Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/07/70/7844e99b6ec0ff0cb20c30df0a20af7f94a026705eda23a1ad0b45be8561/hdx_python_pipelineutils-0.0.3-py3-none-any.whl", hash = "sha256:b36efbd8d8a74c6dc9667f00787c36334d8f3ae79633d4aa1cf938848dbf5559", size = 14777, upload-time = "2026-04-23T23:55:18.472Z" },
+    { url = "https://files.pythonhosted.org/packages/ba/2b/8126e16531ddf3eb068af4f3a07d675cbe0e7f6dc83ce0cb87f0d2e68793/hdx_python_pipelineutils-0.0.4-py3-none-any.whl", hash = "sha256:82a6b61c306de7fd291f078d3a92173cfda9e2a7e64726b5288d17e84ae57368", size = 14920, upload-time = "2026-06-10T04:35:44.641Z" },
 ]
 
 [[package]]
@@ -577,7 +577,7 @@ requires-dist = [
     { name = "gspread" },
     { name = "hdx-python-api", specifier = ">=6.6.7" },
     { name = "hdx-python-country", specifier = ">=4.1.1" },
-    { name = "hdx-python-pipelineutils", specifier = ">=0.0.3" },
+    { name = "hdx-python-pipelineutils", specifier = ">=0.0.4" },
     { name = "hdx-python-utilities", specifier = ">=4.0.8" },
 ]
 
