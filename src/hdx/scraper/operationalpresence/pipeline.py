@@ -482,6 +482,12 @@ class Pipeline:
                     success = self.preprocess_country(countryiso3, datasetinfo)
                     if success:
                         self._iso3_to_datasetinfo[countryiso3] = datasetinfo
+                        if not self._reader.save and not self._reader.use_saved:
+                            filepath = self._reader.temp_dir / datasetinfo["filename"]
+                            filepath.unlink(missing_ok=True)
+                            csv_path = filepath.with_suffix(".csv")
+                            if csv_path != filepath:
+                                csv_path.unlink(missing_ok=True)
                 except Exception:
                     self._error_handler.add_message(
                         "OperationalPresence",
