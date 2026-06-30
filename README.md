@@ -4,7 +4,18 @@
 [![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdx-scraper-operationalpresence/badge.svg?branch=main&ts=1)](https://coveralls.io/github/OCHA-DAP/hdx-scraper-operationalpresence?branch=main)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-This pipeline retrieves operational presence data from HDX, processes it, and publishes org and 3W datasets back to HDX.
+This pipeline retrieves operational presence (3W — Who, What, Where) data from
+HDX, processes it via a Google Sheets configuration, and publishes an
+organisations dataset and a 3W dataset back to HDX. It makes approximately
+70–80 HDX read calls (one search call for all datasets tagged "operational
+presence" plus one resource download per country), a small number of Google
+Sheets API calls to fetch per-country processing metadata, and 2 HDX writes.
+Temporary per-country resource files (10 KB to 1 MB each in CSV, XLS, XLSX, or
+ODS format) are downloaded and deleted after processing. Organisation names are
+normalised and matched against a lookup database, free-text sector names are
+mapped to standardised sector codes, location strings are fuzzy-matched to
+admin-1 and admin-2 P-codes, and the results are aggregated into a global
+organisations CSV and a global 3W CSV for the HAPI output. It is run every day.
 
 ## Development
 
