@@ -15,7 +15,46 @@ ODS format) are downloaded and deleted after processing. Organisation names are
 normalised and matched against a lookup database, free-text sector names are
 mapped to standardised sector codes, location strings are fuzzy-matched to
 admin-1 and admin-2 P-codes, and the results are aggregated into a global
-organisations CSV and a global 3W CSV for the HAPI output. It is run every day.
+organisations CSV and a global 3W CSV for the HAPI output. It runs every weekday
+at around 11 AM UTC and takes approximately 5 minutes to complete.
+
+## Data Pipeline
+
+### API reads (~70–80 calls per run)
+
+- **HDX dataset search** (1 read): searches for all datasets tagged "operational
+  presence" to discover per-country source datasets.
+- **Per-country resource downloads** (~one read per country): downloads the
+  operational presence resource for each country (CSV, XLS, XLSX, or ODS format,
+  10 KB to 1 MB each).
+- **Google Sheets API** (small number of reads): fetches per-country processing
+  metadata (column mappings, sector lookups, org name corrections).
+
+### API writes (~2 calls per run)
+
+- **Organisations dataset** (1 write): a global CSV listing all organisations and
+  their attributes, normalised against a lookup database.
+- **3W dataset** (1 write): a global CSV of Who, What, Where rows enriched with
+  standardised sector codes and admin P-codes.
+
+### Temporary files
+
+- Per-country resource files (10 KB to 1 MB each, in CSV, XLS, XLSX, or ODS
+  format), downloaded and deleted after processing.
+
+### Uploaded files
+
+- Global organisations CSV.
+- Global 3W CSV.
+
+### Transformations
+
+1. **Organisation normalisation**: free-text organisation names are matched and
+   normalised against a lookup database; acronyms are resolved.
+2. **Sector mapping**: free-text sector names are mapped to standardised sector
+   codes.
+3. **P-code fuzzy matching**: location strings are fuzzy-matched to admin-1 and
+   admin-2 P-codes using the COD admin boundary registry.
 
 ## Development
 
