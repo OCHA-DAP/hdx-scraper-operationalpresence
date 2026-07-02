@@ -220,12 +220,6 @@ class TestOperationalPresence:
                     "name": "hdx-hapi-organisations",
                     "owner_org": "40d10ece-49de-4791-9aed-e164f1d16dd1",
                     "subnational": "0",
-                    "tags": [
-                        {
-                            "name": "hxl",
-                            "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
-                        }
-                    ],
                     "title": "HDX HAPI - Coordination & Context: Organisations",
                 }
                 assert dataset.get_resources() == [
@@ -257,10 +251,6 @@ class TestOperationalPresence:
                     "owner_org": "40d10ece-49de-4791-9aed-e164f1d16dd1",
                     "subnational": "1",
                     "tags": [
-                        {
-                            "name": "hxl",
-                            "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
-                        },
                         {
                             "name": "operational presence",
                             "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",

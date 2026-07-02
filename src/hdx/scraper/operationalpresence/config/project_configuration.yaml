@@ -6,7 +6,6 @@ dataset:
   name: "hdx-hapi-operational-presence"
   title: "HDX HAPI - Coordination & Context: Operational Presence"
   tags:
-    - "hxl"
     - "operational presence"
     - "who is doing what and where-3w-4w-5w"
   resource:
@@ -40,7 +39,6 @@ org_dataset:
   name: "hdx-hapi-organisations"
   title: "HDX HAPI - Coordination & Context: Organisations"
   tags:
-    - "hxl"
     - "operational partners"
   resource:
     name: "Global Coordination & Context: Organisations"
