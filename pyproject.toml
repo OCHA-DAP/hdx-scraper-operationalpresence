@@ -20,13 +20,12 @@ dependencies = [
   "hdx-python-country>= 4.1.1",
   "hdx-python-utilities>= 4.1.2",
 ]
-
-[project.readme]
-file = "README.md"
-content-type = "text/markdown"
+readme = "README.md"
 
 [project.urls]
 Homepage = "https://github.com/OCHA-DAP/hdx-scraper-operationalpresence"
+Repository = "https://github.com/OCHA-DAP/hdx-scraper-operationalpresence"
+Issues = "https://github.com/OCHA-DAP/hdx-scraper-operationalpresence/issues"
 
 [dependency-groups]
 dev = [
@@ -69,10 +68,10 @@ src = ["src"]
 exclude = ["_version.py"]
 
 [tool.ruff.lint]
-select = [
-  "E",   # pycodestyle
-  "F",   # pyflakes
+# Defaults are E (pycodestyle) and F (pyflakes). We extend them:
+extend-select = [
   "I",   # isort
+  "UP",  # pyupgrade
 ]
 ignore = [
     "E501", # Line too long

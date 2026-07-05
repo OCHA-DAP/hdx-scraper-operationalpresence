@@ -3,7 +3,6 @@
 import logging
 from os import getenv
 from os.path import expanduser, join
-from typing import Optional
 
 from hdx.api.configuration import Configuration
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
@@ -26,9 +25,9 @@ updated_by_script = "HDX Scraper: Operational Presence"
 
 
 def main(
-    gsheet_auth: Optional[str] = None,
-    email_server: Optional[str] = None,
-    recipients: Optional[str] = None,
+    gsheet_auth: str | None = None,
+    email_server: str | None = None,
+    recipients: str | None = None,
     countryiso3s: str = "",
     save: bool = False,
     use_saved: bool = False,

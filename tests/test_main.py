@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from os import getenv
 from os.path import join
 
@@ -97,11 +97,9 @@ class TestOperationalPresence:
                     "SOM",
                     "TCD",
                 ]
-                assert pipeline._start_date == datetime(
-                    2017, 5, 9, 0, 0, tzinfo=timezone.utc
-                )
+                assert pipeline._start_date == datetime(2017, 5, 9, 0, 0, tzinfo=UTC)
                 assert pipeline._end_date == datetime(
-                    2029, 12, 30, 23, 59, 59, 999999, tzinfo=timezone.utc
+                    2029, 12, 30, 23, 59, 59, 999999, tzinfo=UTC
                 )
                 assert sheet.get_country_row("COD") == {
                     "Adm Code Columns": "Code Province,Code Terrtoire",

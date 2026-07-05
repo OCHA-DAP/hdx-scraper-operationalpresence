@@ -3,7 +3,7 @@
 import logging
 from dataclasses import dataclass
 from os.path import join
-from typing import Dict, NamedTuple, Optional
+from typing import NamedTuple
 
 from hdx.api.utilities.hdx_error_handler import HDXErrorHandler
 from hdx.pipelineutils.org_type import OrgType
@@ -42,7 +42,7 @@ class Org:
 
     def __init__(
         self,
-        datasetinfo: Dict[str, str],
+        datasetinfo: dict[str, str],
         error_handler: HDXErrorHandler,
     ):
         self._datasetinfo = datasetinfo
@@ -155,8 +155,8 @@ class Org:
     def complete_org_info(
         self,
         org_info: OrgInfo,
-        org_acronym: Optional[str],
-        org_type_name: Optional[str],
+        org_acronym: str | None,
+        org_type_name: str | None,
         dataset_name: str,
     ):
         if not org_info.acronym:

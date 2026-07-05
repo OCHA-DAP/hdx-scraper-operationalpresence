@@ -1,5 +1,4 @@
 import re
-from typing import Dict, Optional, Tuple
 
 from dateutil.parser import ParserError
 from hdx.data.resource import Resource
@@ -41,8 +40,8 @@ def translate_month(month_str: str) -> str:
 
 
 def get_dates_from_filename(
-    resource: Resource, country_info: Optional[Dict]
-) -> Tuple[bool, str, str]:
+    resource: Resource, country_info: dict | None
+) -> tuple[bool, str, str]:
     if not country_info:
         return False, "", ""
     resource_name = resource["name"]

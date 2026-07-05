@@ -1,6 +1,6 @@
 import json
+from collections.abc import Iterable
 from logging import getLogger
-from typing import Dict, Iterable, List, Optional
 
 import gspread
 from hdx.api.configuration import Configuration
@@ -40,9 +40,9 @@ class Sheet:
     def __init__(
         self,
         configuration: Configuration,
-        gsheet_auth: Optional[str] = None,
-        email_server: Optional[str] = None,
-        recipients: Optional[str] = None,
+        gsheet_auth: str | None = None,
+        email_server: str | None = None,
+        recipients: str | None = None,
         gsheet_key: str = "spreadsheet",
     ):
         self._configuration = configuration
@@ -88,7 +88,7 @@ class Sheet:
     def get_countries(self) -> Iterable[str]:
         return self.spreadsheet_rows.keys()
 
-    def get_country_row(self, countryiso3: str) -> Optional[Dict]:
+    def get_country_row(self, countryiso3: str) -> dict | None:
         return self.spreadsheet_rows.get(countryiso3)
 
     def add_update_row(
@@ -97,7 +97,7 @@ class Sheet:
         dataset_name: str,
         resource_name: str,
         resource_format: str,
-        resource_url_format: Optional[str],
+        resource_url_format: str | None,
         filename_dates_broken: bool,
     ) -> None:
         row = self.get_country_row(countryiso3)
@@ -148,8 +148,8 @@ class Sheet:
     def add_update_dates(
         self,
         countryiso3: str,
-        start_date: Optional[str],
-        end_date: Optional[str],
+        start_date: str | None,
+        end_date: str | None,
     ) -> None:
         row = self.get_country_row(countryiso3)
         current_start_date = row.get("Automated Start Date")
@@ -169,7 +169,7 @@ class Sheet:
             self.email_text.append(text)
             row["Automated End Date"] = end_date
 
-    def write(self, countryiso3s: List) -> None:
+    def write(self, countryiso3s: list) -> None:
         if self.sheet is None:
             return
         rows = [self.headers]
@@ -201,7 +201,7 @@ class Sheet:
             "\n".join(self.email_text),
         )
 
-    def get_datasetinfo(self, countryiso3: str) -> Optional[Dict]:
+    def get_datasetinfo(self, countryiso3: str) -> dict | None:
         row = self.spreadsheet_rows[countryiso3]
         if row["Exclude"] == "Y":
             return None

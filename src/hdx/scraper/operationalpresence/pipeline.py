@@ -1,7 +1,6 @@
 import traceback
 from datetime import datetime
 from logging import getLogger
-from typing import Dict, List, Optional, Tuple
 
 from dateutil.parser import ParserError
 from hdx.api.configuration import Configuration
@@ -72,7 +71,7 @@ class Pipeline:
         self._hdx_providers = set()
         self._rows = []
 
-    def get_format_from_url(self, resource: Resource) -> Optional[str]:
+    def get_format_from_url(self, resource: Resource) -> str | None:
         format = resource["url"][-4:].lower()
         if format not in self._configuration["allowed_formats"]:
             format = resource["url"][-3:].lower()
@@ -80,7 +79,7 @@ class Pipeline:
             return format
         return None
 
-    def get_format(self, dataset_name: str, resource: Resource) -> Tuple[bool, str]:
+    def get_format(self, dataset_name: str, resource: Resource) -> tuple[bool, str]:
         resource_name = resource["name"]
         hdx_format = resource.get_format()
         # handle erroneously entered HDX format
@@ -194,7 +193,7 @@ class Pipeline:
             if start_date or end_date:
                 self._sheet.add_update_dates(countryiso3, start_date, end_date)
 
-    def preprocess_country(self, countryiso3: str, datasetinfo: Dict) -> bool:
+    def preprocess_country(self, countryiso3: str, datasetinfo: dict) -> bool:
         dataset_name = datasetinfo["dataset"]
         startdate_col = datasetinfo["Start Date Column"]
         enddate_col = datasetinfo["End Date Column"]
@@ -347,11 +346,11 @@ class Pipeline:
     def get_adm_info(
         self,
         countryiso3: str,
-        row: Dict,
-        adm_code_cols: List[str],
-        adm_name_cols: List[str],
+        row: dict,
+        adm_code_cols: list[str],
+        adm_name_cols: list[str],
         dataset_name: str,
-    ) -> Tuple[List, List, List, int]:
+    ) -> tuple[list, list, list, int]:
         provider_adm_names = []
         for adm_name_col in adm_name_cols:
             if adm_name_col:
@@ -381,8 +380,8 @@ class Pipeline:
         return provider_adm_names, adm_codes, adm_names, adm_level
 
     def process_country(
-        self, countryiso3: str, datasetinfo: Dict
-    ) -> Tuple[datetime, datetime]:
+        self, countryiso3: str, datasetinfo: dict
+    ) -> tuple[datetime, datetime]:
         dataset_name = datasetinfo["dataset"]
         adm_code_cols = datasetinfo["Adm Code Columns"]
         if adm_code_cols:
@@ -507,7 +506,7 @@ class Pipeline:
             hdx_provider_name = hapi_dataset_metadata["hdx_provider_name"]
             self._hdx_providers.add(hdx_provider_name)
 
-    def generate_dataset(self, key: str) -> Tuple[Dataset, Dict]:
+    def generate_dataset(self, key: str) -> tuple[Dataset, dict]:
         dataset_config = self._configuration[key]
         title = dataset_config["title"]
         logger.info(f"Creating dataset: {title}")
@@ -526,7 +525,7 @@ class Pipeline:
         resource_config = dataset_config["resource"]
         return dataset, resource_config
 
-    def generate_3w_dataset(self, folder: str) -> Optional[Dataset]:
+    def generate_3w_dataset(self, folder: str) -> Dataset | None:
         if len(self._rows) == 0:
             logger.warning("Operational presence has no data!")
             return None
@@ -554,7 +553,7 @@ class Pipeline:
         )
         return dataset
 
-    def generate_org_dataset(self, folder: str) -> Optional[Dataset]:
+    def generate_org_dataset(self, folder: str) -> Dataset | None:
         dataset, resource_config = self.generate_dataset("org_dataset")
         dataset.set_subnational(False)
         dataset.add_other_location("World")
