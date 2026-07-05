@@ -6,8 +6,8 @@
 
 This pipeline retrieves operational presence (3W — Who, What, Where) data from
 HDX, processes it via a Google Sheets configuration, and publishes an
-organisations dataset and a 3W dataset back to HDX. It makes approximately
-70–80 HDX read calls (one search call for all datasets tagged "operational
+organisations dataset and a 3W dataset back to HDX. It makes
+HDX read calls (one search call for all datasets tagged "operational
 presence" plus one resource download per country), a small number of Google
 Sheets API calls to fetch per-country processing metadata, and 2 HDX writes.
 Temporary per-country resource files (10 KB to 1 MB each in CSV, XLS, XLSX, or
@@ -15,12 +15,11 @@ ODS format) are downloaded and deleted after processing. Organisation names are
 normalised and matched against a lookup database, free-text sector names are
 mapped to standardised sector codes, location strings are fuzzy-matched to
 admin-1 and admin-2 P-codes, and the results are aggregated into a global
-organisations CSV and a global 3W CSV for the HAPI output. It runs every weekday
-at around 11 AM UTC and takes approximately 5 minutes to complete.
+organisations CSV and a global 3W CSV for the HAPI output.
 
 ## Data Pipeline
 
-### API reads (~70–80 calls per run)
+### API reads
 
 - **HDX dataset search** (1 read): searches for all datasets tagged "operational
   presence" to discover per-country source datasets.
@@ -30,7 +29,7 @@ at around 11 AM UTC and takes approximately 5 minutes to complete.
 - **Google Sheets API** (small number of reads): fetches per-country processing
   metadata (column mappings, sector lookups, org name corrections).
 
-### API writes (~2 calls per run)
+### API writes (2 calls per run)
 
 - **Organisations dataset** (1 write): a global CSV listing all organisations and
   their attributes, normalised against a lookup database.
