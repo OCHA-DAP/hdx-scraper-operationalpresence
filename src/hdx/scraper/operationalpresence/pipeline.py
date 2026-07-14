@@ -382,6 +382,7 @@ class Pipeline:
     def process_country(
         self, countryiso3: str, datasetinfo: dict
     ) -> tuple[datetime, datetime]:
+        logger.info(f"Processing {countryiso3}...")
         dataset_name = datasetinfo["dataset"]
         adm_code_cols = datasetinfo["Adm Code Columns"]
         if adm_code_cols:

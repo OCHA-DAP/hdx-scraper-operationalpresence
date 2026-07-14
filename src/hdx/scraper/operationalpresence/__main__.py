@@ -51,9 +51,9 @@ def main(
     when new datasets or resources are detected.
 
     Args:
-        gsheet_auth (Optional[str]): Google Sheets authorisation. Defaults to None.
-        email_server (Optional[str]): Email server to use. Defaults to None.
-        recipients (Optional[str]): Email addresses. Defaults to None.
+        gsheet_auth (str | None): Google Sheets authorisation. Defaults to None.
+        email_server (str | None): Email server to use. Defaults to None.
+        recipients (str | None): Email addresses. Defaults to None.
         countryiso3s (str): Countries to process. Defaults to "" (all countries).
         save (bool): Save downloaded data. Defaults to False.
         use_saved (bool): Use saved data. Defaults to False.
