@@ -552,6 +552,9 @@ class Pipeline:
             resourcedata,
             headers,
         )
+        dataset.get_resource(0).set_hdx_data_dictionary(
+            self._configuration["data_dictionary"]
+        )
         return dataset
 
     def generate_org_dataset(self, folder: str) -> Dataset | None:
