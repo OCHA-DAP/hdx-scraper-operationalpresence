@@ -96,7 +96,7 @@ data_dictionary:
   - field: in_gho
     label: In gho
     data_type: text
-    description: "True if country is listed in Global Humanitarian Overview"
+    description: "True if country is in Global Humanitarian Overview"
   - field: provider_admin1_name
     label: Provider admin1 name
     data_type: text
@@ -108,7 +108,7 @@ data_dictionary:
   - field: admin1_code
     label: Admin 1 code
     data_type: text
-    description: "Admin 1 p-code from Common Operational Datasets (CODs)"
+    description: "Admin 1 p-code from CODs (Common Operational Datasets)"
   - field: admin1_name
     label: Admin 1 name
     data_type: text
@@ -116,7 +116,7 @@ data_dictionary:
   - field: admin2_code
     label: Admin 2 code
     data_type: text
-    description: "Admin 2 p-code from Common Operational Datasets (CODs)"
+    description: "Admin 2 p-code from CODs (Common Operational Datasets)"
   - field: admin2_name
     label: Admin 2 name
     data_type: text
@@ -124,7 +124,7 @@ data_dictionary:
   - field: admin_level
     label: Admin level
     data_type: numeric
-    description: "Administrative level (0-2)",
+    description: "Administrative level (0-2)"
   - field: org_acronym
     label: Organization acronym
     data_type: text
@@ -140,7 +140,7 @@ data_dictionary:
   - field: sector_code
     label: Sector code
     data_type: text
-    description: "Sector code, derived from Global Coordination Groups dataset, or created for HDX HAPI"
+    description: "Sector code based on Global Coordination Groups dataset"
   - field: sector_name
     label: Sector name
     data_type: text
