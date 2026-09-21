@@ -265,6 +265,67 @@ class TestOperationalPresence:
                         "format": "csv",
                         "name": "Global Coordination & Context: Operational Presence",
                         "p_coded": True,
+                        "hdx_data_dictionary": '[{"field":"location_code","label":"Location '
+                        'code","data_type":"text","description":"Location '
+                        "code based on ISO 3166 alpha-3 "
+                        'standard"},{"field":"has_hrp","label":"Has '
+                        'hrp","data_type":"text","description":"True if '
+                        "country has Humanitarian Response "
+                        'Plan"},{"field":"in_gho","label":"In '
+                        'gho","data_type":"text","description":"True if '
+                        "country is in Global Humanitarian "
+                        'Overview"},{"field":"provider_admin1_name","label":"Provider '
+                        "admin1 "
+                        'name","data_type":"text","description":"Original '
+                        "source admin-1 division "
+                        'name"},{"field":"provider_admin2_name","label":"Provider '
+                        "admin2 "
+                        'name","data_type":"text","description":"Original '
+                        "source admin-2 division "
+                        'name"},{"field":"admin1_code","label":"Admin 1 '
+                        'code","data_type":"text","description":"Admin 1 '
+                        "p-code from CODs (Common Operational "
+                        'Datasets)"},{"field":"admin1_name","label":"Admin 1 '
+                        'name","data_type":"text","description":"Admin 1 name '
+                        "from CODs, or original data "
+                        'source"},{"field":"admin2_code","label":"Admin 2 '
+                        'code","data_type":"text","description":"Admin 2 '
+                        "p-code from CODs (Common Operational "
+                        'Datasets)"},{"field":"admin2_name","label":"Admin 2 '
+                        'name","data_type":"text","description":"Admin 2 name '
+                        "from CODs, or original data "
+                        'source"},{"field":"admin_level","label":"Admin '
+                        'level","data_type":"numeric","description":"Administrative '
+                        "level "
+                        '(0-2)"},{"field":"org_acronym","label":"Organization '
+                        'acronym","data_type":"text","description":"Organization '
+                        'acronym"},{"field":"org_name","label":"Organization '
+                        'name","data_type":"text","description":"Organization '
+                        'name"},{"field":"org_type_description","label":"Organization '
+                        "type "
+                        'description","data_type":"text","description":"Description '
+                        "of organization "
+                        'type"},{"field":"sector_code","label":"Sector '
+                        'code","data_type":"text","description":"Sector code '
+                        "based on Global Coordination Groups "
+                        'dataset"},{"field":"sector_name","label":"Sector '
+                        'name","data_type":"text","description":"Name of '
+                        'sector"},{"field":"reference_period_start","label":"Reference '
+                        'period start","data_type":"timestamp without time '
+                        'zone","description":"Start date for which data are '
+                        'applicable"},{"field":"reference_period_end","label":"Reference '
+                        'period end","data_type":"timestamp without time '
+                        'zone","description":"End date for which data are '
+                        'applicable"},{"field":"dataset_hdx_id","label":"Dataset '
+                        'HDX ID","data_type":"text","description":"Unique '
+                        "dataset UUID on "
+                        'HDX"},{"field":"resource_hdx_id","label":"Resource '
+                        'HDX ID","data_type":"text","description":"Unique '
+                        "resource UUID on "
+                        'HDX"},{"field":"warning","label":"Warning","data_type":"text","description":"Set '
+                        "when correction was made to row's "
+                        'data"},{"field":"error","label":"Error","data_type":"text","description":"Set '
+                        "when row's data is incomplete or unusable\"}]",
                     }
                 ]
                 filename = "hdx_hapi_operational_presence_global.csv"
