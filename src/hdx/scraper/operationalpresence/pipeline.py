@@ -545,14 +545,14 @@ class Pipeline:
         }
         headers = resource_config["headers"]
 
-        dataset.generate_resource(
+        _, results = dataset.generate_resource(
             folder,
             resource_config["filename"],
             self._rows,
             resourcedata,
             headers,
         )
-        dataset.get_resource(0).set_hdx_data_dictionary(
+        results["resource"].set_hdx_data_dictionary(
             self._configuration["data_dictionary"]
         )
         return dataset
