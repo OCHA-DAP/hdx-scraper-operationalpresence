@@ -500,15 +500,15 @@ wheels = [
 
 [[package]]
 name = "hdx-python-country"
-version = "4.2.1"
+version = "4.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "hdx-python-utilities" },
     { name = "tenacity" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/eb/27/273d190df1a2d7a9a88461987046667831bd35893db35c135ec8fad49bca/hdx_python_country-4.2.1.tar.gz", hash = "sha256:53d119ad47d0119fae6dd0f4bd17dd3843cf2fc33c259017ca403baa872eaff7", size = 561295, upload-time = "2026-09-29T02:54:24.004Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/92/61/ce016981306bdff1bc60c47b44023f03ab2db6d69ee265e7df74cdc9f20b/hdx_python_country-4.2.2.tar.gz", hash = "sha256:fff26ccc860fa7d4dd90dab7e37abd5a1fdb85a697903db4fd75a0fddae7cdc2", size = 561451, upload-time = "2026-09-29T22:56:33.172Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/22/59/f3b15a84a94b3e05fdff1758551a68e7166e56c27509e642158518f5a0dc/hdx_python_country-4.2.1-py3-none-any.whl", hash = "sha256:84d7d5a2706ba4329a1e6ea3c58ebb829777ee18ef31fb86389c78d149a3978f", size = 57190, upload-time = "2026-09-29T02:54:22.415Z" },
+    { url = "https://files.pythonhosted.org/packages/45/72/65efa1b449cc110aa4f8dad4fbf0251c9394400339bd0a6fe2a6570ecef6/hdx_python_country-4.2.2-py3-none-any.whl", hash = "sha256:70b00b86556d887faa501349945e569f785f22fc2dae95d6225663c310e8b641", size = 57260, upload-time = "2026-09-29T22:56:32.04Z" },
 ]
 
 [[package]]
@@ -577,7 +577,7 @@ requires-dist = [
     { name = "frictionless", extras = ["ods"] },
     { name = "gspread" },
     { name = "hdx-python-api", specifier = ">=6.7.0" },
-    { name = "hdx-python-country", specifier = ">=4.2.1" },
+    { name = "hdx-python-country", specifier = ">=4.2.2" },
     { name = "hdx-python-pipelineutils", specifier = ">=0.0.7" },
     { name = "hdx-python-utilities", specifier = ">=4.2.0" },
 ]

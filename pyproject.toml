@@ -17,7 +17,7 @@ dependencies = [
   "gspread",
   "hdx-python-pipelineutils>= 0.0.7",
   "hdx-python-api>= 6.7.0",
-  "hdx-python-country>= 4.2.1",
+  "hdx-python-country>= 4.2.2",
   "hdx-python-utilities>= 4.2.0",
 ]
 readme = "README.md"
