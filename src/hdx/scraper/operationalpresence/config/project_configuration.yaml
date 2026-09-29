@@ -81,6 +81,18 @@ allowed_formats:
   - "xls"
   - "xlsx"
 
+# AdminLevel admin_config for admin levels 1, 2 and 3
+admin:
+  # South Ethiopia (2023) is not in the global p-codes, where its zones are
+  # under SNNP. RapidFuzz otherwise matches it to South West Ethiopia (ET11).
+  - admin_name_mappings:
+      "ETH|South Ethiopia": "ET07"
+  - {}
+  # Maekel Adiyabo is not in the global p-codes. RapidFuzz otherwise matches it
+  # to another North Western Adiyabo woreda, giving a false p-code mismatch.
+  - admin_fuzzy_dont:
+      - "ET0101|maekel adiyabo"
+
 org:
   url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSfBWvSu3fKA743VvHtgf-pIGkYH7zhy-NP7DZgEV9_a6YU7vtCeWhbLM56aUL1iIfrfv5UBvvjVt7B/pub?gid=1236872623&single=true&output=csv"
 
