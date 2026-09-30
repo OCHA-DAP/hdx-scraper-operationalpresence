@@ -474,6 +474,13 @@ AFG,ochr,Organization for Coordination of Humanitarian Relief,organization for c
 ,Médecin Du Monde - France,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,N
 ,medecin du monde france,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,Y
 ,Médecin du Monde France,Médecins du Monde France,medecins du monde france,MDM-F,mdm f,437,Y,Y
+COD,Association pour le Développement Social et la Sauvegarde de l'Environnement,Association pour le Développement Social et la Sauvegarde de l'Environnement,association pour le developpement social et la sauvegarde de lenvironnement,ADSSE,adsse,441,Y,Y
+COD,Actions et Interventions pour le Développement et l’Encadrement Social,Actions et Interventions pour le Développement et l’Encadrement Social,actions et interventions pour le developpement et lencadrement social,AIDES,aides,441,Y,Y
+COD,African Initiative for Relief and Development,African Initiative for Relief and Development,african initiative for relief and development,AIRD,aird,437,Y,Y
+COD,Norwegian Refugee Council,Norwegian Refugee Council,norwegian refugee council,NRC,nrc,437,Y,Y
+COD,Organisation Internationale pour les Migrations,International Organization for Migration,international organization for migration,IOM,iom,447,Y,Y
+COD,Réseau des associations congolaises des jeunes,Réseau des associations congolaises des jeunes,reseau des associations congolaises des jeunes,RACOJ,racoj,441,Y,Y
+COD,Concern World Wide,Concern World Wide,concern world wide,Concern,concern,437,Y,Y
 COD,Action Humanitaire pour la santé et la developpement communautaire,Action Humanitaire pour la santé et la developpement communautaire,action humanitaire pour la sante et la developpement communautaire,AHUSADEC,ahusadec,441,Y,Y
 COD,Association des Jeunes pour le Développement Communautaire,Association des Jeunes pour le Développement Communautaire,association des jeunes pour le developpement communautaire,AJEDEC,ajedec,441,Y,Y
 COD,Action Aid International,Action Aid International,action aid international,AAI,aai,437,Y,Y
@@ -521,7 +528,6 @@ COD,KIJIJI CHA AMNI,KIJIJI CHA AMNI,kijiji cha amni,KCA,kca,441,Y,Y
 COD,LYEX,LYEX,lyex,LYEX,lyex,441,Y,Y
 COD,Groupe d'appui au developpement integral,Groupe d'appui au developpement integral,groupe dappui au developpement integral,GADI,gadi,441,Y,Y
 COD,GROUPE D'APPUI-CONSEILS AUX REALISATIONS OUR LE DEVELOPPEMENT ENDOGENE,GROUPE D'APPUI-CONSEILS AUX REALISATIONS OUR LE DEVELOPPEMENT ENDOGENE,groupe dappui conseils aux realisations our le developpement endogene,GRACE ONGD,grace ongd,441,Y,Y
-COD,Norwegian Refugee Council,Norwegian Refugee Council,norwegian refugee council,NRC,nrc,437,Y,Y
 COD,HOPE FOR ALL AND TOGETHER FOR DEVELOPMENT,HOPE FOR ALL AND TOGETHER FOR DEVELOPMENT,hope for all and together for development,HATD,hatd,441,Y,Y
 COD,Paysans Actifs Contre l’Ignorance et la Faim,Paysans Actifs Contre l’Ignorance et la Faim,paysans actifs contre lignorance et la faim,PACIF,pacif,441,Y,Y
 COD,Initiative des Femmes Autochtones Pygmées pour la Paix et le Développement Endogène,Initiative des Femmes Autochtones Pygmées pour la Paix et le Développement Endogène,initiative des femmes autochtones pygmees pour la paix et le developpement endogene,IFAPPDE,ifappde,441,Y,Y
@@ -544,7 +550,6 @@ COD,Force de Jeune Contre le Chômage,Force de Jeune Contre le Chômage,force de
 COD,Paix Pour le Développement de la Femme et de l'Enfant,Paix Pour le Développement de la Femme et de l'Enfant,paix pour le developpement de la femme et de lenfant,PDFE,pdfe,441,Y,Y
 COD,Association Médicale pour l'Assistance aux Personnes âgées en Afrique,Association Médicale pour l'Assistance aux Personnes âgées en Afrique,association medicale pour lassistance aux personnes agees en afrique,AMAPA Afrique,amapa afrique,437,Y,Y
 COD,Aides aux Personnes Démunies,Aides aux Personnes Démunies,aides aux personnes demunies,APED,aped,441,Y,Y
-COD,Réseau des associations congolaises des jeunes,Réseau des associations congolaises des jeunes,reseau des associations congolaises des jeunes,RACOJ,racoj,441,Y,Y
 COD,Action de la Femme pour le Développement,Action de la Femme pour le Développement,action de la femme pour le developpement,AFEDEV,afedev,441,Y,Y
 COD,Organisme de la Santé Familiale,Organisme de la Santé Familiale,organisme de la sante familiale,OSAF,osaf,441,Y,Y
 COD,Most Inclusive Connect,Most Inclusive Connect,most inclusive connect,MIC,mic,441,Y,Y
@@ -567,7 +572,6 @@ COD,Action Contre la Faim International,Action Contre la Faim International,acti
 COD,Internazional SOS,Internazional SOS,internazional sos,INTERSOS,intersos,437,Y,Y
 COD,Adventist Development And Relief Agency,Adventist Development and Relief Agency,adventist development and relief agency,ADRA,adra,437,Y,Y
 COD,Malteser International,Malteser International,malteser international,MI,mi,437,Y,Y
-COD,Actions et Interventions pour le Développement et l’Encadrement Social,Actions et Interventions pour le Développement et l’Encadrement Social,actions et interventions pour le developpement et lencadrement social,AIDES,aides,441,Y,Y
 COD,Action Santé,Action Santé,action sante,Action Santé,action sante,441,Y,Y
 COD,Alliance for International Medical Action,Alliance for International Medical Action,alliance for international medical action,ALIMA,alima,437,Y,Y
 COD,Observatoire des Droits Humains,Observatoire des Droits Humains,observatoire des droits humains,ODH,odh,441,Y,Y
@@ -578,7 +582,6 @@ COD,Cooperative for Assistance and Relief Everywhere,Cooperative for Assistance 
 COD,Food and Nutrition for Life of Vulnerables,Food and Nutrition for Life of Vulnerables,food and nutrition for life of vulnerables,FONLIV,fonliv,441,Y,Y
 COD,International Medical Corps,International Medical Corps,international medical corps,IMC,imc,437,Y,Y
 COD,Catholic Relief Services,Catholic Relief Services,catholic relief services,CRS,crs,437,Y,Y
-COD,Concern World Wide,Concern World Wide,concern world wide,Concern,concern,437,Y,Y
 COD,International Rescue Committee,International Rescue Committee,international rescue committee,IRC,irc,437,Y,Y
 COD,MEDAIR,MEDAIR,medair,MEDAIR,medair,437,Y,Y
 COD,Magna enfants en peril,Magna enfants en peril,magna enfants en peril,MAGNA,magna,437,Y,Y
@@ -676,7 +679,6 @@ COD,Solidarités International,Solidarities International,solidarities internati
 COD,SONAHU,SONAHU,sonahu,SONAHU,sonahu,441,Y,Y
 COD,Programme d'Action pour le Développement des Paysans unis en Afrique,Programme d'Action pour le Développement des Paysans unis en Afrique,programme daction pour le developpement des paysans unis en afrique,PADEPUA,padepua,441,Y,Y
 COD,Trocaire,Trocaire,trocaire,TROCAIRE,trocaire,437,Y,Y
-COD,African Initiative for Relief and Development,African Initiative for Relief and Development,african initiative for relief and development,AIRD,aird,437,Y,Y
 COD,Action pour le développement durable des populations,Action pour le développement durable des populations,action pour le developpement durable des populations,ADDP,addp,441,Y,Y
 COD,Action des volontaires pour la solidarité et le développement,Action des volontaires pour la solidarité et le développement,action des volontaires pour la solidarite et le developpement,AVSD,avsd,441,Y,Y
 COD,Action des Volontaires Unis pour le Développement et la Santé,Action des Volontaires Unis pour le Développement et la Santé,action des volontaires unis pour le developpement et la sante,AVUDS,avuds,441,Y,Y
@@ -684,28 +686,32 @@ COD,Bureau Diocesain de Developpement Luebo,Bureau Diocesain de Developpement Lu
 COD,Centre d'Encadrent et d'Assistance Sociale pour le Développement,Centre d'Encadrent et d'Assistance Sociale pour le Développement,centre dencadrent et dassistance sociale pour le developpement,CEASD ONG,ceasd ong,441,Y,Y
 COD,Helpage Programme RDC,Helpage Programme RDC,helpage programme rdc,HPRDC,hprdc,437,Y,Y
 COD,Hydraulique Sans Frontière,Hydraulique Sans Frontière,hydraulique sans frontiere,HYFRO,hyfro,441,Y,Y
-COD,Organisation Internationale pour les Migrations,International Organization for Migration,international organization for migration,IOM,iom,447,Y,Y
 COD,Programme d'Approvisionnement en Eau pour les Villages,Programme d'Approvisionnement en Eau pour les Villages,programme dapprovisionnement en eau pour les villages,PAEV,paev,441,Y,Y
 COD,Tearfund,Tearfund,tearfund,Tearfund,tearfund,437,Y,Y
 COD,Fonds des Nations unies pour l'enfance,United Nations Children's Fund,united nations childrens fund,UNICEF,unicef,447,Y,Y
 COD,Yme Grands Lacs,Yme Grands Lacs,yme grands lacs,YGL,ygl,441,Y,Y
 COD,YMES Grand Lac,YMES Grand Lac,ymes grand lac,YGL,ygl,441,Y,Y
 COD,BEHCOGEN,BEHCOGEN,behcogen,BEHCOGEN,behcogen,441,Y,Y
-COD,Association pour le Développement Social et la Sauvegarde de l'Environnement,Association pour le Développement Social et la Sauvegarde de l'Environnement,association pour le developpement social et la sauvegarde de lenvironnement,ADSSE,adsse,441,Y,Y
+COD,Give Directly,Give Directly,give directly,Give Directly,give directly,437,Y,Y
+COD,EAC,EAC,eac,EAC,eac,441,Y,Y
+COD,ECC-MERU,ECC-MERU,ecc meru,ONG Nationale,ong nationale,,N,Y
 COD,Centre d'Etudes et d'Actions Sociales,Centre d'Etudes et d'Actions Sociales,centre detudes et dactions sociales,CENEAS,ceneas,441,Y,Y
 COD,Communauté Baptiste au Centre de l'Afrique,Communauté Baptiste au Centre de l'Afrique,communaute baptiste au centre de lafrique,CBCA,cbca,437,Y,Y
 COD,Appui aux Initiatives de Bien Être Familial,Appui aux Initiatives de Bien Être Familial,appui aux initiatives de bien etre familial,AIBEF,aibef,441,Y,Y
 COD,Action of the Future,Action of the Future,action of the future,AOF,aof,441,Y,Y
 COD,Caritas Bunia,Caritas Bunia,caritas bunia,Caritas,caritas,441,Y,Y
 COD,Comité pour le Développement et Assistance Humanitaire,Comité pour le Développement et Assistance Humanitaire,comite pour le developpement et assistance humanitaire,CODEVAH,codevah,441,Y,Y
+COD,"Action pour la Protection de la Santé Humaine, Animale et Végétale","Action pour la Protection de la Santé Humaine, Animale et Végétale",action pour la protection de la sante humaine animale et vegetale,APROSHAV,aproshav,441,Y,Y
 COD,Christian Aid,Christian Aid,christian aid,Christian Aid,christian aid,437,Y,Y
 COD,Cause Rurale,Cause Rurale,cause rurale,CR,cr,441,Y,Y
 COD,CARITAS DEVELOPPEMENT MAHAGI-NIOKA,CARITAS DEVELOPPEMENT MAHAGI-NIOKA,caritas developpement mahagi nioka,Caritas,caritas,441,Y,Y
 COD,Dynamique des femmes juristes,Dynamique des femmes juristes,dynamique des femmes juristes,DFJ,dfj,441,Y,Y
 COD,Groupe des Hommes voués au Développement Intercommunautaire,Groupe des Hommes voués au Développement Intercommunautaire,groupe des hommes voues au developpement intercommunautaire,GHOVODI,ghovodi,441,Y,Y
 COD,FOCUS DROITS ET ACCES,FOCUS DROITS ET ACCES,focus droits et acces,FDA,fda,441,Y,Y
+COD,"Mouvement International des Droits de l’Enfant, de la Femme, de l’Homme veuf et de leur Promotion Sociale","Mouvement International des Droits de l’Enfant, de la Femme, de l’Homme veuf et de leur Promotion Sociale",mouvement international des droits de lenfant de la femme de lhomme veuf et de leur promotion sociale,MIDEFEHOPS ASBL,midefehops asbl,441,Y,Y
 COD,MUSACA - Mutuelle de santé Canaan,MUSACA - Mutuelle de santé Canaan,musaca mutuelle de sante canaan,MUSACA,musaca,441,Y,Y
 COD,Norwegian Church Aid,Norwegian Church Aid,norwegian church aid,NCA,nca,437,Y,Y
+COD,Popoli Fratelli - RDC,Popoli Fratelli - RDC,popoli fratelli rdc,PF - RDC,pf rdc,441,Y,Y
 COD,Projet de Développement Agricole et d’Élevage à Walu-Ituri,Projet de Développement Agricole et d’Élevage à Walu-Ituri,projet de developpement agricole et delevage a walu ituri,PRODAEWI,prodaewi,441,Y,Y
 COD,Rebuild Hope for Africa,Rebuild Hope for Africa,rebuild hope for africa,RHA,rha,441,Y,Y
 COD,Umoja In Action,Umoja In Action,umoja in action,UiA,uia,441,Y,Y
@@ -1243,9 +1249,3 @@ TCD,Résilience Humanitaire et développement Intégré,Résilience Humanitaire 
 TCD,ADS,ADS,ads,ADS,ads,441,Y,Y
 TCD,Cartias Suisse,Cartias Suisse,cartias suisse,CARITAS SUISSE,caritas suisse,437,Y,Y
 TCD,BAP,BAP,bap,BAP,bap,441,Y,Y
-COD,Give Directly,Give Directly,give directly,,,,N,N
-COD,EAC,EAC,eac,,,,N,N
-COD,ECC-MERU,ECC-MERU,ecc meru,,,,N,N
-COD,"Action pour la Protection de la Santé Humaine, Animale et Végétale","Action pour la Protection de la Santé Humaine, Animale et Végétale",action pour la protection de la sante humaine animale et vegetale,,,,N,N
-COD,"Mouvement International des Droits de l’Enfant, de la Femme, de l’Homme veuf et de leur Promotion Sociale","Mouvement International des Droits de l’Enfant, de la Femme, de l’Homme veuf et de leur Promotion Sociale",mouvement international des droits de lenfant de la femme de lhomme veuf et de leur promotion sociale,,,,N,N
-COD,Popoli Fratelli - RDC,Popoli Fratelli - RDC,popoli fratelli rdc,,,,N,N

@@ -49,7 +49,11 @@ class Pipeline:
         self._reader = Read.get_reader("hdx")
         self._admins = []
         for i in range(3):
-            admin = AdminLevel(admin_level=i + 1, retriever=self._reader)
+            admin = AdminLevel(
+                admin_config=configuration["admin"][i],
+                admin_level=i + 1,
+                retriever=self._reader,
+            )
             if i == 2:
                 admin.setup_from_url(
                     admin_url=AdminLevel.admin_all_pcodes_url,
